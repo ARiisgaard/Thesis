@@ -1,0 +1,35 @@
+\section{Tabulars}
+
+\subsection{Real tabulars}
+
+here are some text
+
+\begin{table}[h]%You have to add this h yourself
+\centering
+\begin{tabular}{|c|cc|}
+\hline
+\multicolumn{2}{|c|}{Item}                   & \multicolumn{1}{r|}{} \\ \hline
+Animal    & \multicolumn{1}{c|}{Description} & Price (\$)            \\ \hline
+Gnat      & \multicolumn{1}{c|}{Frozen}      & 13.65                 \\ \hline
+Gnu       & \multicolumn{1}{c|}{Stuffed}     & 92.50                 \\ \hline
+Emu       & \multicolumn{1}{c|}{Stuffed}     & 33.33                 \\ \hline
+Armadillo & \multicolumn{1}{c|}{Frozen}      & 8.99                  \\ \hline
+\end{tabular}
+\caption{This a real tabular}
+\label{my-label}
+\end{table}
+
+also here
+
+\subsection{Fake tabulars}
+
+
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l}
+    \includegraphics[width=0.5\textwidth]{Pictures/Tab}
+    \end{tabular}%
+  \caption{Add caption}
+  \label{tab:addlabel}%
+\end{table}%

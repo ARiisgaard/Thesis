@@ -1,0 +1,127 @@
+\chapter{This is a Chapter}\label{Chapter Ref}
+
+\section{This is a section}
+
+\subsection{This is a subsection}
+
+\subsection*{This is a numberless sebsection}%You can remove the numbers by adding a *
+
+
+\subsubsection{This is a subsubsection}
+
+
+
+\textbf{This is in bold (ctrl+b)}
+
+
+\textit{This is italic (ctrl+i)} 
+
+\begin{itemize}
+    \item This 
+    \item is
+    \item a
+    \item list
+\end{itemize}
+
+
+\section{References \& sources}
+This is a reference to chapter \ref{Chapter Ref} \\
+This is a reference to figure \ref{Bird} \\
+This is a reference to tabular \ref{my-label}\\
+This is a reference to math \ref{Line2} \\
+
+If you click any of them in the pdf it jumps to the relevant page
+
+
+\textbf{Sources}
+
+This is one way to present a source \citet{isover} 
+
+This is another way \citep{isover}
+
+References can be made at https://truben.no/latex/bibtex/ 
+
+
+
+\section{Math}
+
+\subsection{Math in text}
+For math in text do it like this: 
+
+Bla bla CO$_2$ bla bla
+
+$\left(x+a\right)^n=\sum_{k=0}^{n}{\binom{n}{k}x^ka^{n-k}}$
+
+Since math is a mess in latex it is easier to write it in Word, change it to  linear and copy it over
+
+
+\subsection{Math outside text}
+
+Math outside text look like this:
+
+\begin{align}
+    x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}  \label{Line1}  \\
+    y = 2\cdot \pi \label{Line2}
+\end{align}
+
+You can use the labels to reference to individual lines. Like if you want point out that line \ref{Line1} has nothing to do with line \ref{Line2}
+\begin{align*}
+    x = \frac{-b\pm\sqrt{b^2-4ac}}{2a} \\
+    y = 2\cdot \pi
+\end{align*}
+
+If you don't want to make references you can add a * to remove the numbers
+
+\begin{align}
+    x &= \frac{-b\pm\sqrt{b^2-4ac}}{2a} \\
+    y &= 2\cdot \pi
+\end{align}
+
+You can add a \& in front of equation marks in order to align the lines 
+
+\section{Comments}
+
+This is one way to write comments. Latex is printing a list in the end with all of there notes
+\fxnote{This is a comment}
+
+This is another way
+
+\section{Python}
+
+\begin{lstlisting}[language=iPython, caption={My Caption}, label= Test2,escapechar=|]
+import os |\label{sargtewthdsgh}|
+filename = "c:/users/data.txt" |\label{DetteErEnTest}|
+fileobj = file(filename, "r") #Reads the file 
+
+#Defines counters for the number of outliers and nonoutliers
+NumberO= 0
+NumberP= 0
+
+InputFile = os.path.basename(filename) #Finds the name of the selected file
+InputFileMinusFiletype= InputFile[:-4] #Removes the filetype
+
+f= open("C:\Users\Public\Python/"+"outlier_"+InputFileMinusFiletype+".txt","w+") #Create the file for storing the outliers - the w+ creates the file, if it doesn't exist
+
+a= open("C:\Users\Public\Python/"+"pts_"+InputFileMinusFiletype+".txt","w+")
+
+
+for line in fileobj.readlines():
+    linevalues = line.split(" ")#Tells the program how it should determent the difference between the lines
+    Zval = float(linevalues[2]) #Tells the program to look at the third value, which is the z values
+    if Zval > 80.0 or Zval < 75.0: #Defines what an outlier is
+        f.write(line) #all outlier are added to the outlier file
+        NumberO += 1 #This is used to count the total number of outliers
+    else:
+        a.write(line) #all other points are added to the other file
+        NumberP += 1
+    #do something with line
+fileobj.close()
+
+print "Number of outliers: "+ str(NumberO)
+print "Number of points: "+ str(NumberP)
+\end{lstlisting}
+
+How to reference to line \ref{DetteErEnTest} in listing \ref{Test2}.
+
+
+$f\left(x\right)=a_0+\sum_{n=1}^{\infty}\left(a_n\cos{\frac{n\pi x}{L}}+b_n\sin{\frac{n\pi x}{L}}\right)$

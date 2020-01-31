@@ -1,0 +1,88 @@
+%%%%% Guide til bibtex og litteratur.bib %%%%
+%
+%% Alle kilder angives efter Harvard-metoden og vil i rapporten fremstaa med [FORFATTER, AAR] eller mere praecist [EFTERNAVN, AAR].
+%
+%% Nederst findes eksempler paa kildeangivelser af typerne manual, book, article, techreport og misc.
+%	% - Manual bruges ved henvisninger fra internettet, idet \url-funktionen findes her
+%	% - Book bruges ved helt almindelige boeger
+%	% - Article bruges ved artikler og udgivelser
+%	% - Techreport kan bruges ved mindre udgivelser, hvor kun titel, forfatter og AAR er noedvendig eller tilgaengelig
+%	% - Misc kan bruges ved det, der falder udenfor de andre kategorier - interview, forelaesninger, foredrag osv. 
+%
+%% Hvis der er flere forfattere paa en kilde, SKAL de listes med 'and' imellem dem - ogsaa ved 3 og derover (f.eks. FORFATTER 1 and FORFATTER 2 and FORFATTER 3). NAAR kildelisten bygges i rapporten, vil der ved 2 forfattere komme til at staa [EFTERNAVN 1 og EFTERNAVN 2, AAR] og ved 3 forfattere og derover komme til at staa [EFTERNAVN 1 et. al, AAR]. 
+%
+%% Ved almindelige forfatternavne skal der vaere ét saet tuborg-parenteser ved Author (f.eks. author = {H. C. Andersen}). Ved andre navne (f.eks. virksomheder, hjemmesider, grupper, raad, naevn osv.) skal der vaere 2 saet tuborg-parenteser ved Author (f.eks. author = {{Dansk Standard}}). Begrundelse: med 2 saet tuborg-parenteser skrives hele parentesen ud som forfatter, [Dansk Standard, AAR]. Alternativt ville der i eksemplet bare komme til at staa [Standard, AAR].
+%
+%%-----------------------------------------------------%
+%
+%%%%% EKSEMPLER (manual, book, article, techreport og misc) %%%%
+%
+
+@book{latex,
+	title = {The latex companion},
+	author = {Frank Mittelbach and Michel Gossens},
+	year = {2004},
+	number = {ISBN: 0-201-36299-6},
+	publisher = {Addision-Wesley},
+	series = {Handbook}
+}
+
+@book{tekniskstaabi,
+	title = {Teknisk Ståbi},
+	author = {Bjarne Chr. Jensen and Gunner Mohr and Asta Nicolajsen and Bo Mortensen and Henrik Bygbjerg and Lars Pilegaard Hansen and Hans Jørgen Larsen and Svend Ole Hansen and Dirch H. Bager and Eilif Svensson and Ejnar Søndergaard and Carsten Munk Plum and Hilmer Riberholt and Lars Zenke Hansen and Kaare K. B. Dahl and Henning Larsen and Per Goltermann and Jørgen S. Steenfelt and Carsten S. Sørensen and Werner Bai},
+	year = {2007},
+	number = {ISBN: 978-87-571-2556-6},
+	publisher = {Nyt Teknisk Forlag},
+	series = {19. udgave}
+}
+
+@manual{isover,
+	author ={Isover},
+	title ={Typeoversigt over konstruktionsdele},
+	address={\url{http://www.isover.dk/bygningskonstruktioner}},
+	year ={2008},
+	note ={Downloadet: 19-05-2008}
+}
+
+@article{julemaend,
+	author = {Alex Phil-Andersen},
+	title = {Økonomiske julemænd},
+	journal = {Nordjyske},
+	volume = {10.02},
+	pages = {},
+	year = {2007}
+}
+
+@techreport{bib:bec,
+	title = {Budgetafvigelser på kulturbyggerier i Danmark},
+	author = {{Byggeriets Evaluerings Center}},
+	year = {2007}
+}
+
+@misc{karen,
+	author = {Karen Skou},
+	howpublished = {Gæsteforelæsning hos IDA d. 20/3-2007},
+	title = {Realdania - fonden for det byggede miljø},
+	year = {2007}	
+}
+
+@misc{mst,
+	author = {Mogens Steen-Thøde},
+	howpublished = {Forårssemesteret},
+	title = {Forelæsning i Hygrotermisk Bygningsfysik},
+	year = {2008}	
+}
+
+@misc{cd,
+	author ={Bilags-CD},
+	title ={CD med bilag tilhørende B120}	
+}
+
+@MANUAL {Kilde,
+    title   = {skadjfnsadkfjnsadf},
+    author  = {{Danish Bank} and Andreas Riisgaard},
+    address = {\url{https://truben.no/latex/bibtex/}},
+    year    = {2014}
+}
+
+
