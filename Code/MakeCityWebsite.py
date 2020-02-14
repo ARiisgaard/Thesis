@@ -1,4 +1,5 @@
 import os
+import subprocess
 from geopy.geocoders import Nominatim
 import numpy as np
 import gdal
@@ -59,10 +60,19 @@ def openTIFFasNParray(file):
 for place in places:
 
     # find the place:
-    geolocator = Nominatim(user_agent="CISC App")
-    location = geolocator.geocode(place)
-    print(location.address.encode('utf-8'))
+    try:
+        geolocator = Nominatim(user_agent="CISC App")
+        location = geolocator.geocode(place)
+        print(location.address.encode('utf-8'))
+    except:
+        print("geolocator could not connect")
+        class locationObject:
+                    def __init__(self, longitude, latitude):
+                        self.longitude = longitude
+                        self.latitude = latitude
 
+
+        location = locationObject(10.000654, 53.550341)
     # extent to clip to
     extent = str(location.longitude-size) + ' ' + str(location.latitude-size) + ' ' + str(location.longitude+size) + ' ' + str(location.latitude+size)
 
@@ -77,7 +87,7 @@ for place in places:
     for model in models:
         for ssp in SSPs:
 
-            for year in range(2010,2101,10):
+            for year in range(2010, 2101, 10):
 
                 # clip population file
                 infile = '"' + datadir + model + '\\' + ssp + '\\popmean-' + str(year) + '.tiff"'
@@ -178,9 +188,13 @@ for place in places:
 """+str(stops[8])+""" 127 0 0
                     """
 
+    print(color)
     f= open("popcolor.txt","w+")
     f.write(color)
+    f.close()
 
+    # os.system("start popcolor.txt")
+    # quit()
 
     # Go through again and colorize them using the color scale above
     for model in models:
@@ -194,27 +208,41 @@ for place in places:
                 labelfile =  '"' + datadir + model + '\\' + ssp + '\\popmean-' + str(year) + '-label.tiff"'
 
                 # colorize
-                os.system('gdaldem color-relief '+infile+' popcolor.txt '+colorfile+' >> log.txt')
+
+                # os.system('gdaldem color-relief '+infile+' popcolor.txt '+colorfile+' >> log.txt')
+                subprocess.run('gdaldem color-relief '+infile+' popcolor.txt ' + colorfile+' >> log.txt', shell=True, check=True)
+
 
                 # resize
-                os.system('convert '+colorfile+' -resize 250x250 '+colorfile+' >> log.txt')
-                # label with year and delete the colorfile
-                os.system('convert '+colorfile+' -font Helvetica-Neue -pointsize 15 -fill black -gravity southwest -annotate +20+20 '+str(year)+' '+labelfile+' >> log.txt; rm '+colorfile)
+                print(colorfile)
+                # os.system('magick '+colorfile+' -resize 250x250 ' +
+                #           colorfile+' >> log.txt')
+                subprocess.run('magick '+colorfile+' -resize 250x250 ' +
+                               colorfile+' >> log.txt', shell=True, check=True)
 
+                # label with year and delete the colorfile
+                # os.system('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
+                #           str(year)+' '+labelfile+' >> log.txt; del '+colorfile)
+                subprocess.run('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
+                               str(year)+' '+labelfile+' >> log.txt & del '+colorfile, shell=True, check=True)
             print("Done coloring, making a GIF")
 
             # All files have been colorized and labeled, let's make a GIF:
 
             folder = '"' + datadir + model + '\\' + ssp +'"'
-            os.system('cd '+folder+'; convert -delay 40 -loop 0 *label.tiff "'+outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt')
+            print("folder: " + folder)
+            print('cd '+folder+' & magick -delay 40 -loop 0 *label.tiff "' +
+                  outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt')
+            os.system('cd '+folder+' & magick -delay 40 -loop 0 *label.tiff "' +
+                      outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt')
 
             # clean up:
-            os.system('cd '+folder+'; rm *label.tiff; rm *clipped.tiff; ')
+            os.system('cd '+folder+' & del *label.tiff & del *clipped.tiff; ')
 
 
 
     # remove the color scale file again
-    # os.system("rm popcolor.txt")
+    # os.system("del popcolor.txt")
 
 
 
@@ -304,12 +332,12 @@ for place in places:
 #             os.system('cd '+folder+'; convert -delay 40 -loop 0 *label.tiff "'+outputdir+'figures/'+model+'-'+ssp+'-'+place+'-comparison.gif" >> log.txt')
 
 #             # clean up:
-#             os.system('cd '+folder+'; rm *label.tiff; rm *clipped.tiff')
+#             os.system('cd '+folder+' & del *label.tiff & del *clipped.tiff')
 
 
 
 #     # remove the color scale file again
-#     os.system("rm color.txt")
+#     os.system("del color.txt")
 
 #     # make a website that shows them side by side
 #     # remove it first if we have an old version:
