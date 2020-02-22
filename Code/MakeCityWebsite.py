@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # Pick the SSP(s) and urbanization model(s) you want the GIF for
 # ---------------------------
 
-places = [u'Hamburg']
+places = [u'Austin']
 size = 0.4 # in degrees; i.e. the GIF will cover an area of
            # 2 x size by  2 x size centered on the place chosen above. In other
            # words, it will expand by size in four directions away from the
@@ -34,8 +34,8 @@ size = 0.4 # in degrees; i.e. the GIF will cover an area of
 
 # don't change these for this script; would screw up the generated website
 # if any of them were missing
-SSPs = ['SSP1'] #['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
-models = ['GlobCover'] #['GlobCover', 'GRUMP']
+SSPs = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
+models = ['GlobCover', 'GRUMP']
 outputdir = os.path.expanduser('~') + '\\Desktop\\Thesis\\Result\\'
 
 
@@ -281,20 +281,37 @@ for place in places:
 
     # Now that we know what the maximum difference across all models, SSPs and
     # years is, we can make a divergent color centered around 0
-    os.system("""echo "nv 173 240 255
-    """+str(maxPop)+""" 142 1 82
-    """+str(maxDiff-minPop)+""" 197 27 125
-    """+str(maxDiff-minPop)+""" 222 119 174
-    """+str(maxDiff-minPop)+""" 241 182 218
-    """+str(maxDiff*0.2)+""" 253 224 239
-    0 247 247 247
-    -"""+str(maxDiff*0.2)+""" 230 245 208
-    -"""+str(maxDiff*0.4)+""" 184 225 134
-    -"""+str(maxDiff*0.6)+""" 127 188 65
-    -"""+str(maxDiff*0.8)+""" 77 146 33
-    -"""+str(minPop)+""" 39 100 25
-                    " >> color.txt""")
+    # os.system("""echo "nv 173 240 255
+    # """+str(maxPop)+""" 142 1 82
+    # """+str(maxDiff-minPop)+""" 197 27 125
+    # """+str(maxDiff-minPop)+""" 222 119 174
+    # """+str(maxDiff-minPop)+""" 241 182 218
+    # """+str(maxDiff*0.2)+""" 253 224 239
+    # 0 247 247 247
+    # -"""+str(maxDiff*0.2)+""" 230 245 208
+    # -"""+str(maxDiff*0.4)+""" 184 225 134
+    # -"""+str(maxDiff*0.6)+""" 127 188 65
+    # -"""+str(maxDiff*0.8)+""" 77 146 33
+    # -"""+str(minPop)+""" 39 100 25
+    #                 " >> color.txt""")
 
+    color = """nv 173 240 255
+"""+str(maxPop)+""" 142 1 82
+"""+str(maxDiff-minPop)+""" 197 27 125
+"""+str(maxDiff-minPop)+""" 222 119 174
+"""+str(maxDiff-minPop)+""" 241 182 218
+"""+str(maxDiff*0.2)+""" 253 224 239
+0 247 247 247
+-"""+str(maxDiff*0.2)+""" 230 245 208
+-"""+str(maxDiff*0.4)+""" 184 225 134
+-"""+str(maxDiff*0.6)+""" 127 188 65
+-"""+str(maxDiff*0.8)+""" 77 146 33
+-"""+str(minPop)+""" 39 100 25
+                    """
+    print(color)
+    f = open("color.txt", "w+")
+    f.write(color)
+    f.close()
 
 
 
@@ -508,7 +525,7 @@ for place in places:
             </body>
             </html>""", file=text_file)
 
-    os.system("open '"+of+"'")
+    os.system(of)
 
 
 print('Done.')
