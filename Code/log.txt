@@ -1,0 +1,70 @@
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2010.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2010.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2010-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2010.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2010.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2010-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2020.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2020.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2020-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2020.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2020.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2020-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2030.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2030.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2030-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2030.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2030.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2030-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2040.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2040.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2040-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2040.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2040.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2040-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2050.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2050.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2050-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2050.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2050.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2050-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2060.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2060.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2060-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2060.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2060.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2060-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2070.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2070.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2070-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2070.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2070.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2070-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2080.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2080.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2080-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2080.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2080.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2080-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2090.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2090.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2090-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2090.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2090.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2090-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2100.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2100.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/popmean-2100-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+Creating output file that is 96P x 96L.
+Processing C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2100.tiff [1/1] : 0Copying nodata values from source C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2100.tiff to destination C:/Users/A-G-R/Desktop/Thesis/RasterData/GlobCover/SSP1/urbanization-2100-clipped.tiff.
+...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+0...10...20...30...40...50...60...70...80...90...100 - done.
