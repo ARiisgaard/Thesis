@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # Pick the SSP(s) and urbanization model(s) you want the GIF for
 # ---------------------------
 
-places = [u'Austin']
+places = [u'London']
 size = 0.4 # in degrees; i.e. the GIF will cover an area of
            # 2 x size by  2 x size centered on the place chosen above. In other
            # words, it will expand by size in four directions away from the
@@ -64,7 +64,7 @@ for place in places:
         geolocator = Nominatim(user_agent="CISC App")
         location = geolocator.geocode(place)
         print(location.address.encode('utf-8'))
-    except:
+    except: # Temp solution: Sometimes I would get the error: Geocoder: Service timed out - this ensures that the process can keep going even if this step fails
         print("geolocator could not connect")
         class locationObject:
                     def __init__(self, longitude, latitude):
@@ -72,7 +72,7 @@ for place in places:
                         self.latitude = latitude
 
 
-        location = locationObject(10.000654, 53.550341)
+        location = locationObject(10.000654, 53.550341) #These are the coordinates of Hamburg
     # extent to clip to
     extent = str(location.longitude-size) + ' ' + str(location.latitude-size) + ' ' + str(location.longitude+size) + ' ' + str(location.latitude+size)
 
@@ -188,8 +188,7 @@ for place in places:
 """+str(stops[8])+""" 127 0 0
                     """
 
-    print(color)
-    f = open("C:\\Users\\Public\\Python\\Git\\Thesis\\Thesis\\Code\\popcolor.txt", "w+")
+    f = open("popcolor.txt", "w+")
     f.write(color)
     f.close()
 
@@ -229,16 +228,17 @@ for place in places:
             # All files have been colorized and labeled, let's make a GIF:
 
             folder = '"' + datadir + model + '\\' + ssp +'"'
-            os.system('cd '+folder+' & magick -delay 40 -loop 0 *label.tiff "' +
-                      outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt')
+            subprocess.run('cd '+folder+' & magick -delay 40 -loop 0 *label.tiff "' +
+                           outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt', shell=True, check=True)
 
             # clean up:
-            os.system('cd '+folder+' & del *label.tiff & del *clipped.tiff; ')
+            subprocess.run(
+                'cd '+folder+' & del *label.tiff & del *clipped.tiff; ', shell=True, check=True)
 
 
 
     # remove the color scale file again
-    # os.system("del popcolor.txt")
+    subprocess.run("del popcolor.txt", shell=True, check=True)
 
 
 
@@ -260,7 +260,8 @@ for place in places:
                 clipped = '"' + datadir + model + '\\' + ssp + \
                     '\\diff-pop-' + str(year) + '-clipped.tiff"'
 
-                os.system('gdalwarp -te '+ extent +' -wo NUM_THREADS=ALL_CPUS -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -srcnodata -2147483648 '+infile+' '+clipped+' >> log.txt')
+                subprocess.run('gdalwarp -te ' + extent + ' -wo NUM_THREADS=ALL_CPUS -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -srcnodata -2147483648 ' +
+                          infile+' '+clipped+' >> log.txt', shell=True, check=True)
     # Now we'll go through again to figure out what the maximum value in any
     # of the rasters is, so that we can apply the the same color scale to all
     maxDiff = 0
@@ -308,7 +309,6 @@ for place in places:
 -"""+str(maxDiff*0.8)+""" 77 146 33
 -"""+str(minPop)+""" 39 100 25
                     """
-    print(color)
     f = open("color.txt", "w+")
     f.write(color)
     f.close()
@@ -327,15 +327,16 @@ for place in places:
                 labelfile =  '"' + datadir + model + '\\' + ssp + '\\diff-pop-' + str(year) + '-label.tiff"'
 
                 # colorize
-                os.system('gdaldem color-relief '+infile+' color.txt '+colorfile+' >> log.txt')
+                subprocess.run('gdaldem color-relief '+infile+' color.txt ' +
+                          colorfile+' >> log.txt', shell=True, check=True)
 
                 # resize
-                os.system('magick '+colorfile+' -resize 250x250 ' +
-                          colorfile+' >> log.txt')
+                subprocess.run('magick '+colorfile+' -resize 250x250 ' +
+                          colorfile+' >> log.txt', shell=True, check=True)
 
                 # label with year
-                os.system('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
-                          str(year)+' '+labelfile+' >> log.txt')
+                subprocess.run('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
+                          str(year)+' '+labelfile+' >> log.txt', shell=True, check=True)
 
             print("Done coloring, making a GIF")
 
@@ -343,16 +344,17 @@ for place in places:
             makeSafe(outputdir+'figures') # put the figures in a subfolder
 
             folder = '"' + datadir + model + '\\' + ssp +'"'
-            os.system('cd '+folder+' & convert -delay 40 -loop 0 *label.tiff "' +
-                      outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-comparison.gif" >> log.txt')
+            subprocess.run('cd '+folder+' & convert -delay 40 -loop 0 *label.tiff "' +
+                           outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-comparison.gif" >> log.txt', shell=True, check=True)
 
             # clean up:
-            os.system('cd '+folder+' & del *label.tiff & del *clipped.tiff')
+            subprocess.run(
+                'cd '+folder+' & del *label.tiff & del *clipped.tiff', shell=True, check=True)
 
 
 
     # remove the color scale file again
-    os.system("del color.txt")
+    subprocess.run("del color.txt", shell=True, check=True)
 
     # make a website that shows them side by side
     # remove it first if we have an old version:
