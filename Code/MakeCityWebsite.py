@@ -4,6 +4,8 @@ from geopy.geocoders import Nominatim
 import numpy as np
 import gdal
 import pandas as pd
+import time
+
 
 import matplotlib
 matplotlib.use('TkAgg')  # fixes weird matplotlib bug on Mac OS
@@ -25,8 +27,8 @@ import matplotlib.pyplot as plt
 # using an online geocoder
 # Pick the SSP(s) and urbanization model(s) you want the GIF for
 # ---------------------------
-
-places = [u'London']
+start = time.time()
+places = [u'Bangalore']
 size = 0.4 # in degrees; i.e. the GIF will cover an area of
            # 2 x size by  2 x size centered on the place chosen above. In other
            # words, it will expand by size in four directions away from the
@@ -34,7 +36,8 @@ size = 0.4 # in degrees; i.e. the GIF will cover an area of
 
 # don't change these for this script; would screw up the generated website
 # if any of them were missing
-SSPs = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
+# ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
+SSPs = ['SSP5']
 models = ['GlobCover', 'GRUMP']
 outputdir = os.path.expanduser('~') + '\\Desktop\\Thesis\\Result\\'
 
@@ -162,7 +165,6 @@ for place in places:
     print(minPop)
     print(maxPop)
     print(stops)
-
     
 #     os.system("""echo "nv 173 240 255
 # """+str(stops[0])+""" 255 247 236
@@ -215,20 +217,20 @@ for place in places:
                 print(colorfile)
                 # os.system('magick '+colorfile+' -resize 250x250 ' +
                 #           colorfile+' >> log.txt')
-                subprocess.run('magick '+colorfile+' -resize 250x250 ' +
+                subprocess.run('magick -quiet '+colorfile+' -resize 250x250 ' +
                                colorfile+' >> log.txt', shell=True, check=True)
 
                 # label with year and delete the colorfile
                 # os.system('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
                 #           str(year)+' '+labelfile+' >> log.txt; del '+colorfile)
-                subprocess.run('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
+                subprocess.run('magick -quiet '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
                                str(year)+' '+labelfile+' >> log.txt & del '+colorfile, shell=True, check=True)
             print("Done coloring, making a GIF")
 
             # All files have been colorized and labeled, let's make a GIF:
 
             folder = '"' + datadir + model + '\\' + ssp +'"'
-            subprocess.run('cd '+folder+' & magick -delay 40 -loop 0 *label.tiff "' +
+            subprocess.run('cd '+folder+' & magick -quiet -delay 40 -loop 0 *label.tiff "' +
                            outputdir+'figures\\'+model+'-'+ssp+'-'+place+'-pop.gif" >> log.txt', shell=True, check=True)
 
             # clean up:
@@ -331,11 +333,11 @@ for place in places:
                           colorfile+' >> log.txt', shell=True, check=True)
 
                 # resize
-                subprocess.run('magick '+colorfile+' -resize 250x250 ' +
+                subprocess.run('magick -quiet '+colorfile+' -resize 250x250 ' +
                           colorfile+' >> log.txt', shell=True, check=True)
 
                 # label with year
-                subprocess.run('magick '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
+                subprocess.run('magick -quiet '+colorfile+' -font Times-New-Roman -pointsize 15 -fill black -gravity southwest -annotate +20+20 ' +
                           str(year)+' '+labelfile+' >> log.txt', shell=True, check=True)
 
             print("Done coloring, making a GIF")
@@ -531,3 +533,7 @@ for place in places:
 
 
 print('Done.')
+end = time.time()
+
+print("Time spent:")
+print(end - start)
