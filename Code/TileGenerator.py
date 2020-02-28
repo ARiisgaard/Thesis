@@ -31,14 +31,13 @@ else:
     osCommand = osCommandDict("rm", ";")
 
 
-def delAll(fileTypeString):
+#Clean up function - empties all the folders of files according to the input - eg. delAll("*.tiff") will delete all the tiff files
+def delAll(deleteString):
     for model in models:
         for ssp in SSPs:
             folder = '"' + outputdir + model + '\\' + ssp + '"'
             subprocess.run(
-                'cd '+folder+' '+osCommand.newAction+' '+osCommand.delete+' *.'+fileTypeString+' '+osCommand.newAction, shell=True, check=True)
-
-# delAll("tiff")
+                'cd '+folder+' '+osCommand.newAction+' '+osCommand.delete+' '+deleteString+' '+osCommand.newAction, shell=True, check=True)
 
 # ---------------------------
 # Clipping raster to the desired extent:
