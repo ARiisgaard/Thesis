@@ -30,56 +30,65 @@ if platform.system()=="Windows":
 else:
     osCommand = osCommandDict("rm", ";")
 
+
+def delAll(fileTypeString):
+    for model in models:
+        for ssp in SSPs:
+            folder = '"' + outputdir + model + '\\' + ssp + '"'
+            subprocess.run(
+                'cd '+folder+' '+osCommand.newAction+' '+osCommand.delete+' *.'+fileTypeString+' '+osCommand.newAction, shell=True, check=True)
+
+# delAll("tiff")
+
 # ---------------------------
 # Clipping raster to the desired extent:
 # ---------------------------
 
 #Disables since it is not nessercery to clip every time - move to another file
 
-start = time.time()
+# start = time.time()
 
-datadir = os.path.expanduser('~') + '\\Desktop\\Thesis\\RasterData\\'
+# datadir = os.path.expanduser('~') + '\\Desktop\\Thesis\\RasterData\\'
 
+# for model in models:
+#     for ssp in SSPs:
+#         for year in range(2010, 2101, 10):
 
+#                 # clip population file
+#                 infile = '"' + datadir + model + '\\' + ssp + \
+#                     '\\popmean-' + str(year) + '.tiff"'
 
-for model in models:
-    for ssp in SSPs:
-        for year in range(2010, 2101, 10):
+#                 clipped = '"' + outputdir + model + '\\' + ssp + \
+#                     '\\popmean-' + str(year) + '-clipped.tiff"'
 
-                # clip population file
-                infile = '"' + datadir + model + '\\' + ssp + \
-                    '\\popmean-' + str(year) + '.tiff"'
+#                 os.system('gdal_translate -projwin ' + extent +
+#                           ' -of GTiff -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -a_nodata -2147483648 '+infile + ' '+clipped + ' >> log.txt')
 
-                clipped = '"' + outputdir + model + '\\' + ssp + \
-                    '\\popmean-' + str(year) + '-clipped.tiff"'
+# end = time.time()
 
-                os.system('gdal_translate -projwin ' + extent +
-                          ' -of GTiff -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -a_nodata -2147483648 '+infile + ' '+clipped + ' >> log.txt')
+# print("Raster clipping time: {0}".format(end-start))
 
-                
-                
-                # gdalwarp -te ' + extent +
-                #           ' -wo NUM_THREADS=ALL_CPUS -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -srcnodata -2147483648 '+infile+' '+clipped+' >> log.txt')
+# ---------------------------
+# Transform raster into tiles:
+# ---------------------------
 
-                # clip urbanization file
-                infile = '"' + datadir + model + '\\' + ssp + \
-                    '\\urbanization-' + str(year) + '.tiff"'
+# start = time.time()
 
-                clipped = '"' + outputdir + model + '\\' + ssp + \
-                    '\\urbanization-' + str(year) + '-clipped.tiff"'
+# for model in models:
+#     for ssp in SSPs:
+#         #for year in range(2010, 2101, 10):
+#         year = 2010
+#         # clip population file
+#         # infile = '"' + datadir + model + '\\' + ssp + \
+#         #     '\\popmean-' + str(year) + '.tiff"'
+#         infile = "C:\\Users\\A-G-R\\Desktop\\Data\\Raster\\GlobCover\\SSP5\\popmean-2010-clipped.tiff"
 
-                os.system('gdal_translate -projwin ' + extent +
-                          ' -of GTiff -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -a_nodata -2147483648 '+infile + ' '+clipped + ' >> log.txt')
+#         tileFile = '"' + outputdir + model + '\\' + ssp + \
+#             '\\popmean-' + str(year) + '.mbtiles"'
+#         print(infile)
+#         print(tileFile)
+#         os.system('gdal_translate ' +infile+' '+tileFile+' -of MBTILES')
 
-                # os.system('gdalwarp -te ' + extent +
-                #           ' -wo NUM_THREADS=ALL_CPUS -co NUM_THREADS=ALL_CPUS -co COMPRESS=LZW -srcnodata -2147483648 '+infile+' '+clipped+' >> log.txt')
+# end = time.time()
 
-
-
-end = time.time()
-
-print("Raster clipping time: {0}".format(end-start))
-
-
-
-
+# print("Raster to Tiles time: {0}".format(end-start))
