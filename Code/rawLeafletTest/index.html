@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>My Maps</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <script type="text/css" src='style.css'></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script src="https://unpkg.com/geotiff@1.0.0-beta.7/dist/geotiff.bundle.js"></script>
+    <script src="https://unpkg.com/plotty@0.4.1/dist/plotty.js"></script>
+ 
+    <script src="dist/leaflet-geotiff-2-master/dist/leaflet-geotiff.js"></script>
+    <script src="dist/leaflet-geotiff-2-master/dist/leaflet-geotiff-plotty.js"></script>
+    <script src="dist/leaflet-geotiff-2-master/dist/leaflet-geotiff-vector-arrows.js"></script>
+
+    <!-- Load any renderer you need -->
+    <!-- <script src="leaflet-geotiff-plotty.js"></script>
+    <script src="leaflet-geotiff-vector.js"></script> -->
+</head>
+<body>
+<div id='map' style='height: 700px;'></div>
+<script type="text/javascript">
+    
+
+    var workingLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '(C) 2016 Nitin Pasumarthy'
+    });
+    var brokenLayer = L.tileLayer('http://localhost:8080/tiles/10/{y}/{x}.tiff', {
+        maxZoom: 18,
+        attribution: '(C) 2016 Nitin Pasumarthy'
+    }); 
+    var baseMaps = {
+            "Grayscale": workingLayer,
+            "Streets": brokenLayer
+        }; 
+
+
+    var map = L.map('map', {
+        center: [20.248233, 78.181884], // change to center at the region you generated the tiles for
+        zoom: 2,
+        subdomains: [],
+        layers: [workingLayer, brokenLayer]
+    });
+
+
+        //////////////////////////////////////////////////  
+        const url =
+            "http://127.0.0.1:5500/rawLeaflettest/windSpeed.tif";
+        const options = {
+            // See renderer sections below.
+            // One of: L.LeafletGeotiff.rgb, L.LeafletGeotiff.plotty, L.LeafletGeotiff.vectorArrows
+            renderer: null,
+            // Optional array specifying the corners of the data, e.g. [[40.712216, -74.22655], [40.773941, -74.12544]].
+            // If omitted the image bounds will be read from the geoTIFF file (ModelTiepoint).
+            bounds: [],
+            // Optional geoTIFF band to read
+            band: 0,
+            // Optional geoTIFF image to read
+            image: 0,
+            // Optional clipping polygon, provided as an array of [lat,lon] coordinates.
+            // Note that this is the Leaflet [lat,lon] convention, not geoJSON [lon,lat].
+            clip: undefined,
+            // Optional leaflet pane to add the layer.
+            pane: "overlayPane",
+            // Optional callback to handle failed URL request or parsing of tif
+            onError: null,
+            // Optional, override default GeoTIFF function used to load source data
+            // Oneof: fromUrl, fromBlob, fromArrayBuffer
+            sourceFunction: GeoTIFF.fromUrl,
+            // Optional nodata value (integer)
+            // (to be ignored by getValueAtLatLng)
+            noDataValue: undefined,
+            // Optional key to extract nodata value from GeoTIFFImage
+            // nested keys can be provided in dot notation, e.g. foo.bar.baz
+            // (to be ignored by getValueAtLatLng)
+            // this overrides noDataValue, the nodata value should be an integer
+            noDataKey: undefined
+        };
+        //////////////////////////////////////////////////
+
+
+    // var tiffLayer = L.leafletGeotiff(url, options).addTo(map);
+    
+    L.control.layers(baseMaps).addTo(map);  
+</script>
+</body>
+</html>

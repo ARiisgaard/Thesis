@@ -15,7 +15,7 @@ import platform
 SSPs = ['SSP5']  # ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
 models = ['GlobCover', 'GRUMP']  # ['GlobCover', 'GRUMP']
 outputdir = os.path.expanduser('~') + '\\Desktop\\Data\\Raster\\'
-extent = "76.0 29.0 78.0 28.0"  # Later to be replaced with the entirety of India
+extent = "73.0 25.0 81.0 19.0"  # Later to be replaced with the entirety of India
 
 #Figures out what the operating system is to ensure that future os-commands are written correctly
 #These is nessercery since linux and Window have different command words for deleting and writing multiple lines of code
@@ -67,27 +67,30 @@ def delAll(deleteString):
 
 # print("Raster clipping time: {0}".format(end-start))
 
+
+#!Mbtiles are not an option delete this when a functional solution have been found! 
+
 # ---------------------------
 # Transform raster into tiles:
 # ---------------------------
 
-# start = time.time()
+start = time.time()
 
-# for model in models:
-#     for ssp in SSPs:
-#         #for year in range(2010, 2101, 10):
-#         year = 2010
-#         # clip population file
-#         # infile = '"' + datadir + model + '\\' + ssp + \
-#         #     '\\popmean-' + str(year) + '.tiff"'
-#         infile = "C:\\Users\\A-G-R\\Desktop\\Data\\Raster\\GlobCover\\SSP5\\popmean-2010-clipped.tiff"
+for model in models:
+    for ssp in SSPs:
+        #for year in range(2010, 2101, 10):
+        year = 2010
+        # clip population file
+        # infile = '"' + datadir + model + '\\' + ssp + \
+        #     '\\popmean-' + str(year) + '.tiff"'
+        infile = "C:\\Users\\A-G-R\\Desktop\\Data\\Raster\\GlobCover\\SSP5\\popmean-2010-clipped.tiff"
 
-#         tileFile = '"' + outputdir + model + '\\' + ssp + \
-#             '\\popmean-' + str(year) + '.mbtiles"'
-#         print(infile)
-#         print(tileFile)
-#         os.system('gdal_translate ' +infile+' '+tileFile+' -of MBTILES')
+        tileFile = '"' + outputdir + model + '\\' + ssp + \
+            '\\popmean-' + str(year) + '.mbtiles"'
+        print(infile)
+        print(tileFile)
+        os.system('gdal_translate ' + infile+' '+tileFile+' -of MBTILES >> log.txt')
 
-# end = time.time()
+end = time.time()
 
-# print("Raster to Tiles time: {0}".format(end-start))
+print("Raster to Tiles time: {0}".format(end-start))
