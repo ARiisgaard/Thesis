@@ -1,0 +1,115 @@
+
+// set variables
+  const projection = ol.proj.get('EPSG:4326');
+  const projectionExtent = projection.getExtent();
+  const size = ol.extent.getWidth(projectionExtent) / 256;
+  const resolutions = new Array(18);
+  const matrixIds = new Array(18);
+
+// create matrix
+  for (z = 0; z < 18; ++z) {
+    // generate resolutions and matrixIds arrays for this WMTS
+    // eslint-disable-next-line no-restricted-properties
+    resolutions[z] = size / Math.pow(2, (z + 1));
+    matrixIds[z] = z;
+  }
+
+// define the wms layer
+  var wmslayer = new ol.layer.Tile({
+    source: new ol.source.WMTS({
+      url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
+      projection,
+      tileGrid: new ol.tilegrid.WMTS({
+        origin: ol.extent.getTopLeft(projectionExtent),
+        resolutions,
+        matrixIds,
+      }),
+      requestEncoding: 'REST',
+      transition: 0
+    })
+  });
+
+// define the base layer
+ var osm =	new ol.layer.Tile({
+      source: new ol.source.OSM()
+    });
+
+// define the map
+  var map = new ol.Map({
+    target: 's2map',
+    layers: [
+osm,
+      wmslayer,
+    ],
+wrapDateLine: true,
+    view: new ol.View({
+      projection,
+      center: [0, 0],
+      zoom: 3,
+      maxZoom: 11,
+      minZoom: 2 
+    }),
+    controls: ol.control.defaults({
+      attributionOptions: {
+        collapsible: false
+      }
+    }),
+  });
+
+// olGeoTiff setup
+  var olgt_map = new olGeoTiff(wmslayer);
+  olgt_map.plotOptions.domain = [0, 2000];
+  olgt_map.plotOptions.noDataValue = -9999;
+  olgt_map.plotOptions.palette = 'rainbow';
+
+// handle user input
+  $(document).ready(function() {
+    var $container = $('#s2map').parent();
+
+    // slider1 (domain)
+      var slider = $container.find('.domainslider')[0];
+
+      noUiSlider.create(slider, {
+        start: olgt_map.plotOptions.domain,
+        connect: true,
+        range: { 'min': 0, 'max': 8000 },
+        tooltips: true,
+      });
+
+      slider.noUiSlider.on('change', function(values) {
+        olgt_map.plotOptions.domain = [values[0], values[1]];
+        olgt_map.redraw();
+      });
+
+    // slider2 (opacity)
+      var slider2 = $container.find('.opacityslider')[0];
+
+      var opacity = 0.7;
+      noUiSlider.create(slider2, {
+        start: opacity,
+        connect: true,
+        range: { 'min': 0, 'max': 1 },
+        tooltips: true,
+      });
+      wmslayer.setOpacity(opacity);
+
+      slider2.noUiSlider.on('slide', function(values) {
+        wmslayer.setOpacity(values[0]*1);
+      });
+
+    // palette
+      $container.find('.palette').on("change", function() {
+        var palette = this.options[this.selectedIndex].text;
+        olgt_map.plotOptions.palette = palette;
+        olgt_map.redraw();
+      });
+
+
+map.on("moveend", function() {
+        var zoom = map.getView().getZoom() - 1; 
+        var zoomInfo = 'Zoom level = ' + zoom;
+        document.getElementById('zoomlevel').innerHTML = zoomInfo;
+    });
+
+  });
+

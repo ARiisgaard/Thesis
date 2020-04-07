@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/map_01.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>maps from geotiff</title>
+    
+    <script src="./maps from geotiff_files/jquery.min.js.download"></script>
+
+    <script src="./maps from geotiff_files/plotty.min.js.download"></script>
+    <script src="./maps from geotiff_files/geotiff.browserify.js.download"></script>
+
+    <script src="./maps from geotiff_files/olGeoTiff.js.download"></script>
+
+    <script src="./maps from geotiff_files/nouislider.min.js.download"></script>
+    <link rel="stylesheet" href="./maps from geotiff_files/nouislider.min.css" type="text/css">
+    <script src="./maps from geotiff_files/ol-debug.js.download"></script>
+    <link rel="stylesheet" href="./maps from geotiff_files/ol-debug.css">
+
+    <style>
+      body {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	}
+      .slider { width: 400px; margin-top: 50px; }
+      .map { width: 800px; height: 600px; margin-top: 20px; }
+      select { 
+	margin-top: 15px; 
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	}
+      .mapcontainer { padding: 0 100px; text-align: center; }
+      .slidercontainer { padding: 0 100px; }
+    </style>
+  </head>
+
+  <body style="">
+    <div class="mapcontainer">
+      <div id="s2map" class="map"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;" data-view="5"><canvas class="ol-unselectable" style="width: 100%; height: 100%; display: block;" width="1000" height="750"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+    
+      <div id="zoomlevel">Zoom level = 3</div>
+      <div class="slidercontainer">
+      <div class="slider domainslider noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-connects"><div class="noUi-connect" style="transform: translate(0%, 0px) scale(0.310302, 1);"></div></div><div class="noUi-origin" style="transform: translate(-100%, 0px); z-index: 5;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="2482.4" aria-valuenow="0.0" aria-valuetext="0.00"><div class="noUi-tooltip">0.00</div></div></div><div class="noUi-origin" style="transform: translate(-68.9698%, 0px); z-index: 6;"><div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="8000.0" aria-valuenow="2482.4" aria-valuetext="2482.41"><div class="noUi-tooltip">2482.41</div></div></div></div></div>
+      <div class="slider opacityslider noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-connects"></div><div class="noUi-origin" style="transform: translate(-30%, 0px); z-index: 4;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="1.0" aria-valuenow="0.7" aria-valuetext="0.70"><div class="noUi-tooltip">0.70</div></div></div></div></div>
+      </div>
+      <select class="palette">
+        <option>viridis</option>
+        <option>inferno</option>
+        <option selected="">rainbow</option>
+        <option>jet</option>
+        <option>hsv</option>
+        <option>hot</option>
+      </select>
+    </div>
+
+    <script src="map.js"></script>
+  
+
+</body></html>
