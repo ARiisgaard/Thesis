@@ -18,6 +18,7 @@
   var wmslayer = new ol.layer.Tile({
     source: new ol.source.WMTS({
       url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
+      // url: 'tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
       projection,
       tileGrid: new ol.tilegrid.WMTS({
         origin: ol.extent.getTopLeft(projectionExtent),
@@ -44,9 +45,9 @@ osm,
 wrapDateLine: true,
     view: new ol.View({
       projection,
-      center: [0, 0],
-      zoom: 3,
-      maxZoom: 11,
+      center: [77.0000000,  22.0000000],
+      zoom: 5,
+      maxZoom: 5,
       minZoom: 2 
     }),
     controls: ol.control.defaults({
