@@ -1,7 +1,7 @@
 
 // set variables
   const projection = ol.proj.get('EPSG:4326');
-  const projectionExtent = [73, 19, 81, 25];
+  const projectionExtent = [73, 19, 81, 25]; //This is the edges of the testRaster.tiff file - to be replaced with calculating the extent
   const size = ol.extent.getWidth(projectionExtent) / 256;
   const resolutions = new Array(18);
   const matrixIds = new Array(18);
@@ -18,8 +18,7 @@
   var wmslayer = new ol.layer.Tile({
     source: new ol.source.WMTS({
       // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-      url: 'g2tTiles/{TileMatrix}/{TileRow}/{TileCol}.tiff',
-      // url: 'tiles/2/0/0.tiff',
+      url: 'xyzTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
       projection,
       tileGrid: new ol.tilegrid.WMTS({
         origin: ol.extent.getTopLeft(projectionExtent),
