@@ -4,8 +4,12 @@
 ---
 ## Using gdal2tiles
 
+python C:\Users\Public\Python\Thesis\Code/gdal2tiles32.py --leaflet --zoom=2-4 --profile=raster --webviewer=none testRaster.tiff g2tTiles
 
-python <Path to gdal2tiles32.py> <zoom level> <infile> <out folder>
-
-Example:
-python Path-to-project/Thesis/Code/gdal2tiles32.py --zoom=2-6 -p raster testRaster.tiff g2tTiles
+ - C:\Users\Public\Python\Thesis\Code/gdal2tiles32.py - path to the modified gdaal2tiles files
+ - leaflet - this option ensures the xyz format instead of tms
+ - zoom=2-4 - zoom levels
+ - profile=raster - Input format is raster
+ - webviewer=none - prevent the creation of webviewer, which wouldn't work anyways since they cannot handle the tiff-tiles
+ - input file
+ - output folder
