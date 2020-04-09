@@ -1,7 +1,7 @@
 
 // set variables
   const projection = ol.proj.get('EPSG:4326');
-  const projectionExtent = projection.getExtent();
+  const projectionExtent = [73, 19, 81, 25];
   const size = ol.extent.getWidth(projectionExtent) / 256;
   const resolutions = new Array(18);
   const matrixIds = new Array(18);
@@ -17,8 +17,9 @@
 // define the wms layer
   var wmslayer = new ol.layer.Tile({
     source: new ol.source.WMTS({
-      url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-      // url: 'tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
+      // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
+      url: 'g2tTiles/{TileMatrix}/{TileRow}/{TileCol}.tiff',
+      // url: 'tiles/2/0/0.tiff',
       projection,
       tileGrid: new ol.tilegrid.WMTS({
         origin: ol.extent.getTopLeft(projectionExtent),
@@ -27,12 +28,14 @@
       }),
       requestEncoding: 'REST',
       transition: 0
-    })
+    }),
+    extent: projectionExtent
   });
 
 // define the base layer
  var osm =	new ol.layer.Tile({
-      source: new ol.source.OSM()
+      source: new ol.source.OSM(),
+      extent: projectionExtent
     });
 
 // define the map
@@ -46,8 +49,8 @@ wrapDateLine: true,
     view: new ol.View({
       projection,
       center: [77.0000000,  22.0000000],
-      zoom: 5,
-      maxZoom: 5,
+      zoom: 8,
+      maxZoom: 10,
       minZoom: 2 
     }),
     controls: ol.control.defaults({
@@ -73,7 +76,7 @@ wrapDateLine: true,
       noUiSlider.create(slider, {
         start: olgt_map.plotOptions.domain,
         connect: true,
-        range: { 'min': 0, 'max': 8000 },
+        range: { 'min': 0, 'max': 15000 }, // TODO: Calculate these based on the current extent 
         tooltips: true,
       });
 
@@ -107,7 +110,7 @@ wrapDateLine: true,
 
 
 map.on("moveend", function() {
-        var zoom = map.getView().getZoom() - 1; 
+        var zoom = map.getView().getZoom(); //originally this was -1??
         var zoomInfo = 'Zoom level = ' + zoom;
         document.getElementById('zoomlevel').innerHTML = zoomInfo;
     });
