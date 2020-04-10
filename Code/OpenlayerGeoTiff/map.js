@@ -2,7 +2,7 @@
 // set variables
   const projection = ol.proj.get('EPSG:4326');
   const projectionExtent = [73, 19, 81, 25]; //This is the edges of the testRaster.tiff file - to be replaced with calculating the extent
-  const size = ol.extent.getWidth(projectionExtent) / 256;
+  const size = ol.extent.getWidth(projectionExtent) / 256;  
   const resolutions = new Array(18);
   const matrixIds = new Array(18);
 
@@ -10,7 +10,8 @@
   for (z = 0; z < 18; ++z) {
     // generate resolutions and matrixIds arrays for this WMTS
     // eslint-disable-next-line no-restricted-properties
-    resolutions[z] = size / Math.pow(2, (z + 1));
+    // resolutions[z] = size / Math.pow(2, z);
+    resolutions[z] = size / Math.pow(2, z - 0.095); //A dirty fix to the misalignment 
     matrixIds[z] = z;
   }
 
@@ -18,7 +19,7 @@
   var wmslayer = new ol.layer.Tile({
     source: new ol.source.WMTS({
       // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-      url: 'xyzTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
+      url: 'g2tTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
       projection,
       tileGrid: new ol.tilegrid.WMTS({
         origin: ol.extent.getTopLeft(projectionExtent),
@@ -87,7 +88,7 @@ wrapDateLine: true,
     // slider2 (opacity)
       var slider2 = $container.find('.opacityslider')[0];
 
-      var opacity = 0.7;
+      var opacity = 0.5;
       noUiSlider.create(slider2, {
         start: opacity,
         connect: true,
