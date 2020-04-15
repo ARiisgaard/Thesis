@@ -1,41 +1,94 @@
-
-// set variables
   const projection = ol.proj.get('EPSG:4326');
-  const projectionExtent = [73, 19, 81, 25]; //This is the edges of the testRaster.tiff file - to be replaced with calculating the extent
-  const size = ol.extent.getWidth(projectionExtent) / 256;  
-  const resolutions = new Array(18);
-  const matrixIds = new Array(18);
+  //This is the 
+  var tileMetadata = {};
+  //This is the folder, where the tiles are extracted from. Locally it can be "g2tTiles" for India or "newTestTiles" for the States
+  tileMetadata.tileFolder = 'g2tTiles'
 
-// create matrix
-  for (z = 0; z < 18; ++z) {
-    // generate resolutions and matrixIds arrays for this WMTS
-    // eslint-disable-next-line no-restricted-properties
-    // resolutions[z] = size / Math.pow(2, z);
-    resolutions[z] = size / Math.pow(2, z - 0.095); //A dirty fix to the misalignment 
-    matrixIds[z] = z;
+  function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", tileMetadata.tileFolder+"/tilemapresource.xml", false);
+      xhttp.send();
+      getTileMetadata(xhttp);//(this);
   }
 
+
+  //When gdal2tiles32.py is run it creates a xml file with metadata. This function extracts the relevant data
+  function getTileMetadata(xml)
+  {
+      var xmlDoc = xml.responseXML;
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml.responseText, "application/xml");
+      
+      
+      //Getting the resolutions for the tiles. 
+      var numberOfZoomLevels = xmlDoc.getElementsByTagName("TileSets")[0].childElementCount;//.childNodes[0]
+      tileMetadata.resolutions = [];
+      tileMetadata.matrixIds = [];
+      for (z = 0; z < numberOfZoomLevels; z++) {
+        tileMetadata.resolutions[z] = parseFloat(xmlDoc.getElementsByTagName("TileSets")[0].children[z].attributes["units-per-pixel"].value);
+        tileMetadata.matrixIds[z] = parseFloat(xmlDoc.getElementsByTagName("TileSets")[0].children[z].attributes["order"].value);
+
+      }
+      
+      
+      
+      var minx = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.minx.value);
+      var maxx = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxx.value);
+      var miny = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.miny.value);
+      var maxy = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxy.value);
+      tileMetadata.boundingBox = [minx, miny, maxx, maxy]
+      tileMetadata.origin = [minx, maxy]
+      tileMetadata.center = [(minx+maxx)/2,(miny+maxy)/2]
+      console.log({tileMetadata})    
+      
+  }
+loadDoc();
+
+
+// // create matrix
+//   for (z = 0; z < 18; ++z) {
+//     // generate resolutions and matrixIds arrays for this WMTS
+//     // eslint-disable-next-line no-restricted-properties
+//     // resolutions[z] = size / Math.pow(2, (z + 1));
+//     // resolutions[z] = size / Math.pow(2, z);
+//     resolutions[z] = size / Math.pow(2, z - 0.17); //A dirty fix to the misalignment 
+//     matrixIds[z] = z;
+//   }
+
 // define the wms layer
+
+
+var tileGrid = new ol.tilegrid.WMTS({
+  origin: tileMetadata.origin,
+  resolutions: tileMetadata.resolutions,
+  matrixIds: tileMetadata.matrixIds,
+})
+
+var tileSource = new ol.source.WMTS({
+  // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
+  // url: 'g2tTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
+  
+  url: tileMetadata.tileFolder+'/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
+  projection,
+  tileGrid: tileGrid,
+  requestEncoding: 'REST',
+  transition: 0
+})
+
+
+
   var wmslayer = new ol.layer.Tile({
-    source: new ol.source.WMTS({
-      // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-      url: 'g2tTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
-      projection,
-      tileGrid: new ol.tilegrid.WMTS({
-        origin: ol.extent.getTopLeft(projectionExtent),
-        resolutions,
-        matrixIds,
-      }),
-      requestEncoding: 'REST',
-      transition: 0
-    }),
-    extent: projectionExtent
+    source: tileSource,
+    extent: tileMetadata.boundingBox
   });
 
+
+
 // define the base layer
+var osmSource = new ol.source.OSM();
  var osm =	new ol.layer.Tile({
-      source: new ol.source.OSM(),
-      extent: projectionExtent
+      source: osmSource,
+      // extent: projectionExtent
     });
 
 // define the map
@@ -48,10 +101,10 @@ osm,
 wrapDateLine: true,
     view: new ol.View({
       projection,
-      center: [77.0000000,  22.0000000],
+      center: tileMetadata.center,
       zoom: 8,
-      maxZoom: 10,
-      minZoom: 2 
+      maxZoom: 11,
+      minZoom: 2
     }),
     controls: ol.control.defaults({
       attributionOptions: {
@@ -113,6 +166,19 @@ map.on("moveend", function() {
         var zoom = map.getView().getZoom(); //originally this was -1??
         var zoomInfo = 'Zoom level = ' + zoom;
         document.getElementById('zoomlevel').innerHTML = zoomInfo;
+
+        mapExtent = map.getView().calculateExtent(map.getSize())
+        mapZoom = map.getView().getZoom();
+        // var tileUrlFunction = tileSource.getTileUrlFunction()
+        // tileGrid.forEachTileCoord(mapExtent, mapZoom, function (tileCoord) {
+        // 
+        // 
+        //   console.log(tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326')));
+        // 
+        // 
+        // })
+        
+        
     });
 
   });
