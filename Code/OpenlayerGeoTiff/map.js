@@ -4,6 +4,7 @@
   //This is the folder, where the tiles are extracted from. Locally it can be "g2tTiles" for India or "newTestTiles" for the States
   tileMetadata.tileFolder = 'g2tTiles'
 
+//Making a request for the tileData - see function below
   function loadDoc() {
       var xhttp = new XMLHttpRequest();
       xhttp.open("GET", tileMetadata.tileFolder+"/tilemapresource.xml", false);
@@ -31,7 +32,7 @@
       }
       
       
-      
+      //Getting the coordinates for bounding box, origin and center
       var minx = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.minx.value);
       var maxx = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxx.value);
       var miny = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.miny.value);
@@ -39,23 +40,9 @@
       tileMetadata.boundingBox = [minx, miny, maxx, maxy]
       tileMetadata.origin = [minx, maxy]
       tileMetadata.center = [(minx+maxx)/2,(miny+maxy)/2]
-      console.log({tileMetadata})    
       
   }
 loadDoc();
-
-
-// // create matrix
-//   for (z = 0; z < 18; ++z) {
-//     // generate resolutions and matrixIds arrays for this WMTS
-//     // eslint-disable-next-line no-restricted-properties
-//     // resolutions[z] = size / Math.pow(2, (z + 1));
-//     // resolutions[z] = size / Math.pow(2, z);
-//     resolutions[z] = size / Math.pow(2, z - 0.17); //A dirty fix to the misalignment 
-//     matrixIds[z] = z;
-//   }
-
-// define the wms layer
 
 
 var tileGrid = new ol.tilegrid.WMTS({
@@ -66,8 +53,6 @@ var tileGrid = new ol.tilegrid.WMTS({
 
 var tileSource = new ol.source.WMTS({
   // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-  // url: 'g2tTiles/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
-  
   url: tileMetadata.tileFolder+'/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
   projection,
   tileGrid: tileGrid,
@@ -75,14 +60,10 @@ var tileSource = new ol.source.WMTS({
   transition: 0
 })
 
-
-
   var wmslayer = new ol.layer.Tile({
     source: tileSource,
     extent: tileMetadata.boundingBox
   });
-
-
 
 // define the base layer
 var osmSource = new ol.source.OSM();
