@@ -1,4 +1,6 @@
   const projection = ol.proj.get('EPSG:4326');
+  
+  
   //This is the 
   var tileMetadata = {};
   //This is the folder, where the tiles are extracted from. Locally it can be "g2tTiles" for India or "newTestTiles" for the States
@@ -44,21 +46,30 @@
   }
 loadDoc();
 
-
+// 
 var tileGrid = new ol.tilegrid.WMTS({
   origin: tileMetadata.origin,
   resolutions: tileMetadata.resolutions,
   matrixIds: tileMetadata.matrixIds,
+  tileSize: 256,//[256, 256],
 })
 
 var tileSource = new ol.source.WMTS({
   // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
   url: tileMetadata.tileFolder+'/{TileMatrix}/{TileCol}/{TileRow}.tiff', //I have a folder with the testRaster choped up in 
-  projection,
+  projection: projection,
   tileGrid: tileGrid,
   requestEncoding: 'REST',
   transition: 0
 })
+
+//Opens the file with the max values for each tile
+var maxValue = {};
+$.getJSON("maxValues.json", function(json) {
+    maxValue = json
+});
+
+
 
   var wmslayer = new ol.layer.Tile({
     source: tileSource,
@@ -69,7 +80,7 @@ var tileSource = new ol.source.WMTS({
 var osmSource = new ol.source.OSM();
  var osm =	new ol.layer.Tile({
       source: osmSource,
-      // extent: projectionExtent
+      extent: tileMetadata.boundingBox
     });
 
 // define the map
@@ -83,7 +94,7 @@ wrapDateLine: true,
     view: new ol.View({
       projection,
       center: tileMetadata.center,
-      zoom: 8,
+      zoom: 7,
       maxZoom: 11,
       minZoom: 2
     }),
@@ -101,7 +112,9 @@ wrapDateLine: true,
   olgt_map.plotOptions.palette = 'rainbow';
 
 // handle user input
-  $(document).ready(function() {
+$(window).on('load', function() {
+    
+  
     var $container = $('#s2map').parent();
 
     // slider1 (domain)
@@ -142,23 +155,33 @@ wrapDateLine: true,
         olgt_map.redraw();
       });
 
-
+console.log(maxValue)
 map.on("moveend", function() {
+
         var zoom = map.getView().getZoom(); //originally this was -1??
         var zoomInfo = 'Zoom level = ' + zoom;
         document.getElementById('zoomlevel').innerHTML = zoomInfo;
 
-        mapExtent = map.getView().calculateExtent(map.getSize())
-        mapZoom = map.getView().getZoom();
-        // var tileUrlFunction = tileSource.getTileUrlFunction()
-        // tileGrid.forEachTileCoord(mapExtent, mapZoom, function (tileCoord) {
-        // 
-        // 
-        //   console.log(tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326')));
-        // 
-        // 
-        // })
+        var mapExtent = map.getView().calculateExtent(map.getSize())
+        var mapZoom = map.getView().getZoom();
+        var tileUrlFunction = tileSource.getTileUrlFunction()
+        var currentMax = 0;
+        tileGrid.forEachTileCoord(mapExtent, mapZoom, function (tileCoord) {
         
+          tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
+          
+          if (maxValue[tileName] !== undefined && maxValue[tileName] > currentMax){
+            currentMax = maxValue[tileName]
+          }
+          
+          // console.log(maxValue[tileName])
+          console.log({currentMax})
+          // console.log(maxValue[tileName])
+          
+        
+        })
+        olgt_map.plotOptions.domain = [0, currentMax];
+        olgt_map.redraw();
         
     });
 
