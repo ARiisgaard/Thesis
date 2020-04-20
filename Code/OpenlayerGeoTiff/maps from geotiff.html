@@ -31,18 +31,45 @@
 	}
       .mapcontainer { padding: 0 100px; text-align: center; }
       .slidercontainer { padding: 0 100px; }
+      
+      td         { border: 0; margin: 0}
+      td.l       { color: white; text-align: center;
+                   width:30px; height: 30px; padding: 0}
+      td#d1      { background: #fff7ec }
+      td#d2      { background: #fee8c8 }
+      td#d3      { background: #fdd49e }
+      td#d4      { background: #fdbb84 }
+      td#d5      { background: #fc8d59 }
+      td#d6      { background: #ef6548 }
     </style>
   </head>
 
   <body>
     <div class="mapcontainer">
       <div id="s2map" class="map"></div>
-    
+      <table>
+        <tr>
+          <td colspan="9">Population per cell</td>
+        </tr>
+        <tr>
+  <td class='l' id='d0' title='0'></td>
+  <td class='l' id='d1' title='0'></td>
+  <td class='l' id='d2' title='0'></td>
+  <td class='l' id='d3' title='0'></td>
+  <td class='l' id='d4' title='0'></td>
+  <td class='l' id='d5' title='0'></td>
+        </tr>
+        <tr>
+          <td colspan="4" style='text-align: left'>0</td>
+          <td></td>
+          <td id="MaxValue" colspan="4" style='text-align: right'>0</td>
+        </tr>
+      </table>
       <div id="zoomlevel"></div>
-      <div id="MaxValue"></div>
       <div class="slidercontainer">
       <div class="slider domainslider"></div>
       <div class="slider opacityslider"></div>
+
     </div>
     
     <script src="tileMetadata.js"></script>

@@ -144,6 +144,14 @@ $(window).on('load', function() {
     olgt_map.plotOptions.domain = [0, currentMax];
     olgt_map.redraw();
     document.getElementById('MaxValue').innerHTML = currentMax;
+    
+
+    
+    for (i = 0; i < colorScale.percentage_steps.length; i++) {
+      document.getElementById('d'+String(i)).style.background = colorScale.color_steps[i]
+      document.getElementById('d'+String(i)).title = Math.round(colorScale.percentage_steps[i]*currentMax)
+}
+    
   });
 
 });
