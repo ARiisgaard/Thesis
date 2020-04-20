@@ -53,11 +53,17 @@ var map = new ol.Map({
   })
 });
 
+//Creation of colorscale
+
+var colorScale = {};
+colorScale.color_steps = ['#fef0d9','#fdd49e','#fdbb84','#fc8d59','#e34a33','#b30000']
+colorScale.percentage_steps = [0, 0.2, 0.4, 0.6, 0.8, 1]
+plotty.addColorScale("sequentialMultiHue6Colors", colorScale.color_steps, colorScale.percentage_steps);
+
 // olGeoTiff setup
 var olgt_map = new olGeoTiff(wmslayer);
 olgt_map.plotOptions.domain = [0, 2000];
 olgt_map.plotOptions.noDataValue = -9999;
-plotty.addColorScale("sequentialMultiHue6Colors", ['#fef0d9','#fdd49e','#fdbb84','#fc8d59','#e34a33','#b30000'], [0, 0.2, 0.4, 0.6, 0.8, 1]);
 olgt_map.plotOptions.palette = 'sequentialMultiHue6Colors';
 
 // handle user input
@@ -103,6 +109,7 @@ $(window).on('load', function() {
   slider2.noUiSlider.on('slide', function(values) {
     wmslayer.setOpacity(values[0] * 1);
   });
+  var Uppervalue = 0; 
 
   //Recolor map on movement or zoom
   map.on("moveend", function() {
@@ -136,7 +143,7 @@ $(window).on('load', function() {
     //Recolors the map based on the highest value found
     olgt_map.plotOptions.domain = [0, currentMax];
     olgt_map.redraw();
-
+    document.getElementById('MaxValue').innerHTML = currentMax;
   });
 
 });
