@@ -66,30 +66,18 @@ olgt_map.plotOptions.domain = [0, 2000];
 olgt_map.plotOptions.noDataValue = -9999;
 olgt_map.plotOptions.palette = 'sequentialMultiHue6Colors';
 
+
+
 // handle user input
 $(window).on('load', function() {
 
+
+//Add the colors from the color palette to the legend
+  for (i = 0; i < colorScale.percentage_steps.length; i++) {
+    document.getElementById('d'+String(i)).style.background = colorScale.color_steps[i]
+}
+
   var $container = $('#s2map').parent();
-
-  // slider1 (domain)
-  var slider = $container.find('.domainslider')[0];
-
-  noUiSlider.create(slider, {
-    start: olgt_map.plotOptions.domain,
-    connect: true,
-    range: {
-      'min': 0,
-      'max': 15000
-    }, // TODO: Calculate these based on the current extent
-    tooltips: true
-  });
-
-  slider.noUiSlider.on('change', function(values) {
-    olgt_map.plotOptions.domain = [
-      values[0], values[1]
-    ];
-    olgt_map.redraw();
-  });
 
   // slider2 (opacity)
   var slider2 = $container.find('.opacityslider')[0];
@@ -113,45 +101,49 @@ $(window).on('load', function() {
 
   //Recolor map on movement or zoom
   map.on("moveend", function() {
+     recolorMap()
+  });
+  
 
+
+});
+
+// Find the highest value currently displayed and recolor based on this
+function recolorMap(){
+
+  
+  
     var mapExtent = map.getView().calculateExtent(map.getSize())
     var mapZoom = map.getView().getZoom();
-
-    //Temporary: To keep track of which zoom layers is being displayed
-    var zoomInfo = 'Zoom level = ' + mapZoom;
-    document.getElementById('zoomlevel').innerHTML = zoomInfo;
-
+  
     //Calculating the max population - Default is set to 0
     var currentMax = 0;
-
+  
     //Function for getting the url/filename for tiles based on their coordinates
     var tileUrlFunction = tileSource.getTileUrlFunction()
-
+  
     //Checks which tiles that currently are being displayed
-    tileGrid.forEachTileCoord(mapExtent, mapZoom, function(tileCoord) {
-
+    tileSource.tileGrid.forEachTileCoord(mapExtent, mapZoom, function(tileCoord) {
+  
       //Gets the name of each currently displayed tile
       tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-
+  
       //Gets the highest value in each tile by looking in the maxValue-dictionary. If a new highest value is found it is saved in currentMax
       if (maxValue[tileName] !== undefined && maxValue[tileName] > currentMax) {
         currentMax = maxValue[tileName]
       }
-
+  
     })
-
+  
     //Recolors the map based on the highest value found
     olgt_map.plotOptions.domain = [0, currentMax];
     olgt_map.redraw();
+    
+  
+    //Updates the legend
     document.getElementById('MaxValue').innerHTML = currentMax;
-    
-
-    
     for (i = 0; i < colorScale.percentage_steps.length; i++) {
-      document.getElementById('d'+String(i)).style.background = colorScale.color_steps[i]
       document.getElementById('d'+String(i)).title = Math.round(colorScale.percentage_steps[i]*currentMax)
-}
-    
-  });
+  }
 
-});
+}
