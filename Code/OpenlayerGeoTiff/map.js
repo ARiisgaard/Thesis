@@ -57,7 +57,8 @@ var map = new ol.Map({
 var olgt_map = new olGeoTiff(wmslayer);
 olgt_map.plotOptions.domain = [0, 2000];
 olgt_map.plotOptions.noDataValue = -9999;
-olgt_map.plotOptions.palette = 'rainbow';
+plotty.addColorScale("sequentialMultiHue6Colors", ['#fef0d9','#fdd49e','#fdbb84','#fc8d59','#e34a33','#b30000'], [0, 0.2, 0.4, 0.6, 0.8, 1]);
+olgt_map.plotOptions.palette = 'sequentialMultiHue6Colors';
 
 // handle user input
 $(window).on('load', function() {
@@ -87,7 +88,7 @@ $(window).on('load', function() {
   // slider2 (opacity)
   var slider2 = $container.find('.opacityslider')[0];
 
-  var opacity = 0.5;
+  var opacity = 0.7;
   noUiSlider.create(slider2, {
     start: opacity,
     connect: true,
@@ -101,13 +102,6 @@ $(window).on('load', function() {
 
   slider2.noUiSlider.on('slide', function(values) {
     wmslayer.setOpacity(values[0] * 1);
-  });
-
-  // palette
-  $container.find('.palette').on("change", function() {
-    var palette = this.options[this.selectedIndex].text;
-    olgt_map.plotOptions.palette = palette;
-    olgt_map.redraw();
   });
 
   //Recolor map on movement or zoom
