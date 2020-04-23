@@ -88,8 +88,7 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
       rasters: null,
       error: null,
       listeners: [listener],
-      errorListeners: [errorListener],
-      maxValue: 0 //Edited
+      errorListeners: [errorListener]
     };
 
     // send new request
@@ -104,12 +103,6 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
         // save rasters of parsed tiff
         var parsed = GeoTIFF.parse(this.response);
         urlToTiff[url].rasters = parsed.getImage().readRasters();
-        console.log(urlToTiff)
-        //Edited: Calculate max values for each tiff
-        // console.log(urlToTiff)
-        var maxPop = Math.max(...urlToTiff[url].rasters[0])
-        urlToTiff[url].maxValue = maxPop    
-          
         var listeners = urlToTiff[url].listeners;
         for (var i = 0; i < listeners.length; ++i) listeners[i](urlToTiff[url]);
         urlToTiff[url].listeners = [];
