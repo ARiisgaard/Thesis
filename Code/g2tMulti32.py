@@ -817,10 +817,6 @@ gdal_vrtmerge.py -o merged.vrt %s"""
             if self.tminz == None:
                 self.tminz = 0
 
-        # KML generation
-
-        self.kml = self.options.kml
-
         # Output the results
 
         if self.options.verbose:
@@ -885,24 +881,6 @@ gdal_vrtmerge.py -o merged.vrt %s"""
                      dest='verbose',
                      help='Print status messages to stdout')
 
-        # KML options
-
-        g = OptionGroup(p, 'KML (Google Earth) options',
-                        'Options for generated Google Earth SuperOverlay metadata'
-                        )
-        g.add_option('-k', '--force-kml', dest='kml',
-                     action='store_true',
-                     help="Generate KML for Google Earth - default for 'geodetic' profile and 'raster' in EPSG:4326. For a dataset with different projection use with caution!"
-                     )
-        g.add_option('-n', '--no-kml', dest='kml', action='store_false'
-                     ,
-                     help='Avoid automatic generation of KML files for EPSG:4326'
-                     )
-        g.add_option('-u', '--url', dest='url',
-                     help='URL address where the generated tiles are going to be published'
-                     )
-        p.add_option_group(g)
-
         # HTML options
 
         g = OptionGroup(p, 'Web viewer options',
@@ -939,7 +917,6 @@ gdal_vrtmerge.py -o merged.vrt %s"""
         p.set_defaults(
             verbose=False,
             profile='mercator',
-            kml=False,
             url='',
             webviewer='all',
             copyright='',
@@ -1243,18 +1220,6 @@ gdal2tiles temp.vrt"""
         else:
             self.dataBandsCount = self.out_ds.RasterCount
 
-        # KML test
-
-        self.isepsg4326 = False
-        srs4326 = osr.SpatialReference()
-        srs4326.ImportFromEPSG(4326)
-        if self.out_srs and srs4326.ExportToProj4() \
-            == self.out_srs.ExportToProj4():
-            self.kml = True
-            self.isepsg4326 = True
-            if self.options.verbose:
-                print('KML autotest OK!')
-
         # Read the georeference
 
         self.out_gt = self.out_ds.GetGeoTransform()
@@ -1436,31 +1401,8 @@ gdal2tiles temp.vrt"""
 
             # Function which generates SWNE in LatLong for given tile
 
-            if self.kml and self.in_srs_wkt:
-                self.ct = osr.CoordinateTransformation(self.in_srs,
-                        srs4326)
 
-                def rastertileswne(x, y, z):
-                    pixelsizex = 2 ** (self.tmaxz - z) * self.out_gt[1]  # X-pixel size in level
-                    pixelsizey = 2 ** (self.tmaxz - z) * self.out_gt[1]  # Y-pixel size in level (usually -1*pixelsizex)
-                    west = self.out_gt[0] + x * self.tilesize \
-                        * pixelsizex
-                    east = west + self.tilesize * pixelsizex
-                    south = self.ominy + y * self.tilesize * pixelsizex
-                    north = south + self.tilesize * pixelsizex
-                    if not self.isepsg4326:
-
-                        # Transformation to EPSG:4326 (WGS84 datum)
-
-                        (west, south) = self.ct.TransformPoint(west,
-                                south)[:2]
-                        (east, north) = self.ct.TransformPoint(east,
-                                north)[:2]
-                    return (south, west, north, east)
-
-                self.tileswne = rastertileswne
-            else:
-                self.tileswne = lambda x, y, z: (0, 0, 0, 0)
+            self.tileswne = lambda x, y, z: (0, 0, 0, 0)
 
     # -------------------------------------------------------------------------
 
@@ -1548,30 +1490,6 @@ gdal2tiles temp.vrt"""
                      'w')
             f.write(self.generate_tilemapresource())
             f.close()
-
-        if self.kml:
-
-            # TODO: Maybe problem for not automatically generated tminz
-            # The root KML should contain links to all tiles in the tminz level
-
-            children = []
-            (xmin, ymin, xmax, ymax) = self.tminmax[self.tminz]
-            for x in range(xmin, xmax + 1):
-                for y in range(ymin, ymax + 1):
-                    children.append([x, y, self.tminz])
-
-            # Generate Root KML
-
-            if self.kml:
-                if not self.options.resume \
-                    or not os.path.exists(os.path.join(self.output,
-                        'doc.kml')):
-                    f = open(os.path.join(self.output, 'doc.kml'), 'w')
-                    f.write(self.generate_kml(None, None, None,
-                            children))
-                    f.close()
-
-    # -------------------------------------------------------------------------
 
     def generate_base_tiles(self, cpu):
         """Generation of the base tiles (the lowest in the pyramid) directly from the input raster"""
@@ -1809,17 +1727,6 @@ gdal2tiles temp.vrt"""
 
                 del dstile
 
-                # Create a KML file for this tile.
-
-                if self.kml:
-                    kmlfilename = os.path.join(self.output, str(tz),
-                            str(tx), '%d.kml' % ty)
-                    if not self.options.resume \
-                        or not os.path.exists(kmlfilename):
-                        f = open(kmlfilename, 'w')
-                        f.write(self.generate_kml(tx, ty, tz))
-                        f.close()
-
                 if not self.options.verbose:
                     queue.put(tcount)
 
@@ -1957,14 +1864,6 @@ gdal2tiles temp.vrt"""
                         (2 * tx, 2 * ty + 1),
                         (2 * tx + 1, 2 * ty + 1),
                         )
-
-                # Create a KML file for this tile.
-
-                if self.kml:
-                    f = open(os.path.join(self.output, '%d/%d/%d.kml'
-                             % (tz, tx, ty)), 'w')
-                    f.write(self.generate_kml(tx, ty, tz, children))
-                    f.close()
 
                 if not self.options.verbose:
                     queue.put(tcount)
@@ -2152,451 +2051,6 @@ gdal2tiles temp.vrt"""
         s += """      </TileSets>
     </TileMap>
     """
-        return s
-
-    # -------------------------------------------------------------------------
-
-    def generate_kml(
-        self,
-        tx,
-        ty,
-        tz,
-        children=[],
-        **args
-        ):
-        """
-        Template for the KML. Returns filled string.
-        """
-
-        (args['tx'], args['ty'], args['tz']) = (tx, ty, tz)
-        args['tileformat'] = self.tileext
-        if 'tilesize' not in args:
-            args['tilesize'] = self.tilesize
-
-        if 'minlodpixels' not in args:
-            args['minlodpixels'] = int(args['tilesize'] / 2)  # / 2.56) # default 128
-        if 'maxlodpixels' not in args:
-            args['maxlodpixels'] = int(args['tilesize'] * 8)  # 1.7) # default 2048 (used to be -1)
-        if children == []:
-            args['maxlodpixels'] = -1
-
-        if tx == None:
-            tilekml = False
-            args['title'] = self.options.title
-        else:
-            tilekml = True
-            args['title'] = '%d/%d/%d.kml' % (tz, tx, ty)
-            (args['south'], args['west'], args['north'], args['east'
-             ]) = self.tileswne(tx, ty, tz)
-
-        if tx == 0:
-            args['drawOrder'] = 2 * tz + 1
-        elif tx != None:
-            args['drawOrder'] = 2 * tz
-        else:
-            args['drawOrder'] = 0
-
-        url = self.options.url
-        if not url:
-            if tilekml:
-                url = '../../'
-            else:
-                url = ''
-
-        s = \
-            """<?xml version="1.0" encoding="utf-8"?>
-    <kml xmlns="http://www.opengis.net/kml/2.2">
-      <Document>
-        <name>%(title)s</name>
-        <description></description>
-        <Style>
-          <ListStyle id="hideChildren">
-            <listItemType>checkHideChildren</listItemType>
-          </ListStyle>
-        </Style>""" \
-            % args
-        if tilekml:
-            s += \
-                """
-        <Region>
-          <LatLonAltBox>
-            <north>%(north).14f</north>
-            <south>%(south).14f</south>
-            <east>%(east).14f</east>
-            <west>%(west).14f</west>
-          </LatLonAltBox>
-          <Lod>
-            <minLodPixels>%(minlodpixels)d</minLodPixels>
-            <maxLodPixels>%(maxlodpixels)d</maxLodPixels>
-          </Lod>
-        </Region>
-        <GroundOverlay>
-          <drawOrder>%(drawOrder)d</drawOrder>
-          <Icon>
-            <href>%(ty)d.%(tileformat)s</href>
-          </Icon>
-          <LatLonBox>
-            <north>%(north).14f</north>
-            <south>%(south).14f</south>
-            <east>%(east).14f</east>
-            <west>%(west).14f</west>
-          </LatLonBox>
-        </GroundOverlay>
-    """ \
-                % args
-
-        for (cx, cy, cz) in children:
-            (csouth, cwest, cnorth, ceast) = self.tileswne(cx, cy, cz)
-            s += \
-                """
-        <NetworkLink>
-          <name>%d/%d/%d.%s</name>
-          <Region>
-            <LatLonAltBox>
-              <north>%.14f</north>
-              <south>%.14f</south>
-              <east>%.14f</east>
-              <west>%.14f</west>
-            </LatLonAltBox>
-            <Lod>
-              <minLodPixels>%d</minLodPixels>
-              <maxLodPixels>-1</maxLodPixels>
-            </Lod>
-          </Region>
-          <Link>
-            <href>%s%d/%d/%d.kml</href>
-            <viewRefreshMode>onRegion</viewRefreshMode>
-            <viewFormat/>
-          </Link>
-        </NetworkLink>
-    """ \
-                % (
-                cz,
-                cx,
-                cy,
-                args['tileformat'],
-                cnorth,
-                csouth,
-                ceast,
-                cwest,
-                args['minlodpixels'],
-                url,
-                cz,
-                cx,
-                cy,
-                )
-
-        s += """      </Document>
-    </kml>
-    """
-        return s
-
-    # -------------------------------------------------------------------------
-
-    def generate_googlemaps(self):
-        """
-        Template for googlemaps.html implementing Overlay of tiles for 'mercator' profile.
-        It returns filled string. Expected variables:
-        title, googlemapskey, north, south, east, west, minzoom, maxzoom, tilesize, tileformat, publishurl
-        """
-
-        args = {}
-        args['title'] = self.options.title
-        args['googlemapskey'] = self.options.googlekey
-        (args['south'], args['west'], args['north'], args['east']) = \
-            self.swne
-        args['minzoom'] = self.tminz
-        args['maxzoom'] = self.tmaxz
-        args['tilesize'] = self.tilesize
-        args['tileformat'] = self.tileext
-        args['publishurl'] = self.options.url
-        args['copyright'] = self.options.copyright
-
-        s = \
-            """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-              <head>
-                <title>%(title)s</title>
-                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-                <meta http-equiv='imagetoolbar' content='no'/>
-                <style type="text/css"> v\:* {behavior:url(#default#VML);}
-                    html, body { overflow: hidden; padding: 0; height: 100%%; width: 100%%; font-family: 'Lucida Grande',Geneva,Arial,Verdana,sans-serif; }
-                    body { margin: 10px; background: #fff; }
-                    h1 { margin: 0; padding: 6px; border:0; font-size: 20pt; }
-                    #header { height: 43px; padding: 0; background-color: #eee; border: 1px solid #888; }
-                    #subheader { height: 12px; text-align: right; font-size: 10px; color: #555;}
-                    #map { height: 95%%; border: 1px solid #888; }
-                </style>
-          <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=%(googlemapskey)s'></script>
-          <script>
-                //<![CDATA[
-
-                /*
-                 * Constants for given map
-                 * TODO: read it from tilemapresource.xml
-                 */
-
-                var mapBounds = new GLatLngBounds(new GLatLng(%(south)s, %(west)s), new GLatLng(%(north)s, %(east)s));
-                var mapMinZoom = %(minzoom)s;
-                var mapMaxZoom = %(maxzoom)s;
-
-                var opacity = 0.75;
-                var map;
-                var hybridOverlay;
-
-                /*
-                 * Create a Custom Opacity GControl
-                 * http://www.maptiler.org/google-maps-overlay-opacity-control/
-                 */
-
-                var CTransparencyLENGTH = 58;
-                // maximum width that the knob can move (slide width minus knob width)
-
-                function CTransparencyControl( overlay ) {
-                    this.overlay = overlay;
-                    this.opacity = overlay.getTileLayer().getOpacity();
-                }
-                CTransparencyControl.prototype = new GControl();
-
-                // This function positions the slider to match the specified opacity
-                CTransparencyControl.prototype.setSlider = function(pos) {
-                    var left = Math.round((CTransparencyLENGTH*pos));
-                    this.slide.left = left;
-                    this.knob.style.left = left+"px";
-                    this.knob.style.top = "0px";
-                }
-
-                // This function reads the slider and sets the overlay opacity level
-                CTransparencyControl.prototype.setOpacity = function() {
-                    // set the global variable
-                    opacity = this.slide.left/CTransparencyLENGTH;
-                    this.map.clearOverlays();
-                    this.map.addOverlay(this.overlay, { zPriority: 0 });
-                    if (this.map.getCurrentMapType() == G_HYBRID_MAP) {
-                        this.map.addOverlay(hybridOverlay);
-                    }
-                }
-
-                // This gets called by the API when addControl(new CTransparencyControl())
-                CTransparencyControl.prototype.initialize = function(map) {
-                    var that=this;
-                    this.map = map;
-
-                    // Is this MSIE, if so we need to use AlphaImageLoader
-                    var agent = navigator.userAgent.toLowerCase();
-                    if ((agent.indexOf("msie") > -1) && (agent.indexOf("opera") < 1)){this.ie = true} else {this.ie = false}
-
-                    // create the background graphic as a <div> containing an image
-                    var container = document.createElement("div");
-                    container.style.width="70px";
-                    container.style.height="21px";
-
-                    // Handle transparent PNG files in MSIE
-                    if (this.ie) {
-                      var loader = "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.maptiler.org/img/opacity-slider.png', sizingMethod='crop');";
-                      container.innerHTML = '<div style="height:21px; width:70px; ' +loader+ '" ></div>';
-                    } else {
-                      container.innerHTML = '<div style="height:21px; width:70px; background-image: url(http://www.maptiler.org/img/opacity-slider.png)" ></div>';
-                    }
-
-                    // create the knob as a GDraggableObject
-                    // Handle transparent PNG files in MSIE
-                    if (this.ie) {
-                      var loader = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.maptiler.org/img/opacity-slider.png', sizingMethod='crop');";
-                      this.knob = document.createElement("div");
-                      this.knob.style.height="21px";
-                      this.knob.style.width="13px";
-                  this.knob.style.overflow="hidden";
-                      this.knob_img = document.createElement("div");
-                      this.knob_img.style.height="21px";
-                      this.knob_img.style.width="83px";
-                      this.knob_img.style.filter=loader;
-                  this.knob_img.style.position="relative";
-                  this.knob_img.style.left="-70px";
-                      this.knob.appendChild(this.knob_img);
-                    } else {
-                      this.knob = document.createElement("div");
-                      this.knob.style.height="21px";
-                      this.knob.style.width="13px";
-                      this.knob.style.backgroundImage="url(http://www.maptiler.org/img/opacity-slider.png)";
-                      this.knob.style.backgroundPosition="-70px 0px";
-                    }
-                    container.appendChild(this.knob);
-                    this.slide=new GDraggableObject(this.knob, {container:container});
-                    this.slide.setDraggableCursor('pointer');
-                    this.slide.setDraggingCursor('pointer');
-                    this.container = container;
-
-                    // attach the control to the map
-                    map.getContainer().appendChild(container);
-
-                    // init slider
-                    this.setSlider(this.opacity);
-
-                    // Listen for the slider being moved and set the opacity
-                    GEvent.addListener(this.slide, "dragend", function() {that.setOpacity()});
-                    //GEvent.addListener(this.container, "click", function( x, y ) { alert(x, y) });
-
-                    return container;
-                  }
-
-                  // Set the default position for the control
-                  CTransparencyControl.prototype.getDefaultPosition = function() {
-                    return new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(7, 47));
-                  }
-
-                /*
-                 * Full-screen Window Resize
-                 */
-
-                function getWindowHeight() {
-                    if (self.innerHeight) return self.innerHeight;
-                    if (document.documentElement && document.documentElement.clientHeight)
-                        return document.documentElement.clientHeight;
-                    if (document.body) return document.body.clientHeight;
-                    return 0;
-                }
-
-                function getWindowWidth() {
-                    if (self.innerWidth) return self.innerWidth;
-                    if (document.documentElement && document.documentElement.clientWidth)
-                        return document.documentElement.clientWidth;
-                    if (document.body) return document.body.clientWidth;
-                    return 0;
-                }
-
-                function resize() {
-                    var map = document.getElementById("map");
-                    var header = document.getElementById("header");
-                    var subheader = document.getElementById("subheader");
-                    map.style.height = (getWindowHeight()-80) + "px";
-                    map.style.width = (getWindowWidth()-20) + "px";
-                    header.style.width = (getWindowWidth()-20) + "px";
-                    subheader.style.width = (getWindowWidth()-20) + "px";
-                    // map.checkResize();
-                }
-
-
-                /*
-                 * Main load function:
-                 */
-
-                function load() {
-
-                   if (GBrowserIsCompatible()) {
-
-                      // Bug in the Google Maps: Copyright for Overlay is not correctly displayed
-                      var gcr = GMapType.prototype.getCopyrights;
-                      GMapType.prototype.getCopyrights = function(bounds,zoom) {
-                          return ["%(copyright)s"].concat(gcr.call(this,bounds,zoom));
-                      }
-
-                      map = new GMap2( document.getElementById("map"), { backgroundColor: '#fff' } );
-
-                      map.addMapType(G_PHYSICAL_MAP);
-                      map.setMapType(G_PHYSICAL_MAP);
-
-                      map.setCenter( mapBounds.getCenter(), map.getBoundsZoomLevel( mapBounds ));
-
-                      hybridOverlay = new GTileLayerOverlay( G_HYBRID_MAP.getTileLayers()[1] );
-                      GEvent.addListener(map, "maptypechanged", function() {
-                        if (map.getCurrentMapType() == G_HYBRID_MAP) {
-                            map.addOverlay(hybridOverlay);
-                        } else {
-                           map.removeOverlay(hybridOverlay);
-                        }
-                      } );
-
-                      var tilelayer = new GTileLayer(GCopyrightCollection(''), mapMinZoom, mapMaxZoom);
-                      var mercator = new GMercatorProjection(mapMaxZoom+1);
-                      tilelayer.getTileUrl = function(tile,zoom) {
-                          if ((zoom < mapMinZoom) || (zoom > mapMaxZoom)) {
-                              return "http://www.maptiler.org/img/none.png";
-                          }
-                          var ymax = 1 << zoom;
-                          var y = ymax - tile.y -1;
-                          var tileBounds = new GLatLngBounds(
-                              mercator.fromPixelToLatLng( new GPoint( (tile.x)*256, (tile.y+1)*256 ) , zoom ),
-                              mercator.fromPixelToLatLng( new GPoint( (tile.x+1)*256, (tile.y)*256 ) , zoom )
-                          );
-                          if (mapBounds.intersects(tileBounds)) {
-                              return zoom+"/"+tile.x+"/"+y+".png";
-                          } else {
-                              return "http://www.maptiler.org/img/none.png";
-                          }
-                      }
-                      // IE 7-: support for PNG alpha channel
-                      // Unfortunately, the opacity for whole overlay is then not changeable, either or...
-                      tilelayer.isPng = function() { return true;};
-                      tilelayer.getOpacity = function() { return opacity; }
-
-                      overlay = new GTileLayerOverlay( tilelayer );
-                      map.addOverlay(overlay);
-
-                      map.addControl(new GLargeMapControl());
-                      map.addControl(new GHierarchicalMapTypeControl());
-                      map.addControl(new CTransparencyControl( overlay ));
-        """ \
-            % args
-        if self.kml:
-            s += \
-                """
-                      map.addMapType(G_SATELLITE_3D_MAP);
-                      map.getEarthInstance(getEarthInstanceCB);
-        """
-        s += \
-            """
-
-                      map.enableContinuousZoom();
-                      map.enableScrollWheelZoom();
-
-                      map.setMapType(G_HYBRID_MAP);
-                   }
-                   resize();
-                }
-        """
-        if self.kml:
-            s += \
-                """
-                function getEarthInstanceCB(object) {
-                   var ge = object;
-
-                   if (ge) {
-                       var url = document.location.toString();
-                       url = url.substr(0,url.lastIndexOf('/'))+'/doc.kml';
-                       var link = ge.createLink("");
-                       if ("%(publishurl)s") { link.setHref("%(publishurl)s/doc.kml") }
-                       else { link.setHref(url) };
-                       var networkLink = ge.createNetworkLink("");
-                       networkLink.setName("TMS Map Overlay");
-                       networkLink.setFlyToView(true);
-                       networkLink.setLink(link);
-                       ge.getFeatures().appendChild(networkLink);
-                   } else {
-                       // alert("You should open a KML in Google Earth");
-                       // add div with the link to generated KML... - maybe JavaScript redirect to the URL of KML?
-                   }
-                }
-        """ \
-                % args
-        s += \
-            """
-                onresize=function(){ resize(); };
-
-                //]]>
-                </script>
-              </head>
-              <body onload="load()">
-                  <div id="header"><h1>%(title)s</h1></div>
-                  <div id="subheader">Generated by <a href="http://www.maptiler.org/">MapTiler</a>/<a href="http://www.klokan.cz/projects/gdal2tiles/">GDAL2Tiles</a>, Copyright &copy; 2008 <a href="http://www.klokan.cz/">Klokan Petr Pridal</a>,  <a href="http://www.gdal.org/">GDAL</a> &amp; <a href="http://www.osgeo.org/">OSGeo</a> <a href="http://code.google.com/soc/">GSoC</a>
-            <!-- PLEASE, LET THIS NOTE ABOUT AUTHOR AND PROJECT SOMEWHERE ON YOUR WEBSITE, OR AT LEAST IN THE COMMENT IN HTML. THANK YOU -->
-                  </div>
-                   <div id="map"></div>
-              </body>
-            </html>
-        """ \
-            % args
-
         return s
 
     # -------------------------------------------------------------------------
