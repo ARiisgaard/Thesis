@@ -11,14 +11,6 @@ var tileMetadata = {};
 tileMetadata.tileFolder = 'g2tTiles';
 getTileMetadata(tileMetadata);
 
-//Directory with maxvalues for each tile - Used for coloring later
-var maxValue = {};
-$.getJSON("maxValues.json", function(json) {
-  maxValue = json
-  // console.log({maxValue})
-  //Color the map based on the loaded data  
-  // recolorMap()
-});
 ////////////
 
 //Resolutions from the metadata xmlfile creates issues with loading the correct file if any zoomlayers are excluded
@@ -87,7 +79,7 @@ olgt_map.plotOptions.palette = 'sequentialMultiHue6Colors';
 
 // handle user input
 $(window).on('load', function() {
-
+ recolorMap()
 
 //Add the colors from the color palette to the legend
   for (i = 0; i < colorScale.percentage_steps.length; i++) {
@@ -118,10 +110,7 @@ $(window).on('load', function() {
 
   //Recolor map on movement or zoom
   map.on("moveend", function() {
-    rightTiles()
-     // recolorMap()
-     // calculateMaxValue("g2tTiles/7/0/2.tiff", rightTileData)
-     // console.log(rightTileData)
+     recolorMap()
   });
   
 
@@ -129,66 +118,13 @@ $(window).on('load', function() {
 });
 
 // Find the highest value currently displayed and recolor based on this
+var currentMax = 0;
 function recolorMap(){
 
-
-  
-    // var mapExtent = tileMetadata.boundingBox
-    
-    var mapExtent = map.getView().calculateExtent(map.getSize())
-    var mapZoom = map.getView().getZoom();
-    // var mapZoom = 0
-    // console.log(mapZoom)
-    // console.log(tileSource)
-    var testing = false //Delete later
-    //Calculating the max population - Default is set to 0
-    var currentMax = 0;
-  
-    //Function for getting the url/filename for tiles based on their coordinates
-    var tileUrlFunction = tileSource.getTileUrlFunction()
-    var currentTiles = [];
-    //Checks which tiles that currently are being displayed
-    tileSource.tileGrid.forEachTileCoord(mapExtent, mapZoom - 5, function(tileCoord) {
-  
-      //Gets the name of each currently displayed tile
-      tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-      currentTiles.push(tileName);
-      
-      //Delete later
-      if (testing == false) {
-        console.log({tileName})
-        testing = true
-      }
-      
-      // Gets the highest value in each tile by looking in the maxValue-dictionary. If a new highest value is found it is saved in currentMax
-      // if (maxValue[tileName] !== undefined && maxValue[tileName] > currentMax) {
-      //   currentMax = maxValue[tileName]
-      //   console.log("Goes here?")
-      // }
-  
-    })
-  
-    //Recolors the map based on the highest value found
-    // olgt_map.plotOptions.domain = [0, currentMax];
-    olgt_map.redraw(olgt_map, currentTiles, colorScale);
-    
-  
-    //Updates the legend
-
-
-}
-
-var currentMax = 0;
-var rightTileData = {};
-function rightTiles(){
-
-  // var mapExtent = tileMetadata.boundingBox
-  
   var mapExtent = map.getView().calculateExtent(map.getSize())
   
-  //Defines visible til as the tiles in frame, unless the values are outside of the data bounding box
   //This variable should potentially be deleted later, if the extent get limited to the boundingBox of the layer
-  //The loadExtent is the same as the mapextent, unless the mapextent shows an area outside the data 
+  //The loadExtent is the same as the mapextent, unless the mapextent shows an area outside the data area
   //- In this case the loadExtent gets reduced to the bounding box - this is to avoid attempt at loading data, which doesn't exist
   var loadExtent = new Array(4);
   loadExtent[0] = Math.max(mapExtent[0], tileMetadata.boundingBox[0]);
@@ -198,20 +134,13 @@ function rightTiles(){
   
   
     var mapZoom = map.getView().getZoom();
-    // var mapZoom = 0
-    var testing2 = 0 //Delete later
-    //Calculating the max population - Default is set to 0
 
-  
     //Function for getting the url/filename for tiles based on their coordinates
     var tileUrlFunction = tileSource.getTileUrlFunction()
     var currentTiles = [];
     //Checks which tiles that currently are being displayed
-    tileSource.tileGrid.forEachTileCoord(loadExtent, mapZoom-2, function(tileCoord) {
-  // if (testing2 == 0) { console.log(tileCoord)
-  //   testting2 = 1
-  // 
-  // }
+    //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow 
+    tileSource.tileGrid.forEachTileCoord(loadExtent, mapZoom-3, function(tileCoord) {
       
       //Gets the name of each currently displayed tile
       tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
@@ -224,8 +153,9 @@ function rightTiles(){
     
     var waiting = currentTiles.length;
     // Calculate tbe max value for each tiles
+    
+    //This step happens too soon
     currentTiles.forEach((tile) => {
-      // rightTileData[tile] = calculateMaxValue(tile)
       bigValues.push(calculateMaxValue(tile))
       finish()
     })
@@ -238,18 +168,9 @@ function rightTiles(){
     currentMax = Math.max(...bigValues)
     if (Number.isInteger(currentMax)) {
       
-      olgt_map.redraw2(olgt_map, currentMax, colorScale);
+      olgt_map.redraw(olgt_map, currentMax, colorScale);
     }
   }
 }
-    
-    
-    //   //Delete later
-    //   if (testing2 < 5) {
-    //       testing2 = testing2 + 1
-    //   console.log({rightTileData})
-    // }
-    
-    // olgt_map.redraw2(olgt_map, currentTiles, colorScale);
 
 }

@@ -109,12 +109,6 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
         
         urlToTiff[url].rasters = parsed.getImage().readRasters();
         
-        // var parsedWorks = parsed.getImage().readRasters();
-        // console.log({parsedWorks})
-        
-        
-        
-        
         var maxPop = Math.max(...urlToTiff[url].rasters[0])
         urlToTiff[url].maxValue = maxPop  
         var listeners = urlToTiff[url].listeners;
@@ -196,52 +190,9 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 /**
  * redraw the given layer
  */
- var testing = false
-olGeoTiff.prototype.redraw = function(map, tiles, legendValues) {
-
- // console.log(tiles[0])
-
- var currentMax = 0;
- var tileValues = [];
- 
- // console.log(this.urlToTiff)
- // console.log(tiles)
- for (var i = 0; i < tiles.length; i++) {
-
-   if (this.urlToTiff[tiles[i]] !== undefined) {
-     var tileMaxValue = this.urlToTiff[tiles[i]].maxValue
-     tileValues.push(tileMaxValue)
-   }
-   else if (testing == false)  {
-     console.log(this.urlToTiff)
-     console.log(tiles[i])
-     testing = true
-     
-   }
-   
-   // console.log(tileValues)
- //   else {
- //   //   console.log(tiles[0])
- //   //   console.log(this.urlToTiff)
- //   // }
- // }
- var currentMax = Math.max(...tileValues)
-// console.log({currentMax})
-
-if (Number.isInteger(currentMax)) {
- console.log("Works")
- map.plotOptions.domain = [0, currentMax];
-}
- this.layer.getSource().refresh();
-}
-updateLegend(legendValues, currentMax);
-}
 
 
-olGeoTiff.prototype.redraw2 = function(map, currentMax, legendValues) {
-
-
-// console.log({currentMax})
+olGeoTiff.prototype.redraw = function(map, currentMax, legendValues) {
 
 if (Number.isInteger(currentMax)) {
  map.plotOptions.domain = [0, currentMax];
@@ -253,9 +204,6 @@ updateLegend(legendValues, currentMax);
 
 function updateLegend(colorValues, maxValue) {
 
-console.log({colorValues})
-console.log({maxValue})
-
 
 document.getElementById('MaxValue').innerHTML = maxValue;
 for (i = 0; i < colorValues.percentage_steps.length; i++) {
@@ -263,23 +211,9 @@ for (i = 0; i < colorValues.percentage_steps.length; i++) {
 }
 }
 
-
-// function calculateMaxValue(tileurl){
-// 
-//   loadCorrectLayerData(tileurl).then(
-//   var currentMax = 0;
-// 
-// 
-//     console.log({currentMax})
-//   )
-// }
-
 // Contains ALL loaded tiles data
 var maxValueTileData = {};
 function calculateMaxValue(url){
-    // console.log(url)
-//     // 
-//     // console.log(maxValue)
     if (maxValueTileData[url]) {
       console.log("Exists")
       return maxValueTileData[url].maxValue
@@ -288,7 +222,6 @@ function calculateMaxValue(url){
     else {
       console.log("Doesn't exists")
       maxValueTileData[url] = {
-        // rasters: null,
         maxValue: 0 //Edited      
       };
 
@@ -296,19 +229,14 @@ function calculateMaxValue(url){
       var xhr = new XMLHttpRequest();
       xhr.open('GET', url, true);
       xhr.responseType = 'arraybuffer';
-      var that = this; //Slet?
-      // console.log(xhr)
-// 
+      
       // setup the async function that is executed AFTER the tile was loaded
       xhr.onloadend = function(e) {
         if (xhr.status == 200) {
-          // console.log("200")
           // save rasters of parsed tiff
           var parsed = GeoTIFF.parse(this.response);
           var raster = parsed.getImage().readRasters();
-          // console.log({raster})
           var maxPop = Math.max(...raster[0])
-          // console.log(maxPop)
           maxValueTileData[url].maxValue = maxPop  
           return maxValueTileData[url].maxValue
       }
@@ -317,30 +245,5 @@ function calculateMaxValue(url){
     }  
     xhr.send();
 }
-
-
-// 
-// 
-// // for (var i = 0; i < maxValue[url].length; i++) {
-// // 
-// //   if (this.urlToTiff[tiles[i]] !== undefined) {
-// //     var tileMaxValue = this.urlToTiff[tiles[i]].maxValue
-// //     tileValues.push(tileMaxValue)
-// //   }
-// //   // console.log(tileValues)
-// // //   else {
-// // //   //   console.log(tiles[0])
-// // //   //   console.log(this.urlToTiff)
-// // //   // }
-// // // }
-// // var currentMax = Math.max(...tileValues)
-// // // console.log({currentMax})
-// // 
-// // if (Number.isInteger(currentMax)) {
-// // console.log("Works")
-// // map.plotOptions.domain = [0, currentMax];
-// // }
-// // this.layer.getSource().refresh();
-// // }
 
 }
