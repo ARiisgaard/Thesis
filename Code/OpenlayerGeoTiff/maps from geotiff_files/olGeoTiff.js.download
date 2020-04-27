@@ -52,6 +52,8 @@ function olGeoTiff(layer) {
 
   // object that holds all rastered tiffs identified by their url
   this.urlToTiff = {};
+  // object that holds max values for the rastered tiffs
+  this.tileMaxValue = {};
 
   // plotty instance for this layer
   this.plot = new plotty.plot({});
@@ -88,7 +90,8 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
       rasters: null,
       error: null,
       listeners: [listener],
-      errorListeners: [errorListener]
+      errorListeners: [errorListener],
+      maxValue: 0 //Edited      
     };
 
     // send new request
@@ -102,7 +105,18 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
       if (xhr.status == 200) {
         // save rasters of parsed tiff
         var parsed = GeoTIFF.parse(this.response);
+        
+        
         urlToTiff[url].rasters = parsed.getImage().readRasters();
+        
+        // var parsedWorks = parsed.getImage().readRasters();
+        // console.log({parsedWorks})
+        
+        
+        
+        
+        var maxPop = Math.max(...urlToTiff[url].rasters[0])
+        urlToTiff[url].maxValue = maxPop  
         var listeners = urlToTiff[url].listeners;
         for (var i = 0; i < listeners.length; ++i) listeners[i](urlToTiff[url]);
         urlToTiff[url].listeners = [];
@@ -182,8 +196,151 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 /**
  * redraw the given layer
  */
-olGeoTiff.prototype.redraw = function() {
-  this.layer.getSource().refresh();
+ var testing = false
+olGeoTiff.prototype.redraw = function(map, tiles, legendValues) {
+
+ // console.log(tiles[0])
+
+ var currentMax = 0;
+ var tileValues = [];
+ 
+ // console.log(this.urlToTiff)
+ // console.log(tiles)
+ for (var i = 0; i < tiles.length; i++) {
+
+   if (this.urlToTiff[tiles[i]] !== undefined) {
+     var tileMaxValue = this.urlToTiff[tiles[i]].maxValue
+     tileValues.push(tileMaxValue)
+   }
+   else if (testing == false)  {
+     console.log(this.urlToTiff)
+     console.log(tiles[i])
+     testing = true
+     
+   }
+   
+   // console.log(tileValues)
+ //   else {
+ //   //   console.log(tiles[0])
+ //   //   console.log(this.urlToTiff)
+ //   // }
+ // }
+ var currentMax = Math.max(...tileValues)
+// console.log({currentMax})
+
+if (Number.isInteger(currentMax)) {
+ console.log("Works")
+ map.plotOptions.domain = [0, currentMax];
+}
+ this.layer.getSource().refresh();
+}
+updateLegend(legendValues, currentMax);
 }
 
 
+olGeoTiff.prototype.redraw2 = function(map, currentMax, legendValues) {
+
+
+// console.log({currentMax})
+
+if (Number.isInteger(currentMax)) {
+ map.plotOptions.domain = [0, currentMax];
+}
+ this.layer.getSource().refresh();
+updateLegend(legendValues, currentMax);
+}
+
+
+function updateLegend(colorValues, maxValue) {
+
+console.log({colorValues})
+console.log({maxValue})
+
+
+document.getElementById('MaxValue').innerHTML = maxValue;
+for (i = 0; i < colorValues.percentage_steps.length; i++) {
+  document.getElementById('d'+String(i)).title = Math.round(colorValues.percentage_steps[i]*maxValue)
+}
+}
+
+
+// function calculateMaxValue(tileurl){
+// 
+//   loadCorrectLayerData(tileurl).then(
+//   var currentMax = 0;
+// 
+// 
+//     console.log({currentMax})
+//   )
+// }
+
+// Contains ALL loaded tiles data
+var maxValueTileData = {};
+function calculateMaxValue(url){
+    // console.log(url)
+//     // 
+//     // console.log(maxValue)
+    if (maxValueTileData[url]) {
+      console.log("Exists")
+      return maxValueTileData[url].maxValue
+    }
+    // in this case the tiff was not yet requested
+    else {
+      console.log("Doesn't exists")
+      maxValueTileData[url] = {
+        // rasters: null,
+        maxValue: 0 //Edited      
+      };
+
+      // send new request
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'arraybuffer';
+      var that = this; //Slet?
+      // console.log(xhr)
+// 
+      // setup the async function that is executed AFTER the tile was loaded
+      xhr.onloadend = function(e) {
+        if (xhr.status == 200) {
+          // console.log("200")
+          // save rasters of parsed tiff
+          var parsed = GeoTIFF.parse(this.response);
+          var raster = parsed.getImage().readRasters();
+          // console.log({raster})
+          var maxPop = Math.max(...raster[0])
+          // console.log(maxPop)
+          maxValueTileData[url].maxValue = maxPop  
+          return maxValueTileData[url].maxValue
+      }
+// 
+//       // send ajax request
+    }  
+    xhr.send();
+}
+
+
+// 
+// 
+// // for (var i = 0; i < maxValue[url].length; i++) {
+// // 
+// //   if (this.urlToTiff[tiles[i]] !== undefined) {
+// //     var tileMaxValue = this.urlToTiff[tiles[i]].maxValue
+// //     tileValues.push(tileMaxValue)
+// //   }
+// //   // console.log(tileValues)
+// // //   else {
+// // //   //   console.log(tiles[0])
+// // //   //   console.log(this.urlToTiff)
+// // //   // }
+// // // }
+// // var currentMax = Math.max(...tileValues)
+// // // console.log({currentMax})
+// // 
+// // if (Number.isInteger(currentMax)) {
+// // console.log("Works")
+// // map.plotOptions.domain = [0, currentMax];
+// // }
+// // this.layer.getSource().refresh();
+// // }
+
+}
