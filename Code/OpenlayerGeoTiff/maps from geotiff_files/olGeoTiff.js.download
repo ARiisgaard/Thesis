@@ -25,15 +25,15 @@ function olGeoTiff(layer) {
       var data = [];
 
       // loop every single datapoint
-      for(var i = 0; i<rasters[0].length; i++) {
+      for (var i = 0; i < rasters[0].length; i++) {
         var bands = [null];
 
         // add all other available bands to this array
-        for(var b = 0; b<rasters.length; b++) bands.push(rasters[b][i]);
+        for (var b = 0; b < rasters.length; b++) bands.push(rasters[b][i]);
 
         // calculate single float value for this multiband array
         // push float value to the data array and continue with next datapoint
-        data.push( this.dataFunction(bands) ); 
+        data.push(this.dataFunction(bands));
       }
 
       // return the data array
@@ -52,6 +52,8 @@ function olGeoTiff(layer) {
 
   // object that holds all rastered tiffs identified by their url
   this.urlToTiff = {};
+  // object that holds max values for the rastered tiffs
+  this.tileMaxValue = {};
 
   // plotty instance for this layer
   this.plot = new plotty.plot({});
@@ -72,8 +74,7 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
     // in this case the tiff is already received and parsed
     if (urlToTiff[url].rasters) {
       listener(urlToTiff[url]);
-    }
-    else if (urlToTiff[url].error) {
+    } else if (urlToTiff[url].error) {
       errorListener(urlToTiff[url].error);
     }
     // in this case the tiff was already requested
@@ -88,7 +89,8 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
       rasters: null,
       error: null,
       listeners: [listener],
-      errorListeners: [errorListener]
+      errorListeners: [errorListener],
+      maxValue: 0 //Edited      
     };
 
     // send new request
@@ -96,25 +98,29 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
     xhr.open('GET', url, true);
     xhr.responseType = 'arraybuffer';
     var that = this;
-  
+
     // setup the async function that is executed AFTER the tile was loaded
     xhr.onloadend = function(e) {
       if (xhr.status == 200) {
         // save rasters of parsed tiff
         var parsed = GeoTIFF.parse(this.response);
+
+
         urlToTiff[url].rasters = parsed.getImage().readRasters();
+
+        var maxPop = Math.max(...urlToTiff[url].rasters[0])
+        urlToTiff[url].maxValue = maxPop
         var listeners = urlToTiff[url].listeners;
         for (var i = 0; i < listeners.length; ++i) listeners[i](urlToTiff[url]);
         urlToTiff[url].listeners = [];
-      }
-      else {
+      } else {
         urlToTiff[url].error = e;
         var errorListeners = urlToTiff[url].errorListeners;
         for (var i = 0; i < errorListeners.length; ++i) errorListeners[i](e);
         urlToTiff[url].errorListeners = [];
       }
     }
-  
+
     // send ajax request
     xhr.send();
   }
@@ -147,7 +153,7 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
   this.fetchTiff(
     // url of tile
     src,
-    
+
     // callback function that executes when the tiff is parsed and ready
     function(urlToTiff) {
       // get plotty instance
@@ -160,9 +166,9 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
         this.plotOptions.width,
         this.plotOptions.height
       );
-      if(this.plotOptions.palette)
+      if (this.plotOptions.palette)
         plot.setColorScale(this.plotOptions.palette);
-      if(this.plotOptions.noDataValue !== false)
+      if (this.plotOptions.noDataValue !== false)
         plot.setNoDataValue(this.plotOptions.noDataValue);
 
       // render plot and trigger load event
@@ -182,8 +188,61 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 /**
  * redraw the given layer
  */
-olGeoTiff.prototype.redraw = function() {
+
+
+olGeoTiff.prototype.redraw = function(map, currentMax, legendValues) {
+
+  if (Number.isInteger(currentMax)) {
+    map.plotOptions.domain = [0, currentMax];
+  }
   this.layer.getSource().refresh();
+  updateLegend(legendValues, currentMax);
 }
 
 
+function updateLegend(colorValues, maxValue) {
+
+
+  document.getElementById('MaxValue').innerHTML = maxValue;
+  for (i = 0; i < colorValues.percentage_steps.length; i++) {
+    document.getElementById('d' + String(i)).title = Math.round(colorValues.percentage_steps[i] * maxValue)
+  }
+}
+
+// Contains ALL loaded tiles data
+var maxValueTileData = {};
+
+function calculateMaxValue(url) {
+  if (maxValueTileData[url]) {
+    console.log("Exists")
+    return maxValueTileData[url].maxValue
+  }
+  // in this case the tiff was not yet requested
+  else {
+    console.log("Doesn't exists")
+    maxValueTileData[url] = {
+      maxValue: 0 //Edited      
+    };
+
+    // send new request
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'arraybuffer';
+
+    // setup the async function that is executed AFTER the tile was loaded
+    xhr.onloadend = function(e) {
+      if (xhr.status == 200) {
+        // save rasters of parsed tiff
+        var parsed = GeoTIFF.parse(this.response);
+        var raster = parsed.getImage().readRasters();
+        var maxPop = Math.max(...raster[0])
+        maxValueTileData[url].maxValue = maxPop
+        return maxValueTileData[url].maxValue
+      }
+      // 
+      //       // send ajax request
+    }
+    xhr.send();
+  }
+
+}
