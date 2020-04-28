@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./maps from geotiff_files/nouislider.min.css" type="text/css">
     <script src="./maps from geotiff_files/ol-debug.js.download"></script>
     <link rel="stylesheet" href="./maps from geotiff_files/ol-debug.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
       body {
@@ -39,6 +40,8 @@
   </head>
 
   <body>
+    <input type="text" id="requestedCity" value="Indore">
+      <button onclick="SearchCity()"><i class="fa fa-search"></i></button>
     <div class="mapcontainer">
       <div id="s2map" class="map"></div>
       <table>

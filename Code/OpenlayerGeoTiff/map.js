@@ -147,38 +147,57 @@ function recolorMap() {
   //Function for getting the url/filename for tiles based on their coordinates
   var tileUrlFunction = tileSource.getTileUrlFunction()
   var currentTiles = [];
+  var maxValues = [];
   //Checks which tiles that currently are being displayed
   //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
   tileSource.tileGrid.forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
 
     //Gets the name of each currently displayed tile
     tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-    currentTiles.push(tileName);
+    // currentTiles.push(tileName);
+    maxValues.push(calculateMaxValue(tileName))
 
   })
 
-  bigValues = [];
+  currentMax = Math.max(...maxValues)
+  if (Number.isInteger(currentMax)) {
 
-  var waiting = currentTiles.length;
-  // Calculate tbe max value for each tiles
-
-  //This step happens too soon
-  currentTiles.forEach((tile) => {
-    bigValues.push(calculateMaxValue(tile))
-    finish()
-  })
-
-  function finish() {
-    waiting--;
-    if (waiting == 0) {
-      console.log("It is here")
-      console.log({bigValues})
-      currentMax = Math.max(...bigValues)
-      if (Number.isInteger(currentMax)) {
-
-        olgt_map.redraw(olgt_map, currentMax, colorScale);
-      }
-    }
-  }
+    olgt_map.redraw(olgt_map, currentMax, colorScale);
+  }  
 
 }
+
+
+
+function SearchCity(){
+  var cityName = document.getElementById("requestedCity").value;
+  var request = "https://nominatim.openstreetmap.org/search?q="+cityName+"&format=geojson"
+  var mapZoom = map.getView().getZoom();
+  
+  var xhttp = new XMLHttpRequest();
+  
+  xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var cityData = JSON.parse(this.responseText)
+          var cityCoordinates = cityData.features[0].geometry.coordinates
+          
+          console.log({cityCoordinates})
+
+          map.getView().setCenter(cityCoordinates)
+          map.getView().setZoom(9)
+          
+    //       map.setView(new ol.View({
+    // center: [75.8681996, 22.7203616],
+    // zoom: mapZoom
+    // }));
+
+        }
+      }
+      xhttp.open("GET", request, true);
+      xhttp.send();
+      
+
+}
+
+
+
