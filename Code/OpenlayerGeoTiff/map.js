@@ -47,6 +47,8 @@ var osm = new ol.layer.Tile({
   // , extent: tileMetadata.boundingBox
 });
 
+var sharedView = new ol.View({projection, center: tileMetadata.center, zoom: 7, maxZoom: 11, minZoom: 2})
+
 // define the map
 var map = new ol.Map({
   target: 's2map',
@@ -54,7 +56,21 @@ var map = new ol.Map({
     osm, wmslayer
   ],
   wrapDateLine: true,
-  view: new ol.View({projection, center: tileMetadata.center, zoom: 7, maxZoom: 11, minZoom: 2}),
+  view: sharedView,
+  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: false
+    }
+  })
+});
+
+var map = new ol.Map({
+  target: 'secondMap',
+  layers: [
+    osm, wmslayer
+  ],
+  wrapDateLine: true,
+  view: sharedView,
   controls: ol.control.defaults({
     attributionOptions: {
       collapsible: false
@@ -121,7 +137,7 @@ $(window).on('load', function() {
   var Uppervalue = 0;
 
   //Recolor map on movement or zoom
-  map.on("moveend", function() {
+  map.on("rendercomplete", function() {
     recolorMap()
   });
 
@@ -129,6 +145,8 @@ $(window).on('load', function() {
 
 // Find the highest value currently displayed and recolor based on this
 var currentMax = 0;
+var oldMax = currentMax;
+
 function recolorMap() {
   var maxValues = [];
 
@@ -168,7 +186,7 @@ function recolorMap() {
     // console.log(value2)
   }
   })
-  async2Call()
+  // async2Call()
   console.log(maxValues)
   
   function resolveAfter2Seconds() {
@@ -178,17 +196,17 @@ function recolorMap() {
     }, 1000);
   });
 }
-async function async2Call() {
-  const result = await resolveAfter2Seconds();
-  // currentMax = Math.max(...maxValues)
-  currentMax = Math.max(...result)
+// async function async2Call() {
+  // const result = await resolveAfter2Seconds();
+  currentMax = Math.max(...maxValues)
+//   currentMax = Math.max(...result)
     
   console.log(currentMax)
-  if (Number.isInteger(currentMax)) {
-  
+  if (Number.isInteger(currentMax) && currentMax != oldMax) {
+    oldMax = currentMax
     olgt_map.redraw(olgt_map, currentMax, colorScale);
   }  
-}
+// }
 }
 
 // map.on('postrender', function(event) {
