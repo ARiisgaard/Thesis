@@ -130,6 +130,7 @@ $(window).on('load', function() {
 // Find the highest value currently displayed and recolor based on this
 var currentMax = 0;
 function recolorMap() {
+  var maxValues = [];
 
   var mapExtent = map.getView().calculateExtent(map.getSize())
 
@@ -147,7 +148,7 @@ function recolorMap() {
   //Function for getting the url/filename for tiles based on their coordinates
   var tileUrlFunction = tileSource.getTileUrlFunction()
   var currentTiles = [];
-  var maxValues = [];
+  // var maxValues = [];
   //Checks which tiles that currently are being displayed
   //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
   tileSource.tileGrid.forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
@@ -155,17 +156,51 @@ function recolorMap() {
     //Gets the name of each currently displayed tile
     tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
     // currentTiles.push(tileName);
-    maxValues.push(calculateMaxValue(tileName))
-
+    // calculateMaxValue(tileName).then( function(result) {
+    //   console.log(result)
+    // } )
+    asyncCall()
+    async function asyncCall() {
+    
+    // maxValues.push(calculateMaxValue(tileName))
+    tileMaxValue = await calculateMaxValue(tileName);
+    maxValues.push(tileMaxValue)
+    // console.log(value2)
+  }
   })
-
-  currentMax = Math.max(...maxValues)
+  async2Call()
+  console.log(maxValues)
+  
+  function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(maxValues);
+    }, 1000);
+  });
+}
+async function async2Call() {
+  const result = await resolveAfter2Seconds();
+  // currentMax = Math.max(...maxValues)
+  currentMax = Math.max(...result)
+    
+  console.log(currentMax)
   if (Number.isInteger(currentMax)) {
-
+  
     olgt_map.redraw(olgt_map, currentMax, colorScale);
   }  
-
 }
+}
+
+// map.on('postrender', function(event) {
+//   // console.log(maxValues)
+//   currentMax = Math.max(...maxValues)
+//   if (Number.isInteger(currentMax)) {
+// 
+//     olgt_map.redraw(olgt_map, currentMax, colorScale);
+// }
+// }
+// );
+
 
 
 
