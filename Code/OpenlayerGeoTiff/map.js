@@ -8,9 +8,9 @@ const projection = ol.proj.get('EPSG:4326');
 var tileMetadata = {};
 
 //The folder, where the tiles are extracted from. Locally it can be "g2tTiles" for India or "newTestTiles" for the States
-tileMetadata.tileFolder = 'g2tTiles';
-getTileMetadata(tileMetadata);
-
+var tileFolders = ['g2tTiles', 'g2tTiles']
+getTileMetadata(tileMetadata, tileFolders);
+// console.log(tileMetadata)
 ////////////
 
 //Resolutions from the metadata xmlfile creates issues with loading the correct file if any zoomlayers are excluded
@@ -24,20 +24,14 @@ for (var z = 0; z < 14; ++z) {
   matrixIds[z] = z;
 }
 
-//Creating the layer with population data. Seperated into three variables, because they are called individually to apply the coloring
-var tileGrid = new ol.tilegrid.WMTS({origin: tileMetadata.origin, resolutions: resolutions, matrixIds: matrixIds, tileSize: 256})
-
-var tileSource = new ol.source.WMTS({
-  // url: 'http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/tileSet/{TileMatrix}/{TileRow}/{TileCol}.tif',
-  url: tileMetadata.tileFolder + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
-  projection: projection,
-  tileGrid: tileGrid,
-  requestEncoding: 'REST',
-  transition: 0
-})
-
 var wmslayer = new ol.layer.Tile({
-  source: tileSource, extent: tileMetadata.boundingBox, opacity: 0.65 //The extent has been limited, since there I didn't test with the raster for the entire world
+  source: new ol.source.WMTS({
+    url: tileFolders[0] + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
+    projection: projection,
+    tileGrid: new ol.tilegrid.WMTS({origin: tileMetadata[tileFolders[0] + "origin"], resolutions: resolutions, matrixIds: matrixIds, tileSize: 256}),
+    requestEncoding: 'REST',
+    transition: 0
+  }), extent: tileMetadata[tileFolders[0] + "BoundingBox"], opacity: 0.65 //The extent has been limited, since there I didn't test with the raster for the entire world
 });
 
 // define the base layer
@@ -47,7 +41,7 @@ var osm = new ol.layer.Tile({
   // , extent: tileMetadata.boundingBox
 });
 
-var sharedView = new ol.View({projection, center: tileMetadata.center, zoom: 7, maxZoom: 11, minZoom: 2})
+var sharedView = new ol.View({projection, center: tileMetadata[tileFolders[0] + "center"], zoom: 7, maxZoom: 11, minZoom: 2})
 
 // define the map
 var map = new ol.Map({
@@ -57,11 +51,6 @@ var map = new ol.Map({
   ],
   wrapDateLine: true,
   view: sharedView,
-  controls: ol.control.defaults({
-    attributionOptions: {
-      collapsible: false
-    }
-  })
 });
 
 var map2 = new ol.Map({
@@ -71,11 +60,6 @@ var map2 = new ol.Map({
   ],
   wrapDateLine: true,
   view: sharedView,
-  controls: ol.control.defaults({
-    attributionOptions: {
-      collapsible: false
-    }
-  })
 });
 
 //Creation of colorscale
@@ -105,9 +89,9 @@ olgt_map.plotOptions.domain = [0, 2000];
 olgt_map.plotOptions.noDataValue = -9999;
 olgt_map.plotOptions.palette = 'sequentialMultiHue6Colors';
 
+recolorMap()
 // handle user input
 $(window).on('load', function() {
-  recolorMap()
 
   //Add the colors from the color palette to the legend
   for (i = 0; i < colorScale.percentage_steps.length; i++) {
@@ -129,36 +113,42 @@ function recolorMap() {
   
   var maxValues = [];
 
+  //Getting map extent and zoom 
   var mapExtent = map.getView().calculateExtent(map.getSize())
+  var mapZoom = map.getView().getZoom();
 
+  var zoomlevelAdjustment =  3
   //This variable should potentially be deleted later, if the extent get limited to the boundingBox of the layer
   //The loadExtent is the same as the mapextent, unless the mapextent shows an area outside the data area
   //- In this case the loadExtent gets reduced to the bounding box - this is to avoid attempt at loading data, which doesn't exist
   var loadExtent = new Array(4);
-  loadExtent[0] = Math.max(mapExtent[0], tileMetadata.boundingBox[0]);
-  loadExtent[1] = Math.max(mapExtent[1], tileMetadata.boundingBox[1])
-  loadExtent[2] = Math.min(mapExtent[2], tileMetadata.boundingBox[2])
-  loadExtent[3] = Math.min(mapExtent[3], tileMetadata.boundingBox[3])
+  loadExtent[0] = Math.max(mapExtent[0], tileMetadata[tileFolders[0] + "boundingBox"][0]);
+  loadExtent[1] = Math.max(mapExtent[1], tileMetadata[tileFolders[0] + "boundingBox"][1])
+  loadExtent[2] = Math.min(mapExtent[2], tileMetadata[tileFolders[0] + "boundingBox"][2])
+  loadExtent[3] = Math.min(mapExtent[3], tileMetadata[tileFolders[0] + "boundingBox"][3])
 
-  var mapZoom = map.getView().getZoom();
-
+  
   //Function for getting the url/filename for tiles based on their coordinates
-  var tileUrlFunction = tileSource.getTileUrlFunction()
-  var currentTiles = [];
   // var maxValues = [];
   
-  //Get tileNumber
+  //Get the number of tiles
   var tileNumber = 0;
-  tileSource.getTileGrid().forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
+  wmslayer.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
     tileNumber ++;
   })
   
   
 //Checks which tiles that currently are being displayed
   //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
-var currentTile = 0;
+findHighestValue()
 
-  tileSource.getTileGrid().forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
+function findHighestValue(){
+
+  var tileUrlFunction = wmslayer.getSource().getTileUrlFunction()
+  var currentTile = 0;
+ console.log(wmslayer.getSource())
+
+  wmslayer.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
 
     //Gets the name of each currently displayed tile
     tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
@@ -179,11 +169,17 @@ var currentTile = 0;
     if (Number.isInteger(currentMax) && currentMax != oldMax) {
       oldMax = currentMax
       olgt_map.redraw(olgt_map, currentMax, colorScale);
+      console.log("Done selecting a color")
     }  
     }
     
   }
   })
+
+}
+
+
+
 
 }
 
