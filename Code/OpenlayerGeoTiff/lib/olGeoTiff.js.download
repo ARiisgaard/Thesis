@@ -193,7 +193,7 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 olGeoTiff.prototype.redraw = function(map, currentMax, legendValues) {
 
     map.plotOptions.domain = [0, currentMax];
-
+    console.log("Is slow?")
   this.layer.getSource().refresh();
   updateLegend(legendValues, currentMax);
 }

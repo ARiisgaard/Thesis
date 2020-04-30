@@ -37,7 +37,7 @@ var tileSource = new ol.source.WMTS({
 })
 
 var wmslayer = new ol.layer.Tile({
-  source: tileSource, extent: tileMetadata.boundingBox //The extent has been limited, since there I didn't test with the raster for the entire world
+  source: tileSource, extent: tileMetadata.boundingBox, opacity: 0.65 //The extent has been limited, since there I didn't test with the raster for the entire world
 });
 
 // define the base layer
@@ -64,7 +64,7 @@ var map = new ol.Map({
   })
 });
 
-var map = new ol.Map({
+var map2 = new ol.Map({
   target: 'secondMap',
   layers: [
     osm, wmslayer
@@ -114,30 +114,9 @@ $(window).on('load', function() {
     document.getElementById('d' + String(i)).style.background = colorScale.color_steps[i]
   }
 
-  var $container = $('#s2map').parent();
-
-  // slider2 (opacity)
-  var slider2 = $container.find('.opacityslider')[0];
-
-  var opacity = 0.7;
-  noUiSlider.create(slider2, {
-    start: opacity,
-    connect: true,
-    range: {
-      'min': 0,
-      'max': 1
-    },
-    tooltips: true
-  });
-  wmslayer.setOpacity(opacity);
-
-  slider2.noUiSlider.on('slide', function(values) {
-    wmslayer.setOpacity(values[0] * 1);
-  });
-  var Uppervalue = 0;
-
   //Recolor map on movement or zoom
-  map.on("rendercomplete", function() {
+  // map.on("rendercomplete", function() {
+  map.on("moveend", function() {
     recolorMap()
   });
 
@@ -146,8 +125,8 @@ $(window).on('load', function() {
 // Find the highest value currently displayed and recolor based on this
 var currentMax = 0;
 var oldMax = currentMax;
-
 function recolorMap() {
+  
   var maxValues = [];
 
   var mapExtent = map.getView().calculateExtent(map.getSize())
@@ -167,60 +146,46 @@ function recolorMap() {
   var tileUrlFunction = tileSource.getTileUrlFunction()
   var currentTiles = [];
   // var maxValues = [];
-  //Checks which tiles that currently are being displayed
+  
+  //Get tileNumber
+  var tileNumber = 0;
+  tileSource.getTileGrid().forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
+    tileNumber ++;
+  })
+  
+  
+//Checks which tiles that currently are being displayed
   //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
-  tileSource.tileGrid.forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
+var currentTile = 0;
+
+  tileSource.getTileGrid().forEachTileCoord(loadExtent, mapZoom - 3, function(tileCoord) {
 
     //Gets the name of each currently displayed tile
     tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-    // currentTiles.push(tileName);
-    // calculateMaxValue(tileName).then( function(result) {
-    //   console.log(result)
-    // } )
+    
     asyncCall()
     async function asyncCall() {
     
-    // maxValues.push(calculateMaxValue(tileName))
     tileMaxValue = await calculateMaxValue(tileName);
     maxValues.push(tileMaxValue)
-    // console.log(value2)
+    currentTile ++;
+    
+    if (currentTile == tileNumber && tileNumber != 0){
+      console.log("Test")
+    
+    currentTile = 0;
+    tileNumber = 0;
+    currentMax = Math.max(...maxValues)
+    if (Number.isInteger(currentMax) && currentMax != oldMax) {
+      oldMax = currentMax
+      olgt_map.redraw(olgt_map, currentMax, colorScale);
+    }  
+    }
+    
   }
   })
-  // async2Call()
-  console.log(maxValues)
-  
-  function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(maxValues);
-    }, 1000);
-  });
+
 }
-// async function async2Call() {
-  // const result = await resolveAfter2Seconds();
-  currentMax = Math.max(...maxValues)
-//   currentMax = Math.max(...result)
-    
-  console.log(currentMax)
-  if (Number.isInteger(currentMax) && currentMax != oldMax) {
-    oldMax = currentMax
-    olgt_map.redraw(olgt_map, currentMax, colorScale);
-  }  
-// }
-}
-
-// map.on('postrender', function(event) {
-//   // console.log(maxValues)
-//   currentMax = Math.max(...maxValues)
-//   if (Number.isInteger(currentMax)) {
-// 
-//     olgt_map.redraw(olgt_map, currentMax, colorScale);
-// }
-// }
-// );
-
-
-
 
 function SearchCity(){
   var cityName = document.getElementById("requestedCity").value;
@@ -239,11 +204,6 @@ function SearchCity(){
           map.getView().setCenter(cityCoordinates)
           map.getView().setZoom(9)
           
-    //       map.setView(new ol.View({
-    // center: [75.8681996, 22.7203616],
-    // zoom: mapZoom
-    // }));
-
         }
       }
       xhttp.open("GET", request, true);
@@ -251,6 +211,3 @@ function SearchCity(){
       
 
 }
-
-
-
