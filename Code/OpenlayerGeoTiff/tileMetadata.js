@@ -33,7 +33,6 @@ function processTileMetadata(xml, objectWithMetadata, folderName) {
   var miny = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.miny.value);
   var maxy = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxy.value);
   objectWithMetadata[folderName + "boundingBox"] = [minx, miny, maxx, maxy]
-  console.log(objectWithMetadata)
   objectWithMetadata[folderName + "origin"] = [minx, maxy]
   objectWithMetadata[folderName + "center"] = [
     (minx + maxx) / 2,
