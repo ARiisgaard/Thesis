@@ -3,10 +3,15 @@
 import gdal
 import numpy as np
 import os
+import time
+start = time.time()
 
 #Directory containing the maptiles and the path to it
 tilePath = os.getcwd() + "\\OpenlayerGeotiff\\"
-tileFolder = "g2tTiles"
+tileFolder = "g2tSecondMap"
+
+
+print("Writting started")
 
 #Function for getting values out of the first band of a tiff file
 def openTIFFasNParray(file):
@@ -51,9 +56,13 @@ maxValue = maxValue + "}"
             
             
 #The json-string gets written to a file        
-print(maxValue)
-file = open(tilePath + "maxValues.json", "w+")        
+file = open(tilePath + tileFolder + ".json", "w+")        
 file.write(maxValue)
 file.close()  
 
 print("Writting done")
+
+end = time.time()
+
+print("Time spent:")
+print(end - start)
