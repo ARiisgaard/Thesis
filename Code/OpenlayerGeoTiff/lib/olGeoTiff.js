@@ -192,9 +192,7 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 
 olGeoTiff.prototype.redraw = function(map, currentMax, legendValues) {
 
-  if (Number.isInteger(currentMax)) {
     map.plotOptions.domain = [0, currentMax];
-  }
   this.layer.getSource().refresh();
   updateLegend(legendValues, currentMax);
 }
@@ -213,13 +211,12 @@ function updateLegend(colorValues, maxValue) {
 var maxValueTileData = {};
 
 function calculateMaxValue(url) {
+  return new Promise(resolve => {
   if (maxValueTileData[url]) {
-    console.log("Exists")
-    return maxValueTileData[url].maxValue
+    resolve(maxValueTileData[url].maxValue)
   }
   // in this case the tiff was not yet requested
   else {
-    console.log("Doesn't exists")
     maxValueTileData[url] = {
       maxValue: 0 //Edited      
     };
@@ -237,12 +234,14 @@ function calculateMaxValue(url) {
         var raster = parsed.getImage().readRasters();
         var maxPop = Math.max(...raster[0])
         maxValueTileData[url].maxValue = maxPop
-        return maxValueTileData[url].maxValue
+        resolve(maxValueTileData[url].maxValue)
       }
       // 
       //       // send ajax request
     }
     xhr.send();
+    
   }
 
+})
 }

@@ -1,13 +1,18 @@
 //Making a request for the tileData - see function getTileMetadata
-function getTileMetadata(objectWithMetadata) {
+function getTileMetadata(objectWithMetadata, folderArray) {
+  for (i = 0; i < folderArray.length; i++)
+  {
+  
   var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", objectWithMetadata.tileFolder + "/tilemapresource.xml", false);
+  xhttp.open("GET", folderArray[i] + "/tilemapresource.xml", false);
   xhttp.send();
-  processTileMetadata(xhttp, objectWithMetadata);
+  processTileMetadata(xhttp, objectWithMetadata, folderArray[i]);
+  
+}
 }
 
 //When gdal2tiles32.py is run it creates a xml file with metadata. This function extracts the relevant data
-function processTileMetadata(xml, objectWithMetadata) {
+function processTileMetadata(xml, objectWithMetadata, folderName) {
   var xmlDoc = xml.responseXML;
   var parser = new DOMParser();
   var xmlDoc = parser.parseFromString(xml.responseText, "application/xml");
@@ -27,9 +32,9 @@ function processTileMetadata(xml, objectWithMetadata) {
   var maxx = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxx.value);
   var miny = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.miny.value);
   var maxy = parseFloat(xmlDoc.getElementsByTagName("BoundingBox")[0].attributes.maxy.value);
-  objectWithMetadata.boundingBox = [minx, miny, maxx, maxy]
-  objectWithMetadata.origin = [minx, maxy]
-  objectWithMetadata.center = [
+  objectWithMetadata[folderName + "boundingBox"] = [minx, miny, maxx, maxy]
+  objectWithMetadata[folderName + "origin"] = [minx, maxy]
+  objectWithMetadata[folderName + "center"] = [
     (minx + maxx) / 2,
     (miny + maxy) / 2
   ]
