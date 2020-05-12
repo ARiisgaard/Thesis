@@ -183,6 +183,7 @@ function recolorMap() {
 
       //Gets the name of each currently displayed tile
       tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
+      console.log(tileName)
       asyncCall()
       async function asyncCall() {
 
