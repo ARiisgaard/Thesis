@@ -211,6 +211,115 @@
     keywordstyle=\color{ipython_green}\ttfamily,
 }
 
+\lstdefinelanguage{JavaScript}{
+	morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	morecomment=[s]{/*}{*/},
+	morecomment=[l]//,
+	morestring=[b]",
+	morestring=[b]',
+	identifierstyle=\color{black}\ttfamily,
+	commentstyle=\color{ipython_red}\ttfamily,
+	stringstyle=\color{ipython_green}\ttfamily,
+	rulecolor=\color{ipython_frame},
+	frame=single,
+	frameround={t}{t}{t}{t},
+	framexleftmargin=6mm,
+	breaklines=true,                 
+	captionpos=b, 
+	numbers=left,
+	numberstyle=\tiny\color{halfgray},
+	%
+	%
+	backgroundcolor=\color{ipython_bg},
+	%   extendedchars=true,
+	basicstyle=\scriptsize,
+	keywordstyle=\color{blue}\ttfamily,
+}
+
+\lstdefinelanguage{CSS}{
+	keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	alsoletter={:},
+	alsodigit={-},
+	identifierstyle=\color{black}\ttfamily,
+	commentstyle=\color{ipython_red}\ttfamily,
+	stringstyle=\color{ipython_green}\ttfamily,
+	rulecolor=\color{ipython_frame},
+	frame=single,
+	frameround={t}{t}{t}{t},
+	framexleftmargin=6mm,
+	breaklines=true,                 
+	captionpos=b, 
+	numbers=left,
+	numberstyle=\tiny\color{halfgray},
+	%
+	%
+	backgroundcolor=\color{ipython_bg},
+	%   extendedchars=true,
+	basicstyle=\scriptsize,
+	keywordstyle=\color{blue}\ttfamily,
+}
+
+\lstdefinelanguage{HTML5}{
+	language=html,
+	sensitive=true,	
+	alsoletter={<>=-},	
+	morecomment=[s]{<!-}{-->},
+	tag=[s],
+	otherkeywords={
+		% General
+		>,
+		% Standard tags
+		<!DOCTYPE,
+		</html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+		% body
+		</body, <body,
+		% Divs
+		</div, <div, </div>, 
+		% Paragraphs
+		</p, <p, </p>,
+		% scripts
+		</script, <script,
+		% More tags...
+		<canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+	},
+	identifierstyle=\color{black}\ttfamily,
+	commentstyle=\color{ipython_red}\ttfamily,
+	stringstyle=\color{ipython_green}\ttfamily,
+	rulecolor=\color{ipython_frame},
+	frame=single,
+	frameround={t}{t}{t}{t},
+	framexleftmargin=6mm,
+	breaklines=true,                 
+	captionpos=b, 
+	numbers=left,
+	numberstyle=\tiny\color{halfgray},
+	%
+	%
+	backgroundcolor=\color{ipython_bg},
+	%   extendedchars=true,
+	basicstyle=\scriptsize,
+	keywordstyle=\color{blue}\ttfamily,
+	ndkeywords={
+		% General
+		=,
+		% HTML attributes
+		charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+		% SVG attributes
+		fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+		% properties
+		margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+		% CSS3 properties
+		transform:, -moz-transform:, -webkit-transform:,
+		animation:, -webkit-animation:,
+		transition:,  transition-duration:, transition-property:, transition-timing-function:,
+	}
+}
+
 %To here
 
 % ¤¤ Navngivning ¤¤ %

@@ -183,15 +183,17 @@ function recolorMap() {
 
       //Gets the name of each currently displayed tile
       tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-      console.log(tileName)
       asyncCall()
       async function asyncCall() {
 
         tileMaxValue = await calculateMaxValue(tileName);
         maxValues.push(tileMaxValue)
         currentTile[selfCounter]++;
-
+        // console.log(currentTile[selfCounter])
         if (currentTile[selfCounter] == tileNumber && currentTile[otherCounter] == tileNumber && tileNumber != 0) {
+          // console.log(maxValues.length)
+          // console.log(maxValues.length)
+          // console.log(currentTile[selfCounter])
           currentTile[selfCounter] = 0;
           currentTile[otherCounter] = 0;
           tileNumber = 0;

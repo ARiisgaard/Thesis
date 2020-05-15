@@ -5,3 +5,4 @@ g2tTiles/
 env/
 *.tiff
 *.kml
+*.aux
