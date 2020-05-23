@@ -1,0 +1,75 @@
+section{Evaluation tool}
+
+Due to the limitations mentioned in section x user testing was not a possibility. This meant that it was necessary to find another way to evaluate the user experience. This was done using Google Lighthouse version 5.7. 
+This chapter starts with an overview of the tool followed by an evaluation of which criteria are relevant for this project. The relevant criteria and their metrics are then expanded upon.
+
+\section{Overview}
+Google Lighthouse is an automated tool in Chrome DevTools, which is the developer tool included in Chrome. It can be used to check the quality of websites within the five categories: Best practice, performance, accessibility, search engine optimization and progressive web app. 
+https://developers.google.com/web/tools/lighthouse/
+
+\fxnote{Inset Image here}
+
+\textbf{Performance}
+The performance audit is measuring the site performance and load speed. This is done by measuring the time needed for different stages of loading and when the user is able to interact with the site. 
+https://web.dev/lighthouse-performance/
+\textbf{Accessibility}
+The accessibility check is for ensuring all users can effectively access and navigate the webpage. 
+The check is mainly focused on Accessible Rich Internet Applications, which is used by assistive technologies such as screen readers.
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+It is pointed out that accessibility is difficult to automatically test, so further manual testing is recommended. 
+
+https://web.dev/lighthouse-accessibility/
+
+\textbf{Best practice}
+The best practices cover different types of website enhancements. There checks to ensure that the website is fast, secure, and not using deprecated technologies, among others. 
+
+https://web.dev/lighthouse-best-practices/
+\textbf{Search engine optimization}
+The checks within the Search Engine Optimization (SEO) category evaluate how well the page is optimized for ranking by search engine. This optimization is achieved by ensuring that the page is readable search engines and that search engines can access the page. It also includes some measurements for being mobile friendly.
+https://web.dev/lighthouse-seo/
+
+\textbf{Progressive web app}
+The Progressive Web App (PWA) audits are target towards a mobile audience. These includes having a fast and reliable experience on mobile networks and to which degree the website act in a similar fashion to a native mobile application.
+https://web.dev/lighthouse-pwa/
+
+\subsection{Relevant evaluation criteria}
+ 
+Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{Target audience}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientist and not for anybody. It is presumed that the majority of people, who daily work with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
+
+\fxnote{Write target audience}
+
+
+\section{Metrics for performance}
+
+\fxnote{Write about timing the python processing}
+
+
+
+
+
+\textbf{First Contentful Paint}
+The First Contentful Paint (FCP) is the time in seconds it takes before the browser to render the first parts of the website. 
+
+https://web.dev/first-contentful-paint/
+\textbf{Speed Index}
+The speed index is a time measurement of content appearing visually during load. To calculate it the visual progression between each frame of the loading process is measured. This is then being processing is done using the Speedline module. The unit is seconds.
+https://web.dev/speed-index/?utm_source=lighthouse&utm_medium=devtools
+https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index
+\fxnote{Know about this for the exam, but an extended explanation seem out of place}
+\textbf{First Meaningful Paint}
+The First Meaningful Paint (FMP) is the seconds from the initial loading of the page to the primary content is visible. Where primary content is referring to the largest layout change, which is visible without scrolling.
+
+It should be noted that FMP is being replaced with Largest Contentful Paint (LCP) in the next release of Chrome Lighthouse. The reason for this is that FMP is did not give consistent result and was difficult to standardize in all web browsers.
+https://web.dev/first-meaningful-paint/
+LCP is the seconds needed to render the single largest content element, which is visible without scrolling.
+
+https://web.dev/lcp/
+\textbf{Time to Interactive}
+The Time to Interactive (TTI) is the seconds before a loaded website is completely interactive. This time is defined as after FCP when most of visible elements can be interacted with and respond within 50 milliseconds. 
+https://web.dev/interactive/
+\textbf{First CPU Idle}
+First CPU Idle is the seconds before a page becomes minimally interactive. Minimally interactive is defined as when the majority of the User Interface elements are interactive and giving responds within a reasonable time. 
+The difference between this and TTI is the degree of interaction. When the user can begin interacting with a page the First CPU Idle can be measured. TTI is measured when all interactions can be performed. 
+This feature is being replaced with Total Blocking Time (TBT) in the next Lighthouse release. The reason for this is that this and TTI are too similar to maintain both. 
+https://web.dev/first-cpu-idle/
+TBT is the total amount of milliseconds where the website is not responding to user input. It is measured during the time between FCP and TTI. 
