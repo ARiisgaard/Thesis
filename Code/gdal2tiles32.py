@@ -37,7 +37,8 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 # ******************************************************************************
-
+import time
+start = time.time()
 import sys
 
 try:
@@ -608,6 +609,12 @@ class GDAL2Tiles(object):
 
         self.generate_overview_tiles()
 
+
+        end = time.time()
+
+        print("Time spent:")
+        print(end - start)
+
     # -------------------------------------------------------------------------
 
     def error(self, msg, details=''):
@@ -784,7 +791,7 @@ gdal_vrtmerge.py -o merged.vrt %s"""
         # KML generation
 
         self.kml = self.options.kml
-
+        print(self.kml)
         # Output the results
 
         if self.options.verbose:
@@ -1206,15 +1213,15 @@ gdal2tiles temp.vrt"""
 
         # KML test
 
-        self.isepsg4326 = False
-        srs4326 = osr.SpatialReference()
-        srs4326.ImportFromEPSG(4326)
-        if self.out_srs and srs4326.ExportToProj4() \
-                == self.out_srs.ExportToProj4():
-            self.kml = True
-            self.isepsg4326 = True
-            if self.options.verbose:
-                print('KML autotest OK!')
+        # self.isepsg4326 = False
+        # srs4326 = osr.SpatialReference()
+        # srs4326.ImportFromEPSG(4326)
+        # if self.out_srs and srs4326.ExportToProj4() \
+        #         == self.out_srs.ExportToProj4():
+        #     self.kml = True
+        #     self.isepsg4326 = True
+        #     if self.options.verbose:
+        #         print('KML autotest OK!')
 
         # Read the georeference
 
@@ -2933,3 +2940,6 @@ if __name__ == '__main__':
     if argv:
         gdal2tiles = GDAL2Tiles(argv[1:])
         gdal2tiles.process()
+
+
+
