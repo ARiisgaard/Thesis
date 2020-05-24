@@ -26,8 +26,7 @@ As shown the performance scored nothing out of a hundred. The performance in eac
 \subsection{Opportunities}
 In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. 
 \textbf{Eliminate render-blocking resources}
-The opportunity for the largest estimated time saving is to eliminate render-blocking resources. These are the URLs, which must be loaded before the first paint can be applied to the page. 
-https://web.dev/render-blocking-resources/?utm_source=lighthouse&utm_medium=devtools
+The opportunity for the largest estimated time saving is to eliminate render-blocking resources. These are the URLs, which must be loaded before the first paint can be applied to the page. \citep{RenderBlocking}
 
 Table x shows the different libraries, which have to be loaded before the site is rendered. It can be seen that Openlayers is 82 \% of the loaded data.
 \fxnote{Have I written about Jquery??}
@@ -52,11 +51,12 @@ Files sizes and script parsing time can be reduced by minifying and compressing 
 A minified file is a file, where all the unnecessary parts have been cut away. Whitespaces and unused code are removed leaving a smaller file, which still functions perfectly. 
 
 Compression is using an algorithm to modify the data, so that it takes up less space.
-https://web.dev/unminified-javascript/?utm_source=lighthouse&utm_medium=devtools
+\citep{MinifyJS}
 \fxnote{For exam: Try using Terser to minify and compress – Write about Terser in future work}
 \textbf{Avoid enormous network payloads}
 Long loading times are highly correlated with the amount of loaded data.  
-https://web.dev/total-byte-weight/?utm_source=lighthouse&utm_medium=devtools
+\citep{LoadingTooMuch}
+
 Loading the raster tiles for the map does require loading multiple files with a large bit depth, which requires a lengthy loading time. 
 
 \textbf{Does not use HTTP/2 for all of its resources}
@@ -64,8 +64,8 @@ This suggested improvement appears if some of the page’s resources are being s
 
 \fxnote{Write about HTTP/2 earlier?}
 
-https://web.dev/uses-http2/?utm_source=lighthouse&utm_medium=devtools
+\citep{HTTP2}
 
 \textbf{Uses deprecated APIs}
 When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. 
-https://web.dev/deprecations/?utm_source=lighthouse&utm_medium=devtools
+\citep{OldApis}

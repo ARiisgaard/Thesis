@@ -1,1 +1,36 @@
-\contentsline {fixme}{Note: Maybe write something about the limitation - eg. that user testing wasn't a possibility due to time}{1}{section.1.1}% 
+\contentsline {fixme}{Note: Maybe write something about the limitation - eg. that user testing wasn't a possibility due to time}{1}{section.1.1}%
+\contentsline {fixme}{Note: ADD: quick overview of what the solution is going to be, what is population projections, SSP}{2}{section.1.3}%
+\contentsline {fixme}{Note: Create own figure}{6}{section.1.6}%
+\contentsline {fixme}{Error: Need more context to the table - what does it mean? Do I need it? - use it to select what to show in results}{6}{table.caption.7}%
+\contentsline {fixme}{Note: Write this - leads to the next section}{7}{section.1.7}%
+\contentsline {fixme}{Note: Write about Cloud optimized Geotiff somewhere}{15}{chapter.3}%
+\contentsline {fixme}{Note: Write about gdal2tiles parallelly}{15}{chapter.3}%
+\contentsline {fixme}{Note: Write about Sarahs stuff here}{15}{chapter.3}%
+\contentsline {fixme}{Note: Update figures to be created by Baumrock}{16}{figure.caption.14}%
+\contentsline {fixme}{Note: Write about other methods}{17}{section.3.2}%
+\contentsline {fixme}{Note: Add interactive somewhere in the research question}{26}{figure.caption.20}%
+\contentsline {fixme}{Note: Who is the target audience?}{26}{figure.caption.20}%
+\contentsline {fixme}{Note: Write that my own search bar can be improved}{27}{table.caption.22}%
+\contentsline {fixme}{Note: Did I write about toogling dual legends?}{27}{table.caption.22}%
+\contentsline {fixme}{Note: Write limitations}{29}{chapter.5}%
+\contentsline {fixme}{Note: Inset Image here}{29}{section.5.1}%
+\contentsline {fixme}{Note: Write target audience}{30}{subsection.5.1.1}%
+\contentsline {fixme}{Note: Write about timing the python processing}{30}{section.5.2}%
+\contentsline {fixme}{Note: Source: Return to this one later}{30}{section.5.2}%
+\contentsline {fixme}{Note: Know about this for the exam, but an extended explanation seem out of place}{30}{section.5.2}%
+\contentsline {fixme}{Note: Write about the addition to time the whole thing}{42}{lstnumber.7.3.6}%
+\contentsline {fixme}{Note: Make figures - remove link}{43}{subsection.7.1.5}%
+\contentsline {fixme}{Note: Test if normal gdal2tiles tiles have edges - if false, then point it out here}{43}{subsection.7.1.5}%
+\contentsline {fixme}{Note: How long time did it take to run?}{44}{lstnumber.7.4.5}%
+\contentsline {fixme}{Note: Write that it is nonsense}{56}{figure.caption.33}%
+\contentsline {fixme}{Note: Have I written about Jquery??}{56}{subsection.9.0.2}%
+\contentsline {fixme}{Note: TODO: Make a table from the information in the figure below – tabtext – resourse use of the 3 larges libraries}{56}{table.caption.34}%
+\contentsline {fixme}{Note: Write about Coverage earlier – maybe in evaluation tools}{56}{table.caption.34}%
+\contentsline {fixme}{Note: For exam: Try using Terser to minify and compress – Write about Terser in future work}{56}{table.caption.34}%
+\contentsline {fixme}{Note: Write about HTTP/2 earlier?}{57}{table.caption.34}%
+\contentsline {fixme}{Note: Check with Carsten – can this only be done with node?}{60}{section.10.2}%
+\contentsline {fixme}{Note: Write about asynchronous XMLREquest and minifying/compressing}{60}{section.10.2}%
+\contentsline {fixme}{Note: Write about zoom level bug}{60}{section.10.2}%
+\contentsline {fixme}{Note: Add user testing to future work }{60}{section.10.2}%
+\contentsline {fixme}{Note: Source!!!}{60}{section.10.2}%
+\contentsline {fixme}{Note: Mention caddy – 6 connection issue earlier}{61}{figure.caption.35}%

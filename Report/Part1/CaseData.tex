@@ -1,5 +1,6 @@
-\Chapter{Case data}
+\chapter{Case data}
 The population projection visualized in this project have been created by a geosimulation, which geographically distribute the predicted population. This geosimulation have been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the feature.
+
 \section{The data behind the simulation}
 This projection is a geographical distribution of the global prospects created by The United Nations Department of Economic and Social Affairs. These prospects estimate the population numbers in each country living in rural and urban areas. The spatial distribution has been based on raster data from the Global Rural Urban Mapping Project (GRUMP). In this dataset the world has been divided into 1x1 km cell, each of which contains the number of estimated people. 
 GRUMP also have a dataset for the extent of urban areas. This urban extent has been estimated based on the light emitted after dark, which as a result means that it overestimates the extent of urban areas. To compensate for this the dataset was combined with the Global Land Cover Map from the European Space Agency (GlobCover). This dataset more accurately defines the extent of urban areas. Only the areas which qualified as urban in GRUMP dataset and were classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. 
@@ -22,7 +23,7 @@ After this, the cells would be reclassified as more urbanized if their populatio
 
 These steps are then repeated for every iteration. 
 
-
+\citep{Kessler}
 \section{Shared Socioeconomic Pathways}
 
 
@@ -44,7 +45,7 @@ The vertical axis is factors, which in absence of climate policy would increase 
 	\label{SSPTable}
 \end{table}
 
-How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. This table have been created by \citet{MaybeSEDAC}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income.
+How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. This table have been created by \citet{WhyDetailedPop}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income.
 
 \fxerror{Need more context to the table - what does it mean? Do I need it? - use it to select what to show in results}
 

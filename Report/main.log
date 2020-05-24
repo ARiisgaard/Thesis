@@ -1,32 +1,21 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.11)  10 FEB 2020 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.30)  25 MAY 2020 00:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2019-10-01> patch level 2
+LaTeX2e <2019-10-01> patch level 3
 (./preamble_ida14.tex (c:/texlive/2019/texmf-dist/tex/latex/memoir/memoir.cls
-Document Class: memoir 2018/12/12 v3.7h configurable book, report, article docu
+Document Class: memoir 2019/11/21 v3.7j configurable book, report, article docu
 ment class
 \onelineskip=\skip41
 \lxvchars=\skip42
 \xlvchars=\skip43
 \@memcnta=\count80
 \c@@memmarkcntra=\count81
-(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifpdf.sty
-Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-
+LaTeX Info: Redefining \InputIfFileExists on input line 140.
 (c:/texlive/2019/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2019/11/07 v1.0c TeX engine tests
-))
-(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifetex.sty
-Package: ifetex 2019/10/25 v1.3 ifetex legacy package. Use iftex instead.
-)
-(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 \stockheight=\skip44
 \stockwidth=\skip45
@@ -201,8 +190,8 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 \afterepigraphskip=\skip125
 \epigraphwidth=\skip126
 \epigraphrule=\skip127
-LaTeX Info: Redefining \em on input line 7592.
-LaTeX Info: Redefining \emph on input line 7600.
+LaTeX Info: Redefining \em on input line 7662.
+LaTeX Info: Redefining \emph on input line 7670.
 \tocentryskip=\skip128
 \tocbaseline=\skip129
 \cftparskip=\skip130
@@ -285,8 +274,8 @@ LaTeX Info: Redefining \emph on input line 7600.
 \FrameRule=\dimen145
 \FrameSep=\dimen146
 \c@cp@cntr=\count119
-LaTeX Info: Redefining \: on input line 12114.
-LaTeX Info: Redefining \! on input line 12116.
+LaTeX Info: Redefining \: on input line 12187.
+LaTeX Info: Redefining \! on input line 12189.
 \c@ism@mctr=\count120
 \c@xsm@mctr=\count121
 \c@csm@mctr=\count122
@@ -301,6 +290,10 @@ LaTeX Info: Redefining \! on input line 12116.
 \c@sheetsequence=\count131
 \c@lastsheet=\count132
 \c@lastpage=\count133
+
+(c:/texlive/2019/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
+)
 \c@figure=\count134
 \c@lofdepth=\count135
 \cftbeforefigureskip=\skip179
@@ -349,25 +342,28 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@posthook=\toks23
 )
 (c:/texlive/2019/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2019/10/15 3.35 The Babel package
+Package: babel 2019/11/14 3.36 The Babel package
 
 (c:/texlive/2019/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2019/10/15 3.35 Babel switching mechanism
+File: switch.def 2019/11/14 3.36 Babel switching mechanism
 )
 (c:/texlive/2019/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 
 (c:/texlive/2019/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2019/10/15 3.35 Babel common definitions
+File: babel.def 2019/11/14 3.36 Babel common definitions
 \babel@savecnt=\count138
 \U@D=\dimen147
 
 (c:/texlive/2019/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count139
 )
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 108.
 ))
 (c:/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
@@ -588,7 +584,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box61
 )
 (c:/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2019/04/01 v2.17c AMS math features
+Package: amsmath 2019/11/16 v2.17d AMS math features
 \@mathmargin=\skip267
 
 For additional information on amsmath, use the `?' option.
@@ -642,8 +638,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip268
 \multlinetaggap=\skip269
 \mathdisplay@stack=\toks34
-LaTeX Info: Redefining \[ on input line 2855.
-LaTeX Info: Redefining \] on input line 2856.
+LaTeX Info: Redefining \[ on input line 2858.
+LaTeX Info: Redefining \] on input line 2859.
 )
 (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -1163,7 +1159,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enitdp@description=\count365
 )
 (c:/texlive/2019/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2019/09/21 v0.5n Insert pages of external PDF documents (AM)
+Package: pdfpages 2019/11/21 v0.5o Insert pages of external PDF documents (AM)
 
 (c:/texlive/2019/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
@@ -1176,12 +1172,15 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
 (c:/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 )))
 \AM@pagewidth=\dimen294
 \AM@pageheight=\dimen295
 
 (c:/texlive/2019/texmf-dist/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2019/09/21 v0.5n Pdfpages driver for pdfTeX (AM)
+File: pppdftex.def 2019/11/21 v0.5o Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box93
 \AM@global@opts=\toks38
@@ -1231,19 +1230,11 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 ******************************************************
 
 (c:/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2019/09/28 v7.00a Hypertext links for LaTeX
+Package: hyperref 2019/11/10 v7.00c Hypertext links for LaTeX
 
-(c:/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2019/10/27
-hobsub not currently supported, see hobsub.dtx to extract original code
-
-(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+(c:/texlive/2019/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
 )
-(c:/texlive/2019/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
@@ -1253,7 +1244,10 @@ Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
 (c:/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-))
+
+(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)))
 (c:/texlive/2019/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 )
@@ -1271,7 +1265,7 @@ Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
 )))
 (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/letltxmacro.sty
 Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-))
+)
 (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
@@ -1283,7 +1277,7 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 \Hy@pagecounter=\count374
 
 (c:/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2019/09/28 v7.00a Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2019/11/10 v7.00c Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -1295,21 +1289,21 @@ Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 (c:/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 4414.
-Package hyperref Info: Hyper figures OFF on input line 4540.
-Package hyperref Info: Link nesting OFF on input line 4545.
-Package hyperref Info: Hyper index ON on input line 4548.
-Package hyperref Info: Plain pages OFF on input line 4555.
-Package hyperref Info: Backreferencing OFF on input line 4560.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4409.
+Package hyperref Info: Hyper figures OFF on input line 4535.
+Package hyperref Info: Link nesting OFF on input line 4540.
+Package hyperref Info: Hyper index ON on input line 4543.
+Package hyperref Info: Plain pages OFF on input line 4550.
+Package hyperref Info: Backreferencing OFF on input line 4555.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4793.
+Package hyperref Info: Bookmarks ON on input line 4788.
 \c@Hy@tempcnt=\count376
 
 (c:/texlive/2019/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5152.
+LaTeX Info: Redefining \url on input line 5147.
 \XeTeXLinkMargin=\dimen297
 
 (c:/texlive/2019/texmf-dist/tex/generic/oberdiek/bitset.sty
@@ -1322,21 +1316,21 @@ Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 \Fld@menulength=\count377
 \Field@Width=\dimen298
 \Fld@charsize=\dimen299
-Package hyperref Info: Hyper figures OFF on input line 6423.
-Package hyperref Info: Link nesting OFF on input line 6428.
-Package hyperref Info: Hyper index ON on input line 6431.
-Package hyperref Info: backreferencing OFF on input line 6438.
-Package hyperref Info: Link coloring ON on input line 6441.
-Package hyperref Info: Link coloring with OCG OFF on input line 6448.
-Package hyperref Info: PDF/A mode OFF on input line 6453.
-LaTeX Info: Redefining \ref on input line 6493.
-LaTeX Info: Redefining \pageref on input line 6497.
+Package hyperref Info: Hyper figures OFF on input line 6418.
+Package hyperref Info: Link nesting OFF on input line 6423.
+Package hyperref Info: Hyper index ON on input line 6426.
+Package hyperref Info: backreferencing OFF on input line 6433.
+Package hyperref Info: Link coloring ON on input line 6436.
+Package hyperref Info: Link coloring with OCG OFF on input line 6443.
+Package hyperref Info: PDF/A mode OFF on input line 6448.
+LaTeX Info: Redefining \ref on input line 6488.
+LaTeX Info: Redefining \pageref on input line 6492.
 \Hy@abspage=\count378
 \c@Item=\count379
 \c@Hfootnote=\count380
 )
 (c:/texlive/2019/texmf-dist/tex/latex/memoir/memhfixc.sty
-Package: memhfixc 2013/05/30 v1.17 nameref/hyperref package fixes for memoir cl
+Package: memhfixc 2019/10/24 v1.18 nameref/hyperref package fixes for memoir cl
 ass
 \c@memhycontfloat=\count381
 \c@Hpagenote=\count382
@@ -1344,7 +1338,7 @@ ass
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2019/09/28 v7.00a Hyperref driver for pdfTeX
+File: hpdftex.def 2019/11/10 v7.00c Hyperref driver for pdfTeX
 
 (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/atveryend.sty
 Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
@@ -1360,7 +1354,7 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+85.
 )
 \Hy@SectionHShift=\skip301
 )
@@ -1370,16 +1364,16 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 92.
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 (c:/texlive/2019/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2019/10/10 v2.7c Micro-typographical refinements (RS)
+Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
 \MT@toks=\toks42
 \MT@count=\count385
 LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen300
-LaTeX Info: Redefining \textmicrotypecontext on input line 1347.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
 \MT@listname@count=\count386
 
 (c:/texlive/2019/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2019/10/10 v2.7c Definitions specific to pdftex (RS)
+File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 914.
 LaTeX Info: Redefining \lslig on input line 914.
@@ -1388,7 +1382,7 @@ LaTeX Info: Redefining \lslig on input line 914.
 Package microtype Info: Loading configuration file microtype.cfg.
 
 (c:/texlive/2019/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2019/10/10 v2.7c microtype main configuration file (RS)
+File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
 ))
 (c:/texlive/2019/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
@@ -1440,17 +1434,16 @@ Package: placeins 2005/04/18  v 2.2
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
 
-Class memoir Warning: You are using the caption package with the memoir class. 
-To prepare we will now reset all captioning macros and configurations to kernel
- defaults, and then let the caption package take over. Please remember to use
- the caption package interfaces in order to
- configure your captions.
+Class memoir Warning: For the caption package to function properly with memoir,
+ we will now reset\caption and friends to kernel defaults and then let the capt
+ion package take over. Remember: all caption configuration now goves via the ca
+ption package interface, not the interface from the memoir class. .
 
 (c:/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2019/09/01 v3.3d Customizing captions (AR)
+Package: caption 2019/10/18 v3.4a Customizing captions (AR)
 
 (c:/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2019/09/01 v1.8d caption3 kernel (AR)
+Package: caption3 2019/09/09 v1.8e caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
 \captionmargin=\dimen309
 \captionmargin@=\dimen310
@@ -1459,9 +1452,10 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@indent=\dimen313
 \caption@parindent=\dimen314
 \caption@hangindent=\dimen315
+Package caption Info: memoir document class detected.
 )
 \c@caption@flags=\count402
-\c@ContinuedFloat=\count403
+\c@continuedfloat=\count403
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -1525,7 +1519,28 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@roff=\dimen330
 ))) (./main.aux
 (./Formalia/FrontPage.aux) (./Formalia/Titelblad.aux) (./Formalia/Preface.aux)
-(./Formalia/Intro.aux))
+(./Formalia/Intro.aux) (./Part1/CaseData.aux) (./Part1/RasterFormatting.aux)
+(./Part1/VisualConventions.aux) (./Part1/RelatedWork.aux)
+(./Part2/CoreConcepts.aux
+
+LaTeX Warning: Label `WhyColorLocallyMap' multiply defined.
+
+) (./Part2/InteractiveMap.aux) (./Part2/EvaluationMethods.aux)
+(./Part3/CodingLanguages.aux) (./Part3/DevelopingTool.aux
+
+LaTeX Warning: Label `VoresPY' multiply defined.
+
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+) (./Part3/Result.aux) (./Part4/Evaluation.aux) (./Part4/Discussion.aux)
+(./Part4/Conclusion.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1551,7 +1566,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 7.
 
-
 (c:/texlive/2019/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1571,18 +1585,10 @@ LaTeX Info: Redefining \selectfont on input line 7.
 \MPnumerator=\count415
 \makeMPintoPDFobject=\count416
 \everyMPtoPDFconversion=\toks45
-) (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(c:/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
+) (c:/texlive/2019/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2019/11/27 v2.8 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+85.
 
 (c:/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -1608,8 +1614,11 @@ Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 (c:/texlive/2019/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 84.
+
+(c:/texlive/2019/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+))
 Package hyperref Info: Link coloring ON on input line 7.
 
 (c:/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1736,7 +1745,7 @@ Package microtype Info: Character `029' is missing
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
-<Pictures/Example.jpg, id=28, 1355.0625pt x 837.1275pt>
+<Pictures/Example.jpg, id=84, 1355.0625pt x 837.1275pt>
 File: Pictures/Example.jpg Graphic file (type jpg)
 <use Pictures/Example.jpg>
 Package pdftex.def Info: Pictures/Example.jpg  used on input line 10.
@@ -1774,24 +1783,32 @@ Overfull \hbox (121.71281pt too wide) in paragraph at lines 20--15
 ] [4
 
 
-] (./main.toc)
-[5] [6
+] (./main.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 8.
 
-]
+[5]) [6]
 \openout2 = `Formalia/Intro.aux'.
 
  (./Formalia/Intro.tex
-Overfull \hbox (22.72008pt too wide) in paragraph at lines 3--5
-\T1/lmr/m/n/10.95 (-20) 9.7 bil-lon in 2050. https://population.un.org/wpp/Publ
-ications/Files/WPP2019_Highlights.pdf 
- []
+
+Package natbib Warning: Citation `UNDEASHightlights' on page 1 undefined on inp
+ut line 3.
+
+
+Package natbib Warning: Citation `NationalPop' on page 1 undefined on input lin
+e 5.
+
+
+Package natbib Warning: Citation `WhyDetailedPop' on page 1 undefined on input 
+line 5.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 27.
+(Font)              <9> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 27.
+(Font)              <5> on input line 25.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
-7.
+5.
 (c:/texlive/2019/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1800,13 +1817,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package hyperref Info: bookmark level for unknown fixme defaults to 0 on input 
-line 27.
+line 25.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 
+l.34 
       [1
+
 
 
 ])pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
@@ -1814,58 +1832,707 @@ s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.34 \include{Formalia/Intro}
-                              [2] (./main.bbl
+                              [2] [3
+
+
+] [4]
+\openout2 = `Part1/CaseData.aux'.
+
+ (./Part1/CaseData.tex
+! Undefined control sequence.
+l.1 \Chapter
+            {Case data}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<Pictures/CreatingData.png, id=223, 610.53094pt x 221.32687pt>
+File: Pictures/CreatingData.png Graphic file (type png)
+<use Pictures/CreatingData.png>
+Package pdftex.def Info: Pictures/CreatingData.png  used on input line 13.
+(pdftex.def)             Requested size: 340.8013pt x 123.55043pt.
+[5
+
+ <./Pictures/CreatingData.png>]
+
+Package natbib Warning: Citation `Kessler' on page 6 undefined on input line 26
+.
+
+
+Package natbib Warning: Citation `ConceptSSP' on page 6 undefined on input line
+ 35.
+
+
+Package natbib Warning: Citation `SSP' on page 6 undefined on input line 37.
+
+<Pictures/SSPTable.png, id=231, 460.72125pt x 257.46187pt>
+File: Pictures/SSPTable.png Graphic file (type png)
+<use Pictures/SSPTable.png>
+Package pdftex.def Info: Pictures/SSPTable.png  used on input line 42.
+(pdftex.def)             Requested size: 340.8013pt x 190.44807pt.
+
+Package natbib Warning: Citation `WhyDetailedPop' on page 6 undefined on input 
+line 48.
+
+[6]) [7 <./Pictures/SSPTable.PNG>]
+\openout2 = `Part1/RasterFormatting.aux'.
+
+ (./Part1/RasterFormatting.tex
+
+Package natbib Warning: Citation `Dent' on page 8 undefined on input line 5.
+
+
+Package natbib Warning: Citation `Liedman' on page 8 undefined on input line 10
+.
+
+
+Package natbib Warning: Citation `SlippyMap' on page 8 undefined on input line 
+12.
+
+<Pictures/TilesPerZoomLevel.png, id=250, 504.38437pt x 195.73125pt>
+File: Pictures/TilesPerZoomLevel.png Graphic file (type png)
+<use Pictures/TilesPerZoomLevel.png>
+Package pdftex.def Info: Pictures/TilesPerZoomLevel.png  used on input line 16.
+
+(pdftex.def)             Requested size: 340.8013pt x 132.25325pt.
+
+Package natbib Warning: Citation `SlippyMap' on page 8 undefined on input line 
+24.
+
+[8
+
+
+ <./Pictures/TilesPerZoomLevel.PNG>]
+<Pictures/TMSXYZ.png, id=262, 488.57532pt x 231.11343pt>
+File: Pictures/TMSXYZ.png Graphic file (type png)
+<use Pictures/TMSXYZ.png>
+Package pdftex.def Info: Pictures/TMSXYZ.png  used on input line 28.
+(pdftex.def)             Requested size: 340.8013pt x 161.21405pt.
+
+
+Package natbib Warning: Citation `Slippy101' on page 9 undefined on input line 
+29.
+
+
+Package natbib Warning: Citation `TMSnaming' on page 9 undefined on input line 
+29.
+
+
+Package natbib Warning: Citation `Slippy101' on page 9 undefined on input line 
+29.
+
+
+Package natbib Warning: Citation `TMSnaming' on page 9 undefined on input line 
+29.
+
+
+Package natbib Warning: Citation `TMS' on page 9 undefined on input line 36.
+
+<Pictures/SlippyInTMS.png, id=265, 316.93407pt x 318.43968pt>
+File: Pictures/SlippyInTMS.png Graphic file (type png)
+<use Pictures/SlippyInTMS.png>
+Package pdftex.def Info: Pictures/SlippyInTMS.png  used on input line 41.
+(pdftex.def)             Requested size: 340.8013pt x 342.44717pt.
+) [9 <./Pictures/TMSXYZ.PNG>] [10 <./Pictures/SlippyInTMS.PNG>]
+\openout2 = `Part1/VisualConventions.aux'.
+
+
+(./Part1/VisualConventions.tex
+
+Package natbib Warning: Citation `objectsNFields' on page 11 undefined on input
+ line 4.
+
+
+LaTeX Warning: Reference `Add chapter' on page 11 undefined on input line 5.
+
+<Pictures/MunsellColorSystem.png, id=279, 903.375pt x 903.375pt>
+File: Pictures/MunsellColorSystem.png Graphic file (type png)
+<use Pictures/MunsellColorSystem.png>
+Package pdftex.def Info: Pictures/MunsellColorSystem.png  used on input line 13
+.
+(pdftex.def)             Requested size: 340.8013pt x 340.80489pt.
+
+Package natbib Warning: Citation `JacobRus' on page 11 undefined on input line 
+14.
+
+
+Package natbib Warning: Citation `JacobRus' on page 11 undefined on input line 
+14.
+
+[11
+
+
+
+]
+
+Package natbib Warning: Citation `Dent' on page 12 undefined on input line 28.
+
+[12 <./Pictures/MunsellColorSystem.png>]
+
+Package natbib Warning: Citation `Brewer94' on page 13 undefined on input line 
+36.
+
+<Pictures/BrewerDataTypes.png, id=292, 441.14813pt x 290.58563pt>
+File: Pictures/BrewerDataTypes.png Graphic file (type png)
+<use Pictures/BrewerDataTypes.png>
+Package pdftex.def Info: Pictures/BrewerDataTypes.png  used on input line 40.
+(pdftex.def)             Requested size: 340.8013pt x 224.49652pt.
+
+Package natbib Warning: Citation `ColorGuidelines' on page 13 undefined on inpu
+t line 41.
+
+
+Package natbib Warning: Citation `ColorGuidelines' on page 13 undefined on inpu
+t line 41.
+
+
+Package natbib Warning: Citation `Brewer94' on page 13 undefined on input line 
+48.
+
+
+Package natbib Warning: Citation `ColorBrewer' on page 13 undefined on input li
+ne 51.
+
+
+Package natbib Warning: Citation `Dent' on page 13 undefined on input line 57.
+
+[13 <./Pictures/BrewerDataTypes.png>]
+
+Package natbib Warning: Citation `LightIsLess' on page 14 undefined on input li
+ne 60.
+
+) [14]
+\openout2 = `Part1/RelatedWork.aux'.
+
+ (./Part1/RelatedWork.tex
+
+Package natbib Warning: Citation `Buamrocks' on page 15 undefined on input line
+ 11.
+
+<Pictures/BaumrockMap1.png, id=305, 507.39563pt x 447.92343pt>
+File: Pictures/BaumrockMap1.png Graphic file (type png)
+<use Pictures/BaumrockMap1.png>
+Package pdftex.def Info: Pictures/BaumrockMap1.png  used on input line 14.
+(pdftex.def)             Requested size: 340.8013pt x 300.8658pt.
+
+Package natbib Warning: Citation `EOX' on page 15 undefined on input line 15.
+
+
+Package natbib Warning: Citation `EOX' on page 15 undefined on input line 15.
+
+<Pictures/BaumrockMap2.png, id=308, 502.12593pt x 438.8897pt>
+File: Pictures/BaumrockMap2.png Graphic file (type png)
+<use Pictures/BaumrockMap2.png>
+Package pdftex.def Info: Pictures/BaumrockMap2.png  used on input line 22.
+(pdftex.def)             Requested size: 340.8013pt x 297.89859pt.
+[15
+
+
+
+ <./Pictures/BaumrockMap1.PNG>]
+
+Package natbib Warning: Citation `EOX' on page 16 undefined on input line 30.
+
+
+Package natbib Warning: Citation `Buamrocks' on page 16 undefined on input line
+ 30.
+
+[16 <./Pictures/BaumrockMap2.PNG>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
+1.
+
+(c:/texlive/2019/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) [17] [18
+
+
+] [19] [20]
+\openout2 = `Part2/CoreConcepts.aux'.
+
+
+(./Part2/CoreConcepts.tex
+<Pictures/WhyLimitToExtent.png, id=349, 487.8225pt x 290.58563pt>
+File: Pictures/WhyLimitToExtent.png Graphic file (type png)
+<use Pictures/WhyLimitToExtent.png>
+Package pdftex.def Info: Pictures/WhyLimitToExtent.png  used on input line 22.
+(pdftex.def)             Requested size: 340.8013pt x 203.00949pt.
+ [21
+
+]
+<Pictures/WhyNotPrecolor.png, id=358, 499.8675pt x 208.52907pt>
+File: Pictures/WhyNotPrecolor.png Graphic file (type png)
+<use Pictures/WhyNotPrecolor.png>
+Package pdftex.def Info: Pictures/WhyNotPrecolor.png  used on input line 37.
+(pdftex.def)             Requested size: 340.8013pt x 142.17653pt.
+ [22 <./Pictures/WhyLimitToExtent.PNG>]
+<Pictures/WhyColorLocally.png, id=367, 483.30562pt x 317.68687pt>
+File: Pictures/WhyColorLocally.png Graphic file (type png)
+<use Pictures/WhyColorLocally.png>
+Package pdftex.def Info: Pictures/WhyColorLocally.png  used on input line 50.
+(pdftex.def)             Requested size: 340.8013pt x 224.02258pt.
+ [23 <./Pictures/WhyNotPrecolor.PNG> <./Pictures/WhyColorLocally.PNG>]
+<Pictures/WhyColorLocallyMap.png, id=380, 496.10344pt x 403.5075pt>
+File: Pictures/WhyColorLocallyMap.png Graphic file (type png)
+<use Pictures/WhyColorLocallyMap.png>
+Package pdftex.def Info: Pictures/WhyColorLocallyMap.png  used on input line 59
+.
+(pdftex.def)             Requested size: 340.8013pt x 277.19522pt.
+File: Pictures/WhyColorLocallyMap.png Graphic file (type png)
+<use Pictures/WhyColorLocallyMap.png>
+Package pdftex.def Info: Pictures/WhyColorLocallyMap.png  used on input line 70
+.
+(pdftex.def)             Requested size: 340.8013pt x 277.19522pt.
+ [24 <./Pictures/WhyColorLocallyMap.PNG>]
+
+Package natbib Warning: Citation `gdal2tilesDoc' on page 25 undefined on input 
+line 75.
+
+
+Package natbib Warning: Citation `dent' on page 25 undefined on input line 75.
+
+) [25]
+\openout2 = `Part2/InteractiveMap.aux'.
+
+ (./Part2/InteractiveMap.tex [26
+
+
+]
+
+Package natbib Warning: Citation `OpenStreetMap' on page 27 undefined on input 
+line 5.
+
+<Pictures/InteractiveMap.png, id=401, 451.6875pt x 281.55188pt>
+File: Pictures/InteractiveMap.png Graphic file (type png)
+<use Pictures/InteractiveMap.png>
+Package pdftex.def Info: Pictures/InteractiveMap.png  used on input line 9.
+(pdftex.def)             Requested size: 340.8013pt x 212.44362pt.
+<Pictures/tabOSMFunctions.png, id=402, 494.59781pt x 271.76532pt>
+File: Pictures/tabOSMFunctions.png Graphic file (type png)
+<use Pictures/tabOSMFunctions.png>
+Package pdftex.def Info: Pictures/tabOSMFunctions.png  used on input line 17.
+(pdftex.def)             Requested size: 340.8013pt x 187.25702pt.
+) [27
+
+ <./Pictures/InteractiveMap.PNG>] [28 <./Pictures/tabOSMFunctions.PNG>]
+\openout2 = `Part2/EvaluationMethods.aux'.
+
+
+(./Part2/EvaluationMethods.tex
+
+Package natbib Warning: Citation `Lighthouse' on page 29 undefined on input lin
+e 8.
+
+
+Package natbib Warning: Citation `LhPerformance' on page 29 undefined on input 
+line 12.
+
+
+Package natbib Warning: Citation `ARIA' on page 29 undefined on input line 17.
+
+
+Package natbib Warning: Citation `LhAccess' on page 29 undefined on input line 
+19.
+
+
+Package natbib Warning: Citation `LhBP' on page 29 undefined on input line 22.
+
+
+Package natbib Warning: Citation `LhSEO' on page 29 undefined on input line 26.
+
+
+
+Package natbib Warning: Citation `LhPWA' on page 29 undefined on input line 30.
+
+
+[29
+
+
+
+]
+
+LaTeX Warning: Reference `Target audience' on page 30 undefined on input line 3
+4.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.53 https://web.dev/speed-index/?utm_
+                                      source=lighthouse&utm_medium=devtools
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Misplaced alignment tab character &.
+l.53 ...eb.dev/speed-index/?utm_source=lighthouse&
+                                                  utm_medium=devtools
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+! LaTeX Error: Command \bfseries invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...an extended explanation seem out of place}
+                                                  
+Please use the math alphabet \mathbf instead of the \bfseries command. 
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.58 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (23.5461pt too wide) in paragraph at lines 50--58
+\OML/lmm/m/it/10.95 lighthouseutm[]edium \OT1/lmr/m/n/10.95 (-20) = \OML/lmm/m/
+it/10.95 devtoolshttps \OT1/lmr/m/n/10.95 (-20) : \OML/lmm/m/it/10.95 ==sites:g
+oogle:com=a=webpagetest:org=docs=using \OMS/lmsy/m/n/10.95 ^^@
+ []
+
+
+Overfull \hbox (1270.37564pt too wide) in paragraph at lines 50--58
+\OML/lmm/m/it/10.95 webpagetest=metrics=speed \OMS/lmsy/m/n/10.95 ^^@ \OML/lmm/
+m/it/10.95 index[]Note \OT1/lmr/m/n/10.95 (-20) : \OML/lmm/m/it/10.95 Knowabout
+thisfortheexam; butanextendedexplanationseemoutofplace[][]TheFirstMeaningfulPai
+nt\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 FMP\OT1/lmr/m/n/10.95 (-20) )\O
+ML/lmm/m/it/10.95 isthesecondsfromtheinitialloadingofthepagetotheprimarycontent
+isvisible:Whereprimarycontentisreferringtothelargestlayoutchange; whichisvisibl
+ewithoutscrolling:$ 
+ []
+
+) [30] [31] [32
+
+
+] [33] [34]
+\openout2 = `Part3/CodingLanguages.aux'.
+
+ (./Part3/CodingLanguages.tex
+<Pictures/DevelopmentSteps.png, id=462, 493.845pt x 66.2475pt>
+File: Pictures/DevelopmentSteps.png Graphic file (type png)
+<use Pictures/DevelopmentSteps.png>
+Package pdftex.def Info: Pictures/DevelopmentSteps.png  used on input line 5.
+(pdftex.def)             Requested size: 340.8013pt x 45.71687pt.
+ [35
+
+ <./Pictures/DevelopmentSteps.PNG>] [36
+
+]
+
+Package natbib Warning: Citation `WhatIsPython' on page 37 undefined on input l
+ine 17.
+
+
+Package natbib Warning: Citation `WhatIsJs' on page 37 undefined on input line 
+26.
+
+[37]
+
+Package natbib Warning: Citation `GDAL' on page 38 undefined on input line 31.
+
+
+Package natbib Warning: Citation `gdal2tilesDoc' on page 38 undefined on input 
+line 34.
+
+
+Package natbib Warning: Citation `GdalRelease' on page 38 undefined on input li
+ne 34.
+
+
+Package natbib Warning: Citation `gdalLeaflet' on page 38 undefined on input li
+ne 36.
+
+
+Package natbib Warning: Citation `OL' on page 38 undefined on input line 40.
+
+
+Package natbib Warning: Citation `Baumrocks' on page 38 undefined on input line
+ 45.
+
+<Pictures/olGeoTiffSimplified.png, id=478, 429.85594pt x 459.96844pt>
+File: Pictures/olGeoTiffSimplified.png Graphic file (type png)
+<use Pictures/olGeoTiffSimplified.png>
+Package pdftex.def Info: Pictures/olGeoTiffSimplified.png  used on input line 4
+9.
+(pdftex.def)             Requested size: 340.8013pt x 364.68355pt.
+[38]
+
+Package natbib Warning: Citation `Baumrocks' on page 39 undefined on input line
+ 55.
+
+
+Package natbib Warning: Citation `Geotiff' on page 39 undefined on input line 5
+7.
+
+
+Package natbib Warning: Citation `Plotty' on page 39 undefined on input line 58
+.
+
+
+Package natbib Warning: Citation `Baumrocks' on page 39 undefined on input line
+ 61.
+
+) [39 <./Pictures/olGeoTiffSimplified.PNG>]
+\openout2 = `Part3/DevelopingTool.aux'.
+
+ (./Part3/DevelopingTool.tex
+[40
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+1.
+ (c:/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+Package natbib Warning: Citation `RasterDrivers' on page 41 undefined on input 
+line 19.
+
+
+Package natbib Warning: Citation `MoreThan8' on page 41 undefined on input line
+ 25.
+
+[41]
+
+Package natbib Warning: Citation `gdal2tilesDoc' on page 42 undefined on input 
+line 41.
+
+[42]
+
+Package natbib Warning: Citation `MoreThan8' on page 43 undefined on input line
+ 76.
+
+(c:/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
+(c:/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+) [43]
+
+Package natbib Warning: Citation `WmtsOl' on page 44 undefined on input line 10
+8.
+
+<Pictures/MapWithWrongResolution.png, id=548, 395.22656pt x 441.14813pt>
+File: Pictures/MapWithWrongResolution.png Graphic file (type png)
+<use Pictures/MapWithWrongResolution.png>
+Package pdftex.def Info: Pictures/MapWithWrongResolution.png  used on input lin
+e 153.
+(pdftex.def)             Requested size: 340.8013pt x 380.40317pt.
+[44] [45 <./Pictures/MapWithWrongResolution.PNG>]
+
+Package natbib Warning: Citation `forEachTileCoord' on page 46 undefined on inp
+ut line 175.
+
+[46]
+<Pictures/CalculateMaxValue.png, id=585, 434.37282pt x 465.23813pt>
+File: Pictures/CalculateMaxValue.png Graphic file (type png)
+<use Pictures/CalculateMaxValue.png>
+Package pdftex.def Info: Pictures/CalculateMaxValue.png  used on input line 203
+.
+(pdftex.def)             Requested size: 340.8013pt x 365.03525pt.
+ [47 <./Pictures/CalculateMaxValue.PNG>]
+<Pictures/DoubleLoop.png, id=595, 502.12593pt x 248.42813pt>
+File: Pictures/DoubleLoop.png Graphic file (type png)
+<use Pictures/DoubleLoop.png>
+Package pdftex.def Info: Pictures/DoubleLoop.png  used on input line 226.
+(pdftex.def)             Requested size: 340.8013pt x 168.62184pt.
+ [48 <./Pictures/DoubleLoop.PNG>]
+<Pictures/DualMaps.png, id=607, 506.6428pt x 306.39468pt>
+File: Pictures/DualMaps.png Graphic file (type png)
+<use Pictures/DualMaps.png>
+Package pdftex.def Info: Pictures/DualMaps.png  used on input line 249.
+(pdftex.def)             Requested size: 340.8013pt x 206.1062pt.
+
+[49 <./Pictures/DualMaps.PNG>]
+<Pictures/SearchBar.png, id=622, 368.1253pt x 159.59625pt>
+File: Pictures/SearchBar.png Graphic file (type png)
+<use Pictures/SearchBar.png>
+Package pdftex.def Info: Pictures/SearchBar.png  used on input line 263.
+(pdftex.def)             Requested size: 340.8013pt x 147.76057pt.
+
+
+Package natbib Warning: Citation `Nominatim' on page 50 undefined on input line
+ 270.
+
+) [50 <./Pictures/SearchBar.PNG>]
+\openout2 = `Part3/Result.aux'.
+
+ (./Part3/Result.tex
+
+Package natbib Warning: Citation `Write this' on page 51 undefined on input lin
+e 5.
+
+) [51
+
+
+
+] [52
+
+
+] [53] [54]
+\openout2 = `Part4/Evaluation.aux'.
+
+ (./Part4/Evaluation.tex
+<Pictures/LighthouseGrade.png, id=648, 220.57407pt x 146.04562pt>
+File: Pictures/LighthouseGrade.png Graphic file (type png)
+<use Pictures/LighthouseGrade.png>
+Package pdftex.def Info: Pictures/LighthouseGrade.png  used on input line 9.
+(pdftex.def)             Requested size: 340.8013pt x 225.65968pt.
+<Pictures/PerformanceAuditValues.png, id=649, 548.0475pt x 95.6072pt>
+File: Pictures/PerformanceAuditValues.png Graphic file (type png)
+<use Pictures/PerformanceAuditValues.png>
+Package pdftex.def Info: Pictures/PerformanceAuditValues.png  used on input lin
+e 19.
+(pdftex.def)             Requested size: 340.8013pt x 59.45381pt.
+ [55
+
+
+ <./Pictures/LighthouseGrade.png> <./Pictures/PerformanceAuditValues.png>]
+
+Package natbib Warning: Citation `RenderBlocking' on page 56 undefined on input
+ line 29.
+
+<Pictures/tabPluginSize.png, id=659, 235.63031pt x 92.59593pt>
+File: Pictures/tabPluginSize.png Graphic file (type png)
+<use Pictures/tabPluginSize.png>
+Package pdftex.def Info: Pictures/tabPluginSize.png  used on input line 37.
+(pdftex.def)             Requested size: 340.8013pt x 133.92719pt.
+
+Package natbib Warning: Citation `MinifyJS' on page 56 undefined on input line 
+54.
+
+
+Package natbib Warning: Citation `LoadingTooMuch' on page 56 undefined on input
+ line 58.
+
+[56 <./Pictures/tabPluginSize.PNG>]
+
+Package natbib Warning: Citation `HTTP2' on page 57 undefined on input line 67.
+
+
+
+Package natbib Warning: Citation `OldApis' on page 57 undefined on input line 7
+1.
+
+) [57]
+\openout2 = `Part4/Discussion.aux'.
+
+ (./Part4/Discussion.tex [58
+
+
+] [59
+
+]
+
+Package natbib Warning: Citation `OlModule' on page 60 undefined on input line 
+34.
+
+<Pictures/CaddyVsPython.png, id=701, 644.4075pt x 146.79843pt>
+File: Pictures/CaddyVsPython.png Graphic file (type png)
+<use Pictures/CaddyVsPython.png>
+Package pdftex.def Info: Pictures/CaddyVsPython.png  used on input line 52.
+(pdftex.def)             Requested size: 340.8013pt x 77.63927pt.
+[60 <./Pictures/CaddyVsPython.PNG>]) [61]
+\openout2 = `Part4/Conclusion.aux'.
+
+ (./Part4/Conclusion.tex [62
+
+
+
+])
+[63] (./main.bbl [64
+
+
+]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [3
+) [65] [66
 
+] (./Appendix/AppendixTest.tex) [67
 
-] [4
+] (./main.lox [68])
 
-] (./Appendix/AppendixTest.tex) [5
+Package natbib Warning: There were undefined citations.
 
-] (./main.lox) [6]
+[69]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 \tf@lox=\write6
 \openout6 = `main.lox'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
- (./main.aux
-(./Formalia/FrontPage.aux) (./Formalia/Titelblad.aux) (./Formalia/Preface.aux)
-(./Formalia/Intro.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+ (./main.aux (./Formalia/FrontPage.aux) (./Formalia/Titelblad.aux)
+(./Formalia/Preface.aux) (./Formalia/Intro.aux) (./Part1/CaseData.aux)
+(./Part1/RasterFormatting.aux) (./Part1/VisualConventions.aux)
+(./Part1/RelatedWork.aux) (./Part2/CoreConcepts.aux)
+(./Part2/InteractiveMap.aux) (./Part2/EvaluationMethods.aux)
+(./Part3/CodingLanguages.aux) (./Part3/DevelopingTool.aux) (./Part3/Result.aux)
+(./Part4/Evaluation.aux) (./Part4/Discussion.aux) (./Part4/Conclusion.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C8E5A943D78828BBC1FAA46331057ED;289.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
+(rerunfilecheck)             Checksum: C611C080D3C4433F9DFB7F8B3C02A054;1094.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 34945 strings out of 492164
- 610045 string characters out of 6129087
- 1028079 words of memory out of 5000000
- 38665 multiletter control sequences out of 15000+600000
- 621962 words of font info for 121 fonts, out of 8000000 for 9000
+ 36594 strings out of 492164
+ 633950 string characters out of 6129087
+ 1217832 words of memory out of 5000000
+ 39858 multiletter control sequences out of 15000+600000
+ 659601 words of font info for 179 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 67i,12n,98p,930b,758s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2019/tex
+ 67i,13n,104p,1263b,2428s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2019
+/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2019/texmf-dist/fonts/enc/
+dvips/lm/lm-ts1.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.en
+c}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2019/tex
 mf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2019/texmf-dist/fonts/type1/pub
-lic/lm/lmbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb>
-<c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2019/
-texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2019/texmf-dist/fonts/ty
-pe1/public/lm/lmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr6.
-pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2019
-/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2019/texmf-dist/fonts/ty
-pe1/public/lm/lmri10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmss
-9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb><c:/texliv
-e/2019/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on main.pdf (14 pages, 370104 bytes).
+lic/amsfonts/latxfont/lcircle1.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publ
+ic/lm/lmbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><
+c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2019/t
+exmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/ty
+pe1/public/lm/lmmi8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/20
+19/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2019/texmf-dist/fonts/
+type1/public/lm/lmr7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr8
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/201
+9/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2019/texmf-dist/fonts
+/type1/public/lm/lmss9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lm
+ssbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/tex
+live/2019/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2019/texmf-dis
+t/fonts/type1/public/lm/lmtt8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/b
+ookman/ubkd8a.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pf
+b>
+Output written on main.pdf (77 pages, 3098815 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 31798 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 930 PDF objects out of 1000 (max. 8388607)
+ 774 compressed objects within 8 object streams
+ 268 named destinations out of 1000 (max. 500000)
+ 42280 words of extra memory for PDF output out of 42996 (max. 10000000)
 

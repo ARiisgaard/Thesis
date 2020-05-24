@@ -2,16 +2,14 @@
 
 Aside from the standard connected to the visualization of raster data there are also standard for the formatting of the raster files. Common raster formats include jpeg, png and tiff. One of the key differences between these formats are the bit depth. This value determines how many different colors that can be assigned each pixel in the image. Each bit can only be assigned one of two values, 0 or 1. This number of available colors for a pixel can therefore be calculated as $2^{number of bits}$. As an example, a bit depth of 8 bits would then result in $2^8 = 256$ different potential colors, since is the number of combinations of ones and zeroes, that are possible. For most maps this amount of colors is enough. The human eye can comprehend around 10 million different colors, but often that many colors are not needed. When displaying aerial photographs, the depth of 24 bits is often used, since it can display 16.7 million different colors and therefore can appear in true-colors to humans.
 The limitations of the human eye does not mean that having more than 10 million bit combination is pointless. The bit combination can also be used for other thing than colors. It can be used to create transparency values or to store metadata about the image file. For instance, the geotiff format can use the additional bit to store georeferencing information.
-These advantages of higher bit count come at a cost of a larger file size. Having a larger color depth will result in a slower loading and larger requirements for storage space.
-Dent. 283 
+These advantages of higher bit count come at a cost of a larger file size. Having a larger color depth will result in a slower loading and larger requirements for storage space. \citep{Dent} %Dent. 283 
+
 \subsection{Tiled raster}
 This section describes standards for dividing large raster files into smaller tiles. 
 A way of only visualising the necessary parts of a raster is to divide it into smaller raster tiles and then only load the relevant tiles. When loaded into the map these tiles then gets places next to eachother, so they appear as a single large map image. These tiles can also be created with different resolutions, so that zooming in on the map with return tiles more details.  As illustrated in figure \ref{TilesPerZoomLevel} each of these zoom layers have more tiles.
-http://www.liedman.net/tiled-maps/
-When zoomed all the way out the entire world is rendered as a single tile. Whenever the zoom level gets increased by one each tile in the previous layer get replaced with four smaller tiles. The number of tiles on a zoom level z can therefore be calculated as $2^2z$
-
-$https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames$
-
+\citep{Liedman}
+When zoomed all the way out the entire world is rendered as a single tile. Whenever the zoom level gets increased by one each tile in the previous layer get replaced with four smaller tiles. The number of tiles on a zoom level z can therefore be calculated as $2^2z$.
+\citep{SlippyMap}
 
 \begin{figure} [H]
 	\centering
@@ -23,19 +21,19 @@ $https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames$
 Openstreetmaps is an example of a service, which use tiled rasters for their map. When this service is used, requests for tiles are send to 
 http://tile.openstreetmap.org/zoom/x/y.png
 In the request the values zoom, x and y are replaced with the current zoom level, tile column and tile row.
-$https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames$
+\citep{SlippyMap}
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/TMSXYZ}
-	\caption{Illustration of the difference between the TMS and XYZ formats}
+	\caption{Illustration of the difference between the TMS and XYZ formats. The individual maps are inspired similar maps from \citet{Slippy101} and \citet{TMSnaming}}
 	\label{TMSXYZ}
 \end{figure}
 
-%https://developers.planet.com/tutorials/slippy-maps-101/ https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification#TileMap_Diagram 
+% 
 
 The naming of these tiles are done differently for different standards. In this section only the Tile Map Service (TMS) and Slippy map (XYZ) standard will be addressed. Both of these have the same approach to naming zoom level and columns, but different approach to naming the rows. This difference has been illustrated in figure \ref{TMSXYZ}. The reason for the difference is that TMS tiles number their rows from south northwards, whereas XYZ are numbering rows the reverse way. Due to this difference in numbering rows loading tiles from the wrong standard results in a map as shown in figure \ref{SlippyInTMS}.
-https://wiki.openstreetmap.org/wiki/TMS 
+\citep{TMS}
 
 
 \begin{figure} [H]

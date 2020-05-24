@@ -12,7 +12,7 @@ This is not the first project to follow many of these core concepts. In Bernhard
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/BaumrockMap1}
-	\caption{The map created by Bernhard Baumrock}
+	\caption{The map created by \citep{EOX}}
 	\label{BaumrockMap1}
 \end{figure}
 
@@ -23,11 +23,11 @@ A picture of one of his maps can be seen in figure \ref{BaumrockMap1}. This part
 	\caption{How the map change, when using the slider}
 	\label{BaumrockMap2}
 \end{figure}
-
+\fxnote{Update figures to be created by Baumrock}
 
 %http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/map_01.html
 
-When taking a closer look at the source code it can be seen that the raster is being loaded as tiff tiles with a bit depth of 16 bit. \citep{BuamrocksSouce} Only tiles the currently are visible are being requested unless the tile already have been requested. \citep{Buamrocks}
+When taking a closer look at the source code it can be seen that the raster is being loaded as tiff tiles with a bit depth of 16 bit. \citep{EOX} Only tiles the currently are visible are being requested unless the tile already have been requested. \citep{Buamrocks}
 
 When comparing with the core concepts for this project, Baumrocks map fulfil most of the criteria. It is locally visualizing only the necessary data. The core concept related to bit depth is relevant in the creation of the tiles, so it does not really apply to this. 
 It is also to some extent allowing the user to color the layer based on the current extent. The user can adjust the maximum and minimum values but does not know what the maximum values are in the current extent. 
@@ -43,4 +43,4 @@ Other ways of trying to visualizing large rasters:
 %	\item Visualing with bokeh or folium 
 \end{itemize}
 
-Benchmarking using google lighthouse
+\fxnote{Write about other methods}

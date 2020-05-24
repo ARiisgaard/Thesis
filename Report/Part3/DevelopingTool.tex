@@ -16,13 +16,13 @@ self.tiledriver = 'GTiff'
 self.tileext = 'tiff'
 \end{lstlisting}
 This changes the raster driver from png to the geotiff format and the file extension from png to tiff. 
-https://gdal.org/drivers/raster/index.html
+\citep{RasterDrivers}
 The geospatial information, which is the difference between a geotiff and a regular tiff, gets lost in process. This information is not important for this project since the tiles are being loaded based on their name and folder placement, not based on the internal metadata.
 
 Running gdal2tiles with these changes will produce a tiff file, which still would be limited to 8 bits. 
 \subsection{Increasing the bit depth}
 The reason for the bit limit is that gdal2tiles uses the memory dataset driver, which have 8 bits as default.  This default can overwritten to 32 bits by adding “gdal.GDT\_Int32” to every instance where the driver is being used as demonstrated in code x. 
-http://osgeo-org.1560.x6.nabble.com/gdal-dev-gdal2tiles-for-16bit-data-tp5163094p5163098.html
+\citep{MoreThan8}
 
 \begin{lstlisting}[language=iPython, caption={Increasing the bit depth}, label= VoresPY,escapechar=|]
 self.mem_drv = gdal.GetDriverByName('MEM')
@@ -38,7 +38,7 @@ The memory driver is being used four times, which all have been changed in a sim
 The script is now generating tiff tiles correctly. However it also generates KML files for visualization in Google Earth, which is undesired since it would increase the processing time and required storage space. 
 \subsection{Prevent generation of Google Earth files}
 gdal2tiles is automatically generating KML files if the projection is EPSG:4326. According to the documentation for the official gdal2tiles this can be disabled with the command "--no.kml".
-https://gdal.org/programs/gdal2tiles.html
+\citep{gdal2tilesDoc}
 
 
 This command does not prevent the creation of the files in the modified version. Therefore the automatic generation has been removed from the code. This was done by commenting out the lines shown in x. 
@@ -72,8 +72,8 @@ The webviewer option prevent the generation of webviewers to visualize the tiles
 The input file is the name of the processed file and output directory is the folder, where the tiles get created. 
 \subsection{Result}
 
-While creating the tiles the error message "ERROR 1: Buffer too small" gets displayed. The tiles are still being generated with the correct formatting and bit depth. This apparently as an error message from numpy, which gdal2tiles are using. 
-http://osgeo-org.1560.x6.nabble.com/gdal-dev-gdal2tiles-for-16bit-data-td5163094.html
+While creating the tiles the error message "ERROR 1: Buffer too small" gets displayed. The tiles are still being generated with the correct formatting and bit depth. This is an error message from numpy, which gdal2tiles are using. 
+\citep{MoreThan8}
 The generated tiles appears as they should, so this error message is potentially referring to the geospatial information, which gets lost.
 
 The tiles at the rightmost and bottom edges have an edge as shown in figure x. This edge is not being shown, when the tile is being loaded into the map. A comparison between the input file and the tile shows that all data is being displayed. The bottom part of the input file is the last part before the edge. This edge seems to be generated because the input file was not perfectly dividable with the tile size as illustrated in figure x.
@@ -82,7 +82,7 @@ This edge could be another explaination for the error message.
 
 
 
-\fxnote{Make figures}
+\fxnote{Make figures - remove link}
 
 
 \fxnote{Test if normal gdal2tiles tiles have edges - if false, then point it out here}
@@ -98,14 +98,14 @@ AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORIT
 \end{lstlisting}
 
 
-How long time did it take to run?
+\fxnote{How long time did it take to run?}
 
 Running it parallelly it parallelly 
 
 \section{Visualizing tiles}
 After the tiles got created, they are stored in a folder, which gets uploaded to the testserver along the index file. 
 The metadata from the xml file must be loaded into the map to be able to visualize the tiles. Normally this could be done using the WMTSCapabilities() function in Openlayers.
-https://openlayers.org/en/latest/examples/wmts-layer-from-capabilities.html 
+\citep{WmtsOl}
 However, the formatting of the xml file produced by gdal is different from the format, which this function can read. Therefore, a small script has been created to parse the xml file and store the information in a metadata object. This object, tileMetadata, stores the bounding box, origin, center coordinates as well as tilesize. The initial version of the object also stored the resolution data, which is called units-per-pixel in code x. This led to some inconsistency when loading tiles, which had been generated without some of the lower zoom level. This will be further expanded upon in section x. Therefore, the resolution was instead generated using the script x, where 0.0333 is the value for units-per-pixel at zoom level 0. 
 
 \begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
@@ -172,7 +172,7 @@ Calculating the highest value in the current extent can be divided into two smal
 \subsection{Current displayed tiles}
 
 The tiles, which currently is within the view, can be found using the Openlayers tileGrid method forEachTileCoord. This method can trigger a function for each tile within a given zoom level and extent. 
-%https://openlayers.org/en/latest/apidoc/module-ol_tilegrid_TileGrid-TileGrid.html#forEachTileCoord
+\citep{forEachTileCoord}
 The method is going through the tiles based on their coordinates, but this can be translated to the tile urls using the getTileUrlFunction.
 \begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
 var tileUrlFunction = wmslayer.getSource().getTileUrlFunction()
@@ -266,8 +266,6 @@ In order to be able to faster navigate the map a search function was created as 
 \end{figure}
 
 The user can use this to change the current view of the maps to a given location. This is accomplished through the help of Nominatim. This tool can search through Openstreetmap data by location names. It then returns data about the searched location. 
-https://wiki.openstreetmap.org/wiki/Nominatim
 
-Among this data is the latitude and longitude for the central point of the place.    
-%https://nominatim.openstreetmap.org/details.php?osmtype=N&osmid=245709027&class=place
+Among this data is the latitude and longitude for the central point of the place. \citep{Nominatim}
 This coordinate is then used as the coordinate for the center of the map.

@@ -791,7 +791,6 @@ gdal_vrtmerge.py -o merged.vrt %s"""
         # KML generation
 
         self.kml = self.options.kml
-        print(self.kml)
         # Output the results
 
         if self.options.verbose:

@@ -31,7 +31,7 @@ Based on the performance and best practice audits by Google Lighthouse the perfo
 \textbf{Eliminate render-blocking resources}
 As mentioned in section x the largest render-blocking resource was Openlayers. The same section also highlighted that 43.2 \% of the library never get used. The performance could therefore be improved by only loading the necessary parts of the library. 
 \fxnote{Check with Carsten – can this only be done with node?}
-https://openlayers.org/en/latest/doc/tutorials/bundle.html
+\citep{OlModule}
 
 \textbf{Avoid enormous network payloads}
 The size of data loads will be reduced by only having to load one set of tiles with the solution mentioned in section x. 
@@ -45,7 +45,7 @@ The size of data loads will be reduced by only having to load one set of tiles w
 \textbf{Does not use HTTP/2 for all of its resources}
 Caddy was used to serve the resources with HTTP/2. However even after setting up Caddy the error message was still present. It is uncertain if this means that the connection still is HTTP/1 based or if it is HTTP/2 but labelled incorrectly. Figure x is two screenshots from the network tab of chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 
 The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded. This figure shows that the serving is being optimized, where the stalling largely is gone. This could indicate that the server no longer has the HTTP/1 limit of only having 6 TCP connections.
- 
+ \fxnote{Source!!!}
 
 \begin{figure} [H]
 	\centering
