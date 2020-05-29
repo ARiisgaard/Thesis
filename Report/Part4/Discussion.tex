@@ -24,6 +24,29 @@ If there is a vast difference between the values in the two shown projection col
 TODO: make a figure showing the map with multiple legends and color schemes. 
 
 
+\section{Cloud Optimized Geotiff}
+
+An alternative to separating the rasterfile into smaller tiles would be to have the entire raster as one file, but then only send part of the file. This is possible using Cloud Optimized GeoTIFF (COG). These are GeoTiff files, which are organized in internal “tiles”.
+The files also contain multiple versions of the same image, where each is a downsampled version of the original. Each of these image versions can match a different zoom level.
+
+
+This way of organizing the file is then combined with Range requests, which allows the client to request parts of a file instead of the whole file.
+https://www.cogeo.org/in-depth.html
+
+By using these two technologies tiles of different spatial resolution can be sent to the client, which is similar to what the current solution is doing. The main difference is that with COG there would be one file, while the current solution has thousands of files. The creation of this file takes significantly less time compared to creating the individual tiles. India was as mentioned in section x processed into tiles in 6 hours and four minutes. Converting the same file into a COG with the command in equation x takes 3 seconds.
+gdal_translate in.tif out.tif -co TILED=YES -co COPY_SRC_OVERVIEWS=YES 
+https://www.cogeo.org/developers-guide.html
+This way parts of only the parts of the raster, which the user can see on the map get requested.
+
+
+There is currently no support for COG in Openlayers
+https://github.com/openlayers/openlayers/issues/10733
+and no extensions enabling it
+https://github.com/cogeotiff/www.cogeo.org/issues/36
+, but the is support for visualizing the files in Leaflet
+https://github.com/GeoTIFF/georaster-layer-for-leaflet
+
+
 \section{Performance enhancements}
 
 Based on the performance and best practice audits by Google Lighthouse the performance could be enhanced in multiple ways. 

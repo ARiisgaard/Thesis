@@ -1,31 +1,39 @@
-\chapter{Evaluation tool}
+\chapter{Evaluation Methods}
 
-\fxnote{Write limitations}
-Due to the limitations mentioned in section x user testing was not a possibility. This meant that it was necessary to find another way to evaluate the user experience. This was done using Google Lighthouse version 5.7. 
+In this chapter the methods for evaluating the product will be presented.
+
+
+Due to the limitations mentioned in section \ref{Lim} user testing was not a possibility. This meant that it was necessary to find another way to evaluate the user experience. This was done using Google Lighthouse version 5.7. 
 This chapter starts with an overview of the tool followed by an evaluation of which criteria are relevant for this project. The relevant criteria and their metrics are then expanded upon.
+
+\section{Setup}
+
+
+The tests have been performed in Google Chrome version 81. To ensure that tests were unaffected by outside influences all Chrome extensions were disabled during testing. The Cache
+
 
 \section{Overview}
 Google Lighthouse is an automated tool in Chrome DevTools, which is the developer tool included in Chrome. It can be used to check the quality of websites within the five categories: Best practice, performance, accessibility, search engine optimization and progressive web app. \citep{Lighthouse}
 \fxnote{Inset Image here}
 
-\textbf{Performance}
+\textbf{Performance}\\
 The performance audit is measuring the site performance and load speed. This is done by measuring the time needed for different stages of loading and when the user is able to interact with the site. \citep{LhPerformance}
 
 
-\textbf{Accessibility}
+\textbf{Accessibility}\\
 The accessibility check is for ensuring all users can effectively access and navigate the webpage. 
 The check is mainly focused on Accessible Rich Internet Applications, which is used by assistive technologies such as screen readers.\citep{ARIA} It is pointed out that accessibility is difficult to automatically test, so further manual testing is recommended. 
 
 \citep{LhAccess}
 
-\textbf{Best practice}
+\textbf{Best practice}\\
 The best practices cover different types of website enhancements. There checks to ensure that the website is fast, secure, and not using deprecated technologies, among others. \citep{LhBP}
 
-\textbf{Search engine optimization}
+\textbf{Search engine optimization}\\
 The checks within the Search Engine Optimization (SEO) category evaluate how well the page is optimized for ranking by search engine. This optimization is achieved by ensuring that the page is readable search engines and that search engines can access the page. It also includes some measurements for being mobile friendly.
 \citep{LhSEO}
 
-\textbf{Progressive web app}
+\textbf{Progressive web app}\\
 The Progressive Web App (PWA) audits are target towards a mobile audience. These includes having a fast and reliable experience on mobile networks and to which degree the website act in a similar fashion to a native mobile application.
 \citep{LhPWA}
 
@@ -45,28 +53,48 @@ Not all the audit categories in Google Lighthouse are relevant for this particul
 
 
 \textbf{First Contentful Paint}
-The First Contentful Paint (FCP) is the time in seconds it takes before the browser to render the first parts of the website. 
 
-https://web.dev/first-contentful-paint/
+The First Contentful Paint (FCP) is the time in seconds it takes before the browser to render the first parts of the website. 
+\citep{FCP}
+
+
 \textbf{Speed Index}
-The speed index is a time measurement of content appearing visually during load. To calculate it the visual progression between each frame of the loading process is measured. This is then being processing is done using the Speedline module. The unit is seconds.
-https://web.dev/speed-index/?utm_source=lighthouse&utm_medium=devtools
-https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index
-\fxnote{Know about this for the exam, but an extended explanation seem out of place}
+
+The Speed Index (SI) is a time measurement of content appearing visually during load. To calculate it the visual progression between each frame of the loading process is measured. This is then being processed using the Speedline module. The unit is seconds. \citep{PerSI}
+
+The Speedline module calculates the SI by calculating an Interval Score between each frame and then summaries all the Interval Scores. The Interval Score can be calculated using the formula \ref{SIFormula}, where the Interval is the elapsed time since last frame and Completeness is the percentage of visual completeness. \citep{SIformula}
+\begin{equation}
+ IntervalScore = Interval * \left( 1.0 - \frac{Completeness}{100} \right)
+\end{equation}\label{SIFormula}
+
+
 \textbf{First Meaningful Paint}
+
 The First Meaningful Paint (FMP) is the seconds from the initial loading of the page to the primary content is visible. Where primary content is referring to the largest layout change, which is visible without scrolling.
 
-It should be noted that FMP is being replaced with Largest Contentful Paint (LCP) in the next release of Chrome Lighthouse. The reason for this is that FMP is did not give consistent result and was difficult to standardize in all web browsers.
-https://web.dev/first-meaningful-paint/
-LCP is the seconds needed to render the single largest content element, which is visible without scrolling.
+It should be noted that FMP is being replaced with Largest Contentful Paint (LCP) in the next release of Chrome Lighthouse. The reason for this is that FMP is did not give consistent result and was difficult to standardize in all web browsers. \citep{FMP}
+LCP is the seconds needed to render the single largest content element, which is visible without scrolling.\citep{LCP}
 
-https://web.dev/lcp/
 \textbf{Time to Interactive}
+
 The Time to Interactive (TTI) is the seconds before a loaded website is completely interactive. This time is defined as after FCP when most of visible elements can be interacted with and respond within 50 milliseconds. 
-https://web.dev/interactive/
+\citep{TTI}
+
 \textbf{First CPU Idle}
-First CPU Idle is the seconds before a page becomes minimally interactive. Minimally interactive is defined as when the majority of the User Interface elements are interactive and giving responds within a reasonable time. 
+
+First CPU Idle is the seconds before a page becomes minimally interactive. Minimally interactive is defined as when the majority of the visible User Interface elements are interactive and giving responds within a reasonable time. 
 The difference between this and TTI is the degree of interaction. When the user can begin interacting with a page the First CPU Idle can be measured. TTI is measured when all interactions can be performed. 
 This feature is being replaced with Total Blocking Time (TBT) in the next Lighthouse release. The reason for this is that this and TTI are too similar to maintain both. 
-https://web.dev/first-cpu-idle/
+\citep{FCPUI}
 TBT is the total amount of milliseconds where the website is not responding to user input. It is measured during the time between FCP and TTI. 
+\citep{TBT}
+
+\section{Calculating score}
+
+Each of the metrics in the section above are then converted into a score between 0 and 100. This score is calculated by comparing each metric with performance data from real websites in the HTTP Archive.
+https://web.dev/performance-scoring/
+The scores from each metrics are then weighted to reflect that each factor does not have the same importance for the perceived performance. The weight of each metric can be seen in table x.
+
+\fxnote{Make table with score weights}
+
+

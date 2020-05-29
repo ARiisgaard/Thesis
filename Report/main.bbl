@@ -1,8 +1,467 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{57}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Baumrock(2018{\natexlab{a}})]{Baumrocks}
+\textbf{Baumrock}, \textbf{2018{\natexlab{a}}}.
+\newblock Bernhard Baumrock.
+\newblock \textit{Client-side Visualisation of Scientific RasterData Using
+  WebGL and Open-SourceWebMappingTechnologies}.
+\newblock
+  \url{https://pdfs.semanticscholar.org/16e2/ee741969d14ba6effb9eb9686415edbb32c9.pdf},
+  2018.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Baumrock(2018{\natexlab{b}})]{EOX}
+\textbf{Baumrock}, \textbf{2018{\natexlab{b}}}.
+\newblock Bernhard Baumrock.
+\newblock \textit{Visualizing GeoTIFF Tiles with OpenLayers}.
+\newblock
+  \url{https://web.archive.org/web/20191031034339/https://eox.at/2018/01/visualizing-geotiff-tiles-with-openlayers/},
+  2018.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Brewer(1994)]{Brewer94}
+\textbf{Brewer}, \textbf{1994}.
+\newblock Cynthia Brewer.
+\newblock \textit{Guidelines for use of the perceptual}.
+\newblock
+  \url{https://www.spiedigitallibrary.org/conference-proceedings-of-spie},
+  1994.
+\newblock Last Accessed: 05-05-2020.
+
+\bibitem[Brewer(No data)]{ColorGuidelines}
+\textbf{Brewer}, \textbf{No data}.
+\newblock Cynthia Brewer.
+\newblock \textit{Color Use Guidelines for Mapping and Visualization}.
+\newblock \url{http://www.personal.psu.edu/cab38/ColorSch/Schemes.html}, No
+  data.
+\newblock Last Accessed: 05-05-2020.
+
+\bibitem[Brewer et~al.(2013)Brewer, Harrower, Sheesley, Woodruff, og
+  Heyman]{ColorBrewer}
+\textbf{Brewer et~al.}, \textbf{2013}.
+\newblock Cynthia Brewer, Mark Harrower, Ben Sheesley, Andy Woodruff  og David
+  Heyman.
+\newblock \textit{ColorBrewer 2.0}.
+\newblock \url{https://colorbrewer2.org/#}, 2013.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Commenthol(2020)]{gdalLeaflet}
+\textbf{Commenthol}, \textbf{2020}.
+\newblock Commenthol.
+\newblock \textit{gdal2tiles-leaflet}.
+\newblock \url{https://github.com/commenthol/gdal2tiles-leaflet}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Data@Urban(2018)]{Multiprocessing}
+\textbf{Data@Urban}, \textbf{2018}.
+\newblock Data@Urban.
+\newblock \textit{Using Multiprocessing to Make Python Code Faster}.
+\newblock
+  \url{https://medium.com/@urban_institute/using-multiprocessing-to-make-python-code-faster-23ea5ef996ba},
+  2018.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[de~Smith et~al.(2020)de~Smith, Goodchild, og Longley]{objectsNFields}
+\textbf{de~Smith et~al.}, \textbf{2020}.
+\newblock Michael~J. de~Smith, Michael~F. Goodchild  og Paul~A. Longley.
+\newblock \textit{Geospatial Analysis 6th Edition 2.1.6 - Fields}.
+\newblock \url{https://spatialanalysisonline.com/HTML/index.html?fields.htm},
+  2020.
+\newblock Last Accessed: 05-05-2020.
+
+\bibitem[Dent et~al.(2009)Dent, Torguson, og Hodler]{Dent}
+\textbf{Dent et~al.}, \textbf{2009}.
+\newblock Borden~D. Dent, Jeffrey~S. Torguson  og ThomasW. Hodler.
+\newblock \textit{Cartography - Thematic Map Design}.
+\newblock ISBN 978–0072943825, 2009.
+\newblock Last Accessed: 05-05-2020.
+
+\bibitem[Ebi et~al.(2014)Ebi, Kram, van Vuuren, O'Neill, og Kriegler]{SSP}
+\textbf{Ebi et~al.}, \textbf{2014}.
+\newblock Kristie~L. Ebi, Tom Kram, Detlef~P. van Vuuren, Brian~C. O'Neill  og
+  Elmar Kriegler.
+\newblock \textit{A New Toolkit for Developing Scenarios for Climate}.
+\newblock \url{https://doi.org/10.1080/00139157.2014.881692}, 2014.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Garlandini and Fabrikant(2009)Garlandini og Fabrikant]{LightIsLess}
+\textbf{Garlandini og Fabrikant}, \textbf{2009}.
+\newblock Simone Garlandini og Sara~Irina Fabrikant.
+\newblock \textit{K. Stewart Hornsby et al. (Eds.): COSIT 2009, LNCS 5756, pp.
+  195–211, 2009. © Springer-Verlag Berlin Heidelberg 2009 Evaluating the
+  Effectiveness and Efficiency of Visual Variables for Geographic Information
+  Visualization}.
+\newblock \url{http://www.geo.uzh.ch/~sara/pubs/garlandini_fabs09.pdf}, 2009.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[GDAL(2020{\natexlab{a}})]{GDAL}
+\textbf{GDAL}, \textbf{2020{\natexlab{a}}}.
+\newblock GDAL.
+\newblock \textit{GDAL}.
+\newblock \url{https://gdal.org/}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[GDAL(2020{\natexlab{b}})]{GdalRelease}
+\textbf{GDAL}, \textbf{2020{\natexlab{b}}}.
+\newblock GDAL.
+\newblock \textit{Download}.
+\newblock \url{https://gdal.org/download.html#current-releases}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[GDAL(No date)]{RasterDrivers}
+\textbf{GDAL}, \textbf{No date}.
+\newblock GDAL.
+\newblock \textit{Raster drivers}.
+\newblock \url{https://gdal.org/drivers/raster/index.html}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{GDAL}(2020)]{gdal2tilesDoc}
+\textbf{{GDAL}}, \textbf{2020}.
+\newblock {GDAL}.
+\newblock \textit{gdal2tiles}.
+\newblock \url{https://gdal.org/programs/gdal2tiles.html}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{a}})]{FCP}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{a}}}.
+\newblock {Google Developers}.
+\newblock \textit{First Contentful Paint}.
+\newblock \url{https://web.dev/first-contentful-paint/}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{b}})]{FCPUI}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{b}}}.
+\newblock {Google Developers}.
+\newblock \textit{First CPU Idle}.
+\newblock \url{https://web.dev/first-cpu-idle/}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{c}})]{FMP}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{c}}}.
+\newblock {Google Developers}.
+\newblock \textit{First Meaningful Paint}.
+\newblock \url{https://web.dev/first-meaningful-paint/}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{d}})]{HTTP2}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{d}}}.
+\newblock {Google Developers}.
+\newblock \textit{Does not use HTTP/2 for all of its resources}.
+\newblock
+  \url{https://web.dev/uses-http2/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[{Google Developers}(2020{\natexlab{a}})]{LCP}
+\textbf{{Google Developers}}, \textbf{2020{\natexlab{a}}}.
+\newblock {Google Developers}.
+\newblock \textit{Largest Contentful Paint}.
+\newblock \url{https://web.dev/lcp/}, 2020.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(No date{\natexlab{a}})]{LhAccess}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{a}}}.
+\newblock {Google Developers}.
+\newblock \textit{Accessibility audits}.
+\newblock \url{https://web.dev/lighthouse-accessibility/}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(No date{\natexlab{b}})]{LhPWA}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{b}}}.
+\newblock {Google Developers}.
+\newblock \textit{PWA audits}.
+\newblock \url{https://web.dev/lighthouse-pwa/}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(No date{\natexlab{c}})]{LhPerformance}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{c}}}.
+\newblock {Google Developers}.
+\newblock \textit{Performance audits}.
+\newblock \url{https://web.dev/lighthouse-performance/}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(No date{\natexlab{d}})]{LhSEO}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{d}}}.
+\newblock {Google Developers}.
+\newblock \textit{SEO audits}.
+\newblock \url{https://web.dev/lighthouse-seo/}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(2020{\natexlab{b}})]{Lighthouse}
+\textbf{{Google Developers}}, \textbf{2020{\natexlab{b}}}.
+\newblock {Google Developers}.
+\newblock \textit{Lighthouse}.
+\newblock \url{https://developers.google.com/web/tools/lighthouse/}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{e}})]{LoadingTooMuch}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{e}}}.
+\newblock {Google Developers}.
+\newblock \textit{Avoid enormous network payloads}.
+\newblock
+  \url{https://web.dev/total-byte-weight/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{f}})]{MinifyJS}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{f}}}.
+\newblock {Google Developers}.
+\newblock \textit{Minify JavaScript}.
+\newblock
+  \url{https://web.dev/unminified-javascript/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{g}})]{OldApis}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{g}}}.
+\newblock {Google Developers}.
+\newblock \textit{Uses deprecated APIs}.
+\newblock
+  \url{https://web.dev/deprecations/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{h}})]{PerSI}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{h}}}.
+\newblock {Google Developers}.
+\newblock \textit{Speed Index}.
+\newblock
+  \url{https://web.dev/speed-index/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{i}})]{RenderBlocking}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{i}}}.
+\newblock {Google Developers}.
+\newblock \textit{Eliminate render-blocking resources}.
+\newblock
+  \url{https://web.dev/render-blocking-resources/?utm_source=lighthouse&utm_medium=devtools},
+  2019.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{j}})]{TBT}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{j}}}.
+\newblock {Google Developers}.
+\newblock \textit{Total Blocking Time}.
+\newblock \url{https://web.dev/lighthouse-total-blocking-time/}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{k}})]{TTI}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{k}}}.
+\newblock {Google Developers}.
+\newblock \textit{Time to Interactive}.
+\newblock \url{https://web.dev/interactive/}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[Herjar(2019)]{NoMulti}
+\textbf{Herjar}, \textbf{2019}.
+\newblock Herjar.
+\newblock \textit{gdal2tiles.py multiprocessor option not working for overview
+  tiles}.
+\newblock \url{https://github.com/OSGeo/gdal/issues/1188}, 2019.
+\newblock Last Accessed: 27-05-2020.
+
+\bibitem[Jones and O'Neill(2016)Jones og O'Neill]{WhyDetailedPop}
+\textbf{Jones og O'Neill}, \textbf{2016}.
+\newblock Bryan Jones og Brian~C. O'Neill.
+\newblock \textit{Spatially explicit global population scenarios consistent
+  with the Shared Socioeconomic Pathways}.
+\newblock
+  \url{https://iopscience.iop.org/article/10.1088/1748-9326/11/8/084003/meta#references},
+  2016.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Ke{\ss}ler and Marcotullio(2017)Ke{\ss}ler og Marcotullio]{Kessler}
+\textbf{Ke{\ss}ler og Marcotullio}, \textbf{2017}.
+\newblock Carsten Ke{\ss}ler og Peter~J. Marcotullio.
+\newblock \textit{A Geosimulation for the Future Spatial Distribution}.
+\newblock \url{http://carsten.io/agile-2017-short-Kessler-Marcotullio.pdf},
+  2017.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Liedman(No Date)]{Liedman}
+\textbf{Liedman}, \textbf{No Date}.
+\newblock Per Liedman.
+\newblock \textit{The Hitchhacker’s Guide To Tiled Maps}.
+\newblock \url{http://www.liedman.net/tiled-maps/}, No Date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{MDN Web Docs}(2020)]{ARIA}
+\textbf{{MDN Web Docs}}, \textbf{2020}.
+\newblock {MDN Web Docs}.
+\newblock \textit{ARIA}.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Nominatim(No date)]{Nominatim}
+\textbf{Nominatim}, \textbf{No date}.
+\newblock Nominatim.
+\newblock \textit{Search queries}.
+\newblock \url{https://nominatim.org/release-docs/develop/api/Search/}, No
+  date.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[Openlayers(No Date)]{OL}
+\textbf{Openlayers}, \textbf{No Date}.
+\newblock Openlayers.
+\newblock \textit{A high-performance, feature-packed library for all your
+  mapping needs}.
+\newblock \url{https://openlayers.org/}, No Date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Openlayers(No date{\natexlab{a}})]{OlModule}
+\textbf{Openlayers}, \textbf{No date{\natexlab{a}}}.
+\newblock Openlayers.
+\newblock \textit{Introduction}.
+\newblock \url{https://openlayers.org/en/latest/doc/tutorials/bundle.html}, No
+  date.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[Openlayers(No date{\natexlab{b}})]{WmtsOl}
+\textbf{Openlayers}, \textbf{No date{\natexlab{b}}}.
+\newblock Openlayers.
+\newblock \textit{WMTS Layer from Capabilities}.
+\newblock
+  \url{https://openlayers.org/en/latest/examples/wmts-layer-from-capabilities.html},
+  No date.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[Openlayers(No date{\natexlab{c}})]{forEachTileCoord}
+\textbf{Openlayers}, \textbf{No date{\natexlab{c}}}.
+\newblock Openlayers.
+\newblock \textit{ol/tilegrid/TileGrid~TileGrid}.
+\newblock
+  \url{https://openlayers.org/en/latest/apidoc/module-ol_tilegrid_TileGrid-TileGrid.html#forEachTileCoord},
+  No date.
+\newblock Last Accessed: 25-05-2020.
+
+\bibitem[OpenStreetMap(2020)]{OpenStreetMap}
+\textbf{OpenStreetMap}, \textbf{2020}.
+\newblock OpenStreetMap.
+\newblock \textit{OpenStreetMap}.
+\newblock \url{www.openstreetmap.org}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{OpenStreetMap Wiki}(2020)]{SlippyMap}
+\textbf{{OpenStreetMap Wiki}}, \textbf{2020}.
+\newblock {OpenStreetMap Wiki}.
+\newblock \textit{Slippy map tilenames}.
+\newblock \url{https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{OpenStreetMap Wiki}(2019)]{TMS}
+\textbf{{OpenStreetMap Wiki}}, \textbf{2019}.
+\newblock {OpenStreetMap Wiki}.
+\newblock \textit{TMS}.
+\newblock \url{https://wiki.openstreetmap.org/wiki/TMS}, 2019.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{OSGeo Wiki}(2012)]{TMSnaming}
+\textbf{{OSGeo Wiki}}, \textbf{2012}.
+\newblock {OSGeo Wiki}.
+\newblock \textit{Tile Map Service Specification - TileMap Diagram}.
+\newblock
+  \url{https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification#TileMap_Diagram},
+  2012.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[O’Neill et~al.(2013)O’Neill, Kriegler, Riahi, Ebi, Hallegatte,
+  Carter, Mathur, og van Vuuren]{ConceptSSP}
+\textbf{O’Neill et~al.}, \textbf{2013}.
+\newblock Brian~C. O’Neill, Elmar Kriegler, Keywan Riahi, Kristie~L. Ebi,
+  Stephane Hallegatte, Timothy~R. Carter, Ritu Mathur  og Detlef~P. van Vuuren.
+\newblock \textit{A new scenario framework for climate change research:}.
+\newblock \url{https://link.springer.com/article/10.1007/s10584-013-0905-2},
+  2013.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Planet}(No Date)]{Slippy101}
+\textbf{{Planet}}, \textbf{No Date}.
+\newblock {Planet}.
+\newblock \textit{Slippy maps 101}.
+\newblock \url{https://developers.planet.com/tutorials/slippy-maps-101/}, No
+  Date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Rus(2007)]{JacobRus}
+\textbf{Rus}, \textbf{2007}.
+\newblock Jacob Rus.
+\newblock \textit{File:Munsell-system.svg}.
+\newblock \url{https://commons.wikimedia.org/wiki/File:Munsell-system.svg},
+  2007.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Santillan(2020)]{Plotty}
+\textbf{Santillan}, \textbf{2020}.
+\newblock Daniel Santillan.
+\newblock \textit{plotty}.
+\newblock \url{https://github.com/santilland/plotty}, 2020.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Schindler(2018)]{Geotiff}
+\textbf{Schindler}, \textbf{2018}.
+\newblock Fabian Schindler.
+\newblock \textit{geotiff.js}.
+\newblock \url{https://geotiffjs.github.io/}, 2018.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[Tosovsky and Strip(2014)Tosovsky og Strip]{MoreThan8}
+\textbf{Tosovsky og Strip}, \textbf{2014}.
+\newblock Jan Tosovsky og David Strip.
+\newblock \textit{gdal2tiles for 16bit data}.
+\newblock
+  \url{http://osgeo-org.1560.x6.nabble.com/gdal-dev-gdal2tiles-for-16bit-data-td5163094.html#a5163098},
+  2014.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{United Nations Department of Economic and Social
+  Affairs}(2019{\natexlab{a}})]{NationalPop}
+\textbf{{United Nations Department of Economic and Social Affairs}},
+  \textbf{2019{\natexlab{a}}}.
+\newblock {United Nations Department of Economic and Social Affairs}.
+\newblock \textit{Total Population - Both Sexes}.
+\newblock \url{https://population.un.org/wpp/Download/Standard/Population/},
+  2019.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{United Nations Department of Economic and Social
+  Affairs}(2019{\natexlab{b}})]{UNDEASHightlights}
+\textbf{{United Nations Department of Economic and Social Affairs}},
+  \textbf{2019{\natexlab{b}}}.
+\newblock {United Nations Department of Economic and Social Affairs}.
+\newblock \textit{World Population Prospects 2019 Highlights}.
+\newblock
+  \url{https://population.un.org/wpp/Publications/Files/WPP2019_Highlights.pdf},
+  2019.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[W3Schools(No date{\natexlab{a}})]{WhatIsJs}
+\textbf{W3Schools}, \textbf{No date{\natexlab{a}}}.
+\newblock W3Schools.
+\newblock \textit{JavaScript Tutorial}.
+\newblock \url{https://www.w3schools.com/js/default.asp}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[W3Schools(No date{\natexlab{b}})]{WhatIsPython}
+\textbf{W3Schools}, \textbf{No date{\natexlab{b}}}.
+\newblock W3Schools.
+\newblock \textit{Python Introduction}.
+\newblock \url{https://www.w3schools.com/python/python_intro.asp}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{WebpageTest.org}(2013)]{SIformula}
+\textbf{{WebpageTest.org}}, \textbf{2013}.
+\newblock {WebpageTest.org}.
+\newblock \textit{Speed Index}.
+\newblock
+  \url{https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index},
+  2013.
+\newblock Last Accessed: 27-05-2020.
 
 \end{thebibliography}

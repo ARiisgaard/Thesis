@@ -1,1 +1,17 @@
 \chapter{Conclusion}
+In this chapter the research questions listed below will be answered.
+How can population rasters be visualized and compared efficiently and effectively?
+Which conventions exist for visualization of population projections?
+Which functionalities are relevant for comparing different rasters?
+How can a responsive user experience be ensured, when loading and visualizing large raster dataset?
+
+
+The intent with this project was to create a tool for easy visual comparison of raster datasets using population projections as a case. To create this, it was necessary to understand how raster data should be visualized and which functionalities a comparison tool should have.
+How population raster should be visualized have been determined through a literature review of visualization conventions. 	
+Population projections are based on quantitative data, which is ordered sequentially. While many visual conventions exist for the qualitative data, the same is not the case for quantitative data. A notable convention, which is relevant for quantitative data is that the “light is less dark is more”.
+The functionalities needed for an interactive tool got selected by investigating a state-of-the-art interactive map. Based on this it was decided to add a search bar to enable easy navigation. 
+To be able to compare different population projection two maps was displayed side by side. These were set up to always show the same area. The color of the projections inside was set up to automatically adjust to the population within the visible extent.
+A lot of other features also present in the state-of-the-art map did not get implemented due to time constraints. 
+To ensure a responsive user experience when visualizing large raster dataset technical requirements were set up for the solution. Some of which were important for the responsive user experience. The data loaded into the map should be limited to a minimum, since loading unnecessary data would slowdown or crash the tool. To limit the loaded data the population projection was divided into raster tiles. Only the tiles visible within the map’s extent would be loaded. These tiles were then colored based on the maximum and minimum values in the current extent. This meant that the same tile would be colored in different ways dependent on what was in the current extent. This coloring was done on the client instead of on the server.  This limited the number of requests to the server, since already loaded tiles could be reused. To be able to color the tiles at the client the tiles would contain information about population within each of their pixels instead of the pixels just having a color.
+The responsiveness of the tool also got evaluated using the Lighthouse tool. Using this tool, it was discovered that the main factor for the responsiveness was the type of test server. Changing to Caddy as a test server reduced the tile loading time from 16 to below 4 seconds.
+\fxnote{Maybe change technical concepts to technical requirements}

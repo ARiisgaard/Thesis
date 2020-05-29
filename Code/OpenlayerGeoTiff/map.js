@@ -1,4 +1,4 @@
-const projection = ol.proj.get('EPSG:4326');
+const projection = new ol.proj.get('EPSG:4326');
 
 ////////////
 // Getting Metadata

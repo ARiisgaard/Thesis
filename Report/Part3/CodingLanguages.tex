@@ -40,6 +40,11 @@ The map in which the tiles are being showed are created in Openlayers, which is 
 \citep{OL}
 Openlayers was chosen because the tool presented in related work was built in Openlayers. Therefore, using Openlayers would enable expanding upon this existing tool instead of starting from scratch. 
 
+The existing tool was created with the debug version of Openlayers, which this tool also have build on. The debug version is a version of the Openlayers, which have not been minified. Because of this it is a larger file than the regular one. 
+https://gis.stackexchange.com/questions/155529/whats-difference-between-ol-js-and-ol-debug-js-files-in-openlayers-3
+\fxnote{link}
+Attempts at replacing it with the minified version resulted in errors from olGeoTiff, which have been build based on the debug version. Optimizing other parts of the code was given higher priority, so the debug version never got replaced. 
+
 \subsection*{olGeoTiff}
 olGeoTiff is a Javascript class for visualising geotiff tiles in Openlayers, utilising the libraries geotiff.js and Plotty. The visualized tiles are being processing in the client instead of on a server. It was used in the map presented in section x. 
 The class is a modified version of Openlayers WMTS layer, where the internal tile loading function has been changed. The regular function would request precolored tiles and then add them to the map. The tiles requested by the modified version are not precolored and need to be processed before getting added to the map. A simplified illustration of this processing is illustrated in figure x. This simplified figure is enough to explain the mechanics of the class but does not detail the callback function structure. Aside from being used for error handling callbacks are also necessary to ensure that Openlayers do not try to add the tiles to the map, before they have been processed. More detailed figures can be found in \citep{Baumrocks} thesis.

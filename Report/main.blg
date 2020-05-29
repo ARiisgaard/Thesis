@@ -5,53 +5,187 @@ The style file: bibtex/harvard.bst
 A level-1 auxiliary file: Formalia/FrontPage.aux
 A level-1 auxiliary file: Formalia/Titelblad.aux
 A level-1 auxiliary file: Formalia/Preface.aux
-Already encountered file Formalia/Preface.aux
----line 28 of file main.aux
- : \@input{Formalia/Preface.aux
- :                             }
+A level-1 auxiliary file: Formalia/Intro.aux
+A level-1 auxiliary file: Part1/CaseData.aux
+A level-1 auxiliary file: Part1/RasterFormatting.aux
+A level-1 auxiliary file: Part1/VisualConventions.aux
+A level-1 auxiliary file: Part1/RelatedWork.aux
+A level-1 auxiliary file: Part2/CoreConcepts.aux
+Case mismatch error between cite keys dent and Dent
+---line 18 of file Part2/CoreConcepts.aux
+ : \citation{dent
+ :               }
 I'm skipping whatever remains of this command
-I found no \citation commands---while reading file main.aux
+A level-1 auxiliary file: Part2/InteractiveMap.aux
+A level-1 auxiliary file: Part2/EvaluationMethods.aux
+A level-1 auxiliary file: Part3/CodingLanguages.aux
+A level-1 auxiliary file: Part3/DevelopingTool.aux
+A level-1 auxiliary file: Part3/Result.aux
+White space in argument---line 3 of file Part3/Result.aux
+ : \citation{Write
+ :                 this}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: Part4/Evaluation.aux
+A level-1 auxiliary file: Part4/Discussion.aux
+A level-1 auxiliary file: Part4/Conclusion.aux
 url: is an unknown function---line 320 of file bibtex/harvard.bst
 Database file #1: bibtex/litteratur.bib
-You've used 0 entries,
+Warning--I didn't find a database entry for "Buamrocks"
+Warning--I didn't find a database entry for "LhBP"
+Warning--I didn't find a database entry for "ProcessingTime"
+1 is an integer literal, not a string, for entry Baumrocks
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry EOX
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Brewer94
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ColorGuidelines
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ColorBrewer
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry gdalLeaflet
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Multiprocessing
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry objectsNFields
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Dent
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry SSP
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LightIsLess
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry GDAL
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry GdalRelease
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry RasterDrivers
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry gdal2tilesDoc
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry FCP
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry FCPUI
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry FMP
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry HTTP2
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LCP
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LhAccess
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LhPWA
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LhPerformance
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LhSEO
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Lighthouse
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LoadingTooMuch
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry MinifyJS
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry OldApis
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry PerSI
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry RenderBlocking
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry TBT
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry TTI
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry NoMulti
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry WhyDetailedPop
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Kessler
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Liedman
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ARIA
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Nominatim
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry OL
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry OlModule
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry WmtsOl
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry forEachTileCoord
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry OpenStreetMap
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry SlippyMap
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry TMS
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry TMSnaming
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ConceptSSP
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Slippy101
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry JacobRus
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Plotty
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Geotiff
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry MoreThan8
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry NationalPop
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry UNDEASHightlights
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry WhatIsJs
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry WhatIsPython
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry SIformula
+while executing---line 1485 of file bibtex/harvard.bst
+You've used 57 entries,
             2921 wiz_defined-function locations,
-            615 strings with 5035 characters,
-and the built_in function-call counts, 33 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 10
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
-int.to.chr$ -- 1
+            902 strings with 12538 characters,
+and the built_in function-call counts, 20256 in all, are:
+= -- 1919
+> -- 852
+< -- 104
++ -- 317
+- -- 240
+* -- 1339
+:= -- 3340
+add.period$ -- 285
+call.type$ -- 57
+change.case$ -- 137
+chr.to.int$ -- 37
+cite$ -- 114
+duplicate$ -- 1202
+empty$ -- 1716
+format.name$ -- 370
+if$ -- 4123
+int.to.chr$ -- 21
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 407
+num.names$ -- 285
+pop$ -- 380
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 137
 quote$ -- 0
-skip$ -- 1
+skip$ -- 728
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 114
+swap$ -- 256
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 627
 warning$ -- 0
-while$ -- 0
+while$ -- 171
 width$ -- 0
-write$ -- 7
-(There were 3 error messages)
+write$ -- 976
+(There were 60 error messages)

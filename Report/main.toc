@@ -3,72 +3,80 @@
 \contentsline {chapter}{Preface}{iii}{chapter*.2}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Problem statement}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Limitations}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Report structure}{2}{section.1.3}%
-\contentsline {part}{\partnumberline {I}Literature review}{3}{part.1}%
-\contentsline {section}{\numberline {1.4}The data behind the simulation}{5}{section.1.4}%
-\contentsline {section}{\numberline {1.5}The simulation}{5}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Shared Socioeconomic Pathways}{6}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Technical details about the case data}{7}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Raster formatting conventions}{8}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}Tiled raster}{8}{subsection.1.8.1}%
-\contentsline {chapter}{\chapternumberline {2}Visual conventions}{11}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}Color}{11}{subsection.2.0.1}%
-\contentsline {subsubsection}{Selecting a color scheme}{13}{figure.caption.11}%
-\contentsline {subsubsection}{Visual conventions for colors}{14}{figure.caption.12}%
-\contentsline {chapter}{\chapternumberline {3}Related work}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Tilebased raster visualisation}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Sections to be written here}{17}{section.3.2}%
-\contentsline {part}{\partnumberline {II}Methodology}{19}{part.2}%
-\contentsline {section}{\numberline {3.3}Core concepts}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Load only the needed data}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Coloring should be based on the current extent}{21}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Tiles should not be precolored}{22}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Coloring should be done locally}{23}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}File format should have same bit depth as input format}{24}{subsection.3.3.5}%
-\contentsline {chapter}{\chapternumberline {4}Creating an interactive map}{27}{chapter.4}%
-\contentsline {chapter}{\chapternumberline {5}Evaluation tool}{29}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Overview}{29}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Relevant evaluation criteria}{30}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Metrics for performance}{30}{section.5.2}%
-\contentsline {part}{\partnumberline {III}Development of the tool}{33}{part.3}%
-\contentsline {chapter}{\chapternumberline {6}Coding languages and plugins}{37}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Languages}{37}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Libraries}{38}{section.6.2}%
-\contentsline {chapter}{\chapternumberline {7}Developing the tool}{41}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Creating the tiles}{41}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Changing the file type}{41}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Increasing the bit depth}{41}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}Prevent generation of Google Earth files}{42}{subsection.7.1.3}%
-\contentsline {subsection}{\numberline {7.1.4}Command for tile creation}{42}{subsection.7.1.4}%
-\contentsline {subsection}{\numberline {7.1.5}Result}{43}{subsection.7.1.5}%
-\contentsline {section}{\numberline {7.2}Visualizing tiles}{44}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Custom colors scheme}{44}{subsection.7.2.1}%
-\contentsline {section}{\numberline {7.3}Loading data at a wrong resolution}{44}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Calculate max value in current extent}{46}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Current displayed tiles}{46}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Max value for each tile}{46}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}Highest tile value the current displayed}{48}{subsection.7.4.3}%
-\contentsline {section}{\numberline {7.5}Recolor when the max value change}{49}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Polish}{49}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Two maps}{49}{subsection.7.6.1}%
-\contentsline {subsection}{\numberline {7.6.2}Search function}{50}{subsection.7.6.2}%
-\contentsline {chapter}{\chapternumberline {8}Result}{51}{chapter.8}%
-\contentsline {part}{\partnumberline {IV}Evaluation and discussion}{53}{part.4}%
-\contentsline {chapter}{\chapternumberline {9}Evaluation}{55}{chapter.9}%
-\contentsline {subsection}{\numberline {9.0.1}Performance}{55}{subsection.9.0.1}%
-\contentsline {subsection}{\numberline {9.0.2}Opportunities}{56}{subsection.9.0.2}%
-\contentsline {section}{\numberline {9.1}Discussion}{58}{section.9.1}%
-\contentsline {chapter}{\chapternumberline {10}Discussion}{59}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Further development}{59}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Data at point of click}{59}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2}Parallel generation of tiles}{59}{subsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.1.3}Changing layers}{59}{subsection.10.1.3}%
-\contentsline {subsection}{\numberline {10.1.4}Option for multiple colorschemes}{60}{subsection.10.1.4}%
-\contentsline {section}{\numberline {10.2}Performance enhancements}{60}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Is this even a good measurement for performance?}{61}{section.10.3}%
-\contentsline {chapter}{\chapternumberline {11}Conclusion}{63}{chapter.11}%
-\contentsline {chapter}{Bibliography}{65}{chapter*.36}%
+\contentsline {section}{\numberline {1.2}Limitations}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Target audience}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Report structure}{2}{section.1.4}%
+\contentsline {part}{\partnumberline {I}Design}{5}{part.1}%
+\contentsline {chapter}{\chapternumberline {2}Case data}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The data behind the simulation}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The simulation}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Shared Socioeconomic Pathways}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Technical details about the case data}{9}{section.2.4}%
+\contentsline {chapter}{\chapternumberline {3}Raster formatting}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tiled raster}{11}{section.3.1}%
+\contentsline {chapter}{\chapternumberline {4}Visual conventions}{15}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Color}{15}{subsection.4.0.1}%
+\contentsline {subsubsection}{Selecting a color scheme}{16}{figure.caption.12}%
+\contentsline {subsubsection}{Visual conventions for colors}{17}{figure.caption.13}%
+\contentsline {chapter}{\chapternumberline {5}Related work}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tilebased raster visualisation}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sections to be written here}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Core concepts}{23}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Load only the needed data}{23}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Coloring should be based on the current extent}{23}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Tiles should not be precolored}{24}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Coloring should be done locally}{25}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}File format should have same bit depth as input format}{26}{subsection.5.3.5}%
+\contentsline {chapter}{\chapternumberline {6}Components of an interactive maps}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Relevant functionalities}{30}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Comparing layers}{31}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Evaluation Methods}{33}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Setup}{33}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Overview}{33}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Relevant evaluation criteria}{34}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Metrics for performance}{34}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Calculating score}{35}{section.7.4}%
+\contentsline {part}{\partnumberline {II}Development}{37}{part.2}%
+\contentsline {chapter}{\chapternumberline {8}Coding languages and plugins}{41}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Languages}{41}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Libraries}{42}{section.8.2}%
+\contentsline {chapter}{\chapternumberline {9}Developing the tool}{45}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Creating the tiles}{45}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Changing the file type}{45}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Increasing the bit depth}{45}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Prevent generation of Google Earth files}{46}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}Command for tile creation}{46}{subsection.9.1.4}%
+\contentsline {subsection}{\numberline {9.1.5}Result}{47}{subsection.9.1.5}%
+\contentsline {section}{\numberline {9.2}Processing time}{48}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Parallel processing of tiles}{48}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.3}Visualizing tiles}{49}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Custom colors scheme}{49}{subsection.9.3.1}%
+\contentsline {section}{\numberline {9.4}Loading data at a wrong resolution}{49}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Calculate max value in current extent}{51}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Current displayed tiles}{51}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Max value for each tile}{51}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Highest tile value the current displayed}{53}{subsection.9.5.3}%
+\contentsline {section}{\numberline {9.6}Recolor when the max value change}{54}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Polish}{54}{section.9.7}%
+\contentsline {subsection}{\numberline {9.7.1}Two maps}{54}{subsection.9.7.1}%
+\contentsline {subsection}{\numberline {9.7.2}Search function}{55}{subsection.9.7.2}%
+\contentsline {chapter}{\chapternumberline {10}Result}{57}{chapter.10}%
+\contentsline {part}{\partnumberline {III}Evaluation}{59}{part.3}%
+\contentsline {chapter}{\chapternumberline {11}Evaluation}{61}{chapter.11}%
+\contentsline {subsection}{\numberline {11.0.1}Performance}{61}{subsection.11.0.1}%
+\contentsline {subsection}{\numberline {11.0.2}Opportunities}{64}{subsection.11.0.2}%
+\contentsline {section}{\numberline {11.1}Discussion}{66}{section.11.1}%
+\contentsline {chapter}{\chapternumberline {12}Discussion}{67}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Further development}{67}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Data at point of click}{67}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Parallel generation of tiles}{67}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Changing layers}{67}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}Option for multiple colorschemes}{68}{subsection.12.1.4}%
+\contentsline {section}{\numberline {12.2}Cloud Optimized Geotiff}{68}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Performance enhancements}{68}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Is this even a good measurement for performance?}{69}{section.12.4}%
+\contentsline {chapter}{\chapternumberline {13}Conclusion}{71}{chapter.13}%
+\contentsline {chapter}{Bibliography}{73}{chapter*.41}%
 \changetocdepth {0}
-\contentsline {appendix}{\chapternumberline {A}This is at test}{67}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Or is it?}{67}{section.A.1}%
+\contentsline {appendix}{\chapternumberline {A}This is at test}{79}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Or is it?}{79}{section.A.1}%
