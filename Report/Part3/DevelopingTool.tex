@@ -190,8 +190,9 @@ This bug will be defining for the rest of the code.
 
 
 \section{Calculate max value in current extent}
-Calculating the highest value in the current extent can be divided into two smaller tasks. Figuring out which tiles currently are being displayed and processing these tiles.
+Calculating the highest value in the current extent can be divided into two smaller tasks. Figuring out which tiles currently are being displayed and processing these tiles. It was decided not to calculate the lowest value in each tiles, since the calculation noticable inscreased the processing time without yielding any benefit. This is expanded upon in section \ref{WhyNoMin}
 
+\fxnote{Mention the negative values in case data}
 \subsection{Current displayed tiles}
 
 The tiles, which currently is within the view, can be found using the Openlayers tileGrid method forEachTileCoord. This method can trigger a function for each tile within a given zoom level and extent. 
@@ -273,9 +274,22 @@ In addition to the rendering of the raster in the map, some features were also a
 	\caption{A second map}
 	\label{DualMaps}
 \end{figure}
-To be able to compare different rasters with eachother a second map was added as illustrated in figure \ref{DualMaps}. This second map is having its own raster dataset but sharing the view with the first map. This means that the two maps would always show the same area. Panning or zooming in one map would do the same action in the other map. The two maps are sharing the same legend. 
+To be able to compare different rasters with each other a second map was added as illustrated in figure \ref{DualMaps}. This second map is having its own raster dataset but sharing the view with the first map. This means that the two maps would always show the same area. Panning or zooming in one map would do the same action in the other map. The two maps are sharing the same legend. 
 
-\fxnote{TODO: Write about evaluating max value based on two maps}
+The two projection are also sharing the same color scale. This means that the coloring is done based on the maximum value in the current extent of either of the maps. To accomplish this changes were made to the function, which were finding the maximum value among the tiles as illustrated in figure x.
+ 
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=.8\textwidth]{Pictures/ChangeToMaxCalculation}
+	\caption{Calculating the maximum value for two maps. Changes from the original have been written in bold}
+	\label{ChangeToMaxCalculation}
+\end{figure}
+
+This function is now being used twice, once for each layer. If the same function as presented in section x was used, then the redrawing would potentially trigger twice. 
+
+To avoid this each of the maps are given their own processed tiles counter. The if statement, which is resetting the counters and triggering the recoloring, has been changed, so that it now is checking if both of these processed tiles counters is equal to the total number of tiles. Thereby the recoloring can only happen, when the tile in both maps have been processed. 
+
+The two maps would always display the same amount of tiles, since they are sharing the same view. It is therefore only necessary to calculate the amount of tiles for one of the layers. 
 %Add to dualmaps how the double evaluation for multiple maps were build 
 
 \subsection{Search function}

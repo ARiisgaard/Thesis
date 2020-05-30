@@ -81,4 +81,27 @@ The grey bars are when a loaded file is being stalled. The blue bars are when th
 \fxnote{Mention caddy – 6 connection issue earlier}
  
 
+\section{Not calculating minimum values in tiles} \label{WhyNoMin}
+
+In the original version of the map both the minimum and maximum values were being calculated. However the program consistently defined the lowest value in currently visible tiles as 0.
+This does not mean that all the tiles had minimum values of 0, just that there always were a tile in the map extent with a value of 0. In the vast majority of case the value would be 0. Few would be below 100. In the densest of cities the minimum value for some tiles was higher than 1000. 
+It is possible that by zoom close enough to a major city it none of the tiles within view would have a value of 0 in which case the minimum value should be adjusted.
+This is the main argument for calculating a minimum value. The downside of calculating it is that it has an significant effect on the processing time of the raster layer. Table \ref{tabMinimum} shows the time in seconds it takes for the layer to be rendered with and without calculating the minimum value. On average the rendering time is a second faster, when not calculating the minimum value.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{l}
+		\includegraphics[width=0.8\textwidth]{Pictures/tabMinimum}
+	\end{tabular}
+	\caption{Seconds to fully render the website with and without calculating the minimum value}
+	\label{tabMinimum}
+\end{table}
+
+The reason that the calculation of minimum value has such an effect on the processing time is presumably that the minimum value cannot be calculated in the same way as the maximum value. 
+The maximum value is calculated by finding the maximum value in the array with all values. 
+\fxnote{Write about nodata}
+If the same operation is done to find the minimum value, the found minimum value often is -2147483648. As mentioned in section x that value means that no data is available for that pixel. 
+It is therefore necessary to find the lowest positive value since no data is not the same as 0. This can be done by first filtering the raster, so only the positive values are left. The smallest of these values can then be calculated in the same way as the maximum value get calculated. 
+It was decided that calculating a minimum value, which mostly would be 0 was not worth an additional second of loading. 
+
 \section{Is this even a good measurement for performance?}

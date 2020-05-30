@@ -97,4 +97,14 @@ The scores from each metrics are then weighted to reflect that each factor does 
 
 \fxnote{Make table with score weights}
 
+\section{Additional measurements}
+
+The measurement mentioned so far only take the initial load into consideration, not the postload performance. 
+Therefore, two additional measurements were conducted. Both of these were measured using the Performance tool in the Google Chrome Developer tool. Since there are slight variation in the time needed to perform the requests, each operation was tested multiple time and the average was calculated.
+\subsection{Time to color new layer}
+This is the time in seconds required to load and color completely new sets of tiles for both maps. The scenario is created by zooming to a new zoom extent. This is done to ensure that none of the tiles on the map have been loaded before. The measured time is the time from the map is clicked, initiating the zooming, till the layer have been colored.
+
+\subsection{Time to recolor a loaded layer}
+This measurement is the time recolor a layer with loading. This scenario is created by panning to a previously loaded part of the map, so that it is recolored.
+It is measured from the moment, the panning stops since the recoloring script is initiated on ended movement. The timer is stopped, when the layer is recolored.
 
