@@ -2,7 +2,7 @@
 
 /**
  * base class for openlayers geotiff support
- * @param {*} layer 
+ * @param {*} layer
  */
 function olGeoTiff(layer) {
   // layer of the OL map that holds the tiff tiles
@@ -52,8 +52,6 @@ function olGeoTiff(layer) {
 
   // object that holds all rastered tiffs identified by their url
   this.urlToTiff = {};
-  // object that holds max values for the rastered tiffs
-  this.tileMaxValue = {};
 
   // plotty instance for this layer
   this.plot = new plotty.plot({});
@@ -89,8 +87,7 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
       rasters: null,
       error: null,
       listeners: [listener],
-      errorListeners: [errorListener],
-      maxValue: 0 //Edited      
+      errorListeners: [errorListener]
     };
 
     // send new request
@@ -128,8 +125,8 @@ olGeoTiff.prototype.fetchTiff = function(url, listener, errorListener) {
 
 /**
  * custom tile load function
- * @param {*} imageTile 
- * @param {*} src 
+ * @param {*} imageTile
+ * @param {*} src
  */
 olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 
@@ -192,56 +189,64 @@ olGeoTiff.prototype.tileLoadFunction = function(imageTile, src) {
 
 olGeoTiff.prototype.redraw = function(map, currentMax, legendValues) {
 
-    map.plotOptions.domain = [0, currentMax];
+  map.plotOptions.domain = [0, currentMax];
   this.layer.getSource().refresh();
   updateLegend(legendValues, currentMax);
 }
 
 
+// Updates the legend
 function updateLegend(colorValues, maxValue) {
-
-
+  //Updates the number displaying the maximum value
   document.getElementById('MaxValue').innerHTML = maxValue;
+  //Updates the values shown, when holding the mouse over the individual color classes
   for (i = 0; i < colorValues.percentage_steps.length; i++) {
     document.getElementById('d' + String(i)).title = Math.round(colorValues.percentage_steps[i] * maxValue)
   }
 }
 
-// Contains ALL loaded tiles data
+// This object contains the maximum value for the loaded tiles data
 var maxValueTileData = {};
 
+//Returns the maximum value for a given tile. In the value does not exist it will be calculated and added to the object
 function calculateMaxValue(url) {
+  //The value gets returned as a asynchronous function, since it otherwise would return undefined
   return new Promise(resolve => {
-  if (maxValueTileData[url]) {
-    resolve(maxValueTileData[url].maxValue)
-  }
-  // in this case the tiff was not yet requested
-  else {
-    maxValueTileData[url] = {
-      maxValue: 0 //Edited      
-    };
 
-    // send new request
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'arraybuffer';
-
-    // setup the async function that is executed AFTER the tile was loaded
-    xhr.onloadend = function(e) {
-      if (xhr.status == 200) {
-        // save rasters of parsed tiff
-        var parsed = GeoTIFF.parse(this.response);
-        var raster = parsed.getImage().readRasters();
-        var maxPop = Math.max(...raster[0])
-        maxValueTileData[url].maxValue = maxPop
-        resolve(maxValueTileData[url].maxValue)
-      }
-      // 
-      //       // send ajax request
+    //If the tiles have previously been loaded and stored in the object, then it is returned
+    if (maxValueTileData[url]) {
+      resolve(maxValueTileData[url].maxValue)
     }
-    xhr.send();
-    
-  }
+    //If the tile is not in the object, then it gets calculated, added to the object and then returned
+    else {
+      maxValueTileData[url] = {
+        maxValue: 0 //Edited
+      };
 
-})
+      // send new request
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'arraybuffer';
+
+      // setup the async function that is executed AFTER the tile was loaded
+      xhr.onloadend = function(e) {
+        if (xhr.status == 200) {
+          // save rasters of parsed tiff
+          var parsed = GeoTIFF.parse(this.response);
+          var raster = parsed.getImage().readRasters();
+          // calculate the maximum value in the tile
+          var maxPop = Math.max(...raster[0])
+
+          //Add to the object and return the value
+          maxValueTileData[url].maxValue = maxPop
+          resolve(maxValueTileData[url].maxValue)
+        }
+        //
+        //       // send ajax request
+      }
+      xhr.send();
+
+    }
+
+  })
 }

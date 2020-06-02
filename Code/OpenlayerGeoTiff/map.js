@@ -1,14 +1,17 @@
-const projection = new ol.proj.get('EPSG:4326');
-
 ////////////
 // Getting Metadata
 ////////////
 
-//Get tile-metadata produced by gdal2tiles32 and store it in the tileMetadata object. Necessary to ensure correct resolutions among other things
-var tileMetadata = {};
 
-//The folder, where the tiles are extracted from. Locally it can be "g2tTiles" for India or "newTestTiles" for the States
+
+//The folder, where the tiles are extracted from.
 var tileFolders = ['g2tTiles', 'g2tSecondMap']
+
+//Add layer names to map
+document.getElementById('firstMapName').innerHTML = tileFolders[0]
+document.getElementById('secondMapName').innerHTML = tileFolders[1]
+//Get tile-metadata produced by gdal2tiles32 and store it in the tileMetadata object.
+var tileMetadata = {};
 getTileMetadata(tileMetadata, tileFolders);
 
 //Resolutions from the metadata xmlfile creates issues with loading the correct file if any zoomlayers are excluded
@@ -22,76 +25,12 @@ for (var z = 0; z < 14; ++z) {
   matrixIds[z] = z;
 }
 
-var wmslayerMap1 = new ol.layer.Tile({
-  source: new ol.source.WMTS({
-    url: tileFolders[0] + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
-    projection: projection,
-    tileGrid: new ol.tilegrid.WMTS({
-      origin: tileMetadata[tileFolders[0] + "origin"],
-      resolutions: resolutions,
-      matrixIds: matrixIds,
-      tileSize: 256
-    }),
-    requestEncoding: 'REST',
-    transition: 0
-  }),
-  extent: tileMetadata[tileFolders[0] + "boundingBox"],
-  opacity: 0.65 //The extent has been limited, since there I didn't test with the raster for the entire world
-});
+////////////
+// Creation of colorscale
+////////////
 
-var wmslayerMap2 = new ol.layer.Tile({
-  source: new ol.source.WMTS({
-    url: tileFolders[1] + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
-    projection: projection,
-    tileGrid: new ol.tilegrid.WMTS({
-      origin: tileMetadata[tileFolders[1] + "origin"],
-      resolutions: resolutions,
-      matrixIds: matrixIds,
-      tileSize: 256
-    }),
-    requestEncoding: 'REST',
-    transition: 0
-  }),
-  extent: tileMetadata[tileFolders[1] + "boundingBox"],
-  opacity: 0.65 //The extent has been limited, since there I didn't test with the raster for the entire world
-});
-
-// define the base layer
-var osmSource = new ol.source.OSM();
-var osm = new ol.layer.Tile({
-  source: osmSource
-  // , extent: tileMetadata.boundingBox
-});
-
-var sharedView = new ol.View({
-  projection,
-  center: tileMetadata[tileFolders[0] + "center"],
-  zoom: 7,
-  maxZoom: 11,
-  minZoom: 2
-})
-
-// define the map
-var map = new ol.Map({
-  target: 's2map',
-  layers: [
-    osm, wmslayerMap1
-  ],
-  wrapDateLine: true,
-  view: sharedView
-});
-
-var map2 = new ol.Map({
-  target: 'secondMap',
-  layers: [
-    osm, wmslayerMap2
-  ],
-  wrapDateLine: true,
-  view: sharedView
-});
-
-//Creation of colorscale
-
+//Here a color scale is created and added to the available color scales
+//The colors are selected in colorbrewer - https://colorbrewer2.org/#type=sequential&scheme=OrRd&n=6
 var colorScale = {};
 colorScale.color_steps = [
   '#fef0d9',
@@ -111,12 +50,93 @@ colorScale.percentage_steps = [
 ]
 plotty.addColorScale("sequentialMultiHue6Colors", colorScale.color_steps, colorScale.percentage_steps);
 
+////////////
+// Creating the map
+////////////
+
+// Setting map projection
+const projection = new ol.proj.get('EPSG:4326');
+
+//Create the layers with the raster tiles. Some metadata is collected from the metadta object
+var wmslayerMap1 = new ol.layer.Tile({
+  source: new ol.source.WMTS({
+    url: tileFolders[0] + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
+    projection: projection,
+    tileGrid: new ol.tilegrid.WMTS({
+      origin: tileMetadata[tileFolders[0] + "origin"],
+      resolutions: resolutions,
+      matrixIds: matrixIds,
+      tileSize: 256
+    }),
+    requestEncoding: 'REST',
+    transition: 0
+  }),
+  //The extent has been limited, since there I didn't test with the raster for the entire world
+  extent: tileMetadata[tileFolders[0] + "boundingBox"],
+  opacity: 0.65
+});
+
+var wmslayerMap2 = new ol.layer.Tile({
+  source: new ol.source.WMTS({
+    url: tileFolders[1] + '/{TileMatrix}/{TileCol}/{TileRow}.tiff',
+    projection: projection,
+    tileGrid: new ol.tilegrid.WMTS({
+      origin: tileMetadata[tileFolders[1] + "origin"],
+      resolutions: resolutions,
+      matrixIds: matrixIds,
+      tileSize: 256
+    }),
+    requestEncoding: 'REST',
+    transition: 0
+  }),
+  extent: tileMetadata[tileFolders[1] + "boundingBox"],
+  opacity: 0.65
+});
+
+// define the base layer
+var osmSource = new ol.source.OSM();
+var osm = new ol.layer.Tile({
+  source: osmSource
+});
+
+// This view is shared between both maps, so they always show the same
+var sharedView = new ol.View({
+  projection,
+  center: tileMetadata[tileFolders[0] + "center"],
+  zoom: 7,
+  maxZoom: 11,
+  minZoom: 2
+})
+
+// define the left map
+var map = new ol.Map({
+  target: 'firstmap',
+  layers: [
+    osm, wmslayerMap1
+  ],
+  wrapDateLine: true,
+  view: sharedView
+});
+
+// define the right map
+var map2 = new ol.Map({
+  target: 'secondMap',
+  layers: [
+    osm, wmslayerMap2
+  ],
+  wrapDateLine: true,
+  view: sharedView
+});
+
+
+
 // olGeoTiff setup
 var olgt_map1 = new olGeoTiff(wmslayerMap1);
 var olgt_map2 = new olGeoTiff(wmslayerMap2);
 olgt_map1.plotOptions.palette = 'sequentialMultiHue6Colors';
 olgt_map2.plotOptions.palette = 'sequentialMultiHue6Colors';
 
+// Color the maps based on their values
 recolorMap()
 // handle user input
 $(window).on('load', function() {
@@ -127,58 +147,64 @@ $(window).on('load', function() {
   }
 
   //Recolor map on movement or zoom
-  // map.on("rendercomplete", function() {
   map.on("moveend", function() {
     recolorMap()
   });
 
 });
 
+////////////
+// Recoloring the map
+////////////
 // Find the highest value currently displayed and recolor based on this
+
+//variable for holding the max value and checking if the max value changes
 var currentMax = 0;
 var oldMax = currentMax;
+
 function recolorMap() {
 
-  var maxValues = [];
+  //Array holding max values for all currently displayed tiles
+  var maxValuesAllTiles = [];
 
   //Getting map extent and zoom
   var mapExtent = map.getView().calculateExtent(map.getSize())
   var mapZoom = map.getView().getZoom();
 
+  //This variable is adjusting for the fact that the wrong zoom level is being loaded
   var zoomlevelAdjustment = 3
-  //This variable should potentially be deleted later, if the extent get limited to the boundingBox of the layer
+
   //The loadExtent is the same as the mapextent, unless the mapextent shows an area outside the data area
-  //- In this case the loadExtent gets reduced to the bounding box - this is to avoid attempt at loading data, which doesn't exist
+  // In this case the loadExtent gets reduced to the bounding box -
+  // this is to avoid attempt at loading data, which doesn't exist
   var loadExtent = new Array(4);
   loadExtent[0] = Math.max(mapExtent[0], tileMetadata[tileFolders[0] + "boundingBox"][0]);
   loadExtent[1] = Math.max(mapExtent[1], tileMetadata[tileFolders[0] + "boundingBox"][1])
   loadExtent[2] = Math.min(mapExtent[2], tileMetadata[tileFolders[0] + "boundingBox"][2])
   loadExtent[3] = Math.min(mapExtent[3], tileMetadata[tileFolders[0] + "boundingBox"][3])
 
-  //Function for getting the url/filename for tiles based on their coordinates
-  // var maxValues = [];
-
-  //Get the number of tiles - same number of tiles, so no need to run this twice
+  //Get the total number of tiles - both maps have the same number of tiles, so no need to run this twice
   var tileNumber = 0;
   wmslayerMap1.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
     tileNumber++;
   })
 
+  //Counting variables keeping track of how many tiles have been processed in each map
   var currentTile = {};
   currentTile[tileFolders[0]] = 0;
   currentTile[tileFolders[1]] = 0;
 
-  //Checks which tiles that currently are being displayed
-  //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
+  //Calculate the highest value in each map. The counting variables have been included to know when to draw the layer
   findHighestValue(wmslayerMap2, tileFolders[1], tileFolders[0])
   findHighestValue(wmslayerMap1, tileFolders[0], tileFolders[1])
 
-  // findHighestValue(wmslayerMap2)
-
   function findHighestValue(wmslayer, selfCounter, otherCounter) {
 
+    //Getting the url (name) of the tile based on its coordinates
     var tileUrlFunction = wmslayer.getSource().getTileUrlFunction()
 
+    //Checks which tiles that currently are being displayed
+    //This is done at a lower resolution than the current zoomlevel, since loading otherwise would be too slow
     wmslayer.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
 
       //Gets the name of each currently displayed tile
@@ -186,18 +212,21 @@ function recolorMap() {
       asyncCall()
       async function asyncCall() {
 
+        //Get the maximum value in the tile and add it to the array
         tileMaxValue = await calculateMaxValue(tileName);
-        maxValues.push(tileMaxValue)
+        maxValuesAllTiles.push(tileMaxValue)
+        //Update the counter - one more tile have been processed
         currentTile[selfCounter]++;
-        // console.log(currentTile[selfCounter])
+
+        //Checks if the function is finished with finding max value for tiles in both layers
         if (currentTile[selfCounter] == tileNumber && currentTile[otherCounter] == tileNumber && tileNumber != 0) {
-          // console.log(maxValues.length)
-          // console.log(maxValues.length)
-          // console.log(currentTile[selfCounter])
+
+          //Resets all counters and set current max to the highest value
           currentTile[selfCounter] = 0;
           currentTile[otherCounter] = 0;
           tileNumber = 0;
-          currentMax = Math.max(...maxValues)
+          currentMax = Math.max(...maxValuesAllTiles)
+          //Recolor the map, if max value have changed
           if (Number.isInteger(currentMax) && currentMax != oldMax) {
             oldMax = currentMax
             olgt_map1.redraw(olgt_map1, currentMax, colorScale);
@@ -212,10 +241,13 @@ function recolorMap() {
 
 }
 
+
+
+//This function pans to a searched city.
 function SearchCity() {
+  //Get the name from the search bar and request the coordinates for it from Nominatim
   var cityName = document.getElementById("requestedCity").value;
   var request = "https://nominatim.openstreetmap.org/search?q=" + cityName + "&format=geojson"
-  var mapZoom = map.getView().getZoom();
 
   var xhttp = new XMLHttpRequest();
 

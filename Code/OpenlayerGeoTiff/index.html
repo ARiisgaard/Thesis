@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="#" />
+  <title>maps from geotiff</title>
+
+  <script src="./lib/jquery.min.js"></script>
+
+  <script src="./lib/plotty.min.js"></script>
+  <script src="./lib/geotiff.browserify.js"></script>
+
+  <script src="./lib/olGeoTiff.js"></script>
+  <script src="./lib/ol-debug.js"></script>
+  <link rel="stylesheet" href="./lib/ol-debug.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .map {
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+  }
+
+  .mapcontainer {
+    padding: 0 100px;
+    text-align: center;
+  }
+
+  td {
+    border: 0;
+    margin: 0
+  }
+
+  td.l {
+    color: white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 0
+  }
+
+  @media (min-width: 900px) {
+    .wrapper {
+      display: flex;
+    }
+
+    .half {
+      padding: 0 10px;
+      width: 400px;
+      float: left;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <input type="text" id="requestedCity" value="Search">
+  <button onclick="SearchCity()"><i class="fa fa-search"></i></button>
+  <div class="wrapper">
+    <div class="half">
+      <h4 id="firstMapName">Map1</h4>
+      <div id="firstmap" class="map"></div>
+    </div>
+    <div class="half">
+      <h4 id="secondMapName">Map2</h4>
+      <div id="secondMap" class="map"></div>
+    </div>
+  </div>
+  <!-- Add legend -->
+  <table>
+    <tr>
+      <td colspan="9">Population per cell</td>
+    </tr>
+    <tr>
+      <td class='l' id='d0' title='0'></td>
+      <td class='l' id='d1' title='0'></td>
+      <td class='l' id='d2' title='0'></td>
+      <td class='l' id='d3' title='0'></td>
+      <td class='l' id='d4' title='0'></td>
+      <td class='l' id='d5' title='0'></td>
+    </tr>
+    <tr>
+      <td colspan="4" style='text-align: left'>0</td>
+      <td></td>
+      <td id="MaxValue" colspan="4" style='text-align: right'>0</td>
+    </tr>
+  </table>
+
+  <script src="tileMetadata.js"></script>
+  <script src="map.js"></script>
+
+</body>
+
+</html>
