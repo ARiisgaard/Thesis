@@ -14,7 +14,7 @@ The tiles could possibly be ordered and named correctly by running gdal2tiles wi
 
 \section{Further development}
 Not all the intended functionality got added to the map. This section will list some of the features, which there was not time to implement. 
-
+\fxnote{How are these organised?}
 %\subsection{Data at point of click}
 %
 %A function could be added to get the population counts from a clicked point for both maps. An example of this have been shown in figure x. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
@@ -30,8 +30,8 @@ Another functionality, which could have been added was the option to change the 
 
 This way the map could also be used to visualize the different in the same projection from one year and another.
 \subsection{Option for multiple colorschemes}
-If there is a vast difference between the values in the two shown projection coloring based on the same maximum values does not necessarily make sense as was shown in the figure in core concept 2. It would therefore make sense to have the option to enable separate coloring as shown in figure x. 
-TODO: make a figure showing the map with multiple legends and color schemes. 
+If there is a vast difference between the values in the two shown projection coloring based on the same maximum values does not necessarily make sense as was shown in the figure in \ref{technical concept 2}. It would therefore make sense to have the option to enable separate coloring as shown in figure x. 
+\fxnote{TODO: make a figure showing the map with multiple legends and color schemes. }
 
 \subsection{Additional information}
 
@@ -50,7 +50,7 @@ As mentioned in section x the generation of tiles were done without using multip
 
 %This is probably the most important missing feature, since the processing time otherwise would be so high, that it would not be a faster alternative to the currently available options. 
 
-\section{Cloud Optimized Geotiff}
+\subsection{Cloud Optimized Geotiff}
 
 An alternative to separating the rasterfile into smaller tiles would be to have the entire raster as one file, but then only send part of the file. This is possible using Cloud Optimized GeoTIFF (COG). These are GeoTiff files, which are organized in internal “tiles”.
 The files also contain multiple versions of the same image, where each is a downsampled version of the original. Each of these image versions can match a different zoom level.
@@ -62,14 +62,14 @@ https://www.cogeo.org/in-depth.html
 By using these two technologies tiles of different spatial resolution can be sent to the client, which is similar to what the current solution is doing. The main difference is that with COG there would be one file, while the current solution has thousands of files. The creation of this file takes significantly less time compared to creating the individual tiles. India was as mentioned in section x processed into tiles in 6 hours and four minutes. Converting the same file into a COG takes 3 seconds.
 %gdal_translate in.tif out.tif -co TILED=YES -co COPY_SRC_OVERVIEWS=YES 
 https://www.cogeo.org/developers-guide.html
-This way parts of only the parts of the raster, which the user can see on the map get requested.
+This way only the parts of the raster, which the user can see on the map get requested.
 
 
 There is currently no support for COG in Openlayers
 https://github.com/openlayers/openlayers/issues/10733
 and no extensions enabling it
 https://github.com/cogeotiff/www.cogeo.org/issues/36
-, but there is support for visualizing the files in Leaflet
+. Leaflet, another mapping program does have support for visualising the filetype.
 https://github.com/GeoTIFF/georaster-layer-for-leaflet
 
 
@@ -79,7 +79,8 @@ Based on the performance and best practice audits by Google Lighthouse the perfo
 
 \textbf{Eliminate render-blocking resources}\\
 As mentioned in section x the largest render-blocking resource was Openlayers. The same section also highlighted that 43.2 \% of the library never get used. The performance could therefore be improved by only loading the necessary parts of the library. 
-\fxnote{Write about debug-ol}
+
+In addition to only loading the necessary parts of Openlayers, the size of it could also be reduced by using the minified version of it instead of the debug-version.
 \citep{OlModule}
 
 \textbf{Avoid enormous network payloads}\\
@@ -109,7 +110,7 @@ The grey bars are when a loaded file is being stalled. The blue bars are when th
 \section{Not calculating minimum values in tiles} \label{WhyNoMin}
 
 In the original version of the map both the minimum and maximum values were being calculated. However the program consistently defined the lowest value in currently visible tiles as 0.
-This does not mean that all the tiles had minimum values of 0, just that there always were a tile in the map extent with a value of 0. In the vast majority of case the value would be 0. Few would be below 100. In the densest of cities the minimum value for some tiles was higher than 1000. 
+This does not mean that all the tiles had minimum values of 0, just that there always were a tile in the map extent with a value of 0. In the vast majority of case the value would be 0. Few would be below 100. In the most densely populated cities the minimum value for some tiles was higher than 1000. 
 It is possible that by zoom close enough to a major city it none of the tiles within view would have a value of 0 in which case the minimum value should be adjusted.
 This is the main argument for calculating a minimum value. The downside of calculating it is that it has an significant effect on the processing time of the raster layer. Table \ref{tabMinimum} shows the time in seconds it takes for the layer to be rendered with and without calculating the minimum value. On average the rendering time is a second faster, when not calculating the minimum value.
 

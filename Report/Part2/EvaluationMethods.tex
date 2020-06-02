@@ -9,12 +9,11 @@ This chapter starts with an overview of the tool followed by an evaluation of wh
 \section{Setup}
 
 
-The tests have been performed in Google Chrome version 81. To ensure that tests were unaffected by outside influences all Chrome extensions were disabled during testing. The Cache
+The tests have been performed in Google Chrome version 81. To ensure that tests were unaffected by outside influences all Chrome extensions were disabled during testing. The cache was also disabled, so that every that tests would not be affect by previous tests.
 
 
 \section{Overview}
 Google Lighthouse is an automated tool in Chrome DevTools, which is the developer tool included in Chrome. It can be used to check the quality of websites within the five categories: Best practice, performance, accessibility, search engine optimization and progressive web app. \citep{Lighthouse}
-\fxnote{Inset Image here}
 
 \textbf{Performance}\\
 The performance audit is measuring the site performance and load speed. This is done by measuring the time needed for different stages of loading and when the user is able to interact with the site. \citep{LhPerformance}
@@ -27,7 +26,7 @@ The check is mainly focused on Accessible Rich Internet Applications, which is u
 \citep{LhAccess}
 
 \textbf{Best practice}\\
-The best practices cover different types of website enhancements. There checks to ensure that the website is fast, secure, and not using deprecated technologies, among others. \citep{LhBP}
+The best practices cover different types of website enhancements. There are checks to ensure that the website is fast, secure, and not using deprecated technologies, among others. \citep{LhBP}
 
 \textbf{Search engine optimization}\\
 The checks within the Search Engine Optimization (SEO) category evaluate how well the page is optimized for ranking by search engine. This optimization is achieved by ensuring that the page is readable search engines and that search engines can access the page. It also includes some measurements for being mobile friendly.
@@ -39,15 +38,9 @@ The Progressive Web App (PWA) audits are target towards a mobile audience. These
 
 \subsection{Relevant evaluation criteria}
  
-Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{Target audience}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientist and not for anybody. It is presumed that the majority of people, who daily work with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
-
-\fxnote{Write target audience}
-
+Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{Target audience}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientist and not for everybody. It is presumed that the majority of people, who work daily with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
 
 \section{Metrics for performance}
-
-\fxnote{Write about timing the python processing}
-
 
 \fxnote{Source: Return to this one later}
 
@@ -72,7 +65,7 @@ The Speedline module calculates the SI by calculating an Interval Score between 
 
 The First Meaningful Paint (FMP) is the seconds from the initial loading of the page to the primary content is visible. Where primary content is referring to the largest layout change, which is visible without scrolling.
 
-It should be noted that FMP is being replaced with Largest Contentful Paint (LCP) in the next release of Chrome Lighthouse. The reason for this is that FMP is did not give consistent result and was difficult to standardize in all web browsers. \citep{FMP}
+It should be noted that FMP is being replaced with Largest Contentful Paint (LCP) in the next release of Chrome Lighthouse. The reason for this is that FMP did not give consistent result and was difficult to standardize in all web browsers. \citep{FMP}
 LCP is the seconds needed to render the single largest content element, which is visible without scrolling.\citep{LCP}
 
 \textbf{Time to Interactive}
@@ -86,7 +79,7 @@ First CPU Idle is the seconds before a page becomes minimally interactive. Minim
 The difference between this and TTI is the degree of interaction. When the user can begin interacting with a page the First CPU Idle can be measured. TTI is measured when all interactions can be performed. 
 This feature is being replaced with Total Blocking Time (TBT) in the next Lighthouse release. The reason for this is that this and TTI are too similar to maintain both. 
 \citep{FCPUI}
-TBT is the total amount of milliseconds where the website is not responding to user input. It is measured during the time between FCP and TTI. 
+TBT is the total amount of milliseconds between FCP and TTI where the website is not responding to user input.
 \citep{TBT}
 
 \section{Calculating score}
@@ -100,11 +93,11 @@ The scores from each metrics are then weighted to reflect that each factor does 
 \section{Additional measurements}
 
 The measurement mentioned so far only take the initial load into consideration, not the postload performance. 
-Therefore, two additional measurements were conducted. Both of these were measured using the Performance tool in the Google Chrome Developer tool. Since there are slight variation in the time needed to perform the requests, each operation was tested multiple time and the average was calculated. 
+Therefore, two additional measurements were conducted. Both of these were measured using the Performance tool in the Google Chrome Developer tool. Since there are slight variation in the time needed to perform the requests, each operation was tested multiple times and the average was calculated. 
 \subsection{Time to color new layer}
 This is the time in seconds required to load and color completely new sets of tiles for both maps. The scenario is created by zooming to a new zoom extent. This is done to ensure that none of the tiles on the map have been loaded before. The measured time is the time from the map is clicked, initiating the zooming, till the layer have been colored.
 
 \subsection{Time to recolor a loaded layer}
-This measurement is the time recolor a layer with loading. This scenario is created by panning to a previously loaded part of the map, so that it is recolored.
+This measurement is the time to recolor a layer, which already have been loaded. This scenario is created by panning to a previously loaded part of the map, so that it is recolored. 
 It is measured from the moment, the panning stops since the recoloring script is initiated on ended movement. The timer is stopped, when the layer is recolored.
 

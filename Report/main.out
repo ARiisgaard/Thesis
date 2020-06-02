@@ -2,22 +2,23 @@
 \BOOKMARK [0][-]{indhold.0}{Indholdsfortegnelse}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
 \BOOKMARK [-1][-]{part.1}{Design}{}% 4
-\BOOKMARK [0][-]{chapter.2}{Case data}{part.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Case data: Population projection}{part.1}% 5
 \BOOKMARK [0][-]{chapter.3}{Raster formatting}{part.1}% 6
 \BOOKMARK [0][-]{chapter.4}{Current methods of comparing rasters}{part.1}% 7
 \BOOKMARK [0][-]{chapter.5}{Visual conventions}{part.1}% 8
 \BOOKMARK [0][-]{chapter.6}{Related work}{part.1}% 9
-\BOOKMARK [0][-]{chapter.7}{Components of an interactive maps}{part.1}% 10
-\BOOKMARK [0][-]{chapter.8}{Final design}{part.1}% 11
-\BOOKMARK [-1][-]{part.2}{Development}{}% 12
-\BOOKMARK [0][-]{chapter.9}{Coding languages and plugins}{part.2}% 13
-\BOOKMARK [0][-]{chapter.10}{Developing the tool}{part.2}% 14
-\BOOKMARK [0][-]{chapter.11}{Result}{part.2}% 15
-\BOOKMARK [-1][-]{part.3}{Evaluation}{}% 16
-\BOOKMARK [0][-]{chapter.12}{Evaluation Methods}{part.3}% 17
-\BOOKMARK [0][-]{chapter.13}{Evaluation}{part.3}% 18
-\BOOKMARK [0][-]{chapter.14}{Discussion}{part.3}% 19
-\BOOKMARK [0][-]{chapter.15}{Conclusion}{part.3}% 20
-\BOOKMARK [0][-]{chapter*.49}{Bibliography}{part.3}% 21
-\BOOKMARK [0][-]{appendiks.0}{Appendiks}{part.3}% 22
-\BOOKMARK [0][-]{appendix.A}{This is at test}{part.3}% 23
+\BOOKMARK [0][-]{chapter.7}{Technical concepts}{part.1}% 10
+\BOOKMARK [0][-]{chapter.8}{Components of an interactive maps}{part.1}% 11
+\BOOKMARK [0][-]{chapter.9}{Final design}{part.1}% 12
+\BOOKMARK [-1][-]{part.2}{Development}{}% 13
+\BOOKMARK [0][-]{chapter.10}{Coding languages and plugins}{part.2}% 14
+\BOOKMARK [0][-]{chapter.11}{Developing the tool}{part.2}% 15
+\BOOKMARK [0][-]{chapter.12}{Result}{part.2}% 16
+\BOOKMARK [-1][-]{part.3}{Evaluation}{}% 17
+\BOOKMARK [0][-]{chapter.13}{Evaluation Methods}{part.3}% 18
+\BOOKMARK [0][-]{chapter.14}{Evaluation}{part.3}% 19
+\BOOKMARK [0][-]{chapter.15}{Discussion}{part.3}% 20
+\BOOKMARK [0][-]{chapter.16}{Conclusion}{part.3}% 21
+\BOOKMARK [0][-]{chapter*.52}{Bibliography}{part.3}% 22
+\BOOKMARK [0][-]{appendiks.0}{Appendiks}{part.3}% 23
+\BOOKMARK [0][-]{appendix.A}{Lighthouse audit}{part.3}% 24

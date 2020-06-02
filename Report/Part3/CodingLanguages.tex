@@ -7,16 +7,19 @@ In this chapter it is explained how the tool has been developed. The first secti
 	\label{DevelopmentSteps}
 \end{figure}
 
-First it is necessary to divide the raster into tiles to be able to limit the loaded data to the current extent. How this is done is explained in section x. Section x describes how the tiles have been visualized. To be able to color the tiles based on the current values it is required to know what the current values are. In section x it is explained how this information is calculated. The raster layer is then rerendered with these values as described in section x. Lastly some measurements were taken to ensure a more user-friendly experience. These additions are described in section x. 
+First it is necessary to divide the raster into tiles to be able to limit the loaded data to the current extent. How this is done is explained in section x. Section x describes how the tiles have been visualized. To be able to color the tiles based on the current values one must know what the current values are. In section x it is explained how this information is calculated. The raster layer is then rerendered with these values as described in section x. Lastly some measurements were taken to ensure a more user-friendly experience. These additions are described in section x. 
+
+\fxnote{Move to final design?}
 
 \chapter{Coding languages and plugins}
-For this project, the coding language Python was used to create the tiles, while visualization of the tiles was done in a webgis build with the languages HTML, CSS and Javascript. This webgis have been tested on a local caddy server for reasons explained in section x
+For this project, the coding language Python was used to create the tiles, while visualization of the tiles was done in a webgis build with the languages HTML, CSS and Javascript. This webgis map has been tested on a local caddy server for reasons explained in section x
 
 \section{Languages}
 \subsection*{Python}
-Python is programming language with a simple syntax, which functions across multiple different platforms. This simple syntax means that Python can achieve the same as some other coding languages in fewer lines.\citep{WhatIsPython}
+Python is a programming language with a simple syntax, which functions across multiple different platforms. This simple syntax means that Python can achieve the same as some other coding languages in fewer lines.\citep{WhatIsPython}
 Python was used in this project because of the gdal library expanded further upon in section x
-This project has been using version 3.6 of Python. 
+This project has been using version 3.8.3 of Python, which at the time of writing is the latest version.
+https://www.python.org/downloads/ 
 \subsection*{HTML}
 HTML is short for Hyper Text Markup Language. It is the language used for defining and structuring a web page’s content.
 \subsection*{CSS}
@@ -38,7 +41,7 @@ Both the official version and the modified version have their output format as m
 \subsection*{Openlayers}
 The map in which the tiles are being showed are created in Openlayers, which is an open source JavaScript library for creating dynamic maps for web pages. 
 \citep{OL}
-Openlayers was chosen because the tool presented in related work was built in Openlayers. Therefore, using Openlayers would enable expanding upon this existing tool instead of starting from scratch. 
+Openlayers was chosen because the tool presented in related work was built in Openlayers. Therefore, using Openlayers enables expanding upon this existing tool instead of starting from scratch. 
 
 The existing tool was created with the debug version of Openlayers, which this tool also have build on. The debug version is a version of the Openlayers, which have not been minified. Because of this it is a larger file than the regular one. 
 https://gis.stackexchange.com/questions/155529/whats-difference-between-ol-js-and-ol-debug-js-files-in-openlayers-3
@@ -71,15 +74,16 @@ The olGeoTiff also have a redraw function, which when triggered will redraw the 
 To test the tool a local test server was set up. This was initially a Python-based http server, but was later replaced with a Go-based Caddy server to improve performance. The performance difference between the two is elaborated upon in section x.
 
 Caddy was chosen because it supports the second version of Hyper Text Transfer Protocol (HTTP)
-https://dassur.ma/things/h2setup/
+\citep{WhyCaddy}
 
 
 
 which is used for the communication between the client and server.
-https://www.w3schools.com/whatis/whatis_http.asp
+\citep{WhatIsHTTP}
 
 HTTP/2 is allowing a faster communication between them
-https://web.dev/uses-http2/?utm_source=lighthouse&utm_medium=devtools
+
+\citep{HTTP2}
 %Caddy
 %http’s limits to 6 connections 
 %fig text: Blue: DomContentLoaded Red: Load

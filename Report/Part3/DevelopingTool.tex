@@ -2,7 +2,7 @@
 This chapter details how the visualization tool was built.
 
 \section{Creating the tiles}
-The tiles got created using a modified version of gdal2tiles, which was changed to create tiles following the XYZ format. However, since the default output bit depth is too low, it would have to be modified further. The file format would also have to be changed to tiff in order to be visualized with the geotiff.js library. 
+The tiles were created using a modified version of gdal2tiles, which was changed to create tiles following the XYZ format. However, since the default output bit depth is too low, it would have to be modified further. The file format would also have to be changed to tiff in order to be visualized with the geotiff.js library. 
 
 \subsection{Changing the file type}
 Changing the file format can be done by changing two lines in the gdal2tiles script:
@@ -78,7 +78,7 @@ The generated tiles appears as they should, so this error message is potentially
 
 The tiles at the rightmost and bottom edges have an edge as shown in figure x. This edge is not being shown, when the tile is being loaded into the map. A comparison between the input file and the tile shows that all data is being displayed. The bottom part of the input file is the last part before the edge. This edge seems to be generated because the input file was not perfectly dividable with the tile size as illustrated in figure x.
 https://github.com/ARiisgaard/Thesis/issues/22
-This edge could be another explaination for the error message. 
+This edge could be another explanation for the error message. 
 
 
 
@@ -126,10 +126,10 @@ Therefore, the slower single process version has been used for this project.
 
 
 \section{Visualizing tiles}
-After the tiles got created, they are stored in a folder, which gets uploaded to the testserver along the index file. 
+After the tiles are created, they are stored in a folder, which is uploaded to the testserver along the index file. 
 The metadata from the xml file must be loaded into the map to be able to visualize the tiles. Normally this could be done using the WMTSCapabilities() function in Openlayers.
 \citep{WmtsOl}
-However, the formatting of the xml file produced by gdal is different from the format, which this function can read. Therefore, a small script has been created to parse the xml file and store the information in a metadata object. This object, tileMetadata, stores the bounding box, origin, center coordinates as well as tilesize. The initial version of the object also stored the resolution data, which is called units-per-pixel in code x. This led to some inconsistency when loading tiles, which had been generated without some of the lower zoom level. This will be further expanded upon in section x. Therefore, the resolution was instead generated using the script x, where 0.0333 is the value for units-per-pixel at zoom level 0. 
+However, the formatting of the xml file produced by gdal is different from the format, which this function can read. Therefore, a small script has been created to parse the xml file and store the information in a metadata object. This object, tileMetadata, stores the bounding box, origin, center coordinates as well as tilesize. The initial version of the object also stored the resolution data, which is called units-per-pixel in code x. This led to some inconsistency when loading tiles, that had been generated without some of the lower zoom level. This will be further expanded upon in section x. Therefore, the resolution was instead generated using the script x, where 0.0333 is the value for units-per-pixel at zoom level 0. 
 
 \begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
 for (var z = 0; z < 14; ++z) {
@@ -164,64 +164,78 @@ Using this metadata, the tiles could be visualized using the olGeoTiff class.
 
 \subsection{Custom colors scheme}
 Using colorbrewer a custom sequential colorscheme was generated. This scheme was added to Plotty and selected as a color palette.
-*This code might change a bit, so wait with writing  
+\fxnote{This code might change a bit, so wait with writing}
 
 
 \section{Loading data at a wrong resolution}\label{PresentingBug}
-Figure x shows how the map looked, when loaded with a manually defined max value.
 
+Figure \ref{MapWithWrongResolution} shows how the map looked, when the tiles are visualized. 
+\fxnote{Rewrite this with new knowledge}
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/MapWithWrongResolution}
-	\caption{The map looking right, but with tiles from the wrong zoom level}
+	\caption{The map is looking correct, but with tiles from the wrong zoom level}
 	\label{MapWithWrongResolution}
 \end{figure}
 
 
-While the map appeared to look alright, it was loading tiles from the wrong zoom level. The tiles always got loaded from a zoom level 3 lower than intended. So the map in figure x is visualizing the map at zoom level 7 but loading and displaying tiles from zoom level 4.
+While the map appeared to look alright, it was loading tiles from the wrong zoom level. The tiles always got loaded from a zoom level three levels higher than intended. So the map in figure \ref{MapWithWrongResolution} is visualizing the map at zoom level 7, but loading and displaying tiles from zoom level 2. It was not possible to force the map to load tiles from a different zoom level.
 
-Some experiments with loading the tiles from the correct zoom level 
-Setting up Openlayers to download tile from the current view and correct zoom level chrashed the map with the error message “Insufficient Resources”. The amount of loaded tiles seems unnecessarily high and size of the tiles too small. This seems to indicate, that the tiles, which the modified version of gdal2tiles associates with zoom level 7 in fact belongs to a higher zoom level.
+Some experiments with loading tiles from the current view and zoom level 7 crashed the map with the error message “Insufficient Resources”. The amount of loaded tiles seems unnecessarily high and size of the tiles too small. This seems to indicate, that the tiles, which the modified version of gdal2tiles associates with zoom level 7 in fact belongs to a higher zoom level.
 
-The reason for this bug was never discovered and the bug never got fixed. When the resolution data was gathered from the metadata file, the difference between the loaded and the actual zoom level would between different sets of tiles. This variance would depend on the which zoom levels were not being generated. So, if only the zoom levels 2-7 were generated, the difference would increase by one for each missing layer. In this case the loaded tiles would instead be wrong by 5, calculated as the default wrongness of 3 plus 2 for missing zoom layer 0 and 1. 
+In figure \ref{DifferentZoom} these different zoom levels have been illustrated. The expected zoom level, which Openlayer
+
+The Displayed zoom level (DZL) is the tiles, that are being loaded and visualised in Openlayers. The expected zoom level (EZL) is the zoom level, which Openlayers is displaying the map in. However as mentioned earlier there are too many tiles to load, when using this zoom level and map extent. The coloring should therefore ideally be done based on a zoom level between these two zoom levels. This zoom level have been defined as the intended zoom level (IZL).
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=.8\textwidth]{Pictures/DifferentZoom}
+	\caption{An overview of the differences in zoom levels, which the map is displayed at (red), the displayed tiles get loaded in (green) and the zoom level, which should have been displayed (blue). The zoom level adjustment is the difference between the Expected and Intended zoom level}
+	\label{DifferentZoom}
+\end{figure}
+\fxnote{Explain the need for zoom level 0 better}
+This issue was not fixed, but theories behind the origin of it is discussed in section x. When the resolution data was gathered from the metadata file, the difference between the loaded and the actual zoom level would between different sets of tiles. This variance would depend on the which zoom levels were not being generated. So, if only the zoom levels 2-7 were generated, the difference would increase by one for each missing layer. In this case the loaded tiles would instead be wrong by 5, calculated as the default wrongness of 3 plus 2 for missing zoom layer 0 and 1. 
 This bug will be defining for the rest of the code.
 
 
 
 \section{Calculate max value in current extent}
-Calculating the highest value in the current extent can be divided into two smaller tasks. Figuring out which tiles currently are being displayed and processing these tiles. It was decided not to calculate the lowest value in each tiles, since the calculation noticable inscreased the processing time without yielding any benefit. This is expanded upon in section \ref{WhyNoMin}
+Calculating the highest value in the current extent can be divided into two smaller tasks. Figuring out which tiles currently are being displayed and processing these tiles. It was decided not to calculate the lowest value in each tiles, since the calculation increased the processing time without yielding any benefit. This is expanded upon in section \ref{WhyNoMin}
 
-\fxnote{Mention the negative values in case data}
-\subsection{Current displayed tiles}
+\fxnote{min values have been removed earlier, right? No need to mention them here too}
+\subsection{Current displayed tiles}\label{CurrentDisplayedTiles}
 
-The tiles, which currently is within the view, can be found using the Openlayers tileGrid method forEachTileCoord. This method can trigger a function for each tile within a given zoom level and extent. 
+The tiles, which currently is within the view, can be found using the Openlayers tileGrid method forEachTileCoord. This method can trigger a function for each tile coordinate within a given zoom level and extent. 
 \citep{forEachTileCoord}
-The method is going through the tiles based on their coordinates, but this can be translated to the tile urls using the getTileUrlFunction.
-\begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
+These tile coordinates can then be translated to the tile name and folder location using getTileUrlFunction.
+%The method is going through the tiles based on their coordinates, but this can be translated to the tile urls using the getTileUrlFunction.
+\begin{lstlisting}[language=JavaScript, caption={}, label= VoresJS,escapechar=|]
 var tileUrlFunction = wmslayer.getSource().getTileUrlFunction()
 var zoomlevelAdjustment = 3
 wmslayer.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
 	tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-	%Find max value
+	maxValueInTile()
 }
 \end{lstlisting}
-forEachTileCoord is triggering for each tile in the given zoom extent. This means that it on zoom level 7 it would load the tiles, that should be rendered on zoom level 7. Due to the bug mentioned section \ref{PresentingBug} it is not the tiles from that zoom level, which are being displayed. Instead the tiles from zoom level 2 are being displayed. This will complicate some of the next steps. 
-The adjustment to the zoom level is in order to load the tiles, which should have displayed.
+If the function is just given the zoom level of the map it will trigger for the tiles in the Expected Zoom Level. This would not work, since there are too many tiles in this level with the current extent. Instead the function is used with the Intended Zoom Level, which is calculated as the Expected Zoom Level minus a zoom level adjustment. Using an adjustment value of 3 was found to give a responsive user experience.
+
+% This means that it on zoom level 7 would load the tiles, that should be rendered on zoom level 7. Due to the issue mentioned section \ref{PresentingBug} it is not the tiles from that zoom level, which are being displayed. Instead the tiles from zoom level 2 are being displayed. This will complicate some of the next steps. 
+%The adjustment to the zoom level is in order to load the tiles, which should have been displayed.
 
 \subsection{Max value for each tile}
-If the tiles added to the map had been from the correct zoom level calculating max value of a tile could have been done as olGeoTiff were running. olGeoTiff holds the values for the tiles in a dataarray already, so finding the maximum value could be done with a single line adding a tiles max value to the dictionary for that tile. This line is shown in code x, where urlToTiff is the name of the object, which holds the data.
-maxValueTileData[url].maxValue = Math.max(...urlToTiff[url][0])
-However, since olGeoTiff holds data from an incorrect zoom layer this would not function. A possible solution would be to trigger forEachTileCoord for the same wrong zoom layer as the displayed tiles are from. This solution was not implemented since it would result in a map with could potentially so misleading information. The explanation for this has been illustrated in figure x. 
+If the tiles added to the map had been from the Intended Zoom Level, then the max value of a tile could have been calculated as olGeoTiff was running. olGeoTiff already holds the values for the tiles in a dataarray, so finding the maximum value could be done with a single line adding a tiles max value to the object for that tile. %This line is shown in code x, where urlToTiff is the name of the object, which holds the data.
 
-Todo: Figure with showing how large the loaded tiles are compared with how large they should be.
+%maxValueTileData[url].maxValue = Math.max(...urlToTiff[url][0])
 
-The tiles from the wrong zoom level are so large, that they would show data outside the view of the map. This means that the coloring could be based on the information that was outside of the current view.
+However, since olGeoTiff holds data from an incorrect zoom layer this does not function. A possible solution would be to trigger forEachTileCoord for the Displayed Zoom Level. This solution was not implemented since the tiles from the Displayed Zoom Level are so large, that they would show data outside the view of the map. This means that the coloring could be based on the information that was outside of the current view.
 
-The alternative solution is to run another function going through the tiles, which should have been displayed and find the highest value among these. This would result in a map where the wrong tiles were being colored based on information from the smaller correct tiles. This solution is by no means ideal. It means requesting tiles from two layers, one for displaying on the map a one for calculating the relevant max values. Loading more data than necessary will make the script slower, but since no better solution was not found this have been implemented.
-The calculation of the maximum value for each tile was done in a very similar fashion to how olGeoTiff operates as illustrated in figure \ref{CalculateMaxValue}. An object holds information about all tiles, which have been processed and the max value is known. When the function is run for a tile it first checks if the tile already has been processed. If that is not the case, then it will create an object for the data, which it then will load and parse with geotiff.js. The data array with parsed data will then be run through as descripted in code x to calculate the maximum value. This maximum value will then be returned to the map. 
+The alternative solution is to run another function going through the tiles, which should have been displayed and find the highest value among these. This results in a map where the tiles from the Displayed zoom level were being colored based on information from the tiles at the Intended zoom level. This solution is by no means ideal. It means requesting tiles from two layers, one for displaying on the map a one for calculating the relevant max values. Loading more data than necessary will make the script slower, but since no better solution was found this have been implemented.
 
+The calculation of the maximum value for each tile was done in a very similar fashion to how olGeoTiff operates as illustrated in figure \ref{CalculateMaxValue}. An object holds information about all tiles, which have been processed and the max value is known. When the function is run for a tile it first checks if the tile already has been processed. If that is not the case, then it will create an object for the data, which it then will load and parse with geotiff.js. %The data array with parsed data will then be run through as descripted in code x to calculate the maximum value. 
+This maximum value will then be returned to the map. 
 
+\fxnote{Write about combining my object with his object - would result in it not having to open the same raster twice, in case of zooming}
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/CalculateMaxValue}
@@ -231,19 +245,18 @@ The calculation of the maximum value for each tile was done in a very similar fa
 
 
 
-\subsection{Highest tile value the current displayed}
+\subsection{Highest tile value currently displayed}
 
 
-To find the largest tile value among all the currently displayed tiles forEachTileCoord as mentioned earlier is used. forEachTileCoord does not have a trigger for when it has run through all the tiles. This functionality is necessary for ensuring that the produced maximum value is actually the maximum value. Without a precise end trigger the coloring applied to the map could be based on the biggest value found before the coloring script stated running instead of the absolute highest value in the current display.
-Since this trigger is necessary it has been created by running forEachTileCoord another time to count the number of tiles. This part of the code can be seen in code x.
-\begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|] 
+To find the largest tile value among all the currently displayed tiles forEachTileCoord is used. forEachTileCoord does not have a trigger for when it has run through all the tiles. This functionality is necessary for ensuring that the produced maximum value is actually the maximum value. Without a precise end trigger the coloring applied to the map could be based on the biggest value found before the coloring script stated running instead of the absolute highest value in the current display.
+Since this trigger is necessary it has been created by running forEachTileCoord another time to count the number of tiles. This part of the code can be seen in code \ref{TilesInExtent}.
+\begin{lstlisting}[language=JavaScript, caption={Counting the amount of tiles within the current extent}, label= TilesInExtent,escapechar=|] 
 var tileNumber = 0;
 wmslayerMap1.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
 	tileNumber++;
 })
 \end{lstlisting}
-The total number of tiles in the current extent can then be used as a trigger. 
-The recoloring of the map can then be delayed until the function for calculating the maximum value have been running for the same amount of times as there are tiles on the map. In practical terms this can be accomplished by adding a counter and an if statement to the maximum-value-function. The counter would check how many times the function has run. The if statement would check if the amount of time the function had been run was equal to the number of tiles. If this is the case and the registered max value is different from the previous one the recolor function would trigger.
+The recoloring of the map can then be delayed until the function for calculating the maximum value have been running for the same amount of times as there are tiles on the map. In practical terms this can be accomplished by adding a counter and an if statement to the maximum-value-function. The counter would check how many times the function has run. The if statement would check if the amount of times the function had been run was equal to the number of tiles. If this is the case and the registered max value is different from the previous one the recolor function would trigger.
 The calculation of the maximum value is the function presented in figure \ref{DoubleLoop}. It is running asynchronously because the array otherwise would be filled with “undefined” values instead of actual values. Running it asynchronously ensures that the script awaits the calculation of the value.  
 \begin{figure} [H]
 	\centering
@@ -254,7 +267,7 @@ The calculation of the maximum value is the function presented in figure \ref{Do
 
 \section{Recolor when the max value change}
 
-The recoloring function was already part of olGeoTiff. However, in Bernhard Baumrocks’ thesis this recoloring was triggered manually by the user when changing the color sliders. In this project the changing of colors will trigger automatically. The function for recoloring the map have therefore been set up to trigger on the user stopping this changing the view. By not triggering before the map movement is finished a smoother user experience is ensured, since new tiles does not have to processed before the user is finished with interacting with the map. The recolor function is running through all of the code mentioned in the previous sections. 
+The recoloring function was already part of olGeoTiff. However, in Bernhard Baumrocks’ thesis this recoloring was triggered manually by the user when changing the color sliders. In this project the changing of colors will trigger automatically. The function for recoloring the map have therefore been set up to trigger, when the user stops changing the view. By not triggering before the map movement is finished a smoother user experience is ensured, since new tiles does not have to processed before the user is finished with interacting with the map. The recolor function is running through all of the code mentioned in the previous sections. 
 
 \begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
 map.on("moveend", function() {
@@ -274,6 +287,7 @@ In addition to the rendering of the raster in the map, some features were also a
 	\caption{A second map}
 	\label{DualMaps}
 \end{figure}
+\fxnote{Update with a map, where the differences are more clear }
 To be able to compare different rasters with each other a second map was added as illustrated in figure \ref{DualMaps}. This second map is having its own raster dataset but sharing the view with the first map. This means that the two maps would always show the same area. Panning or zooming in one map would do the same action in the other map. The two maps are sharing the same legend. 
 
 The two projection are also sharing the same color scale. This means that the coloring is done based on the maximum value in the current extent of either of the maps. To accomplish this changes were made to the function, which were finding the maximum value among the tiles as illustrated in figure x.
@@ -298,7 +312,7 @@ In order to be able to faster navigate the map a search function was created as 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/SearchBar}
-	\caption{A searchbar}
+	\caption{The map can pan to a specific area, by searching for that area in the searchbar}
 	\label{SearchBar}
 \end{figure}
 

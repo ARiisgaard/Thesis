@@ -1,4 +1,4 @@
-\begin{thebibliography}{57}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -411,6 +411,13 @@
 \newblock \url{https://geotiffjs.github.io/}, 2018.
 \newblock Last Accessed: 24-05-2020.
 
+\bibitem[Surma(2016)]{WhyCaddy}
+\textbf{Surma}, \textbf{2016}.
+\newblock Surma.
+\newblock \textit{Setting up HTTP/2}.
+\newblock \url{https://dassur.ma/things/h2setup/}, 2016.
+\newblock Last Accessed: 02-06-2020.
+
 \bibitem[Tosovsky and Strip(2014)Tosovsky og Strip]{MoreThan8}
 \textbf{Tosovsky og Strip}, \textbf{2014}.
 \newblock Jan Tosovsky og David Strip.
@@ -440,6 +447,13 @@
   \url{https://population.un.org/wpp/Publications/Files/WPP2019_Highlights.pdf},
   2019.
 \newblock Last Accessed: 24-05-2020.
+
+\bibitem[w3schools(No data)]{WhatIsHTTP}
+\textbf{w3schools}, \textbf{No data}.
+\newblock w3schools.
+\newblock \textit{What is HTTP?}
+\newblock \url{https://www.w3schools.com/whatis/whatis_http.asp}, No data.
+\newblock Last Accessed: 02-06-2020.
 
 \bibitem[W3Schools(No date{\natexlab{a}})]{WhatIsJs}
 \textbf{W3Schools}, \textbf{No date{\natexlab{a}}}.
