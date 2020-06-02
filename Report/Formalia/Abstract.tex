@@ -1,3 +1,14 @@
 
 
-This is edited in Formalia/Abstract
+In this project an interactive tool for visual comparison of raster datasets have been developed using population projections as a case. 
+
+To develop a tool able to enable such comparisons it is important to know how population projections should be visualized and which functionalities are important for the tool. There is also a technical challenge in visualizing large raster datasets, while still maintaining a responsive user experience.
+The conventions for visualization of population projections was explored through a literature review. A quantitative sequential dataset like a population projection should be colored, so that the areas with least population is colored in a lighter color, than the denser areas. 
+
+The functionalities for the tool was determined by comparing with another interactive map. It was decided to have two maps showing different population projections. The map can be navigated either by panning and zooming or using a search bar. 
+
+To ensure a responsive user experience the raster was not loaded into the tool in its entirety. Instead it was divided into smaller tiles, which got loaded based on the extent of the map. These tiles were then colored on the client.
+
+The tool was created as an Openlayers map displaying tiles, which was created with a modified version of the python program gdal2tiles.
+While the user experience is re
+sponsive while using the map the creation of tiles is time consuming. The tool could therefore be improved in the feature by using cloud optimized geotiffs instead of tiles.

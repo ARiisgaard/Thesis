@@ -8,16 +8,16 @@ A level-1 auxiliary file: Formalia/Preface.aux
 A level-1 auxiliary file: Formalia/Intro.aux
 A level-1 auxiliary file: Part1/CaseData.aux
 A level-1 auxiliary file: Part1/RasterFormatting.aux
+A level-1 auxiliary file: Part1/CurrentSolution.aux
 A level-1 auxiliary file: Part1/VisualConventions.aux
 A level-1 auxiliary file: Part1/RelatedWork.aux
-A level-1 auxiliary file: Part2/CoreConcepts.aux
+A level-1 auxiliary file: Part2/InteractiveMap.aux
+A level-1 auxiliary file: Part2/FinalDesign.aux
 Case mismatch error between cite keys dent and Dent
----line 18 of file Part2/CoreConcepts.aux
+---line 21 of file Part2/FinalDesign.aux
  : \citation{dent
  :               }
 I'm skipping whatever remains of this command
-A level-1 auxiliary file: Part2/InteractiveMap.aux
-A level-1 auxiliary file: Part2/EvaluationMethods.aux
 A level-1 auxiliary file: Part3/CodingLanguages.aux
 A level-1 auxiliary file: Part3/DevelopingTool.aux
 A level-1 auxiliary file: Part3/Result.aux
@@ -25,14 +25,17 @@ White space in argument---line 3 of file Part3/Result.aux
  : \citation{Write
  :                 this}
 I'm skipping whatever remains of this command
+A level-1 auxiliary file: Part2/EvaluationMethods.aux
 A level-1 auxiliary file: Part4/Evaluation.aux
 A level-1 auxiliary file: Part4/Discussion.aux
 A level-1 auxiliary file: Part4/Conclusion.aux
 url: is an unknown function---line 320 of file bibtex/harvard.bst
 Database file #1: bibtex/litteratur.bib
+Warning--I didn't find a database entry for "Sarah"
 Warning--I didn't find a database entry for "Buamrocks"
-Warning--I didn't find a database entry for "LhBP"
+Warning--I didn't find a database entry for "ColorBrewerwebsite"
 Warning--I didn't find a database entry for "ProcessingTime"
+Warning--I didn't find a database entry for "LhBP"
 1 is an integer literal, not a string, for entry Baumrocks
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry EOX
@@ -149,7 +152,7 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 You've used 57 entries,
             2921 wiz_defined-function locations,
-            902 strings with 12538 characters,
+            907 strings with 12610 characters,
 and the built_in function-call counts, 20256 in all, are:
 = -- 1919
 > -- 852

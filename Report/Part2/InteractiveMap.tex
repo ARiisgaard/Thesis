@@ -32,7 +32,15 @@ The last category, communication with others, is for sharing information with ot
 
 Not all of these categories are relevant for this tool and this target audience. Most of the tools in the Map navigation category are relevant. Having a search bar allow the user to quickly pan to an area of interest and the zoom function allows the user to control the extent. The "Show my location" function is less relevant for this target audience. It would be relevant if the target audience was citizens, who just wanted to explore a population projection out of curiosity. These would potentially be interested in knowing what the expected population would be in their neighbourhood. If the researcher are working with the same area, where they happen to live they can pan to this area using the search bar. 
 
-The Real-life navigation tool is only useful for route planning, which is not the purpose of this map. The map explanation tools are all useful for the application. Having the scale gives the user a sense of scale, which is important especially i case the tool is being used in a part of the world which is unfamiliar to the user. Having a legend is also central to explain the user which values the colors of the raster would correspond to. Getting more information about a clicked point could also be relevant for the tool. This information could be the exact value in the clicked point. The layer control is important, since this would allow the map to be able to display multiple different population projection.
+The Real-life navigation tool is only useful for route planning, which is not the purpose of this map. The map explanation tools are all useful for the application. 
+
+%Having the scale gives the user a sense of scale, which is important especially in case the tool is being used in a part of the world which is unfamiliar to the user. 
+
+While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. As mentioned in section x the unit of the projection is in degrees, which would result in the scale also being in degrees. It was therefore decided not to include a scale.
+%While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. The scalebar in the figure is showing the distance in meters. This would not be the case, when visualising the population projections, since it is using degree as unit. Since this is not a commen scale measurement, the scale has been excluded. 
+\fxnote{write about scale - update figure to exclude scale}
+
+Having a legend is also central to explain the user which values the colors of the raster would correspond to. Getting more information about a clicked point could also be relevant for the tool. This information could be the exact value in the clicked point. The layer control is important, since this would allow the map to be able to display multiple different population projection.
 
 The last category, Communication with others, is outside of the scope of this project, since these rely on multiple users. %Some of the functionalities of the share function could be useful for a single user. It could be relevant for the user to be able save different extents,
 
@@ -47,10 +55,14 @@ The functions presented so far does not enable an easy visual comparison of rast
 An alternative way would be to use comparison layers in a similar fashion to how it currently is being done with the makeCityWebsite tool mentioned in section x. This would require the creation of comparison layers for each combination of SSPs and years, which should be compared.   
 A third option would be to display multiple maps at the same time as illustrated in figure x. These two maps are linked together by a shared view. The means the panning or zooming in one map would do the same operation on the other map.
 
-\fxnote{Make figure}
-
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=.8\textwidth]{Pictures/DualMapExample}
+	\caption{An example of two maps sharing the same view}
+	\label{DualMapExample}
+\end{figure}
 https://openlayers.org/en/latest/examples/side-by-side.html
 
 This third option was chosen.
-
-\fxnote{Write about makecitywebsite}
+ 
+\fxnote{Make frontpage}

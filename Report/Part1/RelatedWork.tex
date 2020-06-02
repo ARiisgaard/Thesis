@@ -1,16 +1,10 @@
 \chapter{Related work}
-\fxnote{Write about Cloud optimized Geotiff somewhere}
-\fxnote{Write about gdal2tiles parallelly}
-
-This is not the first project attempting to visualising large raster datasets in an interactive way. It is also not the first attempt at visualizing this particular dataset. 
-
-\fxnote{Write about Sarahs stuff here}
+\fxnote{Make a list of terms}
+This is not the first project attempting to visualising large raster datasets in an interactive way. 
 
 \section{Tilebased raster visualisation}
+In \citet{Baumrocks} master thesis, he created a webmap, where raster tiles were being colored locally. 
 
-This is not the first project to follow many of these core concepts. In Bernhard Baumrocks master thesis, he created a webmap, where raster tiles were being colored locally. \citep{Baumrocks}
-
-\fxnote{Rewrite into after sarah}
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/BaumrockMap1}
@@ -25,8 +19,6 @@ A picture of one of his maps can be seen in figure \ref{BaumrockMap1}. This part
 	\caption{How the map change, when using the slider}
 	\label{BaumrockMap2}
 \end{figure}
-
-%http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/map_01.html
 
 When taking a closer look at the source code it can be seen that the raster is being loaded as tiff tiles with a bit depth of 16 bit. \citep{EOX} Only tiles the currently are visible are being requested unless the tile already have been requested. \citep{Buamrocks}
 

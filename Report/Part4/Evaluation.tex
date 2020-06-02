@@ -115,3 +115,15 @@ This suggested improvement appears if some of the page’s resources are being s
 \textbf{Uses deprecated APIs}\\
 When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. 
 \citep{OldApis}
+\fxnote{borgerinddragelses værktøj}
+\section{Postload performance}
+
+In addition to the measurements of the performance for loading the site the performance after loading was also measured. In table \ref{tabPostloadPerformance} is measurements of performance of using the tool. It can be seen that loading and coloring a new layer takes 3.89 seconds, whereas coloring a layer, which already have been loaded takes on average 0.56 seconds. 
+\fxnote{In section x is a further explaination for the larger variance in the recoloring measurements}
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=.4\textwidth]{Pictures/tabPostloadPerformance}
+	\caption{Seconds to load a new layer and color it and to recolor a loaded layer}
+	\label{tabPostloadPerformance}
+\end{figure}

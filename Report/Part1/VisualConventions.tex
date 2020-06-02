@@ -1,11 +1,15 @@
 \chapter{Visual conventions}
-
+\fxnote{Add text about what a convention is and scale and projection }
 This chapter will address the visual convention connected to population projection. 
+
 Within the field of spatial convention there are multiple convention, however not all of these are relevant in this particular context. To understand which conventions are relevant for visualizing data one must understand the properties of the data to be visualized. Spatial data can be presented as either discrete-objects or continuous-fields also known as vector and raster data. \citep{objectsNFields} These two types of data have different ways of being visualised. 
 As mentioned in chapter \ref{Add chapter} the data is in the raster format and is sequential. Visual conventions connected to discrete-objects will therefore not be covered.
 
-Visual conventions connected to raster maps are largely covered by convention connected to color. 
-\subsection{Color}
+\fxnote{data is sequential and quantitative}
+
+
+
+\section{Color}
 A color can be defined by three parameters: hue, saturation and lightness. These different concept have all been illustrated in figure \ref{MunsellColorSystem}.
 
 \begin{figure} [H]
@@ -28,7 +32,7 @@ The saturation is also referred to by some authors as chroma, intensity or purit
 A measurement of the color’s lightness or darkness. In the literature this is often referred to as the colors value, but Brewer remarks that this use of terminology is not ideal in data science since "value" also could refer to the data values. It is illustrated as the vertical axis in the figure.  \citep{Dent}
 
  
-\subsubsection{Selecting a color scheme}
+\subsection{Selecting a color scheme}
 There are multiple elements, that should be considered, when choosing a color scheme.
 Naturally the different colors should be easily distinguishable, but one should also consider the user of the map and the medium used for presenting the map. The right choice of color pattern allows the user to see patterns in complex data, which otherwise would be obscured. 
 
@@ -50,9 +54,11 @@ The diverging scheme is similar to having two sequential color schemes. This ena
 
 Based on these categories of color schemes Brewer have developed an online tool, colorbrewer2.org, which can aid mapmakers in picking a color scheme. This tool also takes into colorblindness into consideration and inform the user if a colorscheme is suitable for printing or viewing on small screens. \citep{ColorBrewer}
 
+\subsection{Number of data classes}
+After selecting a color scale, it is important to select how many different colors should be displayed on the map. Having a high number of data classes produces a detailed map, since there with more classes is less data generalization. There can also be too many different data classes to the point where it becomes difficult to tell them apart. 
+How many classes can be used depends on the spatial distribution of the data. Maps with irregular spatial patterns should have five to seven different classes, whereas regularly patterned maps can have more. The reason for this is that when similar colors are placed side by side it is easier to distinguish between them.\citep{ColorBrewer}
 
-
-\subsubsection{Visual conventions for colors}
+\subsection{Visual conventions for colors}
 The conventions can be divided based on whether the visualized data is qualitative or quantitative. The qualitative datasets have many historical convention – like using green colors for vegetation or using blue for water. 
 It is not the same case for quantitative data, where “No conventions exist for color choice on quantitative maps. (for example, population density maps are always blue, income maps are always green, and so on)” \citep{Dent}. There are however convention for the choice of lightness, where "light is less - dark is more"
 % http://www.geo.uzh.ch/~sara/pubs/garlandini_fabs09.pdf
@@ -62,6 +68,13 @@ It is not the same case for quantitative data, where “No conventions exist for
 
 
 
+
+\section{Map projection}
+When creating a map, the three-dimensional earth gets transformed into a two-dimensional map, which leads to distortion. The severity of these distortions depends on the scale. For large areas, the distortion has bigger consequences compared to the smaller scale. When mapping at large scale, it is impossible to prevent distortion to some of the projection’s properties. This means that area, angles, distance, or direction on the map will be distorted. Which properties get affected depends on the choice of projection. When visualizing quantitative data an equivalent projection is often used. 
+
+\textbf{Equivalent projections}\\
+In Equivalent projections area is not distorted, but distances and shapes often are. This projection type is important for quantitative thematic maps, since maintaining area properties usually is desirable. This is especially important, when then area is part of the mapped data as is the case in density maps.
+The case data projection is an equivalent projection.
 
 
 %

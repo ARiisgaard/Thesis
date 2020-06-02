@@ -1,6 +1,6 @@
 \chapter{Current methods of comparing rasters}
 
-When trying to solve an issue it is important to understand what the current methods for achieving the same is. This chapter will present three current methods for comparing rasters
+When trying to solve an issue it is important to understand what the current methods for achieving the same is. This chapter will present three current methods for comparing rasters.
 
 \section{Desktop Gis program}
 
@@ -19,7 +19,7 @@ One way of visualising the population data would be to load the data into a desk
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/Geoserver}
-	\caption{An interactive visualization tool made in GeoServer. Source: \citet{Sarah}}
+	\caption{An interactive visualization tool made in GeoServer showing the population near Cairo. Source: \citet{Sarah}}
 	\label{Geoserver}
 \end{figure}
 
@@ -32,7 +32,7 @@ One way of visualising the population data would be to load the data into a desk
 	\label{Mapserver}
 \end{figure}
 
-The conclusion in the thesis was that MapServer was the faster option, whereas GeoServer had a less steep learning curve. Both servers were slower than viewing in QGIS. Both had limited customizability. As shown in the two figures the tool were only showing a single map and not having and interface for changing the raster layers. The tools were therefore more of an visualization tool, than a comparison tool.
+The conclusion in the thesis was that MapServer was the faster option, whereas GeoServer was easier to learn. Using either server were slower than viewing in QGIS. Both had limited customizability. As shown in the two figures the tool were only showing a single map and not having and interface for changing the raster layers. The tools were therefore more of a visualization tool, than a comparison tool.
 
 
 %Sarah 19
@@ -43,10 +43,12 @@ One of the creators of the case data created a python script, called MakeCityWeb
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/MakeCityWebsite1}
-	\caption{The top half of a product made by MakeCityWebsite script}
+	\caption{The output of running the MakeCityWebsite script for London. Each population density map is a gif based on different combinations of urbanization model and scenario. The other pictures in the gif are other years}
 	\label{MakeCityWebsite1}
 \end{figure}
+\fxnote{Update fig text to be independed}
 
+\fxnote{Top part of figure looks more populated. Should be opposite? Maybe a lot of infrastructure}
 The input for the tool is the rasters from each of the two urbanization models, the five SSPs and every tenth year from 2010-2100, so a total of hundred different rasters.
 The tool first create new raster files, which have been cut to the extent of the chosen city. Then the minimum and maximum value in those file are calculated. The maximum and minimum values among all the rasters are then used to determine a color scale. This color scale is then used to create a new set of colored rasters.
 
@@ -55,10 +57,10 @@ So at this point the tool have generated one hundred rasters, which all have bee
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/MakeCityWebsite2}
-	\caption{The bottom half of a product made by MakeCityWebsite script}
+	\caption{MakeCityWebsite also creates a comparison with another population projection called SEDAC. Each map shows the difference in values between the two population projection for each combination of urbanization model and scenario.}
 	\label{MakeCityWebsite1}
 \end{figure}
-
+\fxnote{Is Sedac based on the same data as carstens?? - is sedac a pop projection or do I need another term}
 The tool also creates a comparison with other another population projection called SEDAC. This is done by going though the same steps above, but with a custom raster. This raster visualise the difference between the two projection. This comparison part of the website can be seen in figure z
 https://github.com/crstn/CISC/blob/master/MakeCityWebsite.py
 

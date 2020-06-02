@@ -1,6 +1,6 @@
-\section{Core concepts}
 
-Based on the initial research and tests a five core concepts were developed:
+\chapter{Technical concepts}
+Five technical concepts have been developed based on the current solutions, related work and initial tests with the case data:
 \begin{itemize}
 	\item Load only the needed data
 	\item Coloring should be based on the current extent
@@ -9,11 +9,12 @@ Based on the initial research and tests a five core concepts were developed:
 	\item File format should have same bit depth as input format
 \end{itemize}
 
+The purpose of these concepts is to ensure that a large dataset can be loaded and visualized correctly. 
 
-\subsection{Load only the needed data}
-The case data presented in chapter x holds information for the entire world. However, loading data for the entire world would be unnecessarily time consuming. Initial experiments of rendering this quantity of data also revealed that the browser did not have enough memory to load that amount of data. Instead only the relevant data should be downloaded. The relevant data in this case would refer to the data, which the user is able to see. Getting a subset of a raster dataset can be accomplished by dividing it into smaller tiles. Section x will present two different ways this can be achieved. 
+\section{Load only the needed data}
+The case data presented in chapter x holds information for the entire world. However, loading data for the entire world would be unnecessarily time consuming. Initial experiments of rendering this quantity of data also revealed that the browser did not have enough memory to load that amount of data. Instead only the relevant data should be downloaded. The relevant data in this case would refer to the data, which the user is able to see. Getting a subset of a raster dataset can be accomplished by dividing it into smaller tiles. Section x will present two different ways this can be achieved.
 
-\subsection{Coloring should be based on the current extent}
+\section{Coloring should be based on the current extent}
 The initial exploration of the data showed that the coloring of the tiles should be based of the current extent. This is due to how much the values are varying across the world. Figure \ref{WhyLimitToExtent} shows an example of the difference between a map where the coloring is based on all values or if it is limited to the current extent. Both maps illustrate the population in Denmark. The left map has its coloring based on values from the entire world, while the right has its colors based on the current extent. The left map appears empty since the population density in Denmark is negligible compared with the densest areas in the world. In the right map it is possible to see the location of the most populated cities. Since the left map provide the user with no relevant information and the right one does, the coloring should be based on the current extent.
 
 
@@ -25,9 +26,7 @@ The initial exploration of the data showed that the coloring of the tiles should
 \end{figure}
 
 
-
-
-\subsection{Tiles should not be precolored}
+\section{Tiles should not be precolored}
 If the coloring should be based on the current extent and the map is interactive the coloring of the tiles should be done on the fly instead of once and for all. The reason for this is best explained with the example in figure \ref{WhyNotPrecolor}. This figure is illustrating the population in a small subset of India.  The three boxes are illustrating examples of possible map extents, which the user could get by zooming in on different parts of the map. Each of these three have a different max value in their cell with the highest population. The blue square is covering the city center of Indore a therefore have a high value than the green, which is covering the outskirts of the city. The last square does not include any part of a bigger city and therefore have a lower value. 
 Since their max values are different, they would each need their own coloring. If the tiles were to be precolored it would be necessary, create three coloring of the tiles – one for each the extents. However, since the map is interactive, the extent is not limited to those three. If the user instead were to zoom in on an area between the red and blue square a new max value would maybe be found. When scaling this example up to the entire world and to multiple zoom extents there would be thousands of combinations. If all of these needed to be prerender it would both require lots of initial processing time and storage space for an immense amount of data. 
 
@@ -42,7 +41,7 @@ Since their max values are different, they would each need their own coloring. I
 The alternative is to color the tiles on the fly. When the user would zoom to a new area the map, a script could register the highest currently visible value. This information could then be sent to recoloring script, which would color the tiles based on this. This way only tiles with the needed colors would be rendered. 
 
 
-\subsection{Coloring should be done locally}
+\section{Coloring should be done locally}
 The coloring can be done in two ways as illustrated in figure \ref{WhyColorLocally}. It can be done by sending the information to a tileserver, which then would color the tiles and send them to the client. Alternatively, the coloring could be done on the client. 
 
 \begin{figure} [H]
@@ -61,7 +60,7 @@ Comparing the two options is best done with an example, which has been illustrat
 	\label{WhyColorLocallyMap}
 \end{figure}
 
-\subsection{File format should have same bit depth as input format}
+\section{File format should have same bit depth as input format}
 As mention in section x the data from the case has a bit depth of 32 bit. To visualize the data the file format must not be changed to a format with less than 32 bits. Figure \ref{WhyColorLocallyMap} is an example of how a subset of the case data look originally and when converted to an 8-bit format. As mentioned in section x the pixels in an 8-bit raster can have values between 0-255. This means that this format is unable to correctly display the original data range, where the data range is covering thousands of values. The original data get clamped into the 8-bit format producing wrong result
 https://gdal.org/programs/gdal2tiles.html .
 
@@ -74,6 +73,4 @@ https://gdal.org/programs/gdal2tiles.html .
 
 Normally this issue could be worked around by rescaling the input data to the new format \citep{gdal2tilesDoc} . This rescaling would be a lossy compression resulting in loss of information since the original data cannot be expressed with values between 0-255. \citep{dent}
 For the normal use of tiles this would not be a problem since tiles would only be used for visualization. 
-If the tiles are being recolored locally the tiles are being used for more than just visualization. It is necessary to access the data within the tile. This means that solutions resulting in a lossy compression are not an option. To ensure that the correct data reach the client the file format used for tiles must have a bit depth of 32. 
-
-
+If the tiles are being recolored locally the tiles are being used for more than just visualization. It is necessary to access the data within the tile. This means that solutions resulting in a lossy compression are not an option. To ensure that the correct data reach the client the file format used for tiles must have a bit depth of 32.

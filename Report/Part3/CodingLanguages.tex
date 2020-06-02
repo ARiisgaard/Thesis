@@ -66,10 +66,20 @@ The loaded tiles first get parsed with geotiff.js and added to the object before
 \citep{Baumrocks}
 The olGeoTiff also have a redraw function, which when triggered will redraw the tile layer based on the current designated colors. This was for instance used in Bernnard Baumrocks map, whenever the color sliders were changed. 
 
-%\section{Testserver}
-%Not finished
-%The solution was being tested in Google Chrome initially using a python-based http server. This was later replaced with a Caddy server to improve performance. 
-% 
+\section{Testing server}
+%Not finished 
+To test the tool a local test server was set up. This was initially a Python-based http server, but was later replaced with a Go-based Caddy server to improve performance. The performance difference between the two is elaborated upon in section x.
+
+Caddy was chosen because it supports the second version of Hyper Text Transfer Protocol (HTTP)
+https://dassur.ma/things/h2setup/
+
+
+
+which is used for the communication between the client and server.
+https://www.w3schools.com/whatis/whatis_http.asp
+
+HTTP/2 is allowing a faster communication between them
+https://web.dev/uses-http2/?utm_source=lighthouse&utm_medium=devtools
 %Caddy
 %http’s limits to 6 connections 
 %fig text: Blue: DomContentLoaded Red: Load

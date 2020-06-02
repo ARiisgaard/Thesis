@@ -1,12 +1,14 @@
-\chapter{Case data}
-The population projection visualized in this project have been created by a geosimulation, which geographically distribute the predicted population. This geosimulation have been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the feature.
+\chapter{Case data: Population projection}
+The population projection visualized in this project have been created by \citet{Kessler} using a geosimulation, which geographically distribute the predicted population. This geosimulation have been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the future.
 
 \section{The data behind the simulation}
-This projection is a geographical distribution of the global prospects created by The United Nations Department of Economic and Social Affairs. These prospects estimate the population numbers in each country living in rural and urban areas. The spatial distribution has been based on raster data from the Global Rural Urban Mapping Project (GRUMP). In this dataset the world has been divided into 1x1 km cell, each of which contains the number of estimated people. 
-GRUMP also have a dataset for the extent of urban areas. This urban extent has been estimated based on the light emitted after dark, which as a result means that it overestimates the extent of urban areas. To compensate for this the dataset was combined with the Global Land Cover Map from the European Space Agency (GlobCover). This dataset more accurately defines the extent of urban areas. Only the areas which qualified as urban in GRUMP dataset and were classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. 
+This projection is a geographical distribution of the global prospects created by The United Nations Department of Economic and Social Affairs. These prospects estimate the population numbers in each country living in rural and urban areas. The spatial distribution has been based on raster data from the Global Rural Urban Mapping Project (GRUMP). In this dataset the world has been divided into 1x1 km cell, each of which contains the number of estimated people. \citep{Kessler}
+
+The geosimulation have been run with two different definition for the urban extent. The first one is also created by GRUMP. This urban extent has been estimated based on the light emitted after dark, which as a result means that it overestimates the extent of urban areas. \citep{Kessler}
+The second dataset was provided by Global Land Cover Map from the European Space Agency (GlobCover), where areas classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. 
 
 \section{The simulation}
-Using this dataset to define the extent of urban, suburban, and rural areas, the simulation was run as illustrated in figure \ref{CreatingData}
+Using this dataset to define the extent of urban and rural areas, the simulation was run as illustrated in figure \ref{CreatingData}
 
 \begin{figure} [H]
 	\centering
@@ -31,24 +33,52 @@ These steps are then repeated for every iteration.
 
 The geosimulation have been run for five different future scenarios called the Shared Socioeconomic Pathways (SSPs). The different scenarios are based on different ways, climate change could affect society. As illustrated in figure x the five scenarios are based on two axes: socio-economic challenges for mitigation and for adaptation of climate change impacts. 
 “Socio-economic” is referring to a large array of societal and socioecological system. Covering aspects of a political, social, demographic, cultural, lifestyle, institutional, economic, and technological nature and condition of ecosystems. 
-The horizontal axis is environmental or societal conditions, which would make adapting to climate change more difficult. This include climate hazards (temperature and precipitation changes, sea level rise and extreme weather phenoms); what and whom these hazards will affect.
+The horizontal axis is environmental or societal conditions, which would make adapting to climate change more difficult. This include climate hazards (temperature and precipitation changes, sea level rise and extreme weather phenomena); what and whom these hazards will affect.
 \citep{ConceptSSP}
-The vertical axis is factors, which in absence of climate policy would increase that amount of emissions of greenhouse gasses and factors reducing the society’s capacity to lessen those emissions. Examples of factors reducing society’s capacity is inadequate technologies and insufficient resources to support mitigation policies. The increase in greenhouse gasses could for example be a result of population and economic growth.
+The vertical axis is factors, which in absence of climate policy would increase that amount of emissions of greenhouse gasses and factors reducing the society’s capacity to reduce those emissions. Examples of factors reducing society’s capacity is inadequate technologies and insufficient resources to support mitigation policies. The increase in greenhouse gasses could for example be a result of population and economic growth.
 \citep{SSP}
 
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{l}
-		\includegraphics[width=0.8\textwidth]{Pictures/SSPTable}
+		\includegraphics[width=1\textwidth]{Pictures/SSPTable}
 	\end{tabular}
-	\caption{Population growth and urbanization for each of the SSPs}
+	\caption{Population growth and urbanization for each of the Shared Socioeconomic Pathways. Source: \citet{WhyDetailedPop}}
 	\label{SSPTable}
 \end{table}
 
-How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. This table have been created by \citet{WhyDetailedPop}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income.
+How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income.
 
 \fxerror{Need more context to the table - what does it mean? Do I need it? - use it to select what to show in results}
-
+\fxerror{Write about domain sharding being unneeded}
 \section{Technical details about the case data}
 
-\fxnote{Write this - leads to the next section}
+Table \ref{tabTech} is highlighting some technical specifications of the dataset, which will be important for the development. The technical details have been acquired using GDAL's raster information program, gdalinfo. GDAL is further described in section x.
+
+\begin{table}[h]%You have to add this h yourself
+	\centering
+\begin{tabular}{|c|c|c|}
+	\hline 
+	\multicolumn{3}{|c|}{Technical information} \\ 
+	\hline 
+	Attribute & Value & Further explanation \\ 
+	\hline 
+	NoData value & -2147483648 &  \\ 
+	\hline 
+	Bit depth & 32 &  Section \ref{label}\\ 
+	\hline 
+	Projection & EPSG: 4326 &  Section \ref{label}\\ 
+	\hline 
+	Projection unit & Degree & Section \ref{functionality}  \\ 
+	\hline 
+\end{tabular}
+\caption{Technical attributes of the case data}
+ \label{tabTech}
+\end{table}
+
+The majority of these concepts will be explained in upcoming sections. Only the NoData value will be explained here. A raster file has values for every pixel. If no data is available for a pixel, then the pixel get assigned the NoData value. 
+https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/performing-analysis/nodata-and-how-it-affects-analysis.htm
+
+If the value was set to 0 it would be impossible to determine if an area had nobody living in it or if no data was available. That is the reason for the NoData value is set to a negative value, since the population density never can be negative.
+
+\fxnote{what is the noData in this case - lakes?}  
