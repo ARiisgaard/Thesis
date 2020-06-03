@@ -55,20 +55,20 @@ Comparing the two options is best done with an example, which has been illustrat
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/WhyColorLocallyMap}
+	\includegraphics[width=.6\textwidth]{Pictures/WhyColorLocallyMap}
 	\caption{Example of why local coloring is needed. The squares are different extents used for the example}
 	\label{WhyColorLocallyMap}
 \end{figure}
 
 \section{File format should have same bit depth as input format}
-As mention in section x the data from the case has a bit depth of 32 bit. To visualize the data the file format must not be changed to a format with less than 32 bits. Figure \ref{WhyColorLocallyMap} is an example of how a subset of the case data look originally and when converted to an 8-bit format. As mentioned in section x the pixels in an 8-bit raster can have values between 0-255. This means that this format is unable to correctly display the original data range, where the data range is covering thousands of values. The original data get clamped into the 8-bit format producing wrong result
+As mention in section x the data from the case has a bit depth of 32 bit. To visualize the data the file format must not be changed to a format with less than 32 bits. Figure \ref{WhyNot8Bit} is an example of how a subset of the case data look originally and when converted to an 8-bit format. As mentioned in section x the pixels in an 8-bit raster can have values between 0-255. This means that this format is unable to correctly display the original data range, where the data range is covering thousands of values. The original data get clamped into the 8-bit format producing wrong result
 https://gdal.org/programs/gdal2tiles.html .
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/WhyColorLocallyMap}
+	\includegraphics[width=.6\textwidth]{Pictures/WhyNot8Bit}
 	\caption{32 bits cramped into 8 bits}
-	\label{WhyColorLocallyMap}
+	\label{WhyNot8Bit}
 \end{figure}
 
 Normally this issue could be worked around by rescaling the input data to the new format \citep{gdal2tilesDoc} . This rescaling would be a lossy compression resulting in loss of information since the original data cannot be expressed with values between 0-255. \citep{Dent}

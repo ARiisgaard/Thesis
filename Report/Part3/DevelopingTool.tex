@@ -90,7 +90,7 @@ AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORIT
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/ProcessingTime}
+	\includegraphics[width=.6\textwidth]{Pictures/ProcessingTime}
 	\caption{Illustration of the area used for timing the tile generation}
 	\label{ProcessingTime}
 \end{figure}
@@ -156,7 +156,7 @@ Using colorbrewer a custom sequential colorscheme was generated. This scheme was
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/CScale}
+	\includegraphics[width=.4\textwidth]{Pictures/CScale}
 	\caption{The scale added to the map. When mousing over a color, the assigned value is displayed}
 	\label{CScale}
 \end{figure}
@@ -171,7 +171,7 @@ Figure \ref{MapWithWrongResolution} shows how the map looked, when the tiles are
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/MapWithWrongResolution}
+	\includegraphics[width=.6\textwidth]{Pictures/MapWithWrongResolution}
 	\caption{The map is looking correct, but with tiles from the wrong zoom level}
 	\label{MapWithWrongResolution}
 \end{figure}
@@ -187,7 +187,7 @@ The Displayed zoom level (DZL) is the tiles, that are being loaded and visualise
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/DifferentZoom}
+	\includegraphics[width=.6\textwidth]{Pictures/DifferentZoom}
 	\caption{An overview of the differences in zoom levels, which the map is displayed at (red), the displayed tiles get loaded in (green) and the zoom level, which should have been displayed (blue). The zoom level adjustment is the difference between the Expected and Intended zoom level}
 	\label{DifferentZoom}
 \end{figure}
@@ -235,7 +235,7 @@ This maximum value will then be returned to the map.
 \fxnote{Write about combining my object with his object - would result in it not having to open the same raster twice, in case of zooming}
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/CalculateMaxValue}
+	\includegraphics[width=.6\textwidth]{Pictures/CalculateMaxValue}
 	\caption{Flow diagram of the calculation over max value in a tile}
 	\label{CalculateMaxValue}
 \end{figure}
@@ -257,7 +257,7 @@ The recoloring of the map can then be delayed until the function for calculating
 The calculation of the maximum value is the function presented in figure \ref{DoubleLoop}. It is running asynchronously because the array otherwise would be filled with “undefined” values instead of actual values. Running it asynchronously ensures that the script awaits the calculation of the value.  
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/DoubleLoop}
+	\includegraphics[width=1\textwidth]{Pictures/DoubleLoop}
 	\caption{Finding the largest value in all currently displayed tiles}
 	\label{DoubleLoop}
 \end{figure}
@@ -291,7 +291,7 @@ The two projection are also sharing the same color scale. This means that the co
  
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/ChangeToMaxCalculation}
+	\includegraphics[width=1\textwidth]{Pictures/ChangeToMaxCalculation}
 	\caption{Calculating the maximum value for two maps. Changes from the original have been written in bold}
 	\label{ChangeToMaxCalculation}
 \end{figure}
@@ -312,7 +312,7 @@ In order to be able to faster navigate the map a search function was created as 
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/SearchBar}
+	\includegraphics[width=.6\textwidth]{Pictures/SearchBar}
 	\caption{The map can pan to a specific area, by searching for that area in the searchbar}
 	\label{SearchBar}
 \end{figure}

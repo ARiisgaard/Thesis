@@ -65,55 +65,73 @@ https://googlechrome.github.io/lighthouse/scorecalc/
 \fxnote{They say themself, that scoring 0 repeaedly usually indicate an error - Lighthouse}
 
 \subsection{Opportunities}
-In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. The points listed here will be elaborated upon further in the discussion.
+In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. In this subsection only some of these will be preset. The rest can be seen in appendix \ref{Audit}.
 
 \textbf{Eliminate render-blocking resources}\\
 The opportunity for the largest estimated time saving is to eliminate render-blocking resources. These are the URLs, which must be loaded before the first paint can be applied to the page. \citep{RenderBlocking}
 
-Table x shows the different libraries, which have to be loaded before the site is rendered. It can be seen that Openlayers is 82 \% of the loaded data.
+The largest render-blocking resource is Openlayers, which at 2784 kB makes up 82 \% of the blocking resources. When analysed further with the Coverage tool in the dev tools it can be seen that 42.7 \% of the Openlayers library is not being used. The performance could therefore be improved by only loading the necessary parts of the library. The size of it could also be reduced by using the minified version of it instead of the debug-version.
+
+
+\fxnote{Lad være med at tage alle argumenterne med og skriv i starten at ikke alt er med}
+ 
 \fxnote{Have I written about Jquery??}
 
 \fxnote{Have I explained the difference between HTTP 1 and 2?}
 
-\begin{table}[htbp]
-	\centering
-	\begin{tabular}{l}
-		\includegraphics[width=0.6\textwidth]{Pictures/tabPluginSize}
-	\end{tabular}
-	\caption{Size of loaded modules and the much they are used}
-	\label{tabPluginSize}
-\end{table}
-
-When analysed further with the Coverage tool it can be seen that a large part of the Openlayers library is not being used as show in table \ref{tabPluginSize}.  
-\fxnote{TODO: Make a table from the information in the figure below – tabtext – resourse use of the 3 larges libraries}
-
+ 
+\fxnote{søg på Http}
 \fxnote{Write about Coverage earlier – maybe in evaluation tools}
 
-\textbf{Minification and compressing}\\
-Files sizes and script parsing time can be reduced by minifying and compressing the files. 
-
-A minified file is a file, where all the unnecessary parts have been cut away. Whitespaces and unused code are removed leaving a smaller file, which still functions perfectly. 
-
-Compression is using an algorithm to modify the data, so that it takes up less space.
-\citep{MinifyJS}
+%\textbf{Minification and compressing}\\
+%Files sizes and script parsing time can be reduced by minifying and compressing the files. 
+%
+%A minified file is a file, where all the unnecessary parts have been cut away. Whitespaces and unused code are removed leaving a smaller file, which still functions perfectly. 
+%
+%Compression is using an algorithm to modify the data, so that it takes up less space.
+%\citep{MinifyJS}
 
 \textbf{Avoid enormous network payloads}\\
 Long loading times are highly correlated with the amount of loaded data.  
 \citep{LoadingTooMuch}
 
-Loading the raster tiles for the map does require loading multiple files with a large bit depth, which requires a lengthy loading time. 
+Loading the raster tiles for the map does require loading multiple files with a large bit depth, which requires a lengthy loading time. The amount of loaded tiles could be reduced, if the issue coursing tiles from the wrong layer to be loaded got fixed. A potential course to this issue is presented in section \ref{WhyWrongLevel}.
 
 \textbf{Does not use HTTP/2 for all of its resources}\\
 This suggested improvement appears if some of the page’s resources are being served with a version of HTTP/1. According to Google Audit all loaded resources are being delivered using HTTP 1.1.
+\citep{HTTP2}
+
+This was the suggestion, which lead to replacing initial testing server with a Caddy test server, which vastly reduced the load time as illustrated in figure \ref{CaddyVsPython}.
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\textwidth]{Pictures/CaddyVsPython}
+	\caption{Screenshot of the network connection for a python and a caddy server}
+	\label{CaddyVsPython}
+\end{figure}
+
+Figuren is two screenshots from the network tab of Chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 
+The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded. This figure shows that the serving is being optimized, where the stalling largely is gone. 
+
+However even after setting up Caddy the error message was still present. It is uncertain if this means that the connection still is HTTP/1 based or if it is HTTP/2 but labelled incorrectly. 
+
+
+\fxnote{Mention caddy – 6 connection issue earlier}
+\fxnote{Remember to add the source behind the bar colors here - it is here now, but is invisible}
+
+%https://developers.google.com/web/tools/chrome-devtools/network/reference?utm_source=devtools#timing-explanation
+
 
 \fxnote{Write about HTTP/2 earlier?}
 
-\citep{HTTP2}
+
 
 \textbf{Uses deprecated APIs}\\
-When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. 
+When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. This should be rewritten as an asynchronous request instead.
 \citep{OldApis}
 \fxnote{borgerinddragelses værktøj}
+
+
 \section{Postload performance}
 
 In addition to the measurements of the performance for loading the site the performance after loading was also measured. In table \ref{tabPostloadPerformance} is measurements of performance of using the tool. It can be seen that loading and coloring a new layer takes 3.89 seconds, whereas coloring a layer, which already have been loaded takes on average 0.56 seconds. 
