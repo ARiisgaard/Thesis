@@ -9,15 +9,20 @@ This chapter is the evaluation of the script based on the Google Lighthouse audi
 \end{figure}
 
 \subsection{Performance}\label{EvalPerform}
-As shown the performance scored zero out of one hundred. The performance in each of the metrics can be seen in figure \ref{PerformanceAuditValues}.
+As shown the performance scored zero out of one hundred. The performance in each of the metrics can be seen in table \ref{PerformanceAuditValues}.
 
-\begin{figure} [H]
+\begin{table}[htbp]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/PerformanceAuditValues}
-	\caption{The result of the performance audit}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		FCP & SI & FMP & TTI & FCI \\ 
+		\hline 
+		20.2 & 20.2 & 20.2 & 809.1 & 20.2 \\ 
+		\hline 
+	\end{tabular} 
+	\caption{The result of the performance audit. The unit is seconds.}
 	\label{PerformanceAuditValues}
-\end{figure}
-\fxnote{Remove potential first input delay from figure?}
+\end{table}
 
 It does seem like some bug in the tool must have occurred because all of the values are too high. This can be confirmed by comparing with the measurements from the developer tool’s performance tool. These show that the page is fully loaded in 4.6 second, which does not fit with Lighthouse’s 20.2 seconds for First Contentful and First Meaningful Paint. Another sign that something is amiss is the 13.5 minutes before the Time to Interactive, which the tool determined within 10 seconds of analyzing the site. 
 
@@ -62,8 +67,8 @@ https://googlechrome.github.io/lighthouse/scorecalc/
 	\label{ScoringManual}
 \end{figure}
 
-\fxnote{They say themself, that scoring 0 repeaedly usually indicate an error - Lighthouse}
-
+\fxnote{Source: They say themself, that scoring 0 repeaedly usually indicate an error - Lighthouse}
+%https://developers.google.com/web/tools/lighthouse/v3/scoring
 \subsection{Opportunities}
 In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. In this subsection only some of these will be preset. The rest can be seen in appendix \ref{Audit}.
 
@@ -71,17 +76,11 @@ In addition to providing the metrics for the performance Lighthouse also comes w
 The opportunity for the largest estimated time saving is to eliminate render-blocking resources. These are the URLs, which must be loaded before the first paint can be applied to the page. \citep{RenderBlocking}
 
 The largest render-blocking resource is Openlayers, which at 2784 kB makes up 82 \% of the blocking resources. When analysed further with the Coverage tool in the dev tools it can be seen that 42.7 \% of the Openlayers library is not being used. The performance could therefore be improved by only loading the necessary parts of the library. The size of it could also be reduced by using the minified version of it instead of the debug-version.
-
-
-\fxnote{Lad være med at tage alle argumenterne med og skriv i starten at ikke alt er med}
  
 \fxnote{Have I written about Jquery??}
 
-\fxnote{Have I explained the difference between HTTP 1 and 2?}
-
  
 \fxnote{søg på Http}
-\fxnote{Write about Coverage earlier – maybe in evaluation tools}
 
 %\textbf{Minification and compressing}\\
 %Files sizes and script parsing time can be reduced by minifying and compressing the files. 
@@ -121,16 +120,9 @@ However even after setting up Caddy the error message was still present. It is u
 
 %https://developers.google.com/web/tools/chrome-devtools/network/reference?utm_source=devtools#timing-explanation
 
-
-\fxnote{Write about HTTP/2 earlier?}
-
-
-
 \textbf{Uses deprecated APIs}\\
 When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. This should be rewritten as an asynchronous request instead.
 \citep{OldApis}
-\fxnote{borgerinddragelses værktøj}
-
 
 \section{Postload performance}
 

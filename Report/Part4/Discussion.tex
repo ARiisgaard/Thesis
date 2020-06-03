@@ -1,7 +1,6 @@
-\chapter{Discussion}
+\chapter{Discussion}\label{CDiscussion}
 
-\fxnote{Write about smaller maps for better performance }
-\fxnote{Update final design to not have scale}
+This chapter is a discussion about the developed tool, how it was evaluated and how it could be improved in the future.
 
 \section{Loading tiles from the wrong zoom level}\label{WhyWrongLevel}
 
@@ -17,7 +16,6 @@ In the original version of the map both the minimum and maximum values were bein
 This does not mean that all the tiles had minimum values of 0, just that there always were a tile in the map extent with a value of 0. In the vast majority of case the value would be 0. Few would be below 100. In the most densely populated cities the minimum value for some tiles was higher than 1000. 
 It is possible that by zoom close enough to a major city it none of the tiles within view would have a value of 0 in which case the minimum value should be adjusted.
 This is the main argument for calculating a minimum value. The downside of calculating it is that it has an significant effect on the processing time of the raster layer. Table \ref{tabMinimum} shows the time in seconds it takes for the layer to be rendered with and without calculating the minimum value. On average the rendering time is a second faster, when not calculating the minimum value.
-\fxnote{søg på Http}
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{l}
@@ -29,8 +27,8 @@ This is the main argument for calculating a minimum value. The downside of calcu
 
 The reason that the calculation of minimum value has such an effect on the processing time is presumably that the minimum value cannot be calculated in the same way as the maximum value. 
 The maximum value is calculated by finding the maximum value in the array with all values. 
-\fxnote{Write about nodata}
-\fxnote{Maybe rewrite intro to disccusion - a lot has changed}
+
+
 If the same operation is done to find the minimum value, the found minimum value often is -2147483648. As mentioned in section x that value means that no data is available for that pixel. 
 It is therefore necessary to find the lowest positive value since no data is not the same as 0. This can be done by first filtering the raster, so only the positive values are left. The smallest of these values can then be calculated in the same way as the maximum value get calculated. 
 It was decided that calculating a minimum value, which mostly would be 0 was not worth an additional second of loading. 
@@ -45,9 +43,9 @@ It should also be pointed out that the score is calculated by comparing with rea
 
 Ultimately it is difficult to determine how responsive the website is in comparison to other sites. Despite this Lighthouse have been a useful improvement tool, even though it was not the best evaluation tool. The most beneficial part about the tool has been the advice on how a website can be improved. Its advice on upgrading to a HTTP/2 connection meant that the website became responsive enough to be useful. 
 
-\section{Further development}
-Not all the intended functionality got added to the map. This section will list some of the features, which there was not time to implement. 
-\fxnote{How are these organised?}
+%\section{Further development}
+%Not all the intended functionality got added to the map. This section will list some of the features, which there was not time to implement. 
+\fxnote{Discuss upon the features, which did not get added}
 %\subsection{Data at point of click}
 %
 %A function could be added to get the population counts from a clicked point for both maps. An example of this have been shown in figure x. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
@@ -60,21 +58,19 @@ The comparison between the scenarios SSP1 and SSP3, which was done in section \r
 
 The results of simple statistical calculations for each map could be displayed next to the maps. This could be the average density for the current extent, highest density in the map and the standard deviation.
 
-Statistical data could also be visualised through histograms. In the empty space beside the maps there could be a histogram for each map, showing the distribution of the data. \fxnote{empty space - never mentioned before - to dualmap}
+Statistical data could also be visualised through histograms. In the empty space beside the maps there could be a histogram for each map, showing the distribution of the data. 
 
 A function could also be added to get the population counts from a clicked point for both maps. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
 
+%\subsection{Changing layers}
+%Another functionality, which could have been added was the option to change the datasets of the maps. As mentioned in section x the case data contains population projection for ten different years. It does therefore make sense to have the option display more than the two datasets.  As illustrated in figure x data from other years could be added as separate layers. This would allow the user to compare different datasets without having to reload the webgis with different datasets.
+%
+%This way the map could also be used to visualize the different in the same projection from one year and another.
 
 
-
-
-\subsection{Changing layers}
-Another functionality, which could have been added was the option to change the datasets of the maps. As mentioned in section x the case data contains population projection for ten different years. It does therefore make sense to have the option display more than the two datasets.  As illustrated in figure x data from other years could be added as separate layers. This would allow the user to compare different datasets without having to reload the webgis with different datasets.
-
-This way the map could also be used to visualize the different in the same projection from one year and another.
-\subsection{Option for multiple colorschemes}
-If there is a vast difference between the values in the two shown projection coloring based on the same maximum values does not necessarily make sense as was shown in the figure in \ref{technical concept 2}. It would therefore make sense to have the option to enable separate coloring as shown in figure x. 
-\fxnote{TODO: make a figure showing the map with multiple legends and color schemes. }
+%\subsection{Option for multiple colorschemes}
+%If there is a vast difference between the values in the two shown projection coloring based on the same maximum values does not necessarily make sense as was shown in the figure in \ref{technical concept 2}. It would therefore make sense to have the option to enable separate coloring as shown in figure x. 
+%\fxnote{TODO: make a figure showing the map with multiple legends and color schemes. }
 
 
 

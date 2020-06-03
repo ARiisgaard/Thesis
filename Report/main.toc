@@ -12,88 +12,84 @@
 \contentsline {chapter}{\chapternumberline {2}Case data: Population projection}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}The data behind the simulation}{7}{section.2.1}%
 \contentsline {section}{\numberline {2.2}The simulation}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Shared Socioeconomic Pathways}{8}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Technical details about the case data}{9}{section.2.4}%
-\contentsline {chapter}{\chapternumberline {3}Raster formatting}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Bit depth}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Tiled raster}{11}{section.3.2}%
-\contentsline {chapter}{\chapternumberline {4}Current methods of comparing rasters}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Desktop Gis program}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Interactive visualization tool for population simulations}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}MakeCityWebsite}{15}{section.4.3}%
-\contentsline {chapter}{\chapternumberline {5}Visual conventions}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Color}{19}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Selecting a color scheme}{20}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Number of data classes}{21}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Visual conventions for colors}{21}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}Map projection}{21}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {6}Related work}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Tilebased raster visualisation}{23}{section.6.1}%
-\contentsline {chapter}{\chapternumberline {7}Technical concepts}{25}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Load only the needed data}{25}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Coloring should be based on the current extent}{25}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Tiles should not be precolored}{26}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Coloring should be done on the client}{27}{section.7.4}%
-\contentsline {section}{\numberline {7.5}File format should have same bit depth as input format}{28}{section.7.5}%
-\contentsline {chapter}{\chapternumberline {8}Components of an interactive maps}{31}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Relevant functionalities}{32}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Comparing layers}{33}{section.8.2}%
-\contentsline {chapter}{\chapternumberline {9}Final design}{35}{chapter.9}%
-\contentsline {subsection}{\numberline {9.0.1}Visualisation}{36}{subsection.9.0.1}%
-\contentsline {part}{\partnumberline {II}Development}{37}{part.2}%
-\contentsline {chapter}{\chapternumberline {10}Coding languages and plugins}{41}{chapter.10}%
+\contentsline {section}{\numberline {2.3}Shared Socioeconomic Pathways}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Technical details about the case data}{11}{section.2.4}%
+\contentsline {chapter}{\chapternumberline {3}Raster formatting}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Bit depth}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Tiled raster}{13}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {4}Current methods of comparing rasters}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Desktop Gis program}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Interactive visualization tool for population simulations}{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}MakeCityWebsite}{17}{section.4.3}%
+\contentsline {chapter}{\chapternumberline {5}Visual conventions}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Color}{21}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Selecting a color scheme}{22}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Number of data classes}{23}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Visual conventions for colors}{23}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Map projection}{23}{section.5.2}%
+\contentsline {chapter}{\chapternumberline {6}Components of an interactive maps}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Relevant functionalities}{26}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Comparing layers}{27}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Related work}{29}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Tilebased raster visualisation}{29}{section.7.1}%
+\contentsline {chapter}{\chapternumberline {8}Technical concepts}{31}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Load only the needed data}{31}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Coloring should be based on the current extent}{31}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Tiles should not be precolored}{32}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Coloring should be done on the client}{33}{section.8.4}%
+\contentsline {section}{\numberline {8.5}File format should have same bit depth as input format}{34}{section.8.5}%
+\contentsline {chapter}{\chapternumberline {9}Final design}{37}{chapter.9}%
+\contentsline {subsection}{\numberline {9.0.1}Visualisation}{38}{subsection.9.0.1}%
+\contentsline {part}{\partnumberline {II}Development}{39}{part.2}%
+\contentsline {chapter}{\chapternumberline {10}Developing the tool}{41}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Languages}{41}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Libraries}{42}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Testing server}{44}{section.10.3}%
-\contentsline {chapter}{\chapternumberline {11}Developing the tool}{45}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Creating the tiles}{45}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Changing the file type}{45}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Increasing the bit depth}{45}{subsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.1.3}Prevent generation of Google Earth files}{46}{subsection.11.1.3}%
-\contentsline {subsection}{\numberline {11.1.4}Command for tile creation}{46}{subsection.11.1.4}%
-\contentsline {subsection}{\numberline {11.1.5}Result}{47}{subsection.11.1.5}%
-\contentsline {section}{\numberline {11.2}Processing time}{48}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Parallel processing of tiles}{48}{subsection.11.2.1}%
-\contentsline {section}{\numberline {11.3}Visualizing tiles}{49}{section.11.3}%
-\contentsline {subsection}{\numberline {11.3.1}Custom colors scheme}{49}{subsection.11.3.1}%
-\contentsline {section}{\numberline {11.4}Loading data at a wrong resolution}{50}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Calculate max value in current extent}{51}{section.11.5}%
-\contentsline {subsection}{\numberline {11.5.1}Current displayed tiles}{51}{subsection.11.5.1}%
-\contentsline {subsection}{\numberline {11.5.2}Max value for each tile}{52}{subsection.11.5.2}%
-\contentsline {subsection}{\numberline {11.5.3}Highest tile value currently displayed}{53}{subsection.11.5.3}%
-\contentsline {section}{\numberline {11.6}Recolor when the max value change}{54}{section.11.6}%
-\contentsline {section}{\numberline {11.7}Polish}{54}{section.11.7}%
-\contentsline {subsection}{\numberline {11.7.1}Two maps}{55}{subsection.11.7.1}%
-\contentsline {subsection}{\numberline {11.7.2}Search function}{56}{subsection.11.7.2}%
-\contentsline {section}{\numberline {11.8}Final product}{57}{section.11.8}%
-\contentsline {section}{\numberline {11.9}Comparisons}{58}{section.11.9}%
+\contentsline {section}{\numberline {10.4}Creating the tiles}{45}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Changing the file type}{45}{subsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.4.2}Increasing the bit depth}{45}{subsection.10.4.2}%
+\contentsline {subsection}{\numberline {10.4.3}Prevent generation of Google Earth files}{46}{subsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.4.4}Command for tile creation}{46}{subsection.10.4.4}%
+\contentsline {subsection}{\numberline {10.4.5}Result}{47}{subsection.10.4.5}%
+\contentsline {section}{\numberline {10.5}Processing time}{48}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Parallel processing of tiles}{48}{subsection.10.5.1}%
+\contentsline {section}{\numberline {10.6}Visualizing tiles}{49}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}Custom colors scheme}{49}{subsection.10.6.1}%
+\contentsline {section}{\numberline {10.7}Loading data at a wrong resolution}{50}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Calculate max value in current extent}{51}{section.10.8}%
+\contentsline {subsection}{\numberline {10.8.1}Current displayed tiles}{51}{subsection.10.8.1}%
+\contentsline {subsection}{\numberline {10.8.2}Max value for each tile}{52}{subsection.10.8.2}%
+\contentsline {subsection}{\numberline {10.8.3}Highest tile value currently displayed}{53}{subsection.10.8.3}%
+\contentsline {section}{\numberline {10.9}Recolor when the max value change}{54}{section.10.9}%
+\contentsline {section}{\numberline {10.10}Polish}{54}{section.10.10}%
+\contentsline {subsection}{\numberline {10.10.1}Two maps}{55}{subsection.10.10.1}%
+\contentsline {subsection}{\numberline {10.10.2}Search function}{56}{subsection.10.10.2}%
+\contentsline {section}{\numberline {10.11}Final product}{57}{section.10.11}%
+\contentsline {section}{\numberline {10.12}Comparisons}{58}{section.10.12}%
 \contentsline {part}{\partnumberline {III} Evaluation}{59}{part.3}%
-\contentsline {chapter}{\chapternumberline {12}Evaluation Methods}{61}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Setup}{61}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Overview}{61}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}Relevant evaluation criteria}{62}{subsection.12.2.1}%
-\contentsline {section}{\numberline {12.3}Metrics for performance}{62}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Calculating score}{63}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Additional measurements}{64}{section.12.5}%
-\contentsline {subsection}{\numberline {12.5.1}Time to color new layer}{64}{subsection.12.5.1}%
-\contentsline {subsection}{\numberline {12.5.2}Time to recolor a loaded layer}{64}{subsection.12.5.2}%
-\contentsline {chapter}{\chapternumberline {13}Evaluation}{65}{chapter.13}%
-\contentsline {subsection}{\numberline {13.0.1}Performance}{65}{subsection.13.0.1}%
-\contentsline {subsection}{\numberline {13.0.2}Opportunities}{67}{subsection.13.0.2}%
-\contentsline {section}{\numberline {13.1}Postload performance}{69}{section.13.1}%
-\contentsline {chapter}{\chapternumberline {14}Discussion}{71}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Loading tiles from the wrong zoom level}{71}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Not calculating minimum values in tiles}{71}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Evaluating with Lighthouse}{72}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Further development}{73}{section.14.4}%
-\contentsline {subsection}{\numberline {14.4.1}Additional information}{73}{subsection.14.4.1}%
-\contentsline {subsection}{\numberline {14.4.2}Changing layers}{73}{subsection.14.4.2}%
-\contentsline {subsection}{\numberline {14.4.3}Option for multiple colorschemes}{73}{subsection.14.4.3}%
-\contentsline {section}{\numberline {14.5}Optimizing the tile generation}{74}{section.14.5}%
-\contentsline {subsection}{\numberline {14.5.1}Parallel generation of tiles}{74}{subsection.14.5.1}%
-\contentsline {subsection}{\numberline {14.5.2}Cloud Optimized Geotiff}{74}{subsection.14.5.2}%
-\contentsline {chapter}{\chapternumberline {15}Conclusion}{75}{chapter.15}%
-\contentsline {chapter}{Bibliography}{77}{chapter*.54}%
+\contentsline {chapter}{\chapternumberline {11}Evaluation Methods}{61}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Setup}{61}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Overview}{61}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Relevant evaluation criteria}{62}{subsection.11.2.1}%
+\contentsline {section}{\numberline {11.3}Metrics for performance}{62}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Calculating score}{63}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Additional measurements}{64}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}Time to color new layer}{64}{subsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.5.2}Time to recolor a loaded layer}{64}{subsection.11.5.2}%
+\contentsline {chapter}{\chapternumberline {12}Evaluation}{65}{chapter.12}%
+\contentsline {subsection}{\numberline {12.0.1}Performance}{65}{subsection.12.0.1}%
+\contentsline {subsection}{\numberline {12.0.2}Opportunities}{67}{subsection.12.0.2}%
+\contentsline {section}{\numberline {12.1}Postload performance}{69}{section.12.1}%
+\contentsline {chapter}{\chapternumberline {13}Discussion}{71}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Loading tiles from the wrong zoom level}{71}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Not calculating minimum values in tiles}{71}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Evaluating with Lighthouse}{72}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}Additional information}{73}{subsection.13.3.1}%
+\contentsline {section}{\numberline {13.4}Optimizing the tile generation}{73}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Parallel generation of tiles}{73}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Cloud Optimized Geotiff}{73}{subsection.13.4.2}%
+\contentsline {chapter}{\chapternumberline {14}Conclusion}{75}{chapter.14}%
+\contentsline {chapter}{Bibliography}{77}{chapter*.56}%
 \changetocdepth {0}
 \contentsline {appendix}{\chapternumberline {A}Lighthouse audit}{83}{appendix.A}%
 \contentsline {appendix}{\chapternumberline {B}The code in the project}{87}{appendix.B}%

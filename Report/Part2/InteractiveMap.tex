@@ -1,5 +1,4 @@
-\fxnote{Add interactive somewhere in the research question}
-\chapter{Components of an interactive maps}
+\chapter{Components of an interactive maps}\label{CInteractiveMap}
 When creating an interactive map one must consider which features to add to enhance the user experience. To give an overview of some of the basic features used for navigating and get information from a map an example of an interactive map has been used. www.openstreetmap.org has been used as an example of an interactive map. \citep{OpenStreetMap} A picture of this map can be seen in figure \ref{InteractiveMap}. Its User Interface (UI) have been numbered with boxes, which have been colored green if the feature would make sense for exploring and comparing large population dataset. The reasoning behind the coloring is explained in section \ref{SortingFunctions}
 
 
@@ -24,8 +23,6 @@ The real-life navigation tool is used for navigating in the real world.
 The map explanation category gives the user information about the map. This can be general information about the scale or symbols on the map or specific information about a clicked point. 
 The tool for controlling the displayed data is used for controlling what is being visualized on the map.
 The last category, communication with others, is for sharing information with other users of the map. 
-\fxnote{Write that my own search bar can be improved} 
-\fxnote{Did I write about toogling dual legends?} 
 
 \section{Relevant functionalities}\label{SortingFunctions}
 
@@ -37,7 +34,7 @@ The Real-life navigation tool is only useful for route planning, which is not th
 
 While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. As mentioned in section x the unit of the projection is in degrees, which would result in the scale also being in degrees. It was therefore decided not to include a scale.
 %While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. The scalebar in the figure is showing the distance in meters. This would not be the case, when visualising the population projections, since it is using degree as unit. Since this is not a commen scale measurement, the scale has been excluded. 
-\fxnote{write about scale - update figure to exclude scale}
+\fxnote{update figure to exclude scale}
 
 Having a legend is also central to explain the user which values the colors of the raster would correspond to. Getting more information about a clicked point could also be relevant for the tool. This information could be the exact value in the clicked point. The layer control is important, since this would allow the map to be able to display multiple different population projection.
 
@@ -64,5 +61,3 @@ A third option would be to display multiple maps at the same time as illustrated
 https://openlayers.org/en/latest/examples/side-by-side.html
 
 This third option was chosen.
- 
-\fxnote{Make frontpage}
