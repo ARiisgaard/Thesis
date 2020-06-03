@@ -14,7 +14,7 @@ The purpose of these concepts is to ensure that a large dataset can be loaded an
 \section{Load only the needed data}
 The case data presented in chapter x holds information for the entire world. However, loading data for the entire world would be unnecessarily time consuming. Initial experiments of rendering this quantity of data also revealed that the browser did not have enough memory to load that amount of data. Instead only the relevant data should be downloaded. The relevant data in this case would refer to the data, which the user is able to see. Getting a subset of a raster dataset can be accomplished by dividing it into smaller tiles. Section x will present two different ways this can be achieved.
 
-\section{Coloring should be based on the current extent}
+\section{Coloring should be based on the current extent}\label{ColorFromCurrentExtent}
 The initial exploration of the data showed that the coloring of the tiles should be based of the current extent. This is due to how much the values are varying across the world. Figure \ref{WhyLimitToExtent} shows an example of the difference between a map where the coloring is based on all values or if it is limited to the current extent. Both maps illustrate the population in Denmark. The left map has its coloring based on values from the entire world, while the right has its colors based on the current extent. The left map appears to have no population since the population density in Denmark is negligible compared with the most densely populated areas in the world. In the right map it is possible to see the location of the most populated cities. Since the left map provide the user with no relevant information and the right one does, the coloring should be based on the current extent.
 
 
@@ -41,16 +41,16 @@ Since their max values are different, they would each need their own coloring. I
 The alternative is to color the tiles on the fly. When the user would zoom to a new area the map, a script could register the highest currently visible value. This information could then be sent to recoloring script, which would color the tiles based on this. This way only tiles with the needed colors would be rendered. 
 
 
-\section{Coloring should be done locally}
+\section{Coloring should be done on the client}
 The coloring can be done in two ways as illustrated in figure \ref{WhyColorLocally}. It can be done by sending the information to a tileserver, which then would color the tiles and send them to the client. Alternatively, the coloring could be done on the client. 
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/WhyColorLocally}
-	\caption{Difference between coloring the tile on the server and locally}
+	\caption{Difference between coloring the tile on the server and client. Inspired by a similar looking from \citet{Baumrocks}}
 	\label{WhyColorLocally}
 \end{figure}
-
+\fxnote{Iconography source}
 Comparing the two options is best done with an example, which has been illustrated in figure \ref{WhyColorLocallyMap}. Here the blue and green box are two different possible views both containing 16 raster tiles. The two boxes have different max values, since blue one contains the city center. In the example a user will pan from the blue view to the green one. If the coloring is done on the server side the initial 16 tiles in the blue box will be requested on load.Then when the user pan to the green view the 16 tiles in that box will be requested and colored. The four tiles that are shared between the blue and the green boxes must be requested again, since they need a new color due to the change in max value. This is not the case if the coloring is done locally. In this case only 12 tiles would have to be requested, when changing from the blue to the green view. Since the coloring is happening locally the coloring script can recolor the four tiles it already has downloaded from the initial load.  In the right part of figure \ref{WhyColorLocally} the yellow loop would be run 12 times, whereas the purple one would be run 16 times. This should result in a faster experience for the user.
 
 \begin{figure} [H]

@@ -1,4 +1,4 @@
-\chapter{Evaluation Methods}
+\chapter{Evaluation Methods}\label{EvalMethods}
 
 In this chapter the methods for evaluating the product will be presented.
 
@@ -40,7 +40,7 @@ The Progressive Web App (PWA) audits are target towards a mobile audience. These
  
 Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{Target audience}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientist and not for everybody. It is presumed that the majority of people, who work daily with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
 
-\section{Metrics for performance}
+\section{Metrics for performance}\label{MetricsForPerformance}
 
 \fxnote{Source: Return to this one later}
 
@@ -82,7 +82,7 @@ This feature is being replaced with Total Blocking Time (TBT) in the next Lighth
 TBT is the total amount of milliseconds between FCP and TTI where the website is not responding to user input.
 \citep{TBT}
 
-\section{Calculating score}
+\section{Calculating score}\label{ScoreCal}
 
 Each of the metrics in the section above are then converted into a score between 0 and 100. This score is calculated by comparing each metric with performance data from real websites in the HTTP Archive.
 https://web.dev/performance-scoring/

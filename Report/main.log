@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.30)  2 JUN 2020 17:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.30)  3 JUN 2020 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1540,8 +1540,18 @@ LaTeX Warning: Label `VoresJS' multiply defined.
 
 LaTeX Warning: Label `VoresJS' multiply defined.
 
-) (./Part3/Result.aux) (./Part2/EvaluationMethods.aux) (./Part4/Evaluation.aux)
-(./Part4/Discussion.aux) (./Part4/Conclusion.aux))
+) (./Part2/EvaluationMethods.aux) (./Part4/Evaluation.aux)
+(./Part4/Discussion.aux) (./Part4/Conclusion.aux)
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+
+LaTeX Warning: Label `VoresJS' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1559,8 +1569,7 @@ LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
 .
-
-(c:/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
+ (c:/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 7.
@@ -1748,17 +1757,17 @@ Package microtype Info: Character `029' is missing
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
-<Pictures/Example.jpg, id=100, 1355.0625pt x 837.1275pt>
-File: Pictures/Example.jpg Graphic file (type jpg)
-<use Pictures/Example.jpg>
-Package pdftex.def Info: Pictures/Example.jpg  used on input line 10.
-(pdftex.def)             Requested size: 426.0pt x 263.17284pt.
+<Pictures/Frontpage.png, id=100, 633.86812pt x 421.575pt>
+File: Pictures/Frontpage.png Graphic file (type png)
+<use Pictures/Frontpage.png>
+Package pdftex.def Info: Pictures/Frontpage.png  used on input line 10.
+(pdftex.def)             Requested size: 426.0pt x 283.33505pt.
 
 [1
 
 
-{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Pictures/Exam
-ple.jpg>] [2
+{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Pictures/Fron
+tpage.PNG>] [2
 
 ])
 \openout2 = `Formalia/Titelblad.aux'.
@@ -1788,9 +1797,11 @@ Overfull \hbox (121.71281pt too wide) in paragraph at lines 20--15
 
 ] (./main.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 9.
+(Font)              <12> on input line 11.
 
-[5]) [6]
+[5] [6]) [7] [8
+
+]
 \openout2 = `Formalia/Intro.aux'.
 
  (./Formalia/Intro.tex
@@ -1818,9 +1829,8 @@ l.30
       [1
 
 
-
 ]
-<Pictures/Structure.jpg, id=279, 3982.88pt x 2987.16pt>
+<Pictures/Structure.jpg, id=295, 3982.88pt x 2987.16pt>
 File: Pictures/Structure.jpg Graphic file (type jpg)
 <use Pictures/Structure.jpg>
 Package pdftex.def Info: Pictures/Structure.jpg  used on input line 70.
@@ -1837,25 +1847,21 @@ l.74
 \openout2 = `Part1/CaseData.aux'.
 
  (./Part1/CaseData.tex
-<Pictures/CreatingData.png, id=314, 610.53094pt x 221.32687pt>
+<Pictures/CreatingData.png, id=330, 610.53094pt x 221.32687pt>
 File: Pictures/CreatingData.png Graphic file (type png)
 <use Pictures/CreatingData.png>
 Package pdftex.def Info: Pictures/CreatingData.png  used on input line 15.
-(pdftex.def)             Requested size: 340.8013pt x 123.55043pt.
+(pdftex.def)             Requested size: 426.0pt x 154.43805pt.
 
 [7
 
 
 ] [8 <./Pictures/CreatingData.png>]
-<Pictures/SSPTable.png, id=337, 369.63094pt x 183.68625pt>
+<Pictures/SSPTable.png, id=356, 369.63094pt x 183.68625pt>
 File: Pictures/SSPTable.png Graphic file (type png)
 <use Pictures/SSPTable.png>
 Package pdftex.def Info: Pictures/SSPTable.png  used on input line 44.
-(pdftex.def)             Requested size: 426.0pt x 211.69998pt.
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 43--46
- [][] 
- []
+(pdftex.def)             Requested size: 340.8013pt x 169.36055pt.
 
 
 LaTeX Warning: Reference `label' on page 9 undefined on input line 68.
@@ -1876,7 +1882,7 @@ Overfull \hbox (125.91927pt too wide) in paragraph at lines 79--81
 \openout2 = `Part1/RasterFormatting.aux'.
 
  (./Part1/RasterFormatting.tex
-<Pictures/TilesPerZoomLevel.png, id=371, 504.38437pt x 195.73125pt>
+<Pictures/TilesPerZoomLevel.png, id=395, 504.38437pt x 195.73125pt>
 File: Pictures/TilesPerZoomLevel.png Graphic file (type png)
 <use Pictures/TilesPerZoomLevel.png>
 Package pdftex.def Info: Pictures/TilesPerZoomLevel.png  used on input line 19.
@@ -1887,7 +1893,7 @@ Package pdftex.def Info: Pictures/TilesPerZoomLevel.png  used on input line 19.
 
 
 ]
-<Pictures/TMSXYZ.png, id=388, 488.57532pt x 231.11343pt>
+<Pictures/TMSXYZ.png, id=411, 488.57532pt x 231.11343pt>
 File: Pictures/TMSXYZ.png Graphic file (type png)
 <use Pictures/TMSXYZ.png>
 Package pdftex.def Info: Pictures/TMSXYZ.png  used on input line 35.
@@ -1898,23 +1904,23 @@ Package pdftex.def Info: Pictures/TMSXYZ.png  used on input line 35.
 
 
 (./Part1/CurrentSolution.tex
-<Pictures/QGIS.png, id=411, 1197.72469pt x 624.83438pt>
+<Pictures/QGIS.png, id=433, 1197.72469pt x 624.83438pt>
 File: Pictures/QGIS.png Graphic file (type png)
 <use Pictures/QGIS.png>
-Package pdftex.def Info: Pictures/QGIS.png  used on input line 12.
+Package pdftex.def Info: Pictures/QGIS.png  used on input line 11.
 (pdftex.def)             Requested size: 340.8013pt x 177.78409pt.
-<Pictures/Geoserver.png, id=412, 625.58719pt x 357.58594pt>
+<Pictures/Geoserver.png, id=434, 625.58719pt x 357.58594pt>
 File: Pictures/Geoserver.png Graphic file (type png)
 <use Pictures/Geoserver.png>
-Package pdftex.def Info: Pictures/Geoserver.png  used on input line 21.
+Package pdftex.def Info: Pictures/Geoserver.png  used on input line 20.
 (pdftex.def)             Requested size: 340.8013pt x 194.80681pt.
 
 
-Package natbib Warning: Citation `Sarah' on page 13 undefined on input line 22.
+Package natbib Warning: Citation `Sarah' on page 13 undefined on input line 21.
 
 
 
-Package natbib Warning: Citation `Sarah' on page 13 undefined on input line 22.
+Package natbib Warning: Citation `Sarah' on page 13 undefined on input line 21.
 
 
 [13
@@ -1923,36 +1929,36 @@ Package natbib Warning: Citation `Sarah' on page 13 undefined on input line 22.
 
  <./Pictures/QGIS.PNG>]
 
-Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 26.
+Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 25.
 
 
-<Pictures/Mapserver.png, id=423, 615.80063pt x 375.65344pt>
+<Pictures/Mapserver.png, id=443, 615.80063pt x 375.65344pt>
 File: Pictures/Mapserver.png Graphic file (type png)
 <use Pictures/Mapserver.png>
-Package pdftex.def Info: Pictures/Mapserver.png  used on input line 30.
+Package pdftex.def Info: Pictures/Mapserver.png  used on input line 29.
 (pdftex.def)             Requested size: 340.8013pt x 207.89972pt.
 
-Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 31.
+Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 30.
 
 
 
-Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 31.
+Package natbib Warning: Citation `Sarah' on page 14 undefined on input line 30.
 
 
 [14 <./Pictures/Geoserver.PNG>]
-<Pictures/MakeCityWebsite1.png, id=431, 994.31474pt x 496.254pt>
+<Pictures/MakeCityWebsite1.png, id=451, 994.31474pt x 496.254pt>
 File: Pictures/MakeCityWebsite1.png Graphic file (type png)
 <use Pictures/MakeCityWebsite1.png>
-Package pdftex.def Info: Pictures/MakeCityWebsite1.png  used on input line 45.
+Package pdftex.def Info: Pictures/MakeCityWebsite1.png  used on input line 44.
 (pdftex.def)             Requested size: 340.8013pt x 170.0947pt.
  [15 <./Pictures/Mapserver.PNG> <./Pictures/MakeCityWebsite1.PNG>]
-<Pictures/MakeCityWebsite2.png, id=441, 997.326pt x 493.24275pt>
+<Pictures/MakeCityWebsite2.png, id=463, 997.326pt x 493.24275pt>
 File: Pictures/MakeCityWebsite2.png Graphic file (type png)
 <use Pictures/MakeCityWebsite2.png>
-Package pdftex.def Info: Pictures/MakeCityWebsite2.png  used on input line 59.
+Package pdftex.def Info: Pictures/MakeCityWebsite2.png  used on input line 58.
 (pdftex.def)             Requested size: 340.8013pt x 168.54326pt.
 
-Overfull \hbox (243.61015pt too wide) in paragraph at lines 67--69
+Overfull \hbox (243.61015pt too wide) in paragraph at lines 66--68
 []\T1/lmr/m/n/10.95 (-20) The cre-ation of these com-par-i-son rasters take 20 
 min-utes for a sin-gle SSP https://github.com/crstn/CISC/blob/master/CompareWit
 hSEDAC.py 
@@ -1965,7 +1971,7 @@ hSEDAC.py
 
 LaTeX Warning: Reference `Add chapter' on page 17 undefined on input line 6.
 
-<Pictures/MunsellColorSystem.png, id=459, 903.375pt x 903.375pt>
+<Pictures/MunsellColorSystem.png, id=481, 903.375pt x 903.375pt>
 File: Pictures/MunsellColorSystem.png Graphic file (type png)
 <use Pictures/MunsellColorSystem.png>
 Package pdftex.def Info: Pictures/MunsellColorSystem.png  used on input line 17
@@ -1976,7 +1982,7 @@ Package pdftex.def Info: Pictures/MunsellColorSystem.png  used on input line 17
 
 
  <./Pictures/MunsellColorSystem.png>]
-<Pictures/BrewerDataTypes.png, id=480, 441.14813pt x 290.58563pt>
+<Pictures/BrewerDataTypes.png, id=500, 441.14813pt x 290.58563pt>
 File: Pictures/BrewerDataTypes.png Graphic file (type png)
 <use Pictures/BrewerDataTypes.png>
 Package pdftex.def Info: Pictures/BrewerDataTypes.png  used on input line 44.
@@ -1986,7 +1992,7 @@ Package pdftex.def Info: Pictures/BrewerDataTypes.png  used on input line 44.
 \openout2 = `Part1/RelatedWork.aux'.
 
  (./Part1/RelatedWork.tex
-<Pictures/BaumrockMap1.png, id=520, 440.39531pt x 497.60907pt>
+<Pictures/BaumrockMap1.png, id=540, 440.39531pt x 497.60907pt>
 File: Pictures/BaumrockMap1.png Graphic file (type png)
 <use Pictures/BaumrockMap1.png>
 Package pdftex.def Info: Pictures/BaumrockMap1.png  used on input line 10.
@@ -1996,7 +2002,7 @@ Package pdftex.def Info: Pictures/BaumrockMap1.png  used on input line 10.
 
 
 ]
-<Pictures/BaumrockMap2.png, id=533, 443.40656pt x 502.87875pt>
+<Pictures/BaumrockMap2.png, id=554, 443.40656pt x 502.87875pt>
 File: Pictures/BaumrockMap2.png Graphic file (type png)
 <use Pictures/BaumrockMap2.png>
 Package pdftex.def Info: Pictures/BaumrockMap2.png  used on input line 18.
@@ -2020,36 +2026,37 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
 (c:/texlive/2019/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<Pictures/WhyLimitToExtent.png, id=555, 487.8225pt x 290.58563pt>
+<Pictures/WhyLimitToExtent.png, id=575, 487.8225pt x 290.58563pt>
 File: Pictures/WhyLimitToExtent.png Graphic file (type png)
 <use Pictures/WhyLimitToExtent.png>
 Package pdftex.def Info: Pictures/WhyLimitToExtent.png  used on input line 23.
 (pdftex.def)             Requested size: 340.8013pt x 203.00949pt.
  [25]
-<Pictures/WhyNotPrecolor.png, id=563, 499.8675pt x 208.52907pt>
+<Pictures/WhyNotPrecolor.png, id=583, 499.8675pt x 208.52907pt>
 File: Pictures/WhyNotPrecolor.png Graphic file (type png)
 <use Pictures/WhyNotPrecolor.png>
 Package pdftex.def Info: Pictures/WhyNotPrecolor.png  used on input line 36.
 (pdftex.def)             Requested size: 340.8013pt x 142.17653pt.
  [26 <./Pictures/WhyLimitToExtent.PNG>]
-<Pictures/WhyColorLocally.png, id=571, 483.30562pt x 317.68687pt>
+<Pictures/WhyColorLocally.png, id=591, 483.30562pt x 317.68687pt>
 File: Pictures/WhyColorLocally.png Graphic file (type png)
 <use Pictures/WhyColorLocally.png>
 Package pdftex.def Info: Pictures/WhyColorLocally.png  used on input line 49.
 (pdftex.def)             Requested size: 340.8013pt x 224.02258pt.
  [27 <./Pictures/WhyNotPrecolor.PNG> <./Pictures/WhyColorLocally.PNG>]
-<Pictures/WhyColorLocallyMap.png, id=582, 496.10344pt x 403.5075pt>
+<Pictures/WhyColorLocallyMap.png, id=608, 496.10344pt x 403.5075pt>
 File: Pictures/WhyColorLocallyMap.png Graphic file (type png)
 <use Pictures/WhyColorLocallyMap.png>
 Package pdftex.def Info: Pictures/WhyColorLocallyMap.png  used on input line 58
 .
 (pdftex.def)             Requested size: 340.8013pt x 277.19522pt.
+ [28 <./Pictures/WhyColorLocallyMap.PNG>]
 File: Pictures/WhyColorLocallyMap.png Graphic file (type png)
 <use Pictures/WhyColorLocallyMap.png>
 Package pdftex.def Info: Pictures/WhyColorLocallyMap.png  used on input line 69
 .
 (pdftex.def)             Requested size: 340.8013pt x 277.19522pt.
- [28 <./Pictures/WhyColorLocallyMap.PNG>]) [29]
+) [29]
 \openout2 = `Part2/InteractiveMap.aux'.
 
 
@@ -2057,12 +2064,12 @@ Package pdftex.def Info: Pictures/WhyColorLocallyMap.png  used on input line 69
 
 
 ]
-<Pictures/InteractiveMap.png, id=611, 451.6875pt x 281.55188pt>
+<Pictures/InteractiveMap.png, id=637, 451.6875pt x 281.55188pt>
 File: Pictures/InteractiveMap.png Graphic file (type png)
 <use Pictures/InteractiveMap.png>
 Package pdftex.def Info: Pictures/InteractiveMap.png  used on input line 8.
 (pdftex.def)             Requested size: 340.8013pt x 212.44362pt.
-<Pictures/tabOSMFunctions.png, id=617, 494.59781pt x 271.76532pt>
+<Pictures/tabOSMFunctions.png, id=643, 494.59781pt x 271.76532pt>
 File: Pictures/tabOSMFunctions.png Graphic file (type png)
 <use Pictures/tabOSMFunctions.png>
 Package pdftex.def Info: Pictures/tabOSMFunctions.png  used on input line 16.
@@ -2070,7 +2077,7 @@ Package pdftex.def Info: Pictures/tabOSMFunctions.png  used on input line 16.
  [31
 
  <./Pictures/InteractiveMap.PNG>] [32 <./Pictures/tabOSMFunctions.PNG>]
-<Pictures/DualMapExample.png, id=644, 581.92406pt x 335.75438pt>
+<Pictures/DualMapExample.png, id=670, 581.92406pt x 335.75438pt>
 File: Pictures/DualMapExample.png Graphic file (type png)
 <use Pictures/DualMapExample.png>
 Package pdftex.def Info: Pictures/DualMapExample.png  used on input line 60.
@@ -2087,7 +2094,7 @@ Package pdftex.def Info: Pictures/DualMapExample.png  used on input line 60.
 
 LaTeX Warning: Reference `RelatedWork' on page 35 undefined on input line 8.
 
-<Pictures/FinalDesign.png, id=664, 440.39531pt x 186.6975pt>
+<Pictures/FinalDesign.png, id=691, 440.39531pt x 186.6975pt>
 File: Pictures/FinalDesign.png Graphic file (type png)
 <use Pictures/FinalDesign.png>
 Package pdftex.def Info: Pictures/FinalDesign.png  used on input line 18.
@@ -2104,7 +2111,7 @@ nput line 28.
 \openout2 = `Part3/CodingLanguages.aux'.
 
  (./Part3/CodingLanguages.tex
-<Pictures/DevelopmentSteps.png, id=694, 493.845pt x 66.2475pt>
+<Pictures/DevelopmentSteps.png, id=722, 493.845pt x 66.2475pt>
 File: Pictures/DevelopmentSteps.png Graphic file (type png)
 <use Pictures/DevelopmentSteps.png>
 Package pdftex.def Info: Pictures/DevelopmentSteps.png  used on input line 5.
@@ -2114,17 +2121,17 @@ Package pdftex.def Info: Pictures/DevelopmentSteps.png  used on input line 5.
  <./Pictures/DevelopmentSteps.PNG>] [40
 
 ] [41]
-Underfull \hbox (badness 1377) in paragraph at lines 46--50
+Underfull \hbox (badness 1377) in paragraph at lines 45--49
 \T1/lmr/m/n/10.95 (+20) have not been minified. Because of this it is a larger 
 file than the regular
  []
 
 [42]
-<Pictures/olGeoTiffSimplified.png, id=741, 429.85594pt x 459.96844pt>
+<Pictures/olGeoTiffSimplified.png, id=771, 429.85594pt x 459.96844pt>
 File: Pictures/olGeoTiffSimplified.png Graphic file (type png)
 <use Pictures/olGeoTiffSimplified.png>
 Package pdftex.def Info: Pictures/olGeoTiffSimplified.png  used on input line 5
-7.
+6.
 (pdftex.def)             Requested size: 340.8013pt x 364.68355pt.
  [43 <./Pictures/olGeoTiffSimplified.PNG>]) [44]
 \openout2 = `Part3/DevelopingTool.aux'.
@@ -2150,77 +2157,88 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 (c:/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 )
-<Pictures/ProcessingTime.png, id=822, 319.94531pt x 287.57437pt>
+<Pictures/ProcessingTime.png, id=851, 319.94531pt x 287.57437pt>
 File: Pictures/ProcessingTime.png Graphic file (type png)
 <use Pictures/ProcessingTime.png>
-Package pdftex.def Info: Pictures/ProcessingTime.png  used on input line 104.
+Package pdftex.def Info: Pictures/ProcessingTime.png  used on input line 93.
 (pdftex.def)             Requested size: 340.8013pt x 306.3237pt.
  [47]
 
 Package natbib Warning: Citation `ProcessingTime' on page 48 undefined on input
- line 109.
+ line 98.
 
 [48 <./Pictures/ProcessingTime.PNG>]
-<Pictures/MapWithWrongResolution.png, id=860, 395.22656pt x 441.14813pt>
+<Pictures/CScale.png, id=882, 157.33781pt x 68.50594pt>
+File: Pictures/CScale.png Graphic file (type png)
+<use Pictures/CScale.png>
+Package pdftex.def Info: Pictures/CScale.png  used on input line 159.
+(pdftex.def)             Requested size: 340.8013pt x 148.40964pt.
+ [49 <./Pictures/CScale.PNG>]
+<Pictures/MapWithWrongResolution.png, id=902, 395.22656pt x 441.14813pt>
 File: Pictures/MapWithWrongResolution.png Graphic file (type png)
 <use Pictures/MapWithWrongResolution.png>
 Package pdftex.def Info: Pictures/MapWithWrongResolution.png  used on input lin
-e 177.
+e 174.
 (pdftex.def)             Requested size: 340.8013pt x 380.40317pt.
- [49] [50 <./Pictures/MapWithWrongResolution.PNG>]
-<Pictures/DifferentZoom.png, id=886, 417.81094pt x 270.25969pt>
+ [50 <./Pictures/MapWithWrongResolution.PNG>]
+<Pictures/DifferentZoom.png, id=912, 417.81094pt x 270.25969pt>
 File: Pictures/DifferentZoom.png Graphic file (type png)
 <use Pictures/DifferentZoom.png>
-Package pdftex.def Info: Pictures/DifferentZoom.png  used on input line 193.
+Package pdftex.def Info: Pictures/DifferentZoom.png  used on input line 190.
 (pdftex.def)             Requested size: 340.8013pt x 220.4597pt.
- [51 <./Pictures/DifferentZoom.PNG>]
-<Pictures/CalculateMaxValue.png, id=902, 434.37282pt x 465.23813pt>
+ [51 <./Pictures/DifferentZoom.PNG>] [52]
+<Pictures/CalculateMaxValue.png, id=943, 434.37282pt x 465.23813pt>
 File: Pictures/CalculateMaxValue.png Graphic file (type png)
 <use Pictures/CalculateMaxValue.png>
-Package pdftex.def Info: Pictures/CalculateMaxValue.png  used on input line 241
+Package pdftex.def Info: Pictures/CalculateMaxValue.png  used on input line 238
 .
 (pdftex.def)             Requested size: 340.8013pt x 365.03525pt.
- [52] [53 <./Pictures/CalculateMaxValue.PNG>]
-<Pictures/DoubleLoop.png, id=932, 497.60907pt x 249.93375pt>
+
+[53 <./Pictures/CalculateMaxValue.PNG>]
+<Pictures/DoubleLoop.png, id=954, 497.60907pt x 249.93375pt>
 File: Pictures/DoubleLoop.png Graphic file (type png)
 <use Pictures/DoubleLoop.png>
-Package pdftex.def Info: Pictures/DoubleLoop.png  used on input line 263.
+Package pdftex.def Info: Pictures/DoubleLoop.png  used on input line 260.
 (pdftex.def)             Requested size: 340.8013pt x 171.17688pt.
  [54 <./Pictures/DoubleLoop.PNG>]
-<Pictures/DualMaps.png, id=944, 506.6428pt x 306.39468pt>
-File: Pictures/DualMaps.png Graphic file (type png)
-<use Pictures/DualMaps.png>
-Package pdftex.def Info: Pictures/DualMaps.png  used on input line 286.
-(pdftex.def)             Requested size: 340.8013pt x 206.1062pt.
-<Pictures/ChangeToMaxCalculation.png, id=947, 511.9125pt x 213.79875pt>
+File: Pictures/Frontpage.png Graphic file (type png)
+<use Pictures/Frontpage.png>
+Package pdftex.def Info: Pictures/Frontpage.png  used on input line 283.
+(pdftex.def)             Requested size: 340.8013pt x 226.66933pt.
+
+[55]
+<Pictures/ChangeToMaxCalculation.png, id=982, 511.9125pt x 213.79875pt>
 File: Pictures/ChangeToMaxCalculation.png Graphic file (type png)
 <use Pictures/ChangeToMaxCalculation.png>
 Package pdftex.def Info: Pictures/ChangeToMaxCalculation.png  used on input lin
-e 297.
+e 294.
 (pdftex.def)             Requested size: 340.8013pt x 142.33423pt.
- [55 <./Pictures/DualMaps.PNG>]
-<Pictures/SearchBar.png, id=957, 368.1253pt x 159.59625pt>
+<Pictures/SearchBar.png, id=986, 368.1253pt x 159.59625pt>
 File: Pictures/SearchBar.png Graphic file (type png)
 <use Pictures/SearchBar.png>
-Package pdftex.def Info: Pictures/SearchBar.png  used on input line 314.
+Package pdftex.def Info: Pictures/SearchBar.png  used on input line 315.
 (pdftex.def)             Requested size: 340.8013pt x 147.76057pt.
+ [56 <./Pictures/ChangeToMaxCalculation.PNG>]
+<Pictures/FinalProduct.png, id=1000, 632.3625pt x 418.56375pt>
+File: Pictures/FinalProduct.png Graphic file (type png)
+<use Pictures/FinalProduct.png>
+Package pdftex.def Info: Pictures/FinalProduct.png  used on input line 333.
+(pdftex.def)             Requested size: 340.8013pt x 225.58037pt.
+ [57 <./Pictures/SearchBar.PNG> <./Pictures/FinalProduct.PNG>]
+<Pictures/GlobcoverVsGrump.png, id=1014, 632.3625pt x 389.20406pt>
+File: Pictures/GlobcoverVsGrump.png Graphic file (type png)
+<use Pictures/GlobcoverVsGrump.png>
+Package pdftex.def Info: Pictures/GlobcoverVsGrump.png  used on input line 350.
 
-[56 <./Pictures/ChangeToMaxCalculation.PNG> <./Pictures/SearchBar.PNG>])
-[57]
-\openout2 = `Part3/Result.aux'.
-
- (./Part3/Result.tex [58
-
-
-
-]) [59] [60
+(pdftex.def)             Requested size: 340.8013pt x 209.75728pt.
+) [58 <./Pictures/GlobcoverVsGrump.PNG>]
+[59] [60
 
 
 ] [61] [62]
 \openout2 = `Part2/EvaluationMethods.aux'.
 
-
-(./Part2/EvaluationMethods.tex
+ (./Part2/EvaluationMethods.tex
 
 Package natbib Warning: Citation `LhBP' on page 63 undefined on input line 29.
 
@@ -2236,59 +2254,65 @@ LaTeX Warning: Reference `Target audience' on page 64 undefined on input line 4
 \openout2 = `Part4/Evaluation.aux'.
 
  (./Part4/Evaluation.tex
-<Pictures/LighthouseGrade.png, id=1075, 220.57407pt x 146.04562pt>
+<Pictures/LighthouseGrade.png, id=1119, 220.57407pt x 146.04562pt>
 File: Pictures/LighthouseGrade.png Graphic file (type png)
 <use Pictures/LighthouseGrade.png>
-Package pdftex.def Info: Pictures/LighthouseGrade.png  used on input line 10.
+Package pdftex.def Info: Pictures/LighthouseGrade.png  used on input line 6.
 (pdftex.def)             Requested size: 170.3974pt x 112.8276pt.
-<Pictures/PerformanceAuditValues.png, id=1077, 548.0475pt x 95.6072pt>
+<Pictures/PerformanceAuditValues.png, id=1121, 548.0475pt x 95.6072pt>
 File: Pictures/PerformanceAuditValues.png Graphic file (type png)
 <use Pictures/PerformanceAuditValues.png>
 Package pdftex.def Info: Pictures/PerformanceAuditValues.png  used on input lin
-e 20.
+e 16.
 (pdftex.def)             Requested size: 340.8013pt x 59.45381pt.
  [67
 
 
 
  <./Pictures/LighthouseGrade.png> <./Pictures/PerformanceAuditValues.png>]
-<Pictures/ScreenshotLoading1.jpg, id=1089, 374.90062pt x 197.23688pt>
-File: Pictures/ScreenshotLoading1.jpg Graphic file (type jpg)
-<use Pictures/ScreenshotLoading1.jpg>
-Package pdftex.def Info: Pictures/ScreenshotLoading1.jpg  used on input line 32
+<Pictures/ScreenshotLoading1.png, id=1131, 373.395pt x 152.06813pt>
+File: Pictures/ScreenshotLoading1.png Graphic file (type png)
+<use Pictures/ScreenshotLoading1.png>
+Package pdftex.def Info: Pictures/ScreenshotLoading1.png  used on input line 28
 .
-(pdftex.def)             Requested size: 340.8013pt x 179.30824pt.
-<Pictures/ScreenshotLoading2.jpg, id=1090, 374.90062pt x 197.23688pt>
-File: Pictures/ScreenshotLoading2.jpg Graphic file (type jpg)
-<use Pictures/ScreenshotLoading2.jpg>
-Package pdftex.def Info: Pictures/ScreenshotLoading2.jpg  used on input line 41
+(pdftex.def)             Requested size: 340.8013pt x 138.79987pt.
+
+
+LaTeX Warning: Reference `DTTwoMaps' on page 68 undefined on input line 33.
+
+<Pictures/ScreenshotLoading2.png, id=1132, 374.90062pt x 146.79843pt>
+File: Pictures/ScreenshotLoading2.png Graphic file (type png)
+<use Pictures/ScreenshotLoading2.png>
+Package pdftex.def Info: Pictures/ScreenshotLoading2.png  used on input line 37
 .
-(pdftex.def)             Requested size: 340.8013pt x 179.30824pt.
-<Pictures/ScreenshotLoading3.jpg, id=1091, 374.90062pt x 197.23688pt>
-File: Pictures/ScreenshotLoading3.jpg Graphic file (type jpg)
-<use Pictures/ScreenshotLoading3.jpg>
-Package pdftex.def Info: Pictures/ScreenshotLoading3.jpg  used on input line 50
+(pdftex.def)             Requested size: 340.8013pt x 133.4546pt.
+<Pictures/ScreenshotLoading3.png, id=1133, 410.2828pt x 167.12437pt>
+File: Pictures/ScreenshotLoading3.png Graphic file (type png)
+<use Pictures/ScreenshotLoading3.png>
+Package pdftex.def Info: Pictures/ScreenshotLoading3.png  used on input line 46
 .
-(pdftex.def)             Requested size: 340.8013pt x 179.30824pt.
- [68 <./Pictures/ScreenshotLoading1.jpg> <./Pictures/ScreenshotLoading2.jpg>]
-<Pictures/ScoringManual.png, id=1098, 745.28438pt x 265.74281pt>
+(pdftex.def)             Requested size: 340.8013pt x 138.82028pt.
+[68 <./Pictures/ScreenshotLoading1.PNG> <./Pictures/ScreenshotLoading2.PNG>]
+<Pictures/ScoringManual.png, id=1142, 751.30687pt x 225.09094pt>
 File: Pictures/ScoringManual.png Graphic file (type png)
 <use Pictures/ScoringManual.png>
-Package pdftex.def Info: Pictures/ScoringManual.png  used on input line 64.
-(pdftex.def)             Requested size: 340.8013pt x 121.51733pt.
- [69 <./Pictures/ScreenshotLoading3.jpg> <./Pictures/ScoringManual.png>]
-<Pictures/tabPluginSize.png, id=1112, 235.63031pt x 92.59593pt>
+Package pdftex.def Info: Pictures/ScoringManual.png  used on input line 60.
+(pdftex.def)             Requested size: 383.3974pt x 114.86697pt.
+
+[69 <./Pictures/ScreenshotLoading3.PNG> <./Pictures/ScoringManual.png>]
+<Pictures/tabPluginSize.png, id=1159, 235.63031pt x 92.59593pt>
 File: Pictures/tabPluginSize.png Graphic file (type png)
 <use Pictures/tabPluginSize.png>
-Package pdftex.def Info: Pictures/tabPluginSize.png  used on input line 85.
+Package pdftex.def Info: Pictures/tabPluginSize.png  used on input line 81.
 (pdftex.def)             Requested size: 255.6026pt x 100.44574pt.
- [70 <./Pictures/tabPluginSize.PNG>]
-<Pictures/tabPostloadPerformance.png, id=1142, 125.71968pt x 107.65219pt>
+
+[70 <./Pictures/tabPluginSize.PNG>]
+<Pictures/tabPostloadPerformance.png, id=1189, 125.71968pt x 107.65219pt>
 File: Pictures/tabPostloadPerformance.png Graphic file (type png)
 <use Pictures/tabPostloadPerformance.png>
 Package pdftex.def Info: Pictures/tabPostloadPerformance.png  used on input lin
-e 128.
-(pdftex.def)             Requested size: 170.3974pt x 145.90895pt.
+e 126.
+(pdftex.def)             Requested size: 127.8013pt x 109.43417pt.
 ) [71 <./Pictures/tabPostloadPerformance.PNG>]
 \openout2 = `Part4/Discussion.aux'.
 
@@ -2299,34 +2323,21 @@ e 128.
 ] [73]
 
 LaTeX Warning: Reference `technical concept 2' on page 74 undefined on input li
-ne 33.
+ne 43.
 
-[74]
-Overfull \hbox (80.7334pt too wide) in paragraph at lines 68--74
-[]\T1/lmr/m/n/10.95 (-20) There is cur-rently no sup-port for COG in Open-lay-e
-rs https://github.com/openlayers/openlayers/issues/10733
- []
-
-
-Overfull \hbox (134.36292pt too wide) in paragraph at lines 68--74
-\T1/lmr/m/n/10.95 (-20) Leaflet, an-other map-ping pro-gram does have sup-port 
-for vi-su-al-is-ing the file-type. https://github.com/GeoTIFF/georaster-
- []
-
-[75]
-<Pictures/CaddyVsPython.png, id=1193, 644.4075pt x 146.79843pt>
+[74] [75]
+<Pictures/CaddyVsPython.png, id=1252, 644.4075pt x 146.79843pt>
 File: Pictures/CaddyVsPython.png Graphic file (type png)
 <use Pictures/CaddyVsPython.png>
-Package pdftex.def Info: Pictures/CaddyVsPython.png  used on input line 101.
+Package pdftex.def Info: Pictures/CaddyVsPython.png  used on input line 100.
 (pdftex.def)             Requested size: 340.8013pt x 77.63927pt.
-<Pictures/tabMinimum.png, id=1196, 234.1247pt x 187.45032pt>
+<Pictures/tabMinimum.png, id=1255, 234.1247pt x 187.45032pt>
 File: Pictures/tabMinimum.png Graphic file (type png)
 <use Pictures/tabMinimum.png>
-Package pdftex.def Info: Pictures/tabMinimum.png  used on input line 120.
+Package pdftex.def Info: Pictures/tabMinimum.png  used on input line 119.
 (pdftex.def)             Requested size: 170.3974pt x 136.43428pt.
-) [76 <./Pictures/CaddyVsPython.PNG> <./Pictures/tabMinimum.PNG>] [77]
+) [76 <./Pictures/CaddyVsPython.PNG>] [77 <./Pictures/tabMinimum.PNG>]
 \openout2 = `Part4/Conclusion.aux'.
-
 
 (./Part4/Conclusion.tex [78
 
@@ -2339,7 +2350,7 @@ Package pdftex.def Info: Pictures/tabMinimum.png  used on input line 120.
 [85] [86
 
 ] (./Appendix/AppendixTest.tex
-<Pictures/Audit1.png, id=1329, 711.4078pt x 673.01437pt>
+<Pictures/Audit1.png, id=1394, 711.4078pt x 673.01437pt>
 File: Pictures/Audit1.png Graphic file (type png)
 <use Pictures/Audit1.png>
 Package pdftex.def Info: Pictures/Audit1.png  used on input line 4.
@@ -2349,7 +2360,7 @@ Overfull \hbox (57.6252pt too wide) in paragraph at lines 4--5
 [] 
  []
 
-<Pictures/Audit2.png, id=1330, 764.10469pt x 642.90187pt>
+<Pictures/Audit2.png, id=1395, 764.10469pt x 642.90187pt>
 File: Pictures/Audit2.png Graphic file (type png)
 <use Pictures/Audit2.png>
 Package pdftex.def Info: Pictures/Audit2.png  used on input line 6.
@@ -2362,27 +2373,29 @@ Overfull \hbox (4.11418pt too wide) in paragraph at lines 6--7
 [87
 
  <./Pictures/Audit1.PNG>]
-<Pictures/Audit3.png, id=1337, 316.18124pt x 590.205pt>
+<Pictures/Audit3.png, id=1403, 316.18124pt x 590.205pt>
 File: Pictures/Audit3.png Graphic file (type png)
 <use Pictures/Audit3.png>
 Package pdftex.def Info: Pictures/Audit3.png  used on input line 8.
 (pdftex.def)             Requested size: 255.6026pt x 477.13583pt.
-)
-Overfull \hbox (51.13583pt too wide) in paragraph at lines 8--87
+) (./Appendix/CodeIncluded.tex
+Overfull \hbox (51.13583pt too wide) in paragraph at lines 8--1
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--87
+Underfull \hbox (badness 10000) in paragraph at lines 8--1
 
  []
 
-[88 <./Pictures/Audit2.PNG>] [89 <./Pictures/Audit3.PNG>] (./main.lox [90]
-[91])
+[88 <./Pictures/Audit2.PNG>] [89 <./Pictures/Audit3.PNG>] [90
+
+] [91] [92]
+[93] [94] [95] [96] [97]) [98] (./main.lox [99] [100])
 
 Package natbib Warning: There were undefined citations.
 
-[92]
+[101]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -2397,13 +2410,12 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
 (./Part1/VisualConventions.aux) (./Part1/RelatedWork.aux)
 (./Part2/CoreConcepts.aux) (./Part2/InteractiveMap.aux)
 (./Part2/FinalDesign.aux) (./Part3/CodingLanguages.aux)
-(./Part3/DevelopingTool.aux) (./Part3/Result.aux)
-(./Part2/EvaluationMethods.aux) (./Part4/Evaluation.aux)
-(./Part4/Discussion.aux) (./Part4/Conclusion.aux))
+(./Part3/DevelopingTool.aux) (./Part2/EvaluationMethods.aux)
+(./Part4/Evaluation.aux) (./Part4/Discussion.aux) (./Part4/Conclusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 97032C3DF5811616CC412794BBBAD974;1351.
+(rerunfilecheck)             Checksum: 7435A40AB1F030F306004F5A808517AA;1369.
 
 
 LaTeX Warning: There were undefined references.
@@ -2414,39 +2426,42 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
  ) 
 Here is how much of TeX's memory you used:
- 37136 strings out of 492164
- 643974 string characters out of 6129087
- 1230943 words of memory out of 5000000
- 40212 multiletter control sequences out of 15000+600000
- 646354 words of font info for 178 fonts, out of 8000000 for 9000
+ 37866 strings out of 492164
+ 655191 string characters out of 6129087
+ 1319300 words of memory out of 5000000
+ 40448 multiletter control sequences out of 15000+600000
+ 646856 words of font info for 180 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 67i,14n,104p,1263b,2428s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2019/te
-xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvi
-ps/lm/lm-mathex.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
-c}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2019
-/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2019/texmf-dist/fonts/enc/
-dvips/base/8r.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/latxf
-ont/lcircle1.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><
-c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2019/te
-xmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2019/texmf-dist/fonts/ty
-pe1/public/lm/lmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi
-10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/
-2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2019/texmf-dist/fon
-ts/type1/public/lm/lmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/
-lmr6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive
-/2019/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2019/texmf-dist/fon
-ts/type1/public/lm/lmr9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/l
-mri10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmss9.pfb><c:/texli
-ve/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2019/texmf-dist
-/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public
-/lm/lmtt10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c:/
-texlive/2019/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb><c:/texlive/2019/tex
-mf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on main.pdf (100 pages, 9779417 bytes).
+ 67i,14n,104p,1263b,2480s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{figure.caption.52} has been referenced but does n
+ot exist, replaced by a fixed one
+
+{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2019/texm
+f-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips
+/lm/lm-mathex.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}
+{c:/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2019/t
+exmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dv
+ips/base/8r.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/latxfon
+t/lcircle1.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:
+/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2019/texm
+f-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2019/texmf-dist/fonts/type
+1/public/lm/lmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi10
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/20
+19/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2019/texmf-dist/fonts
+/type1/public/lm/lmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lm
+r6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2
+019/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2019/texmf-dist/fonts
+/type1/public/lm/lmr9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr
+i10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmss9.pfb><c:/texlive
+/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2019/texmf-dist/f
+onts/type1/public/lm/lmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/l
+m/lmtt10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c:/te
+xlive/2019/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb><c:/texlive/2019/texmf
+-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
+Output written on main.pdf (111 pages, 10822117 bytes).
 PDF statistics:
- 1606 PDF objects out of 1728 (max. 8388607)
- 1373 compressed objects within 14 object streams
- 421 named destinations out of 1000 (max. 500000)
- 40871 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 2293 PDF objects out of 2487 (max. 8388607)
+ 2029 compressed objects within 21 object streams
+ 914 named destinations out of 1000 (max. 500000)
+ 41393 words of extra memory for PDF output out of 42996 (max. 10000000)
 

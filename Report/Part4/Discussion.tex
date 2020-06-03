@@ -21,6 +21,16 @@ Not all the intended functionality got added to the map. This section will list 
 %TODO: Figure showing a popup on click
 %-	Popup text: Data in this map and data in the other
 
+\subsection{Additional information}\label{MoreInfoPlz}
+
+The comparison between the scenarios SSP1 and SSP3, which was done in section \ref{Comparisons}, showed that the user could benefit from more information about the datasets. In the comparison it was not possible to see that the overall population was higher for the SSP3 scenario, since the urban areas had a higher density in the other scenario. Multiple features could be implemented to give the user more information about the data.
+
+The results of simple statistical calculations for each map could be displayed next to the maps. This could be the average density for the current extent, highest density in the map and the standard deviation.
+
+Statistical data could also be visualised through histograms. In the empty space beside the maps there could be a histogram for each map, showing the distribution of the data. \fxnote{empty space - never mentioned before - to dualmap}
+
+A function could also be added to get the population counts from a clicked point for both maps. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
+
 
 
 
@@ -33,13 +43,7 @@ This way the map could also be used to visualize the different in the same proje
 If there is a vast difference between the values in the two shown projection coloring based on the same maximum values does not necessarily make sense as was shown in the figure in \ref{technical concept 2}. It would therefore make sense to have the option to enable separate coloring as shown in figure x. 
 \fxnote{TODO: make a figure showing the map with multiple legends and color schemes. }
 
-\subsection{Additional information}
 
-Currently the user can not get exact information about the the population density at a given point. They know the approximate value because of the legend, but not the exact value. 
-
-A function could be added to get the population counts from a clicked point for both maps. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
-
-The user could also be given addition information about the data in the current extent through histograms. In the empty space beside the maps there could be a histogram for each map, showing the distribution of the data.
 
 \section{Optimizing the tile generation}
 
@@ -56,24 +60,29 @@ An alternative to separating the rasterfile into smaller tiles would be to have 
 The files also contain multiple versions of the same image, where each is a downsampled version of the original. Each of these image versions can match a different zoom level.
 
 
-This way of organizing the file is then combined with Range requests, which allows the client to request parts of a file instead of the whole file.
-https://www.cogeo.org/in-depth.html
+This way of organizing the file is then combined with Range requests, which allows the client to request parts of a file instead of the whole file. \citep{COGoverview} 
 
 By using these two technologies tiles of different spatial resolution can be sent to the client, which is similar to what the current solution is doing. The main difference is that with COG there would be one file, while the current solution has thousands of files. The creation of this file takes significantly less time compared to creating the individual tiles. India was as mentioned in section x processed into tiles in 6 hours and four minutes. Converting the same file into a COG takes 3 seconds.
 %gdal_translate in.tif out.tif -co TILED=YES -co COPY_SRC_OVERVIEWS=YES 
-https://www.cogeo.org/developers-guide.html
-This way only the parts of the raster, which the user can see on the map get requested.
 
 
-There is currently no support for COG in Openlayers
-https://github.com/openlayers/openlayers/issues/10733
-and no extensions enabling it
-https://github.com/cogeotiff/www.cogeo.org/issues/36
-. Leaflet, another mapping program does have support for visualising the filetype.
-https://github.com/GeoTIFF/georaster-layer-for-leaflet
+
+There is currently no support for COG in Openlayers and no extensions enabling it. Leaflet, another mapping program, does have extensions, which support visualisation of the filetype.
+\citep{COGopenlayers}
+
+\section{Evaluating with Lighthouse}
+
+Having a performance score of 94/100 would indicate that the created tool is very responsive. This is surprising considering that there is a delay between 3-4 seconds before the raster is loaded, which does not make it “feel” very responsive. There are multiple reasons as to why such a high score have been achieved.
+
+As mentioned in section \ref{MetricsForPerformance} both the First Meaningful Paint and First CPU Idle will be replaced in the next release. Using the new measurements, the score might change.
+ 
+It should also be pointed out that the score is calculated by comparing with real website data as mentioned in section{ScoreCal}. The created tool is with its total of 4 components maybe more simplistic than most websites, which could explain why it is performing relatively well. A slow simple website might comparatively do well, when compared with a fast, but more complex website.
+
+Ultimately it is difficult to determine how responsive the website is in comparison to other sites. Despite this Lighthouse have been a useful improvement tool, even though it was not the best evaluation tool. The most beneficial part about the tool has been the advice on how a website can be improved. Its advice on upgrading to a HTTP/2 connection meant that the website became responsive enough to be useful.  
 
 
 \section{Performance enhancements}
+\fxnote{Ryk op til evalueringen}
 
 Based on the performance and best practice audits by Google Lighthouse the performance could be enhanced in multiple ways. 
 
@@ -89,7 +98,7 @@ The size of data loads will be reduced by only having to load one set of tiles w
 \fxnote{Write about asynchronous XMLREquest and minifying/compressing}
 -	Tenser 
  
-\fxnote{Add user testing to future work }
+\fxnote{søg på Http}
 
 \textbf{Does not use HTTP/2 for all of its resources}\\
 Caddy was used to serve the resources with HTTP/2. However even after setting up Caddy the error message was still present. It is uncertain if this means that the connection still is HTTP/1 based or if it is HTTP/2 but labelled incorrectly. Figure x is two screenshots from the network tab of chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 

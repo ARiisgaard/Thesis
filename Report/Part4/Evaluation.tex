@@ -30,7 +30,7 @@ Even if the automatic calculation of the performance metrics failed the metrics 
 	\label{ScreenshotLoading1}
 \end{figure}
 
-Figure x, x and x are all screenshots of the website taken by the performance tool, while the page was loading. Figure x is taken 0.3 seconds after the page started loading. This time is both the First Meaningful Paint and First CPU Idle since the user can interact with the searchbar.
+Figure x, x and x are all screenshots of the website taken by the performance tool, while the page was loading. The maps are not utilising the full screen extent as mentioned in section \ref{DTTwoMaps}, which is the reason for the empty white space next to the maps. Figure x is taken 0.3 seconds after the page started loading. This time is both the First Meaningful Paint and First CPU Idle since the user can interact with the searchbar.
 
 \begin{figure} [H]
 	\centering
@@ -44,25 +44,25 @@ After 1 second the maps appear on the website as shown in figure x. The user is 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/ScreenshotLoading3}
-	\caption{After 4.6 seconds the map is fully loaded}
+	\caption{After 3.6 seconds the map is fully loaded}
 	\label{ScreenshotLoading3}
 \end{figure}
 
-The last screenshot at figure x shows the map fully loaded after 4.6 seconds. With the tiff tiles being loaded and visualized this is the time for the First Meaningful Paint. This can be used as a conservative estimate for the Speed Index. This would be the value for the Speed Index if everything got visualized at this time and nothing had been visualized on the website prior.
+The last screenshot at figure x shows the map fully loaded after 3.6 seconds. With the tiff tiles being loaded and visualized this is the time for the First Meaningful Paint. This can be used as a conservative estimate for the Speed Index. This would be the value for the Speed Index if everything got visualized at this time and nothing had been visualized on the website prior.
 
 The real Speed Index would be lower, since the legend, map titles and search bar have been visualized at an earlier stage. 
 
-These metrics can then manually be calculated into a score using the Lighthouse Scoring Calculator as shown in figure x. The calculator in unable to take inputs below 1 second. Based on the given value the performance should have scored 88.
+These metrics can then manually be calculated into a score using the Lighthouse Scoring Calculator as shown in figure x. The calculator in unable to take inputs below 1 second. Based on the given value the performance should have scored 94. This score will be discussed upon in section \ref{label}
 https://googlechrome.github.io/lighthouse/scorecalc/
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/ScoringManual}
+	\includegraphics[width=.9\textwidth]{Pictures/ScoringManual}
 	\caption{The website for manually calculating the scores, which Lighthouse grants}
 	\label{ScoringManual}
 \end{figure}
 
-\fxnote{Update to new scoring and time numbers }
+\fxnote{They say themself, that scoring 0 repeaedly usually indicate an error - Lighthouse}
 
 \subsection{Opportunities}
 In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. The points listed here will be elaborated upon further in the discussion.
@@ -117,11 +117,12 @@ When loading the metadata about the tiles a synchronous XMLRequest is used. This
 \section{Postload performance}
 
 In addition to the measurements of the performance for loading the site the performance after loading was also measured. In table \ref{tabPostloadPerformance} is measurements of performance of using the tool. It can be seen that loading and coloring a new layer takes 3.89 seconds, whereas coloring a layer, which already have been loaded takes on average 0.56 seconds. 
-\fxnote{In section x is a further explaination for the larger variance in the recoloring measurements}
 
-\begin{figure} [H]
+\begin{table}[htbp]
 	\centering
-	\includegraphics[width=.4\textwidth]{Pictures/tabPostloadPerformance}
+	\begin{tabular}{l}
+		\includegraphics[width=0.3\textwidth]{Pictures/tabPostloadPerformance}
+	\end{tabular}
 	\caption{Seconds to load a new layer and color it and to recolor a loaded layer}
 	\label{tabPostloadPerformance}
-\end{figure}
+\end{table}

@@ -12,20 +12,11 @@ A level-1 auxiliary file: Part1/CurrentSolution.aux
 A level-1 auxiliary file: Part1/VisualConventions.aux
 A level-1 auxiliary file: Part1/RelatedWork.aux
 A level-1 auxiliary file: Part2/CoreConcepts.aux
-Case mismatch error between cite keys dent and Dent
----line 20 of file Part2/CoreConcepts.aux
- : \citation{dent
- :               }
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: Part2/InteractiveMap.aux
 A level-1 auxiliary file: Part2/FinalDesign.aux
 A level-1 auxiliary file: Part3/CodingLanguages.aux
 A level-1 auxiliary file: Part3/DevelopingTool.aux
 A level-1 auxiliary file: Part3/Result.aux
-White space in argument---line 3 of file Part3/Result.aux
- : \citation{Write
- :                 this}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: Part2/EvaluationMethods.aux
 A level-1 auxiliary file: Part4/Evaluation.aux
 A level-1 auxiliary file: Part4/Discussion.aux
@@ -41,11 +32,15 @@ Warning--I didn't find a database entry for "LhBP"
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry EOX
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry olGeoTiffSource
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Brewer94
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry ColorGuidelines
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry ColorBrewer
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry COGoverview
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry gdalLeaflet
 while executing---line 1485 of file bibtex/harvard.bst
@@ -111,6 +106,8 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry ARIA
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry COGopenlayers
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Nominatim
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry OL
@@ -132,6 +129,8 @@ while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry ConceptSSP
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Slippy101
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry PythonVersion
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry JacobRus
 while executing---line 1485 of file bibtex/harvard.bst
@@ -155,45 +154,45 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry SIformula
 while executing---line 1485 of file bibtex/harvard.bst
-You've used 59 entries,
+You've used 63 entries,
             2921 wiz_defined-function locations,
-            919 strings with 12831 characters,
-and the built_in function-call counts, 20918 in all, are:
-= -- 1983
-> -- 874
-< -- 108
-+ -- 325
-- -- 246
-* -- 1377
-:= -- 3450
-add.period$ -- 295
-call.type$ -- 59
-change.case$ -- 141
-chr.to.int$ -- 39
-cite$ -- 118
-duplicate$ -- 1244
-empty$ -- 1776
-format.name$ -- 380
-if$ -- 4259
+            938 strings with 13379 characters,
+and the built_in function-call counts, 22242 in all, are:
+= -- 2111
+> -- 918
+< -- 116
++ -- 341
+- -- 258
+* -- 1453
+:= -- 3670
+add.period$ -- 315
+call.type$ -- 63
+change.case$ -- 149
+chr.to.int$ -- 43
+cite$ -- 126
+duplicate$ -- 1328
+empty$ -- 1896
+format.name$ -- 400
+if$ -- 4531
 int.to.chr$ -- 21
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 421
-num.names$ -- 295
-pop$ -- 392
+newline$ -- 449
+num.names$ -- 315
+pop$ -- 416
 preamble$ -- 1
-purify$ -- 141
+purify$ -- 149
 quote$ -- 0
-skip$ -- 754
+skip$ -- 806
 stack$ -- 0
-substring$ -- 118
-swap$ -- 264
+substring$ -- 126
+swap$ -- 280
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 649
+type$ -- 693
 warning$ -- 0
-while$ -- 177
+while$ -- 189
 width$ -- 0
-write$ -- 1010
-(There were 62 error messages)
+write$ -- 1078
+(There were 64 error messages)

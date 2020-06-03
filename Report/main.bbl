@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{63}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,6 +23,15 @@
   \url{https://web.archive.org/web/20191031034339/https://eox.at/2018/01/visualizing-geotiff-tiles-with-openlayers/},
   2018.
 \newblock Last Accessed: 24-05-2020.
+
+\bibitem[Baumrock(2020)]{olGeoTiffSource}
+\textbf{Baumrock}, \textbf{2020}.
+\newblock Bernhard Baumrock.
+\newblock \textit{olGeoTiff class}.
+\newblock
+  \url{http://webportals.ipsl.jussieu.fr/ScientificApps/dev/forge_patrick/eox/lib/olGeoTiff.js},
+  2020.
+\newblock Last Accessed: 02-06-2020.
 
 \bibitem[Brewer(1994)]{Brewer94}
 \textbf{Brewer}, \textbf{1994}.
@@ -49,6 +58,13 @@
 \newblock \textit{ColorBrewer 2.0}.
 \newblock \url{https://colorbrewer2.org/#}, 2013.
 \newblock Last Accessed: 24-05-2020.
+
+\bibitem[Cogeo.org(No date)]{COGoverview}
+\textbf{Cogeo.org}, \textbf{No date}.
+\newblock Cogeo.org.
+\newblock \textit{Cloud Optimized GeoTIFF in depth}.
+\newblock \url{https://www.cogeo.org/in-depth.html}, No date.
+\newblock Last Accessed: 02-06-2020.
 
 \bibitem[Commenthol(2020)]{gdalLeaflet}
 \textbf{Commenthol}, \textbf{2020}.
@@ -299,6 +315,16 @@
   \url{https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA}, 2020.
 \newblock Last Accessed: 24-05-2020.
 
+\bibitem[Mohr(2020)]{COGopenlayers}
+\textbf{Mohr}, \textbf{2020}.
+\newblock Matthias Mohr.
+\newblock \textit{Add tutorials for webmapping support (Openlayers, Leaflet,
+  ...)}.
+\newblock
+  \url{https://github.com/cogeotiff/www.cogeo.org/issues/36#issuecomment-604331729},
+  2020.
+\newblock Last Accessed: 02-06-2020.
+
 \bibitem[Nominatim(No date)]{Nominatim}
 \textbf{Nominatim}, \textbf{No date}.
 \newblock Nominatim.
@@ -388,6 +414,13 @@
 \newblock \url{https://developers.planet.com/tutorials/slippy-maps-101/}, No
   Date.
 \newblock Last Accessed: 24-05-2020.
+
+\bibitem[Python.org(2020)]{PythonVersion}
+\textbf{Python.org}, \textbf{2020}.
+\newblock Python.org.
+\newblock \textit{Python - Download the latest version for Windows}.
+\newblock \url{https://www.python.org/downloads/}, 2020.
+\newblock Last Accessed: 02-06-2020.
 
 \bibitem[Rus(2007)]{JacobRus}
 \textbf{Rus}, \textbf{2007}.

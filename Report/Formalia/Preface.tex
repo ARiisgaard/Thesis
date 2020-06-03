@@ -1,2 +1,25 @@
 \chapter{Preface} 
-This is edited in the file Formalia/Preface
+
+\section{Resume}
+
+I dette kandidatprojekt er et interaktivt værktøj til sammenligning af raster dataset blevet udviklet med befolkningsfremskrivelser som case. 
+
+Udvikling af sådan et værktøj kræver indgående viden om standarder for visualisering af befolkningsfremskrivninger. Det er også centralt at vide hvilke funktioner, der er relevante for sådan et sammenligningsværktøj. Der vil også være nogle tekniske udfordringer ved at visualisere store dataset uden lange loade tider for brugeren.
+
+Visualiseringsstandarder for befolkningsfremskrivninger er blevet undersøgt gennem et litteraturstudie. Et kvantitativt sekventiel dataset, som befolkningsfremskrivninger, bør farves, så de tyndest befolkede områder er farvelagt med lysere farver end de tætbefolkede områder.
+
+Værktøjets funktioner blev udvalgt ved at sammenligne med et nuværende interaktivt kort. Det blev bestemt at vise forskellige befolkningsfremskrivelser i to kort ved siden af hinanden. Der kan navigeres i disse to kort enten ved at panorere og zoome eller ved hjælp af en søg funktion. 
+
+Den tidligere omtalte tekniske udfordring blev omgået ved ikke at loade hele datasættet. I stedet blev det opdelt i mindre tiles, hvor kun de tiles, der kunne ses på kortet blev hentet ind i værktøjet. Disse tiles blev løbende farvelagt ved klienten.
+
+Visualiseringsværktøjet blev bygget i Openlayers, mens tiles blev lavet af en modificeret version af python programmet gdal2tiles. Selve brugeroplevelsen var hurtig, men produktionen af tiles var tidskrævende. 
+Dette ville måske i fremtiden kunne undgås ved at anvende Cloud Optimized Geotiffs i stedet for tiles.
+
+
+\section{Acknowledgements}
+This Geoinformatics thesis project have been created between February 2020 and June 2020 by Andreas Gram Riisgaard. 
+A couple of people helped making this thesis a reality and they deserve recognition.
+First of among them is my supervisor, Carsten Ke{\ss}ler, who had the initial idea for the thesis topic. He also provided guidance during the research, code development and thesis writing.
+Secondly my parents, who continuously have been encouraging and supporting, deserve a heartfelt thank you. 
+Lastly, I want to thank my dormmates Anna Clara Bay Lundqvist and Miriam Bressaglia, who helped with creating a productive local study environment in a time, where Covid-19 disrupted my regular study environment.
+

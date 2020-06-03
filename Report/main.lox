@@ -3,11 +3,10 @@
 \contentsline {fixme}{Error: Add these three to figure -case,raster,current}{2}{section.1.4}%
 \contentsline {fixme}{Note: Update structure and create figure}{3}{figure.caption.5}%
 \contentsline {fixme}{Note: Create own figure}{8}{section.2.3}%
-\contentsline {fixme}{Error: Need more context to the table - what does it mean? Do I need it? - use it to select what to show in results}{9}{table.caption.8}%
+\contentsline {fixme}{Error: Need more context to the table - what does it mean? }{9}{table.caption.8}%
 \contentsline {fixme}{Error: Write about domain sharding being unneeded}{9}{table.caption.8}%
 \contentsline {fixme}{Note: what is the noData in this case - lakes?}{10}{table.caption.9}%
-\contentsline {fixme}{Note: Ref to core concepts}{13}{section.4.1}%
-\contentsline {fixme}{Note: Remember Carsten mail about locally, on-the-fly and subdomains}{13}{section.4.1}%
+\contentsline {fixme}{Note: Update figure}{10}{table.caption.9}%
 \contentsline {fixme}{Note: Update fig text to be independed}{16}{figure.caption.15}%
 \contentsline {fixme}{Note: Top part of figure looks more populated. Should be opposite? Maybe a lot of infrastructure}{16}{figure.caption.15}%
 \contentsline {fixme}{Note: Is Sedac based on the same data as carstens?? - is sedac a pop projection or do I need another term}{16}{figure.caption.16}%
@@ -15,6 +14,7 @@
 \contentsline {fixme}{Note: Add text about what a convention is and scale and projection }{17}{chapter.5}%
 \contentsline {fixme}{Note: data is sequential and quantitative}{17}{chapter.5}%
 \contentsline {fixme}{Note: Make a list of terms}{21}{chapter.6}%
+\contentsline {fixme}{Note: Iconography source}{28}{figure.caption.23}%
 \contentsline {fixme}{Note: Add interactive somewhere in the research question}{30}{figure.caption.25}%
 \contentsline {fixme}{Note: Update openstreetmap figure with final useful tools}{31}{figure.caption.26}%
 \contentsline {fixme}{Note: Write that my own search bar can be improved}{32}{table.caption.27}%
@@ -27,39 +27,37 @@
 \contentsline {fixme}{Note: Rewrite the beginning, so that it does not mention Visualisation and Functionalities}{35}{chapter.9}%
 \contentsline {fixme}{Note: Does my text say min values somewhere - search minimum, scale}{35}{chapter.9}%
 \contentsline {fixme}{Note: Why does this not include everything mentioned in functions?}{36}{figure.caption.29}%
-\contentsline {fixme}{Note: Why this projection? - vend tilbage efter carsten}{36}{subsection.9.0.1}%
+\contentsline {fixme}{Note: Søg på equivalent - farligt ord}{36}{subsection.9.0.1}%
 \contentsline {fixme}{Note: Move to final design?}{39}{figure.caption.31}%
 \contentsline {fixme}{Note: link}{42}{section.10.2}%
-\contentsline {fixme}{Note: Write about the addition to time the whole thing}{46}{lstnumber.11.3.6}%
-\contentsline {fixme}{Note: Make figures - remove link}{47}{subsection.11.1.5}%
-\contentsline {fixme}{Note: Test if normal gdal2tiles tiles have edges - if false, then point it out here}{47}{subsection.11.1.5}%
-\contentsline {fixme}{Note: This code might change a bit, so wait with writing}{49}{subsection.11.3.1}%
-\contentsline {fixme}{Note: Rewrite this with new knowledge}{49}{section.11.4}%
-\contentsline {fixme}{Note: Explain the need for zoom level 0 better}{51}{figure.caption.35}%
-\contentsline {fixme}{Note: min values have been removed earlier, right? No need to mention them here too}{51}{section.11.5}%
+\contentsline {fixme}{Note: Rewrite this with new knowledge}{50}{section.11.4}%
+\contentsline {fixme}{Note: Explain the need for zoom level 0 better}{51}{figure.caption.36}%
+\contentsline {fixme}{Note: min values have been removed earlier, right? No need to mention them here too}{52}{section.11.5}%
 \contentsline {fixme}{Note: Write about combining my object with his object - would result in it not having to open the same raster twice, in case of zooming}{53}{subsection.11.5.2}%
-\contentsline {fixme}{Note: Update with a map, where the differences are more clear }{55}{figure.caption.38}%
-\contentsline {fixme}{Note: Write how the final product looks like and functions}{59}{chapter.12}%
-\contentsline {fixme}{Note: Source: Return to this one later}{64}{section.13.3}%
-\contentsline {fixme}{Note: Make table with score weights}{65}{section.13.4}%
-\contentsline {fixme}{Note: Remember audit in appendix}{67}{chapter.14}%
-\contentsline {fixme}{Note: Remove potential first input delay from figure?}{67}{figure.caption.43}%
-\contentsline {fixme}{Note: Update to new scoring and time numbers }{69}{figure.caption.47}%
-\contentsline {fixme}{Note: Have I written about Jquery??}{70}{subsection.14.0.2}%
-\contentsline {fixme}{Note: Have I explained the difference between HTTP 1 and 2?}{70}{subsection.14.0.2}%
-\contentsline {fixme}{Note: TODO: Make a table from the information in the figure below – tabtext – resourse use of the 3 larges libraries}{70}{table.caption.48}%
-\contentsline {fixme}{Note: Write about Coverage earlier – maybe in evaluation tools}{70}{table.caption.48}%
-\contentsline {fixme}{Note: Write about HTTP/2 earlier?}{71}{table.caption.48}%
-\contentsline {fixme}{Note: borgerinddragelses værktøj}{71}{table.caption.48}%
-\contentsline {fixme}{Note: In section x is a further explaination for the larger variance in the recoloring measurements}{71}{section.14.1}%
-\contentsline {fixme}{Note: Write about smaller maps for better performance }{73}{chapter.15}%
-\contentsline {fixme}{Note: Update final design to not have scale}{73}{chapter.15}%
-\contentsline {fixme}{Note: How are these organised?}{73}{section.15.2}%
-\contentsline {fixme}{Note: TODO: make a figure showing the map with multiple legends and color schemes. }{74}{subsection.15.2.2}%
-\contentsline {fixme}{Note: Write about asynchronous XMLREquest and minifying/compressing}{75}{section.15.4}%
-\contentsline {fixme}{Note: Add user testing to future work }{75}{section.15.4}%
-\contentsline {fixme}{Note: Source!!!}{76}{section.15.4}%
-\contentsline {fixme}{Note: Mention caddy – 6 connection issue earlier}{76}{figure.caption.50}%
-\contentsline {fixme}{Note: Write about nodata}{77}{table.caption.51}%
-\contentsline {fixme}{Note: Maybe change technical concepts to technical requirements}{80}{chapter.16}%
-\contentsline {fixme}{Note: Write how it was accomplished from a technical perspective}{80}{chapter.16}%
+\contentsline {fixme}{Note: Nævner jeg tileMetadata?}{55}{section.11.7}%
+\contentsline {fixme}{Note: Har jeg skrevet om at score bliver udregnet ud fra en sammenligning med fulde hjemmesider}{58}{figure.caption.42}%
+\contentsline {fixme}{Note: Consistent omkring lighthouse}{58}{section.11.9}%
+\contentsline {fixme}{Note: Source: Return to this one later}{64}{section.12.3}%
+\contentsline {fixme}{Note: Make table with score weights}{65}{section.12.4}%
+\contentsline {fixme}{Note: Remove potential first input delay from figure?}{67}{figure.caption.46}%
+\contentsline {fixme}{Note: Update to new scoring and time numbers }{69}{figure.caption.50}%
+\contentsline {fixme}{Note: Have I written about Jquery??}{70}{subsection.13.0.2}%
+\contentsline {fixme}{Note: Have I explained the difference between HTTP 1 and 2?}{70}{subsection.13.0.2}%
+\contentsline {fixme}{Note: TODO: Make a table from the information in the figure below – tabtext – resourse use of the 3 larges libraries}{70}{table.caption.51}%
+\contentsline {fixme}{Note: Write about Coverage earlier – maybe in evaluation tools}{70}{table.caption.51}%
+\contentsline {fixme}{Note: Write about HTTP/2 earlier?}{71}{table.caption.51}%
+\contentsline {fixme}{Note: borgerinddragelses værktøj}{71}{table.caption.51}%
+\contentsline {fixme}{Note: In section x is a further explaination for the larger variance in the recoloring measurements}{71}{section.13.1}%
+\contentsline {fixme}{Note: Write about smaller maps for better performance }{73}{chapter.14}%
+\contentsline {fixme}{Note: Update final design to not have scale}{73}{chapter.14}%
+\contentsline {fixme}{Note: How are these organised?}{73}{section.14.2}%
+\contentsline {fixme}{Note: empty space - never mentioned before - to dualmap}{74}{subsection.14.2.1}%
+\contentsline {fixme}{Note: TODO: make a figure showing the map with multiple legends and color schemes. }{74}{subsection.14.2.3}%
+\contentsline {fixme}{Note: Ryk op til evalueringen}{75}{section.14.4}%
+\contentsline {fixme}{Note: Write about asynchronous XMLREquest and minifying/compressing}{75}{section.14.4}%
+\contentsline {fixme}{Note: søg på Http}{75}{section.14.4}%
+\contentsline {fixme}{Note: Source!!!}{76}{section.14.4}%
+\contentsline {fixme}{Note: Mention caddy – 6 connection issue earlier}{76}{figure.caption.53}%
+\contentsline {fixme}{Note: Write about nodata}{76}{table.caption.54}%
+\contentsline {fixme}{Note: Maybe change technical concepts to technical requirements}{80}{chapter.15}%
+\contentsline {fixme}{Note: Write how it was accomplished from a technical perspective}{80}{chapter.15}%

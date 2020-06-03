@@ -26,9 +26,8 @@ The concept for a solution has been illustrated in figure \ref{FinalDesignFig}. 
 
 \subsection{Visualisation}
 The sequential color scale chosen for the visualized rasters have been created by colorbrewer.org. It was decided to use six different colors on the maps. This is despite the fact that \citet{ColorBrewerwebsite} advise that more colors safely can be used, when similar colors are neighboring each other. The reason for this is that even though similar colors are neighboring each other within the individual map, the user still has to compare none-neighboring colors, since comparison is done between the two maps. 
-The breakpoints between the different classes are determined as percentage steps of 20 \% of the current maximum value. 
-\fxnote{Why this projection? - vend tilbage efter carsten}
-
+The breakpoints between the different classes are determined as percentage steps of 20 \% of the current maximum value.  
+\fxnote{Søg på equivalent - farligt ord}
 The mapped data is showing the population per square kilometre. It is therefore necessary that the area will not get distorted, so an equivalent projection is required. 
 
-The equivalent projection EPSG:4326 was both used in Baumrocks original map and for the case data and will also be used for this project. 
+The projection EPSG:4326 was both used in Baumrocks original map and for the case data and will also be used for this project. The map will not be used to visualise data at a subcontinental scale, so the distortion from this projection, will not have serious consequences. The reason for this limit in scale is the time and diskspace required to create the tiles, which will be expanded upon in section \ref{TilesTime}.

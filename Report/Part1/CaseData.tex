@@ -1,10 +1,10 @@
 \chapter{Case data: Population projection}
-The population projection visualized in this project have been created by \citet{Kessler} using a geosimulation, which geographically distribute the predicted population. This geosimulation have been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the future.
+The population projection visualized in this project have been created by \citet{Kessler} using a geosimulation, which geographically distribute a predicted population. This geosimulation have been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the future.
 
-\section{The data behind the simulation}
+\section{The data behind the simulation}\label{TheDataBehind}
 This projection is a geographical distribution of the global prospects created by The United Nations Department of Economic and Social Affairs. These prospects estimate the population numbers in each country living in rural and urban areas. The spatial distribution has been based on raster data from the Global Rural Urban Mapping Project (GRUMP). In this dataset the world has been divided into 1x1 km cell, each of which contains the number of estimated people. \citep{Kessler}
 
-The geosimulation have been run with two different definition for the urban extent. The first one is also created by GRUMP. This urban extent has been estimated based on the light emitted after dark, which as a result means that it overestimates the extent of urban areas. \citep{Kessler}
+The geosimulation have been run with two different definition for the urban extent. The first one is also created by GRUMP. This urban extent has been estimated based on the light emitted after dark. It is known to overestimates the extent of urban areas. \citep{Kessler}
 The second dataset was provided by Global Land Cover Map from the European Space Agency (GlobCover), where areas classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. 
 
 \section{The simulation}
@@ -12,7 +12,7 @@ Using this dataset to define the extent of urban and rural areas, the simulation
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/CreatingData}
+	\includegraphics[width=1\textwidth]{Pictures/CreatingData}
 	\caption{A flowdiagram of simulation creating the population projections}
 	\label{CreatingData}
 \end{figure}
@@ -26,7 +26,7 @@ After this, the cells would be reclassified as more urbanized if their populatio
 These steps are then repeated for every iteration. 
 
 \citep{Kessler}
-\section{Shared Socioeconomic Pathways}
+\section{Shared Socioeconomic Pathways} \label{SSPs}
 
 
 \fxnote{Create own figure}
@@ -41,15 +41,15 @@ The vertical axis is factors, which in absence of climate policy would increase 
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{l}
-		\includegraphics[width=1\textwidth]{Pictures/SSPTable}
+		\includegraphics[width=0.8\textwidth]{Pictures/SSPTable}
 	\end{tabular}
-	\caption{Population growth and urbanization for each of the Shared Socioeconomic Pathways. Source: \citet{WhyDetailedPop}}
+	\caption{Population growth and urbanization for each of the Shared Socioeconomic Pathways (SSP). Source: \citet{WhyDetailedPop}}
 	\label{SSPTable}
 \end{table}
 
-How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income.
+How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income. The Rich low fertility group has been defined as members of the Organisation for Economic Co-operation and Development.
 
-\fxerror{Need more context to the table - what does it mean? Do I need it? - use it to select what to show in results}
+\fxerror{Need more context to the table - what does it mean? }
 \fxerror{Write about domain sharding being unneeded}
 \section{Technical details about the case data}
 
@@ -82,3 +82,6 @@ https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/performin
 If the value was set to 0 it would be impossible to determine if an area had nobody living in it or if no data was available. That is the reason for the NoData value is set to a negative value, since the population density never can be negative.
 
 \fxnote{what is the noData in this case - lakes?}  
+
+
+\fxnote{Update figure}  
