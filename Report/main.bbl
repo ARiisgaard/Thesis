@@ -1,4 +1,4 @@
-\begin{thebibliography}{72}
+\begin{thebibliography}{73}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,12 +42,12 @@
   1994.
 \newblock Last Accessed: 05-05-2020.
 
-\bibitem[Brewer(No data)]{ColorGuidelines}
-\textbf{Brewer}, \textbf{No data}.
+\bibitem[Brewer(No date)]{ColorGuidelines}
+\textbf{Brewer}, \textbf{No date}.
 \newblock Cynthia Brewer.
 \newblock \textit{Color Use Guidelines for Mapping and Visualization}.
 \newblock \url{http://www.personal.psu.edu/cab38/ColorSch/Schemes.html}, No
-  data.
+  date.
 \newblock Last Accessed: 05-05-2020.
 
 \bibitem[Brewer et~al.(2013)Brewer, Harrower, Sheesley, Woodruff, og
@@ -81,14 +81,6 @@
   \url{https://medium.com/@urban_institute/using-multiprocessing-to-make-python-code-faster-23ea5ef996ba},
   2018.
 \newblock Last Accessed: 27-05-2020.
-
-\bibitem[de~Smith et~al.(2020)de~Smith, Goodchild, og Longley]{objectsNFields}
-\textbf{de~Smith et~al.}, \textbf{2020}.
-\newblock Michael~J. de~Smith, Michael~F. Goodchild  og Paul~A. Longley.
-\newblock \textit{Geospatial Analysis 6th Edition 2.1.6 - Fields}.
-\newblock \url{https://spatialanalysisonline.com/HTML/index.html?fields.htm},
-  2020.
-\newblock Last Accessed: 05-05-2020.
 
 \bibitem[Dent et~al.(2009)Dent, Torguson, og Hodler]{Dent}
 \textbf{Dent et~al.}, \textbf{2009}.
@@ -210,22 +202,29 @@
 \newblock \url{https://web.dev/lighthouse-accessibility/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[{Google Developers}(No date{\natexlab{b}})]{LhPWA}
+\bibitem[{Google Developers}(No date{\natexlab{b}})]{LhBP}
 \textbf{{Google Developers}}, \textbf{No date{\natexlab{b}}}.
+\newblock {Google Developers}.
+\newblock \textit{Best Practices audits}.
+\newblock \url{https://web.dev/lighthouse-best-practices/}, No date.
+\newblock Last Accessed: 24-05-2020.
+
+\bibitem[{Google Developers}(No date{\natexlab{c}})]{LhPWA}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{c}}}.
 \newblock {Google Developers}.
 \newblock \textit{PWA audits}.
 \newblock \url{https://web.dev/lighthouse-pwa/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[{Google Developers}(No date{\natexlab{c}})]{LhPerformance}
-\textbf{{Google Developers}}, \textbf{No date{\natexlab{c}}}.
+\bibitem[{Google Developers}(No date{\natexlab{d}})]{LhPerformance}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{d}}}.
 \newblock {Google Developers}.
 \newblock \textit{Performance audits}.
 \newblock \url{https://web.dev/lighthouse-performance/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[{Google Developers}(No date{\natexlab{d}})]{LhSEO}
-\textbf{{Google Developers}}, \textbf{No date{\natexlab{d}}}.
+\bibitem[{Google Developers}(No date{\natexlab{e}})]{LhSEO}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{e}}}.
 \newblock {Google Developers}.
 \newblock \textit{SEO audits}.
 \newblock \url{https://web.dev/lighthouse-seo/}, No date.
@@ -256,8 +255,8 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(No date{\natexlab{e}})]{OnlySix}
-\textbf{{Google Developers}}, \textbf{No date{\natexlab{e}}}.
+\bibitem[{Google Developers}(No date{\natexlab{f}})]{OnlySix}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{f}}}.
 \newblock {Google Developers}.
 \newblock \textit{Timing breakdown phases explained}.
 \newblock
@@ -283,8 +282,8 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(No date{\natexlab{f}})]{ScoreCalc}
-\textbf{{Google Developers}}, \textbf{No date{\natexlab{f}}}.
+\bibitem[{Google Developers}(No date{\natexlab{g}})]{ScoreCalc}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{g}}}.
 \newblock {Google Developers}.
 \newblock \textit{Lighthouse Scoring Calculator}.
 \newblock \url{https://googlechrome.github.io/lighthouse/scorecalc/}, No date.
@@ -354,11 +353,21 @@
   2017.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[Liedman(No Date)]{Liedman}
-\textbf{Liedman}, \textbf{No Date}.
+\bibitem[Lafaire(2018)]{Sarah}
+\textbf{Lafaire}, \textbf{2018}.
+\newblock Sarah~Sophie Lafaire.
+\newblock \textit{An interactive visualization tool for population
+  simulations}.
+\newblock
+  \url{https://projekter.aau.dk/projekter/files/281131238/MasterThesis_Sarah_Lafaire.pdf},
+  2018.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[Liedman(No date)]{Liedman}
+\textbf{Liedman}, \textbf{No date}.
 \newblock Per Liedman.
 \newblock \textit{The Hitchhacker’s Guide To Tiled Maps}.
-\newblock \url{http://www.liedman.net/tiled-maps/}, No Date.
+\newblock \url{http://www.liedman.net/tiled-maps/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
 \bibitem[MappaGnosis(2015)]{MappaGnosis}
@@ -412,16 +421,16 @@
   date.
 \newblock Last Accessed: 04-06-2020.
 
-\bibitem[Openlayers(No Date)]{OL}
-\textbf{Openlayers}, \textbf{No Date}.
+\bibitem[Openlayers(No date{\natexlab{a}})]{OL}
+\textbf{Openlayers}, \textbf{No date{\natexlab{a}}}.
 \newblock Openlayers.
 \newblock \textit{A high-performance, feature-packed library for all your
   mapping needs}.
-\newblock \url{https://openlayers.org/}, No Date.
+\newblock \url{https://openlayers.org/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[Openlayers(No date{\natexlab{a}})]{WmtsOl}
-\textbf{Openlayers}, \textbf{No date{\natexlab{a}}}.
+\bibitem[Openlayers(No date{\natexlab{b}})]{WmtsOl}
+\textbf{Openlayers}, \textbf{No date{\natexlab{b}}}.
 \newblock Openlayers.
 \newblock \textit{WMTS Layer from Capabilities}.
 \newblock
@@ -429,8 +438,8 @@
   No date.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[Openlayers(No date{\natexlab{b}})]{forEachTileCoord}
-\textbf{Openlayers}, \textbf{No date{\natexlab{b}}}.
+\bibitem[Openlayers(No date{\natexlab{c}})]{forEachTileCoord}
+\textbf{Openlayers}, \textbf{No date{\natexlab{c}}}.
 \newblock Openlayers.
 \newblock \textit{ol/tilegrid/TileGrid~TileGrid}.
 \newblock
@@ -478,12 +487,12 @@
   2013.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[{Planet}(No Date)]{Slippy101}
-\textbf{{Planet}}, \textbf{No Date}.
+\bibitem[{Planet}(No date)]{Slippy101}
+\textbf{{Planet}}, \textbf{No date}.
 \newblock {Planet}.
 \newblock \textit{Slippy maps 101}.
 \newblock \url{https://developers.planet.com/tutorials/slippy-maps-101/}, No
-  Date.
+  date.
 \newblock Last Accessed: 24-05-2020.
 
 \bibitem[Python.org(2020)]{PythonVersion}
@@ -552,11 +561,11 @@
   2019.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[w3schools(No data)]{WhatIsHTTP}
-\textbf{w3schools}, \textbf{No data}.
+\bibitem[w3schools(No date)]{WhatIsHTTP}
+\textbf{w3schools}, \textbf{No date}.
 \newblock w3schools.
 \newblock \textit{What is HTTP?}
-\newblock \url{https://www.w3schools.com/whatis/whatis_http.asp}, No data.
+\newblock \url{https://www.w3schools.com/whatis/whatis_http.asp}, No date.
 \newblock Last Accessed: 02-06-2020.
 
 \bibitem[W3Schools(No date{\natexlab{a}})]{WhatIsJs}

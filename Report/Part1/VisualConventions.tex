@@ -1,10 +1,10 @@
 \chapter{Visual conventions}\label{CVisualConventions}
-This chapter will address the visual convention connected to population projection. 
+This chapter will address the visual conventions connected to population projection. 
 
-Within the field of spatial convention there are multiple conventions, however not all of these are relevant in this particular context. To understand which conventions are relevant for visualizing data one must understand the properties of the data to be visualized. Spatial data can be presented as either discrete-objects or continuous-fields also known as vector and raster data. \citep{objectsNFields} These two types of data have different ways of being visualised. 
-As mentioned in chapter \ref{Add chapter} the data is in the raster format and is sequential. Visual conventions connected to discrete-objects will therefore not be covered.
-
-\fxnote{data is sequential and quantitative}
+%Within the field of spatial convention there are multiple conventions, however not all of these are relevant in this particular context. To understand which conventions are relevant for visualizing data one must understand the properties of the data to be visualized. Spatial data can be presented as either discrete-objects or continuous-fields also known as vector and raster data. \citep{objectsNFields} These two types of data have different ways of being visualised. 
+%As mentioned in chapter \ref{Intro} the data is in the raster format and is sequential. Visual conventions connected to discrete-objects will therefore not be covered.
+%
+%\fxnote{data is sequential and quantitative}
 
 
 
@@ -28,7 +28,7 @@ The saturation is also referred to by some authors as chroma, intensity or purit
 
 \textbf{Lightness}
 
-A measurement of the color’s lightness or darkness. In the literature this is often referred to as the colors value, but Brewer remarks that this use of terminology is not ideal in data science since "value" also could refer to the data values. It is illustrated as the vertical axis in the figure.  \citep{Dent}
+A measurement of the color’s lightness or darkness. In the literature this is often referred to as the color's value, but Brewer remarks that this use of terminology is not ideal in data science since "value" also could refer to the data values. It is illustrated as the vertical axis in the figure.  \citep{Dent}
 
  
 \subsection{Selecting a color scheme}
@@ -36,7 +36,7 @@ There are multiple elements, that should be considered, when choosing a color sc
 Naturally the different colors should be easily distinguishable, but one should also consider the user of the map and the medium used for presenting the map. The right choice of color pattern allows the user to see patterns in complex data, which otherwise would be obscured. 
 
 
-Cindy Brewer divides color schemes into the four categories; binary, qualitative, diverging and sequential. These categories and combinations between them have been visualized in figure \ref{BrewerDataTypes}. \citep{Brewer94}
+Brewer divides color schemes into the four categories; binary, qualitative, diverging and sequential. These categories and combinations between them have been visualized in figure \ref{BrewerDataTypes}. \citep{Brewer94}
 
 \begin{figure} [H]
 	\centering
@@ -47,11 +47,11 @@ Cindy Brewer divides color schemes into the four categories; binary, qualitative
  
 
 Each of these categories are good for visualizing different kinds of data. The qualitative is well suited for illustrating nominal data. This color scheme is for instance commonly used for land use maps. The binary scheme is a qualitative scheme, but with only two categories. A example of a use case for this scheme could be visualizing whether countries are members of the European Union or not. 
-The sequential scheme is useful for illustrating the ordered data going from low values to higher ones. An example of this could be height of vegetation. The differentiation between the values are illustrated with differences in lightness.
+The sequential scheme is useful for illustrating the ordered data going from low values to higher ones, such as population density. The differentiation between the values are illustrated with differences in lightness.
 The diverging scheme is similar to having two sequential color schemes. This enables highlighting a critical value in the middle of the data. It is for example being used to illustrate temperatures, where the neutral middle value would be 0$^o$C. \citep{Brewer94}
 
 
-Based on these categories of color schemes Brewer have developed an online tool, colorbrewer2.org, which can aid mapmakers in picking a color scheme. This tool also takes into colorblindness into consideration and inform the user if a colorscheme is suitable for printing or viewing on small screens. \citep{ColorBrewer}
+Based on these categories of color schemes Brewer has developed an online tool, colorbrewer2.org, which can aid mapmakers in picking a color scheme. This tool also takes colorblindness into consideration and informs the user if a colorscheme is suitable for printing or viewing on small screens. \citep{ColorBrewer}
 
 \subsection{Number of data classes}
 After selecting a color scale, it is important to select how many different colors should be displayed on the map. Having a high number of data classes produces a detailed map, since with more classes there is less data generalization. There can also be too many different data classes to the point where it becomes difficult to tell them apart. 
@@ -59,10 +59,7 @@ How many classes to use depends on the spatial distribution of the data. Maps wi
 
 \subsection{Visual conventions for colors}
 The conventions can be divided based on whether the visualized data is qualitative or quantitative. The qualitative datasets have many historical conventions – like using green colors for vegetation or using blue for water. 
-It is not the same case for quantitative data, where “No conventions exist for color choice on quantitative maps. (for example, population density maps are always blue, income maps are always green, and so on)” \citep{Dent}. There are however convention for the choice of lightness, where "light is less - dark is more"
-% http://www.geo.uzh.ch/~sara/pubs/garlandini_fabs09.pdf
-
-\citep{LightIsLess} %Page1
+It is not the same case for quantitative data, where “No conventions exist for color choice on quantitative maps. (for example, population density maps are always blue, income maps are always green, and so on)” \citep{Dent}. There are however convention for the choice of lightness, where "light is less - dark is more" \citep{LightIsLess}. %Page1
 
 
 
@@ -72,7 +69,7 @@ It is not the same case for quantitative data, where “No conventions exist for
 When creating a map, the three-dimensional earth gets transformed into a two-dimensional map, which leads to distortion. The severity of these distortions depends on the scale. For large areas such as subcontinental or continental, the distortion has bigger consequences compared to the smaller scale. When mapping at large scale, it is impossible to prevent distortion to some of the projection’s properties. This means that area, angles, distance, or direction on the map will be distorted. Which properties get affected depends on the choice of projection. %When visualizing quantitative data an equivalent projections are often used. 
 
 %\textbf{Equivalent projections}\\
-%In Equivalent projections area is not distorted, but distances and shapes often are. This projection type is important for quantitative thematic maps, since maintaining area properties usually is desirable. This is especially important, when then area is part of the mapped data as is the case in density maps.
+%In equivalent projections area is not distorted, but distances and shapes often are. This projection type is important for quantitative thematic maps, since maintaining area properties usually is desirable. This is especially important, when the area is part of the mapped data as is the case in density maps. \fxerror{Mangler kilde}
 %
 %\fxnote{ADD: to discussion thoughts with Carsten about projection - or comment out Equivalent projection}
 %%

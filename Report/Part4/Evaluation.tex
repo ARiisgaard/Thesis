@@ -1,15 +1,8 @@
 \chapter{Evaluation}\label{Eval}
-This chapter is the evaluation of the script based on the Google Lighthouse audit. This chapter will highlight some elements of the audit. The full audit can be seen in appendix \ref{Audit}. The given score in the relevant categories can be seen in figure \ref{LighthouseGrade}. There was a bug in the measurement of the performance score, resulting in a score of 0. The actual score have been manually calculated in the end of section \ref{EvalPerform}. 
-
-\begin{figure} [H]
-	\centering
-	\includegraphics[width=.4\textwidth]{Pictures/LighthouseGrade}
-	\caption{The score for performance and best practices from Google Lighthouse}
-	\label{LighthouseGrade}
-\end{figure}
+This chapter is the evaluation of the script based on the Lighthouse audit. This chapter will highlight some elements of the audit. The full audit can be seen in appendix \ref{Audit}, but the score for Best Practices was 71 and for Performance 0. The low performance score was due to a bug. The actual score have been manually calculated in the end of section \ref{EvalPerform}. 
 
 \subsection{Performance}\label{EvalPerform}
-As shown the performance scored zero out of one hundred. The performance in each of the metrics can be seen in table \ref{PerformanceAuditValues}.
+The performance in each of the metrics can be seen in table \ref{PerformanceAuditValues}.
 
 \begin{table}[htbp]
 	\centering
@@ -26,7 +19,7 @@ As shown the performance scored zero out of one hundred. The performance in each
 
 It does seem like some bug in the tool must have occurred because all of the values are too high. This can be confirmed by comparing with the measurements from the developer tool’s performance tool. These show that the page is fully loaded in 4.6 second, which does not fit with Lighthouse’s 20.2 seconds for First Contentful and First Meaningful Paint. Another sign that something is amiss is the 13.5 minutes before the Time to Interactive, which the tool determined within 10 seconds of analyzing the site. In the Lighthouse Scoring Guide the developers also point out the "A 0 score usually indicates an error in Lighthouse"\citep{ScoringZeroIsBad}.
 
-Even if the automatic calculation of the performance metrics failed the metrics are still relevant for the evaluation. Using the data from the performance tool these values can be manually estimated. 
+Even if the automatic calculation of the performance metrics failed the metrics are still relevant. Using the data from the performance tool these values can be manually estimated. 
 
 \begin{figure} [H]
 	\centering
@@ -44,7 +37,7 @@ Figure \ref{ScreenshotLoading1}, \ref{ScreenshotLoading2} and \ref{ScreenshotLoa
 	\label{ScreenshotLoading2}
 \end{figure}
 
-After 1 second the maps appear on the website as shown in figure \ref{ScreenshotLoading2}. The user is able pan and zoom in the map, so this is the Time to Interactive. 
+After 1 second the maps appear on the website as shown in figure \ref{ScreenshotLoading2}. The user is able to pan and zoom in the map, so this is the Time to Interactive. 
 
 \begin{figure} [H]
 	\centering
@@ -106,15 +99,9 @@ This was the suggestion, which lead to replacing initial testing server with a C
 \end{figure}
 
 It is two screenshots from the network tab of Chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 
-The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded \citep{OnlySix}. This figure shows that the serving has being optimized, since the stalling largely is gone. 
+The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded. \citep{OnlySix} This figure shows that the serving has being optimized, since the stalling largely is gone. 
 
 However even after setting up Caddy the error message was still present. It is uncertain if this means that the connection still is HTTP/1 based or if it is HTTP/2 but labelled incorrectly. 
-
-
-\fxnote{Mention caddy – 6 connection issue earlier}
-\fxnote{Remember to add the source behind the bar colors here - it is here now, but is invisible}
-
-%https://developers.google.com/web/tools/chrome-devtools/network/reference?utm_source=devtools#timing-explanation
 
 \textbf{Uses deprecated APIs}\\
 When loading the metadata about the tiles a synchronous XMLRequest is used. This is a deprecated API, which will be removed from Chrome in a feature edition. This should be rewritten as an asynchronous request instead.

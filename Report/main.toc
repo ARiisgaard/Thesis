@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {5.1.3}Visual conventions for colors}{21}{subsection.5.1.3}%
 \contentsline {section}{\numberline {5.2}Map projection}{21}{section.5.2}%
 \contentsline {chapter}{\chapternumberline {6}Components of an interactive maps}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Relevant functionalities}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.1}Relevant functionalities}{24}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Comparing layers}{25}{section.6.2}%
 \contentsline {chapter}{\chapternumberline {7}Related work}{27}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Tilebased raster visualisation}{27}{section.7.1}%
@@ -80,18 +80,18 @@
 \contentsline {subsection}{\numberline {12.0.1}Performance}{63}{subsection.12.0.1}%
 \contentsline {subsection}{\numberline {12.0.2}Opportunities}{65}{subsection.12.0.2}%
 \contentsline {section}{\numberline {12.1}Postload performance}{66}{section.12.1}%
-\contentsline {chapter}{\chapternumberline {13}Discussion}{69}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Loading tiles from the wrong zoom level}{69}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Not calculating minimum values in tiles}{69}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Evaluating with Lighthouse}{70}{section.13.3}%
-\contentsline {subsection}{\numberline {13.3.1}Additional information}{71}{subsection.13.3.1}%
-\contentsline {section}{\numberline {13.4}Optimizing the tile generation}{71}{section.13.4}%
-\contentsline {subsection}{\numberline {13.4.1}Parallel generation of tiles}{71}{subsection.13.4.1}%
-\contentsline {subsection}{\numberline {13.4.2}Cloud Optimized Geotiff}{71}{subsection.13.4.2}%
-\contentsline {chapter}{\chapternumberline {14}Conclusion}{73}{chapter.14}%
-\contentsline {chapter}{Bibliography}{75}{chapter*.56}%
+\contentsline {chapter}{\chapternumberline {13}Discussion}{67}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Loading tiles from the wrong zoom level}{67}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Not calculating minimum values in tiles}{67}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Evaluating with Lighthouse}{68}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}Additional information}{69}{subsection.13.3.1}%
+\contentsline {section}{\numberline {13.4}Optimizing the tile generation}{69}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Parallel generation of tiles}{69}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Cloud Optimized Geotiff}{69}{subsection.13.4.2}%
+\contentsline {chapter}{\chapternumberline {14}Conclusion}{71}{chapter.14}%
+\contentsline {chapter}{Bibliography}{73}{chapter*.55}%
 \changetocdepth {0}
-\contentsline {appendix}{\chapternumberline {A}Lighthouse audit}{81}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}The code in the project}{85}{appendix.B}%
-\contentsline {section}{\numberline {B.1}HTML and CSS}{85}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Javascript}{86}{section.B.2}%
+\contentsline {appendix}{\chapternumberline {A}Lighthouse audit}{79}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}The code in the project}{83}{appendix.B}%
+\contentsline {section}{\numberline {B.1}HTML and CSS}{83}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Javascript}{84}{section.B.2}%

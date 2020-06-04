@@ -9,7 +9,7 @@ This chapter starts with an overview of the tool followed by an evaluation of wh
 \section{Setup}
 
 
-The tests have been performed in Google Chrome version 81. To ensure that tests were unaffected by outside influences all Chrome extensions were disabled during testing. The cache was also disabled, so that every that tests would not be affect by previous tests.
+The tests have been performed in Google Chrome version 81. To ensure that tests were unaffected by outside influences all Chrome extensions were disabled during testing. The cache was also disabled, so that every that tests would not be affected by previous tests.
 
 
 \section{Overview}
@@ -21,9 +21,7 @@ The performance audit is measuring the site performance and load speed. This is 
 
 \textbf{Accessibility}\\
 The accessibility check is for ensuring all users can effectively access and navigate the webpage. 
-The check is mainly focused on Accessible Rich Internet Applications, which is used by assistive technologies such as screen readers.\citep{ARIA} It is pointed out that accessibility is difficult to automatically test, so further manual testing is recommended. 
-
-\citep{LhAccess}
+The check is mainly focused on Accessible Rich Internet Applications, which is used by assistive technologies such as screen readers.\citep{ARIA} It is pointed out that accessibility is difficult to automatically test, so further manual testing is recommended. \citep{LhAccess}
 
 \textbf{Best practice}\\
 The best practices cover different types of website enhancements. There are checks to ensure that the website is fast, secure, and not using deprecated technologies, among others. \citep{LhBP}
@@ -33,21 +31,19 @@ The checks within the Search Engine Optimization (SEO) category evaluate how wel
 \citep{LhSEO}
 
 \textbf{Progressive web app}\\
-The Progressive Web App (PWA) audits are target towards a mobile audience. These includes having a fast and reliable experience on mobile networks and to which degree the website act in a similar fashion to a native mobile application.
+The Progressive Web App (PWA) audits are targeted towards a mobile audience. These includes having a fast and reliable experience on mobile networks and to which degree the website act in a similar fashion to a native mobile application.
 \citep{LhPWA}
 
 \subsection{Relevant evaluation criteria}
  
-Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{Target audience}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientist and not for everybody. It is presumed that the majority of people, who work daily with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
+Not all the audit categories in Google Lighthouse are relevant for this particular project. As mentioned in section \ref{TA}  the tool is developed for local use on a computer. This means that it is not relevant how optimized a site is for the phone. Since it is used locally it can not be found by a search engine, which makes the SEO category irrelevant. The best practices for enhancing the websites speed are relevant, while the security measures are not, since the tool is not accessible to others on the internet. While accessibility is important it has not been prioritised for the development of this prototype. The main argument is that the tool is being developed for data scientists and not for everybody. It is presumed that the majority of people, who work daily with computers have the sensory capacity to easily do so. A high performance is vital to ensuring a responsive user experience, so the performance audit will also be included.
 
 \section{Metrics for performance}\label{MetricsForPerformance}
-
-\fxnote{Source: Return to this one later}
 
 
 \textbf{First Contentful Paint}
 
-The First Contentful Paint (FCP) is the time in seconds it takes before the browser to render the first parts of the website. 
+The First Contentful Paint (FCP) is the time in seconds it takes for the browser to render the first parts of the website. 
 \citep{FCP}
 
 

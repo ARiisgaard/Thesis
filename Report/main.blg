@@ -21,9 +21,6 @@ A level-1 auxiliary file: Part4/Discussion.aux
 A level-1 auxiliary file: Part4/Conclusion.aux
 url: is an unknown function---line 320 of file bibtex/harvard.bst
 Database file #1: bibtex/litteratur.bib
-Warning--I didn't find a database entry for "Sarah"
-Warning--I didn't find a database entry for "ColorBrewerwebsite"
-Warning--I didn't find a database entry for "LhBP"
 1 is an integer literal, not a string, for entry Baumrocks
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry EOX
@@ -41,8 +38,6 @@ while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry gdalLeaflet
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Multiprocessing
-while executing---line 1485 of file bibtex/harvard.bst
-1 is an integer literal, not a string, for entry objectsNFields
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Dent
 while executing---line 1485 of file bibtex/harvard.bst
@@ -75,6 +70,8 @@ while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LCP
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LhAccess
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry LhBP
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LhPWA
 while executing---line 1485 of file bibtex/harvard.bst
@@ -111,6 +108,8 @@ while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry min20
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Kessler
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Sarah
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Liedman
 while executing---line 1485 of file bibtex/harvard.bst
@@ -168,45 +167,45 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry SIformula
 while executing---line 1485 of file bibtex/harvard.bst
-You've used 72 entries,
+You've used 73 entries,
             2921 wiz_defined-function locations,
-            972 strings with 14463 characters,
-and the built_in function-call counts, 25229 in all, are:
-= -- 2399
-> -- 1017
-< -- 134
+            968 strings with 14445 characters,
+and the built_in function-call counts, 25450 in all, are:
+= -- 2423
+> -- 1008
+< -- 138
 + -- 380
-- -- 285
-* -- 1632
-:= -- 4163
-add.period$ -- 360
-call.type$ -- 72
+- -- 282
+* -- 1635
+:= -- 4198
+add.period$ -- 365
+call.type$ -- 73
 change.case$ -- 167
-chr.to.int$ -- 49
-cite$ -- 144
-duplicate$ -- 1517
-empty$ -- 2166
-format.name$ -- 445
-if$ -- 5143
-int.to.chr$ -- 24
+chr.to.int$ -- 48
+cite$ -- 146
+duplicate$ -- 1537
+empty$ -- 2195
+format.name$ -- 444
+if$ -- 5190
+int.to.chr$ -- 26
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 512
-num.names$ -- 360
-pop$ -- 470
+newline$ -- 519
+num.names$ -- 365
+pop$ -- 472
 preamble$ -- 1
 purify$ -- 167
 quote$ -- 0
-skip$ -- 918
+skip$ -- 928
 stack$ -- 0
-substring$ -- 144
-swap$ -- 320
+substring$ -- 146
+swap$ -- 326
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 792
+type$ -- 803
 warning$ -- 0
-while$ -- 216
+while$ -- 219
 width$ -- 0
-write$ -- 1231
-(There were 73 error messages)
+write$ -- 1248
+(There were 74 error messages)

@@ -23,7 +23,7 @@ For this project, the coding language Python was used to create the tiles, while
 \section{Languages}
 \subsection*{Python}
 Python is a programming language with a simple syntax, which functions across multiple different platforms. This simple syntax means that Python can achieve the same as some other coding languages in fewer lines.\citep{WhatIsPython}
-Python was used in this project because of the gdal library expanded further upon in section \ref{Librarygdal}
+Python was used in this project because of the gdal library expanded further upon in section \ref{Librarygdal}.
 This project has been using version 3.8.3 of Python, which at the time of writing is the latest version. \citep{PythonVersion}
 \subsection*{HTML}
 HTML is short for Hyper Text Markup Language. It is the language used for defining and structuring a web page’s content.
@@ -71,7 +71,7 @@ and Plotty, which is a library for creating images from data arrays \citep{Plott
 
 The loaded tiles first get parsed with geotiff.js and added to the object before Plotty get used to render tiles in the designated colors. Then the tiles get added to the map.
 \citep{Baumrocks}
-The olGeoTiff also have a redraw function, which when triggered will redraw the tile layer based on the current designated colors. This was for instance used in Bernnard Baumrocks map, whenever the color sliders were changed. 
+The olGeoTiff also have a redraw function, which when triggered will redraw the tile layer based on the current designated colors. This was for instance used in Baumrock's map, whenever the color sliders were changed. 
 
 \section{Testing server}\label{Caddy}
 %Not finished 
@@ -79,12 +79,7 @@ To test the tool a local test server was set up. This was initially a Python-bas
 
 Caddy was chosen because it supports the second version of Hyper Text Transfer Protocol (HTTP)
 \citep{WhyCaddy}, which is used for the communication between the client and server.
-\citep{WhatIsHTTP}
-
-HTTP/2 is allowing a faster communication between them.
-
-\citep{HTTP2}
-This is partially done by supporting an unlimited number of concurrent requests \citep{DomainSharding}, where HTTP/1 in chrome only supports 6 \citep{OnlySix}.
+\citep{WhatIsHTTP} HTTP/2 is allowing a faster communication between them. \citep{HTTP2} This is partially done by supporting an unlimited number of concurrent requests \citep{DomainSharding}, where HTTP/1 in Chrome only supports 6 \citep{OnlySix}.
 
 
 %Caddy
@@ -146,13 +141,13 @@ This command does not prevent the creation of the files in the modified version.
 
 After all the modification are in place the script can be run by running the command illustrated below:
 
-
+\begin{lstlisting}[language=iPython, caption={Command for creating tiles}, label= TileCommand,escapechar=|]
 python <path to modified gdal2tiles script> --leaflet --zoom=<desired zoom levels> --profile=raster --webviewer=none <input file> <output directory>
-\fxnote{Gør noget ved den her}
+\end{lstlisting}
 
 Most of these inputs are from the documentation for the original gdal2tiles, though the leaflet command is from the modified version. This command ensures that tiles are being created following the XYZ formatting instead of the TMS. The zoom command defines which zoom levels should be generated. An example of an input could be 0-2, which would generate tiles for the zoom levels 0, 1 and 2. 
 
-Setting the profile to raster was done because the two other options (mercator and geodetic) resulted in the error message "list index out of range", while the raster profile gave a useable product. The selection of this options and its possible consequences is expanded upon in section \ref{WhyWrongLevel}.   
+Setting the profile to raster was done because the two other options (mercator and geodetic) resulted in the error message "list index out of range", while the raster profile gave a useable product. The selection of this option and its possible consequences is expanded upon in section \ref{WhyWrongLevel}.   
 
 The webviewer option prevent the generation of webviewers to visualize the tiles. These default webviewers is created to visualize tiles of the original format, so they would be unable to visualize the modified tiles. 
 The input file is the name of the processed file and output directory is the folder, where the tiles get created. 
@@ -246,7 +241,7 @@ Using colorbrewer a custom sequential colorscheme was generated. This scheme was
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.4\textwidth]{Pictures/CScale}
+	\includegraphics[width=.3\textwidth]{Pictures/CScale}
 	\caption{The color scale added to the map. When mousing over a color, the assigned value is displayed}
 	\label{CScale}
 \end{figure}
@@ -260,7 +255,7 @@ Figure \ref{MapWithWrongResolution} shows how the map looked, when the tiles are
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.6\textwidth]{Pictures/MapWithWrongResolution}
+	\includegraphics[width=.5\textwidth]{Pictures/MapWithWrongResolution}
 	\caption{The map is looking correct, but with tiles from the wrong zoom level}
 	\label{MapWithWrongResolution}
 \end{figure}
@@ -270,9 +265,7 @@ While the map appeared to look alright, it was loading tiles from the wrong zoom
 
 Some experiments with loading tiles from the current view and zoom level 7 crashed the map with the error message “Insufficient Resources”. The amount of loaded tiles seems unnecessarily high and size of the tiles too small. This seems to indicate, that the tiles, which the modified version of gdal2tiles associates with zoom level 7 in fact belongs to a higher zoom level.
 
-In figure \ref{DifferentZoom} these different zoom levels have been illustrated. The expected zoom level, which Openlayer
-
-The Displayed zoom level (DZL) is the tiles, that are being loaded and visualised in Openlayers. The expected zoom level (EZL) is the zoom level, which Openlayers is displaying the map in. However as mentioned earlier there are too many tiles to load, when using this zoom level and map extent. The coloring should therefore ideally be done based on a zoom level between these two zoom levels. This zoom level have been defined as the intended zoom level (IZL).
+In figure \ref{DifferentZoom} these different zoom levels have been illustrated. The Displayed zoom level (DZL) is the tiles, that are being loaded and visualised in Openlayers. The expected zoom level (EZL) is the zoom level, which Openlayers is displaying the map in. However as mentioned earlier there are too many tiles to load, when using this zoom level and map extent. The coloring should therefore ideally be done based on a zoom level between these two zoom levels. This zoom level have been defined as the intended zoom level (IZL).
 
 \begin{figure} [H]
 	\centering
@@ -297,12 +290,12 @@ The tiles, which currently is within the view, can be found using the Openlayers
 \citep{forEachTileCoord}
 These tile coordinates can then be translated to the tile name and folder location using getTileUrlFunction.
 %The method is going through the tiles based on their coordinates, but this can be translated to the tile urls using the getTileUrlFunction.
-\begin{lstlisting}[language=JavaScript, caption={}, label= VoresJS,escapechar=|]
+\begin{lstlisting}[language=JavaScript, caption={Getting the tile name using getTileUrlFunction}, label= VoresJS,escapechar=|]
 var tileUrlFunction = wmslayer.getSource().getTileUrlFunction()
 var zoomlevelAdjustment = 3
 wmslayer.getSource().getTileGrid().forEachTileCoord(loadExtent, mapZoom - zoomlevelAdjustment, function(tileCoord) {
 	tileName = tileUrlFunction(tileCoord, ol.proj.get('EPSG:4326'))
-	maxValueInTile()
+	//Find max Value In Tile function
 }
 \end{lstlisting}
 If the function is just given the zoom level of the map it will trigger for the tiles in the Expected Zoom Level. This would not work, since there are too many tiles in this level with the current extent. Instead the function is used with the Intended Zoom Level, which is calculated as the Expected Zoom Level minus a zoom level adjustment. Using an adjustment value of 3 was found to give a responsive user experience.
@@ -311,7 +304,7 @@ If the function is just given the zoom level of the map it will trigger for the 
 %The adjustment to the zoom level is in order to load the tiles, which should have been displayed.
 
 \subsection{Max value for each tile}
-If the tiles added to the map had been from the Intended Zoom Level, then the max value of a tile could have been calculated as olGeoTiff was running. olGeoTiff already holds the values for the tiles in a dataarray, so finding the maximum value could be done with a single line adding a tiles max value to the object for that tile. %This line is shown in code x, where urlToTiff is the name of the object, which holds the data.
+If the tiles added to the map had been from the Intended Zoom Level, then the max value of a tile could have been calculated as olGeoTiff was running. olGeoTiff already holds the values for the tiles in a dataarray, so finding the maximum value could be done with a single line adding a tile's max value to the object for that tile. %This line is shown in code x, where urlToTiff is the name of the object, which holds the data.
 
 %maxValueTileData[url].maxValue = Math.max(...urlToTiff[url][0])
 
@@ -334,7 +327,7 @@ This maximum value will then be returned to the map.
 \subsection{Highest tile value currently displayed}
 
 
-To find the largest tile value among all the currently displayed tiles forEachTileCoord is used. forEachTileCoord does not have a trigger for when it has run through all the tiles. This functionality is necessary for ensuring that the produced maximum value is actually the maximum value. Without a precise end trigger the coloring applied to the map could be based on the biggest value found before the coloring script stated running instead of the absolute highest value in the current display.
+To find the largest tile value among all the currently displayed tiles forEachTileCoord is used. forEachTileCoord does not have a trigger for when it has run through all the tiles. This functionality is necessary for ensuring that the produced maximum value is actually the maximum value. Without a precise end trigger the coloring applied to the map could be based on the biggest value found before the coloring script started running instead of the absolute highest value in the current display.
 Since this trigger is necessary it has been created by running forEachTileCoord another time to count the number of tiles. This part of the code can be seen in code \ref{TilesInExtent}.
 \begin{lstlisting}[language=JavaScript, caption={Counting the amount of tiles within the current extent}, label= TilesInExtent,escapechar=|] 
 var tileNumber = 0;
@@ -353,7 +346,7 @@ The calculation of the maximum value is the function presented in figure \ref{Do
 
 \section{Recolor when the max value change}\label{RecolorOnChange}
 
-The recoloring function was already part of olGeoTiff. However, in Bernhard Baumrocks’ thesis this recoloring was triggered manually by the user when changing the color sliders. In this project the changing of colors will trigger automatically. The function for recoloring the map have therefore been set up to trigger, when the user stops changing the view. By not triggering before the map movement is finished a smoother user experience is ensured, since new tiles does not have to processed before the user is finished with interacting with the map. The recolor function is running through all of the code mentioned in the previous sections. 
+The recoloring function was already part of olGeoTiff. However, in Baumrock's thesis this recoloring was triggered manually by the user when changing the color sliders. In this project the changing of colors will trigger automatically. The function for recoloring the map have therefore been set up to trigger, when the user stops changing the view. By not triggering before the map movement is finished a smoother user experience is ensured, since new tiles does not have to processed before the user is finished interacting with the map. The recolor function is running through all of the code mentioned in the previous sections. 
 
 \begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
 map.on("moveend", function() {
