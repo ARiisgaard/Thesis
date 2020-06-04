@@ -6,11 +6,11 @@ In this chapter it is explained how the tool has been developed. The two section
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=1\textwidth]{Pictures/DevelopmentSteps}
-	\caption{An overview of the code}
+	\caption{An overview of steps for building the code}
 	\label{DevelopmentSteps}
 \end{figure}
 
-First it is necessary to divide the raster into tiles to be able to limit the loaded data to the current extent. How this is done is explained in section x. Section x describes how the tiles have been visualized. To be able to color the tiles based on the current values one must know what the current values are. In section x it is explained how this information is calculated. The raster layer is then rerendered with these values as described in section x. Lastly some measurements were taken to ensure a more user-friendly experience. These additions are described in section x. 
+First it is necessary to divide the raster into tiles to be able to limit the loaded data to the current extent. How this is done is explained in section \ref{MakeTiles}. Section \ref{ShowTiles} describes how the tiles have been visualized. To be able to color the tiles based on the current values one must know what the current values are. In section \ref{calculateCurrentValues} it is explained how this information is calculated. The raster layer is then recolored based on these values as described in section \ref{RecolorOnChange}. Lastly some measurements were taken to ensure a more user-friendly experience. These additions are described in section \ref{Polish}. 
 
 
 %\chapter{Coding languages and plugins} \label{CCodingLanguages}
@@ -18,12 +18,12 @@ First it is necessary to divide the raster into tiles to be able to limit the lo
 %In this chapter the coding languages and plugins used to develop the tool is explained. Before this explanation a quick overview of how the tool has been developed
 
 
-For this project, the coding language Python was used to create the tiles, while visualization of the tiles was done in a webgis build with the languages HTML, CSS and Javascript. This webgis map has been tested on a local caddy server for reasons explained in section x
+For this project, the coding language Python was used to create the tiles, while visualization of the tiles was done in a webgis build with the languages HTML, CSS and Javascript. This webgis map has been tested on a local caddy server for reasons explained in section \ref{Caddy}.
 
 \section{Languages}
 \subsection*{Python}
 Python is a programming language with a simple syntax, which functions across multiple different platforms. This simple syntax means that Python can achieve the same as some other coding languages in fewer lines.\citep{WhatIsPython}
-Python was used in this project because of the gdal library expanded further upon in section x
+Python was used in this project because of the gdal library expanded further upon in section \ref{Librarygdal}
 This project has been using version 3.8.3 of Python, which at the time of writing is the latest version. \citep{PythonVersion}
 \subsection*{HTML}
 HTML is short for Hyper Text Markup Language. It is the language used for defining and structuring a web page’s content.
@@ -35,27 +35,26 @@ How a webpage behaves is defined by the language Javascript.  This is what makes
 
 \section{Libraries}
 To transform the raster data into smaller tiles the python library Gdal is used. 
-\subsection*{Gdal}
+\subsection*{Gdal}\label{Librarygdal}
 GDAL is library for translating between multiple different geospatial data formats. \citep{GDAL} 
 
 Included in this library is the gdal2tiles program, which can divide raster files into smaller tiles. 
 At the time of using this program it was only able to generate tiles structured after the TMS standard. The function to follow the XYZ structure was added the 3th of May 2020 \citep{gdal2tilesDoc} \citep{GdalRelease}
 %
 The script rendering the tiles in the map was based on the XYZ structure. This meant that the rows of tiles were ordered incorrectly when the generated tiles were imported. Therefore, the official version of gdal2tiles was replaced by a version made by a github user named commenthol. This version is modified to allow the creation of tiles following the XYZ structure. \citep{gdalLeaflet}
-Both the official version and the modified version have their output format as mbtiles with a bit depth of 8 bit. To be usable for this project a bit depth of at least 32 bit is needed, as mentioned in section x. The workaround for this issue will be explained in section x. 
+Both the official version and the modified version have their output format as mbtiles with a bit depth of 8 bit. To be usable for this project a bit depth of at least 32 bit is needed, as mentioned in section \ref{NeededDepth}. The workaround for this issue will be explained in section \ref{IncreasingBitDepth}. 
 \subsection*{Openlayers}
 The map in which the tiles are being showed are created in Openlayers, which is an open source JavaScript library for creating dynamic maps for web pages. 
 \citep{OL}
 Openlayers was chosen because the tool presented in related work was built in Openlayers. Therefore, using Openlayers enables expanding upon this existing tool instead of starting from scratch. 
 
-The existing tool was created with the debug version of Openlayers, which this tool also have build on. The debug version is a version of the Openlayers, which have not been minified. Because of this it is a larger file than the regular one. 
-https://gis.stackexchange.com/questions/155529/whats-difference-between-ol-js-and-ol-debug-js-files-in-openlayers-3
+The existing tool was created with the debug version of Openlayers, which this tool also have build on. The debug version is a version of the Openlayers, which have not been minified. Because of this it is a larger file than the regular one. \citep{MappaGnosis}
 
 Attempts at replacing it with the minified version resulted in errors from olGeoTiff, which have been build based on the debug version. Optimizing other parts of the code was given higher priority, so the debug version never got replaced. 
 
-\subsection*{olGeoTiff}
-olGeoTiff is a Javascript class for visualising geotiff tiles in Openlayers, utilising the libraries geotiff.js and Plotty. The visualized tiles are being processing in the client instead of on a server. It was used in the map presented in section x. 
-The class is a modified version of Openlayers WMTS layer, where the internal tile loading function has been changed. The regular function would request precolored tiles and then add them to the map. The tiles requested by the modified version are not precolored and need to be processed before getting added to the map. A simplified illustration of this processing is illustrated in figure x. This simplified figure is enough to explain the mechanics of the class but does not detail the callback function structure. Aside from being used for error handling callbacks are also necessary to ensure that Openlayers do not try to add the tiles to the map, before they have been processed. More detailed figures can be found in \citep{Baumrocks} thesis.
+\subsection*{olGeoTiff}\label{HowOlGeotiffWorks}
+olGeoTiff is a Javascript class for visualising geotiff tiles in Openlayers, utilising the libraries geotiff.js and Plotty. The visualized tiles are being processing in the client instead of on a server. It was used in the map presented in related work section \ref{CRelatedWork}. 
+The class is a modified version of Openlayers WMTS layer, where the internal tile loading function has been changed. The regular function would request precolored tiles and then add them to the map. The tiles requested by the modified version are not precolored and need to be processed before getting added to the map. A simplified illustration of this processing is illustrated in figure \ref{olGeoTiffSimplified}. This simplified figure is enough to explain the mechanics of the class but does not detail the callback function structure. Aside from being used for error handling callbacks are also necessary to ensure that Openlayers do not try to add the tiles to the map, before they have been processed. More detailed figures can be found in \citep{Baumrocks} thesis.
 
 \begin{figure} [H]
 	\centering
@@ -74,26 +73,25 @@ The loaded tiles first get parsed with geotiff.js and added to the object before
 \citep{Baumrocks}
 The olGeoTiff also have a redraw function, which when triggered will redraw the tile layer based on the current designated colors. This was for instance used in Bernnard Baumrocks map, whenever the color sliders were changed. 
 
-\section{Testing server}
+\section{Testing server}\label{Caddy}
 %Not finished 
-To test the tool a local test server was set up. This was initially a Python-based http server, but was later replaced with a Go-based Caddy server to improve performance. The performance difference between the two is elaborated upon in section x.
+To test the tool a local test server was set up. This was initially a Python-based http server, but was later replaced with a Go-based Caddy server to improve performance. The performance difference between the two is elaborated upon in section \ref{Opportunities}.
 
 Caddy was chosen because it supports the second version of Hyper Text Transfer Protocol (HTTP)
-\citep{WhyCaddy}
-
-
-
-which is used for the communication between the client and server.
+\citep{WhyCaddy}, which is used for the communication between the client and server.
 \citep{WhatIsHTTP}
 
-HTTP/2 is allowing a faster communication between them
+HTTP/2 is allowing a faster communication between them.
 
 \citep{HTTP2}
+This is partially done by supporting an unlimited number of concurrent requests \citep{DomainSharding}, where HTTP/1 in chrome only supports 6 \citep{OnlySix}.
+
+
 %Caddy
 %http’s limits to 6 connections 
 %fig text: Blue: DomContentLoaded Red: Load
 
-\section{Creating the tiles}
+\section{Creating the tiles}\label{MakeTiles}
 The tiles were created using a modified version of gdal2tiles, which was changed to create tiles following the XYZ format. However, since the default output bit depth is too low, it would have to be modified further. The file format would also have to be changed to tiff in order to be visualized with the geotiff.js library. 
 
 \subsection{Changing the file type}
@@ -112,11 +110,11 @@ This changes the raster driver from png to the geotiff format and the file exten
 The geospatial information, which is the difference between a geotiff and a regular tiff, gets lost in process. This information is not important for this project since the tiles are being loaded based on their name and folder placement, not based on the internal metadata.
 
 Running gdal2tiles with these changes will produce a tiff file, which still would be limited to 8 bits. 
-\subsection{Increasing the bit depth}
-The reason for the bit limit is that gdal2tiles uses the memory dataset driver, which have 8 bits as default.  This default can overwritten to 32 bits by adding “gdal.GDT\_Int32” to every instance where the driver is being used as demonstrated in code x. 
+\subsection{Increasing the bit depth}\label{IncreasingBitDepth}
+The reason for the bit limit is that gdal2tiles uses the memory dataset driver, which have 8 bits as default.  This default can overwritten to 32 bits by adding “gdal.GDT\_Int32” to every instance where the driver is being used as demonstrated in code \ref{bitdepthBoost}. 
 \citep{MoreThan8}
 
-\begin{lstlisting}[language=iPython, caption={Increasing the bit depth}, label= VoresPY,escapechar=|]
+\begin{lstlisting}[language=iPython, caption={Increasing the bit depth}, label= bitdepthBoost,escapechar=|]
 self.mem_drv = gdal.GetDriverByName('MEM')
 ...
 #Old code
@@ -133,9 +131,9 @@ gdal2tiles is automatically generating KML files if the projection is EPSG:4326.
 \citep{gdal2tilesDoc}
 
 
-This command does not prevent the creation of the files in the modified version. Therefore the automatic generation has been removed from the code. This was done by commenting out the lines shown in x. 
+This command does not prevent the creation of the files in the modified version. Therefore the automatic generation has been removed from the code. This was done by commenting out the lines shown in \ref{KML}. 
 
-\begin{lstlisting}[language=iPython, caption={Increasing the bit depth}, label= KML,escapechar=|]
+\begin{lstlisting}[language=iPython, caption={Preventing KML files from being created}, label= KML,escapechar=|]
  if self.out_srs and srs4326.ExportToProj4() \
          == self.out_srs.ExportToProj4():
      self.kml = True
@@ -144,17 +142,17 @@ This command does not prevent the creation of the files in the modified version.
          print('KML autotest OK!')
 \end{lstlisting}
         
-\subsection{Command for tile creation}
+\subsection{Command for tile creation}\label{g2tCommand}
 
 After all the modification are in place the script can be run by running the command illustrated below:
 
 
 python <path to modified gdal2tiles script> --leaflet --zoom=<desired zoom levels> --profile=raster --webviewer=none <input file> <output directory>
-
+\fxnote{Gør noget ved den her}
 
 Most of these inputs are from the documentation for the original gdal2tiles, though the leaflet command is from the modified version. This command ensures that tiles are being created following the XYZ formatting instead of the TMS. The zoom command defines which zoom levels should be generated. An example of an input could be 0-2, which would generate tiles for the zoom levels 0, 1 and 2. 
 
-Setting the profile to raster was done because the two other options (mercator and geodetic) resulted in the error message "list index out of range", while the raster profile gave a useable product. The selection of this options and its consequences is expanded upon in section x.  
+Setting the profile to raster was done because the two other options (mercator and geodetic) resulted in the error message "list index out of range", while the raster profile gave a useable product. The selection of this options and its possible consequences is expanded upon in section \ref{WhyWrongLevel}.   
 
 The webviewer option prevent the generation of webviewers to visualize the tiles. These default webviewers is created to visualize tiles of the original format, so they would be unable to visualize the modified tiles. 
 The input file is the name of the processed file and output directory is the folder, where the tiles get created. 
@@ -187,7 +185,7 @@ AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORIT
 	\label{ProcessingTime}
 \end{figure}
 
-The processing time is tested using the area of India shown in figure \citep{ProcessingTime}. This polygon with a 9 291 842 km$^2$ area was processed into tiles for each zoom level between 0 to 9. This is the equivalent of 349525 tiles as calculated with the formula presented in section x. 
+The processing time is tested using the area of India shown in figure \ref{ProcessingTime}. This polygon with a 9 291 842 km$^2$ area was processed into tiles for each zoom level between 0 to 9. This is the equivalent of 349525 tiles as calculated with the formula presented in section \ref{TiledRaster}. 
 \begin{equation}
 2^{2n}
 2^{2*9}+2^{2*8} .. . 2^{2*0} = 349525 tiles
@@ -195,7 +193,7 @@ The processing time is tested using the area of India shown in figure \citep{Pro
 The creation of these tiles took 6 hours and 4 minutes and requires 6,52 GB of diskspace The amount of time mainly depends on the highest zoom level, since the number of tiles in a layer get quadrupled whenever the zoom level increases. In comparison the same area at the zoom levels 0-7 only took 22 minutes.
 
 This processing time is not ideal, but it can theoretically be shortened with multiprocessing.
-\subsection{Parallel processing of tiles}
+\subsection{Parallel processing of tiles}\label{ParallelTiles}
 Multiprocessing is the usage of multiple of the computer’s processors. Python is by default only able to use a single processor, even if multiple are available.  This can be circumvented with the multiprocessing module.
 %Must not be reliant on previous outcomes
 %Does not need to be executed in a particular order
@@ -206,13 +204,13 @@ The modified version by \citet{gdalLeaflet} also has a multiprocessing version a
 Therefore, the slower single process version has been used for this project.
 
 
-\section{Visualizing tiles}
+\section{Visualizing tiles}\label{ShowTiles}
 After the tiles are created, they are stored in a folder, which is uploaded to the testserver along the index file. 
 The metadata from the xml file must be loaded into the map to be able to visualize the tiles. Normally this could be done using the WMTSCapabilities() function in Openlayers.
 \citep{WmtsOl}
-However, the formatting of the xml file produced by gdal is different from the format, which this function can read. Therefore, a small script has been created to parse the xml file and store the information in a metadata object. This object, tileMetadata, stores the bounding box, origin, center coordinates as well as tilesize. The initial version of the object also stored the resolution data, which is called units-per-pixel in code x. This led to some inconsistency when loading tiles, that had been generated without some of the lower zoom level. This will be further expanded upon in section x. Therefore, the resolution was instead generated using the script x, where 0.0333 is the value for units-per-pixel at zoom level 0. 
+However, the formatting of the xml file produced by gdal is different from the format, which this function can read. Therefore, a small script has been created to parse the xml file and store the information in a metadata object. This object, tileMetadata, stores the bounding box, origin, center coordinates as well as tilesize. The initial version of the object also stored the resolution data, which is called units-per-pixel in code \ref{metaData}. This led to some inconsistency when loading tiles, that had been generated without some of the lower zoom level. This will be further expanded upon in section \ref{PresentingBug}. Therefore, the resolution was instead generated using the script \ref{CodeResolution}, where 0.0333 is the value for units-per-pixel at zoom level 0. 
 
-\begin{lstlisting}[language=JavaScript, caption={The JavaScript in the project}, label= VoresJS,escapechar=|]
+\begin{lstlisting}[language=JavaScript, caption={The generation of a resolution matrix}, label= CodeResolution,escapechar=|]
 for (var z = 0; z < 14; ++z) {
 // generate resolutions and matrixIds arrays for this WMTS
 //The number in the resolution calculation is the units-per-pixel value at zoomlayer 0 in the xml file generated by gdal2tiles
@@ -259,7 +257,6 @@ The value assigned to each color can be found by mousing over the color as shown
 \section{Loading data at a wrong resolution}\label{PresentingBug}
 
 Figure \ref{MapWithWrongResolution} shows how the map looked, when the tiles are visualized. 
-\fxnote{Rewrite this with new knowledge}
 
 \begin{figure} [H]
 	\centering
@@ -283,13 +280,14 @@ The Displayed zoom level (DZL) is the tiles, that are being loaded and visualise
 	\caption{An overview of the differences in zoom levels, which the map is displayed at (red), the displayed tiles get loaded in (green) and the zoom level, which should have been displayed (blue). The zoom level adjustment is the difference between the Expected and Intended zoom level}
 	\label{DifferentZoom}
 \end{figure}
-\fxnote{Explain the need for zoom level 0 better}
-This issue was not fixed, but theories behind the origin of it is discussed in section x. When the resolution data was gathered from the metadata file, the difference between the loaded and the actual zoom level would between different sets of tiles. This variance would depend on the which zoom levels were not being generated. So, if only the zoom levels 2-7 were generated, the difference would increase by one for each missing layer. In this case the loaded tiles would instead be wrong by 5, calculated as the default wrongness of 3 plus 2 for missing zoom layer 0 and 1. 
+
+This issue was not fixed, but theories behind the origin of it is discussed in section \ref{WhyWrongLevel}. 
+%When the resolution data was gathered from the metadata file, the difference between the loaded and the actual zoom level would between different sets of tiles. This variance would depend on the which zoom levels were not being generated. So, if only the zoom levels 2-7 were generated, the difference would increase by one for each missing layer. In this case the loaded tiles would instead be wrong by 5, calculated as the default wrongness of 3 plus 2 for missing zoom layer 0 and 1. 
 This bug will be defining for the rest of the code.
 
 
 
-\section{Calculate max value in current extent}
+\section{Calculate max value in current extent}\label{calculateCurrentValues}
 Calculating the highest value in the current extent can be divided into two smaller tasks. Figuring out which tiles currently are being displayed and processing these tiles. 
 
 
@@ -353,7 +351,7 @@ The calculation of the maximum value is the function presented in figure \ref{Do
 	\label{DoubleLoop}
 \end{figure}
 
-\section{Recolor when the max value change}
+\section{Recolor when the max value change}\label{RecolorOnChange}
 
 The recoloring function was already part of olGeoTiff. However, in Bernhard Baumrocks’ thesis this recoloring was triggered manually by the user when changing the color sliders. In this project the changing of colors will trigger automatically. The function for recoloring the map have therefore been set up to trigger, when the user stops changing the view. By not triggering before the map movement is finished a smoother user experience is ensured, since new tiles does not have to processed before the user is finished with interacting with the map. The recolor function is running through all of the code mentioned in the previous sections. 
 
@@ -363,7 +361,7 @@ recolorMap()
 });
 });
 \end{lstlisting}
-\section{Polish}
+\section{Polish}\label{Polish}
 In addition to the rendering of the raster in the map, some features were also added to improve the user experience.
 
 \subsection{Two maps}\label{DTTwoMaps}
@@ -386,7 +384,7 @@ The two projection are also sharing the same color scale. This means that the co
 	\label{ChangeToMaxCalculation}
 \end{figure}
 
-This function is now being used twice, once for each layer. If the same function as presented in section x was used, then the redrawing would potentially trigger twice. 
+This function is now being used twice, once for each layer. If the same function as presented in section \ref{calculateCurrentValues} was used, then the redrawing would potentially trigger twice. 
 
 To avoid this each of the maps are given their own processed tiles counter. The if statement, which is resetting the counters and triggering the recoloring, has been changed, so that it now is checking if both of these processed tiles counters is equal to the total number of tiles. Thereby the recoloring can only happen, when the tile in both maps have been processed. 
 

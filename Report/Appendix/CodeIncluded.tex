@@ -13,8 +13,6 @@
 <link rel="shortcut icon" href="#" />
 <title>maps from geotiff</title>
 
-<script src="./lib/jquery.min.js"></script>
-
 <script src="./lib/plotty.min.js"></script>
 <script src="./lib/geotiff.browserify.js"></script>
 
@@ -253,8 +251,7 @@ olgt_map2.plotOptions.palette = 'sequentialMultiHue6Colors';
 
 // Color the maps based on their values
 recolorMap()
-// handle user input
-$(window).on('load', function() {
+
 
 //Add the colors from the color palette to the legend
 for (i = 0; i < colorScale.percentage_steps.length; i++) {
@@ -266,7 +263,6 @@ map.on("moveend", function() {
 recolorMap()
 });
 
-});
 
 ////////////
 // Recoloring the map

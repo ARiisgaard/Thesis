@@ -4,11 +4,11 @@ This chapter is a discussion about the developed tool, how it was evaluated and 
 
 \section{Loading tiles from the wrong zoom level}\label{WhyWrongLevel}
 
-As mentioned in section x the tiles are being loaded from an incorrect zoom layer. A potential explanation for this could be the difference between what gdal2tiles and Openlayers define as zoom level 0. Openlayers defines zoom level 0 as the whole world, whereas gdal2tiles defines it as the whole raster. 
+As mentioned in section \ref{PresentingBug} the tiles are being loaded from an incorrect zoom layer. A potential explanation for this could be the difference between what gdal2tiles and Openlayers define as zoom level 0. Openlayers defines zoom level 0 as the whole world, whereas gdal2tiles defines it as the whole raster. 
 
 It was discovered that the tile from zoom level 0 would be rendered in Openlayers, when the entirety of the raster was visible. This means that if tiles were generated for the entire world, then the zoom levels would be the same. 
 
-The tiles could possibly be ordered and named correctly by running gdal2tiles with a different profile.  It was originally run with the raster profile, because the other profiles resulted in an error message as mentioned in section x. 
+The tiles could possibly be ordered and named correctly by running gdal2tiles with a different profile.  It was originally run with the raster profile, because the other profiles resulted in an error message as mentioned in section \ref{g2tCommand}. 
 
 \section{Not calculating minimum values in tiles} \label{WhyNoMin}
 
@@ -29,11 +29,11 @@ The reason that the calculation of minimum value has such an effect on the proce
 The maximum value is calculated by finding the maximum value in the array with all values. 
 
 
-If the same operation is done to find the minimum value, the found minimum value often is -2147483648. As mentioned in section x that value means that no data is available for that pixel. 
+If the same operation is done to find the minimum value, the found minimum value often is -2147483648. As mentioned in section \ref{caseDataTech} that value means that no data is available for that pixel. 
 It is therefore necessary to find the lowest positive value since no data is not the same as 0. This can be done by first filtering the raster, so only the positive values are left. The smallest of these values can then be calculated in the same way as the maximum value get calculated. 
 It was decided that calculating a minimum value, which mostly would be 0 was not worth an additional second of loading. 
 
-\section{Evaluating with Lighthouse}
+\section{Evaluating with Lighthouse}\label{EvaLighthouse}
 
 Having a performance score of 94/100 would indicate that the created tool is very responsive. This is surprising considering that there is a delay between 3-4 seconds before the raster is loaded, which does not make it “feel” very responsive. There are multiple reasons as to why such a high score have been achieved.
 
@@ -45,7 +45,6 @@ Ultimately it is difficult to determine how responsive the website is in compari
 
 %\section{Further development}
 %Not all the intended functionality got added to the map. This section will list some of the features, which there was not time to implement. 
-\fxnote{Discuss upon the features, which did not get added}
 %\subsection{Data at point of click}
 %
 %A function could be added to get the population counts from a clicked point for both maps. An example of this have been shown in figure x. When the user clicks the map an infobox informs the user about the value at the clicked point for both maps. 
@@ -79,7 +78,7 @@ A function could also be added to get the population counts from a clicked point
 Currently the creation of the tiles is rather time consuming. This issue could be eliminated by either using multiple processers or a different technology.
 
 \subsection{Parallel generation of tiles}
-As mentioned in section x the generation of tiles were done without using multiple processers, which meant that it became a time-consuming process. With the official gdal2tiles being able to generate tiles following the XYZ standard it is possible that using this would allow for parallel generation of tiles. 
+As mentioned in section \ref{ParallelTiles} the generation of tiles were done without using multiple processers, which meant that it became a time-consuming process. With the official gdal2tiles being able to generate tiles following the XYZ standard it is possible that using this would allow for parallel generation of tiles. 
 
 %This is probably the most important missing feature, since the processing time otherwise would be so high, that it would not be a faster alternative to the currently available options. 
 
@@ -91,7 +90,7 @@ The files also contain multiple versions of the same image, where each is a down
 
 This way of organizing the file is then combined with Range requests, which allows the client to request parts of a file instead of the whole file. \citep{COGoverview} 
 
-By using these two technologies tiles of different spatial resolution can be sent to the client, which is similar to what the current solution is doing. The main difference is that with COG there would be one file, while the current solution has thousands of files. The creation of this file takes significantly less time compared to creating the individual tiles. India was as mentioned in section x processed into tiles in 6 hours and four minutes. Converting the same file into a COG takes 3 seconds.
+By using these two technologies tiles of different spatial resolution can be sent to the client, which is similar to what the current solution is doing. The main difference is that with COG there would be one file, while the current solution has thousands of files. The creation of this file takes significantly less time compared to creating the individual tiles. India was as mentioned in section \ref{TilesTime} processed into tiles in 6 hours and four minutes. Converting the same file into a COG takes 3 seconds.
 %gdal_translate in.tif out.tif -co TILED=YES -co COPY_SRC_OVERVIEWS=YES 
 
 

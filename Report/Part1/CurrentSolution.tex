@@ -36,33 +36,31 @@ The conclusion in the thesis was that MapServer was the faster option, whereas G
 
 %Sarah 19
 
-\section{MakeCityWebsite}
-One of the creators of the case data created a python script, called MakeCityWebsite, for comparing the different population projections for a chosen city.  The final product of the tool can be seen in figure x and x. 
+\section{MakeCityWebsite}\label{MakeCitySection}
+One of the creators of the case data created a python script, called MakeCityWebsite, for comparing the different population projections for a chosen city.  The final product of the tool can be seen in figure \ref{MakeCityWebsite1} and \ref{MakeCityWebsite2}. 
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=1\textwidth]{Pictures/MakeCityWebsite1}
-	\caption{The output of running the MakeCityWebsite script for London. Each population density map is a gif based on different combinations of urbanization model and scenario. The other pictures in the gif are other years}
+	\caption{The output of running the MakeCityWebsite script for London. Each population density map is a gif based on different combinations of urbanization model and scenario. The other pictures in the gif are other years. Produced with a script by \citet{MakeCityWebsite}}
 	\label{MakeCityWebsite1}
 \end{figure}
 \fxnote{Update kode-tekster}
 The input for the tool is the rasters from each of the two urbanization models, the five SSPs and every tenth year from 2010-2100, so a total of hundred different rasters.
 The tool first create new raster files, which have been cut to the extent of the chosen city. Then the minimum and maximum value in those file are calculated. The maximum and minimum values among all the rasters are then used to determine a color scale. This color scale is then used to create a new set of colored rasters.
 
-So at this point the tool have generated one hundred rasters, which all have been colored using the same color scale. For the user to be able to comprehend this amount of data two additional steps are taken. First the individual combinations of urbanization models and SSPs are collected in gifs. These gifs are displayed how the population evolve in their scenario by chronology changing between different years. These different gifs are then placed next to each other in a website as illustrated in figure x. 
+So at this point the tool have generated one hundred rasters, which all have been colored using the same color scale. For the user to be able to comprehend this amount of data two additional steps are taken. First the individual combinations of urbanization models and SSPs are collected in gifs. These gifs are displayed how the population evolve in their scenario by chronology changing between different years. These different gifs are then placed next to each other in a website as illustrated in figure \ref{MakeCityWebsite1}. 
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/MakeCityWebsite2}
-	\caption{MakeCityWebsite also creates a comparison with another population projection called SEDAC. Each map shows the difference in values between the two population projection for each combination of urbanization model and scenario.}
-	\label{MakeCityWebsite1}
+	\caption{MakeCityWebsite also creates a comparison with another population projection called SEDAC. Each map shows the difference in values between the two population projection for each combination of urbanization model and scenario. Produced with a script by \citet{MakeCityWebsite}}
+	\label{MakeCityWebsite2}
 \end{figure}
 
-The tool also creates a comparison with other another population projection called SEDAC. This is done by going though the same steps above, but with a custom raster. This raster visualise the difference between the two projection. This comparison part of the website can be seen in figure z
-https://github.com/crstn/CISC/blob/master/MakeCityWebsite.py
+The tool also creates a comparison with other another population projection called SEDAC. This is done by going though the same steps above, but with a custom raster. This raster visualise the difference between the two projection. This comparison part of the website can be seen in figure \ref{MakeCityWebsite2}
 
-The creation of these comparison rasters take 20 minutes for a single SSP
-https://github.com/crstn/CISC/blob/master/CompareWithSEDAC.py
+The creation of these comparison rasters take 20 minutes for a single SSP \citep{min20}.
 
 
 

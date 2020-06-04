@@ -18,13 +18,11 @@ It has therefore been decided to build the projection upon the foundation create
 	\label{FinalDesignFig}
 \end{figure}
 
-The concept for a solution has been illustrated in figure \ref{FinalDesignFig}. The tool will use two maps with a shared view, so that both maps show the same area. Each map will show a different scenario, so that different population projections can be compared. Not all of the recommended functionalities presented in chapter x have been included in the design. Some of these functionalities will be mentioned in the discussion in chapter x.
+The concept for a solution has been illustrated in figure \ref{FinalDesignFig}. The tool will use two maps with a shared view, so that both maps show the same area. Each map will show a different scenario, so that different population projections can be compared. Only the essential functionalities will be implemented in this prototype. The other useful functions would be excellent options for future work.
 
-\fxnote{Why does this not include everything mentioned in functions?}
 
 \subsection{Visualisation}
-The sequential color scale chosen for the visualized rasters have been created by colorbrewer.org. It was decided to use six different colors on the maps. This is despite the fact that \citet{ColorBrewerwebsite} advise that more colors safely can be used, when similar colors are neighboring each other. The reason for this is that even though similar colors are neighboring each other within the individual map, the user still has to compare none-neighboring colors, since comparison is done between the two maps. 
-The breakpoints between the different classes are determined as equal sized percentage steps of 20 \% of the current maximum value.  
+The sequential color scale chosen for the visualized rasters have been created by colorbrewer.org. It was decided to use six different colors on the maps. This is despite the fact that \citet{ColorBrewerwebsite} advise that more colors safely can be used, when similar colors are neighboring each other. The reason for this is that even though similar colors are neighboring each other within the individual map, the user still has to compare none-neighboring colors, since comparison is done between the two maps. The breakpoints between the different classes are determined as equal sized percentage steps of 20 \% of the current maximum value.  
 %The mapped data is showing the population per square kilometre. It is therefore necessary that the area will not get distorted, so an equivalent projection is required. 
 
 The projection EPSG:4326 was both used in Baumrocks original map and for the case data and will also be used for this project. The map will not be used to visualise data at a subcontinental scale, so the distortion from this projection, will not have serious consequences. The reason for this limit in scale is the time and diskspace required to create the tiles, which will be expanded upon in section \ref{TilesTime}.

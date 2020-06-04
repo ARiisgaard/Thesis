@@ -1,5 +1,5 @@
 \chapter{Components of an interactive maps}\label{CInteractiveMap}
-When creating an interactive map one must consider which features to add to enhance the user experience. To give an overview of some of the basic features used for navigating and get information from a map an example of an interactive map has been used. www.openstreetmap.org has been used as an example of an interactive map. \citep{OpenStreetMap} A picture of this map can be seen in figure \ref{InteractiveMap}. Its User Interface (UI) have been numbered with boxes, which have been colored green if the feature would make sense for exploring and comparing large population dataset. The reasoning behind the coloring is explained in section \ref{SortingFunctions}
+When creating an interactive map one must consider which features to add to enhance the user experience. To give an overview of some of the basic features used for navigating and get information from a interactive map www.openstreetmap.org has been used as an example. \citep{OpenStreetMap} A picture of this map can be seen in figure \ref{InteractiveMap}. Its User Interface (UI) have been numbered with boxes. These boxes have been colored based on how useful the function would be for exploring and comparing large population dataset. The green are essential, the yellow are useful and the red are not relevant. The reasoning behind the coloring is explained in section \ref{SortingFunctions}.
 
 
 \begin{figure} [H]
@@ -8,7 +8,7 @@ When creating an interactive map one must consider which features to add to enha
 	\caption{An example of an interactive map, Openstreetmap. The user interface components have been colored green if it is deemed useful for the developed tool or otherwise red. Source: \citep{OpenStreetMap}}
 	\label{InteractiveMap}
 \end{figure}
-\fxnote{Update openstreetmap figure with final useful tools}
+
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{l}
@@ -26,38 +26,26 @@ The last category, communication with others, is for sharing information with ot
 
 \section{Relevant functionalities}\label{SortingFunctions}
 
-Not all of these categories are relevant for this tool and this target audience. Most of the tools in the Map navigation category are relevant. Having a search bar allow the user to quickly pan to an area of interest and the zoom function allows the user to control the extent. The "Show my location" function is less relevant for this target audience. It would be relevant if the target audience was citizens, who just wanted to explore a population projection out of curiosity. These would potentially be interested in knowing what the expected population would be in their neighbourhood. If the researcher are working with the same area, where they happen to live they can pan to this area using the search bar. 
+The essential functionalities are the searchbar, zooming and Map key. 
+Having a search bar allow the user to quickly pan to an area of interest and the zoom function allows the user to control the extent. Having a legend is also central to explain the user which values the colors of the raster would correspond to. 
 
-The Real-life navigation tool is only useful for route planning, which is not the purpose of this map. The map explanation tools are all useful for the application. 
 
-%Having the scale gives the user a sense of scale, which is important especially in case the tool is being used in a part of the world which is unfamiliar to the user. 
+The useful functions are the scale, the layer control, parts of the share function and the Query features. A scale can help the user get a sense of scale. However, this is only useful if the scale is presented with a unit, which the user easily can comprehend. As mentioned in section \ref{caseDataTech} the unit of the projection is in degrees, which would result in the scale also being in degrees. The layer control is important, since this would allow the map to be able to display multiple different population projection. The tool have been developed for single individuals, so the communicating with other is outside of the scope of this project. However it could still be relevant for a single user to be able to save an extent or export an image of the map. Getting more information about a clicked point could also be a beneficial feature. This information could for instance be the exact value in the clicked point. 
 
-While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. As mentioned in section x the unit of the projection is in degrees, which would result in the scale also being in degrees. It was therefore decided not to include a scale.
-%While a scale can give the user a sense of scale, this is only useful if the scale is presented with a unit, which the user easily can comprehend. The scalebar in the figure is showing the distance in meters. This would not be the case, when visualising the population projections, since it is using degree as unit. Since this is not a commen scale measurement, the scale has been excluded. 
-\fxnote{update figure to exclude scale}
-
-Having a legend is also central to explain the user which values the colors of the raster would correspond to. Getting more information about a clicked point could also be relevant for the tool. This information could be the exact value in the clicked point. The layer control is important, since this would allow the map to be able to display multiple different population projection.
-
-The last category, Communication with others, is outside of the scope of this project, since these rely on multiple users. %Some of the functionalities of the share function could be useful for a single user. It could be relevant for the user to be able save different extents,
-
-\fxnote{Exporting the map is useful}
-
-\fxnote{Update the figure to have the share box being relevant}
-
-\fxnote{Write here if you come up with more relevant information, which you could throw in here}
+The functions which are irrelevant are the route calculation, "Show my location" and "Add note to the map". The first is only useful for route planning, which is not the purpose of this map. The "Show my location" function is not relevant for this target audience. It would be relevant if the target audience was citizens, who just wanted to explore a population projection out of curiosity. These would potentially be interested in knowing what the expected population would be in their neighbourhood. If the researcher are working with the same area, where they happen to live they can pan to this area using the search bar. The last function rely on multiple users, which is outside the scope of this project.
 
 \section{Comparing layers}
 
 The functions presented so far does not enable an easy visual comparison of raster data. It is possible currently by changing back and forth between different layers with different population projections. This however is a bit inconvenient. 
-An alternative way would be to use comparison layers in a similar fashion to how it currently is being done with the makeCityWebsite tool mentioned in section x. This would require the creation of comparison layers for each combination of SSPs and years, which should be compared.   
-A third option would be to display multiple maps at the same time as illustrated in figure x. These two maps are linked together by a shared view. The means the panning or zooming in one map would do the same operation on the other map.
+An alternative way would be to use comparison layers in a similar fashion to how it currently is being done with the makeCityWebsite tool mentioned in section \ref{MakeCitySection}. This would require the creation of comparison layers for each combination of SSPs and years, which should be compared.   
+A third option would be to display multiple maps at the same time as illustrated in figure \ref{DualmapExample}. These two maps are linked together by a shared view. The means the panning or zooming in one map would do the same operation on the other map.
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.8\textwidth]{Pictures/DualMapExample}
-	\caption{An example of two maps sharing the same view}
+	\caption{An example of two maps sharing the same view. Source: \citet{DualmapExample}}
 	\label{DualMapExample}
 \end{figure}
-https://openlayers.org/en/latest/examples/side-by-side.html
+
 
 This third option was chosen.

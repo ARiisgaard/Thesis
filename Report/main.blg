@@ -10,13 +10,11 @@ A level-1 auxiliary file: Part1/CaseData.aux
 A level-1 auxiliary file: Part1/RasterFormatting.aux
 A level-1 auxiliary file: Part1/CurrentSolution.aux
 A level-1 auxiliary file: Part1/VisualConventions.aux
+A level-1 auxiliary file: Part2/InteractiveMap.aux
 A level-1 auxiliary file: Part1/RelatedWork.aux
 A level-1 auxiliary file: Part2/CoreConcepts.aux
-A level-1 auxiliary file: Part2/InteractiveMap.aux
 A level-1 auxiliary file: Part2/FinalDesign.aux
-A level-1 auxiliary file: Part3/CodingLanguages.aux
 A level-1 auxiliary file: Part3/DevelopingTool.aux
-A level-1 auxiliary file: Part3/Result.aux
 A level-1 auxiliary file: Part2/EvaluationMethods.aux
 A level-1 auxiliary file: Part4/Evaluation.aux
 A level-1 auxiliary file: Part4/Discussion.aux
@@ -24,9 +22,7 @@ A level-1 auxiliary file: Part4/Conclusion.aux
 url: is an unknown function---line 320 of file bibtex/harvard.bst
 Database file #1: bibtex/litteratur.bib
 Warning--I didn't find a database entry for "Sarah"
-Warning--I didn't find a database entry for "Buamrocks"
 Warning--I didn't find a database entry for "ColorBrewerwebsite"
-Warning--I didn't find a database entry for "ProcessingTime"
 Warning--I didn't find a database entry for "LhBP"
 1 is an integer literal, not a string, for entry Baumrocks
 while executing---line 1485 of file bibtex/harvard.bst
@@ -52,6 +48,10 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry SSP
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ArcMapOnNoData
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry Freepik
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LightIsLess
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry GDAL
@@ -70,6 +70,8 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry HTTP2
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry HowToScore
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LCP
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LhAccess
@@ -84,13 +86,17 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry LoadingTooMuch
 while executing---line 1485 of file bibtex/harvard.bst
-1 is an integer literal, not a string, for entry MinifyJS
-while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry OldApis
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry OnlySix
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry PerSI
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry RenderBlocking
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ScoreCalc
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry ScoringZeroIsBad
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry TBT
 while executing---line 1485 of file bibtex/harvard.bst
@@ -100,19 +106,27 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry WhyDetailedPop
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry MakeCityWebsite
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry min20
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Kessler
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Liedman
 while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry MappaGnosis
+while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry ARIA
+while executing---line 1485 of file bibtex/harvard.bst
+1 is an integer literal, not a string, for entry DomainSharding
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry COGopenlayers
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry Nominatim
 while executing---line 1485 of file bibtex/harvard.bst
-1 is an integer literal, not a string, for entry OL
+1 is an integer literal, not a string, for entry DualmapExample
 while executing---line 1485 of file bibtex/harvard.bst
-1 is an integer literal, not a string, for entry OlModule
+1 is an integer literal, not a string, for entry OL
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry WmtsOl
 while executing---line 1485 of file bibtex/harvard.bst
@@ -154,45 +168,45 @@ while executing---line 1485 of file bibtex/harvard.bst
 while executing---line 1485 of file bibtex/harvard.bst
 1 is an integer literal, not a string, for entry SIformula
 while executing---line 1485 of file bibtex/harvard.bst
-You've used 63 entries,
+You've used 72 entries,
             2921 wiz_defined-function locations,
-            938 strings with 13379 characters,
-and the built_in function-call counts, 22242 in all, are:
-= -- 2111
-> -- 918
-< -- 116
-+ -- 341
-- -- 258
-* -- 1453
-:= -- 3670
-add.period$ -- 315
-call.type$ -- 63
-change.case$ -- 149
-chr.to.int$ -- 43
-cite$ -- 126
-duplicate$ -- 1328
-empty$ -- 1896
-format.name$ -- 400
-if$ -- 4531
-int.to.chr$ -- 21
+            972 strings with 14463 characters,
+and the built_in function-call counts, 25229 in all, are:
+= -- 2399
+> -- 1017
+< -- 134
++ -- 380
+- -- 285
+* -- 1632
+:= -- 4163
+add.period$ -- 360
+call.type$ -- 72
+change.case$ -- 167
+chr.to.int$ -- 49
+cite$ -- 144
+duplicate$ -- 1517
+empty$ -- 2166
+format.name$ -- 445
+if$ -- 5143
+int.to.chr$ -- 24
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 449
-num.names$ -- 315
-pop$ -- 416
+newline$ -- 512
+num.names$ -- 360
+pop$ -- 470
 preamble$ -- 1
-purify$ -- 149
+purify$ -- 167
 quote$ -- 0
-skip$ -- 806
+skip$ -- 918
 stack$ -- 0
-substring$ -- 126
-swap$ -- 280
+substring$ -- 144
+swap$ -- 320
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 693
+type$ -- 792
 warning$ -- 0
-while$ -- 189
+while$ -- 216
 width$ -- 0
-write$ -- 1078
-(There were 64 error messages)
+write$ -- 1231
+(There were 73 error messages)

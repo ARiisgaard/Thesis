@@ -30,7 +30,7 @@ These steps are then repeated for every iteration.
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/SSPAxis}
+	\includegraphics[width=.6\textwidth]{Pictures/SSPAxis}
 	\caption{Five different future scenarios based on how clima change could affect society. Source: \citet{ConceptSSP}}
 	\label{SSPAxis}
 \end{figure}
@@ -53,11 +53,11 @@ The vertical axis is factors, which in absence of climate policy would increase 
 
 How the population growth and the urbanization levels will be in the different scenarios can be seen in table \ref{SSPTable}. The population growth values are based on current income and fertility condition. The urbanization predictions are based on the current income. The Rich low fertility group has been defined as members of the Organisation for Economic Co-operation and Development.
 
-\fxerror{Need more context to the table - what does it mean? }
-\fxerror{Write about domain sharding being unneeded}
-\section{Technical details about the case data}
 
-Table \ref{tabTech} is highlighting some technical specifications of the dataset, which will be important for the development. The technical details have been acquired using GDAL's raster information program, gdalinfo. GDAL is further described in section x.
+\fxerror{Write about domain sharding being unneeded}
+\section{Technical details about the case data}\label{caseDataTech}
+
+Table \ref{tabTech} is highlighting some technical specifications of the dataset, which will be important for the development. The technical details have been acquired using GDAL's raster information program, gdalinfo. GDAL is further described in section \ref{Librarygdal}.
 
 \begin{table}[h]%You have to add this h yourself
 	\centering
@@ -69,23 +69,22 @@ Table \ref{tabTech} is highlighting some technical specifications of the dataset
 	\hline 
 	NoData value & -2147483648 &  \\ 
 	\hline 
-	Bit depth & 32 &  Section \ref{label}\\ 
+	Bit depth & 32 &  Section \ref{BitDepth}\\ 
 	\hline 
-	Projection & EPSG: 4326 &  Section \ref{label}\\ 
+	Projection & EPSG: 4326 &  Section \ref{ProjectionTheory}\\ 
 	\hline 
-	Projection unit & Degree & Section \ref{functionality}  \\ 
+	Projection unit & Degree &   \\ 
 	\hline 
 \end{tabular}
 \caption{Technical attributes of the case data}
  \label{tabTech}
 \end{table}
 
-The majority of these concepts will be explained in upcoming sections. Only the NoData value will be explained here. A raster file has values for every pixel. If no data is available for a pixel, then the pixel get assigned the NoData value. 
-https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/performing-analysis/nodata-and-how-it-affects-analysis.htm
+The some of these concepts will be explained in upcoming sections. The NoData value will be explained here. A raster file has values for every pixel. If no data is available for a pixel, then the pixel get assigned the NoData value. \citep{ArcMapOnNoData}
 
 If the value was set to 0 it would be impossible to determine if an area had nobody living in it or if no data was available. That is the reason for the NoData value is set to a negative value, since the population density never can be negative.
 
-\fxnote{what is the noData in this case - lakes?}  
+
 
 
 \fxnote{Update figure}  

@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{72}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -105,6 +105,22 @@
 \newblock \url{https://doi.org/10.1080/00139157.2014.881692}, 2014.
 \newblock Last Accessed: 24-05-2020.
 
+\bibitem[ESRI(No date)]{ArcMapOnNoData}
+\textbf{ESRI}, \textbf{No date}.
+\newblock ESRI.
+\newblock \textit{NoData and how it affects analysis}.
+\newblock
+  \url{https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/performing-analysis/nodata-and-how-it-affects-analysis.htm},
+  No date.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[Freepik(2020)]{Freepik}
+\textbf{Freepik}, \textbf{2020}.
+\newblock Freepik.
+\newblock \textit{Freepik}.
+\newblock \url{https://www.flaticon.com/authors/freepik}, 2020.
+\newblock Last Accessed: 04-06-2020.
+
 \bibitem[Garlandini and Fabrikant(2009)Garlandini og Fabrikant]{LightIsLess}
 \textbf{Garlandini og Fabrikant}, \textbf{2009}.
 \newblock Simone Garlandini og Sara~Irina Fabrikant.
@@ -173,8 +189,15 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(2020{\natexlab{a}})]{LCP}
+\bibitem[{Google Developers}(2020{\natexlab{a}})]{HowToScore}
 \textbf{{Google Developers}}, \textbf{2020{\natexlab{a}}}.
+\newblock {Google Developers}.
+\newblock \textit{Lighthouse performance scoring}.
+\newblock \url{https://web.dev/performance-scoring/}, 2020.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[{Google Developers}(2020{\natexlab{b}})]{LCP}
+\textbf{{Google Developers}}, \textbf{2020{\natexlab{b}}}.
 \newblock {Google Developers}.
 \newblock \textit{Largest Contentful Paint}.
 \newblock \url{https://web.dev/lcp/}, 2020.
@@ -208,8 +231,8 @@
 \newblock \url{https://web.dev/lighthouse-seo/}, No date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[{Google Developers}(2020{\natexlab{b}})]{Lighthouse}
-\textbf{{Google Developers}}, \textbf{2020{\natexlab{b}}}.
+\bibitem[{Google Developers}(2020{\natexlab{c}})]{Lighthouse}
+\textbf{{Google Developers}}, \textbf{2020{\natexlab{c}}}.
 \newblock {Google Developers}.
 \newblock \textit{Lighthouse}.
 \newblock \url{https://developers.google.com/web/tools/lighthouse/}, 2020.
@@ -224,17 +247,8 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(2019{\natexlab{f}})]{MinifyJS}
+\bibitem[{Google Developers}(2019{\natexlab{f}})]{OldApis}
 \textbf{{Google Developers}}, \textbf{2019{\natexlab{f}}}.
-\newblock {Google Developers}.
-\newblock \textit{Minify JavaScript}.
-\newblock
-  \url{https://web.dev/unminified-javascript/?utm_source=lighthouse&utm_medium=devtools},
-  2019.
-\newblock Last Accessed: 25-05-2020.
-
-\bibitem[{Google Developers}(2019{\natexlab{g}})]{OldApis}
-\textbf{{Google Developers}}, \textbf{2019{\natexlab{g}}}.
 \newblock {Google Developers}.
 \newblock \textit{Uses deprecated APIs}.
 \newblock
@@ -242,8 +256,17 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(2019{\natexlab{h}})]{PerSI}
-\textbf{{Google Developers}}, \textbf{2019{\natexlab{h}}}.
+\bibitem[{Google Developers}(No date{\natexlab{e}})]{OnlySix}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{e}}}.
+\newblock {Google Developers}.
+\newblock \textit{Timing breakdown phases explained}.
+\newblock
+  \url{https://developers.google.com/web/tools/chrome-devtools/network/reference?utm_source=devtools#timing-explanation},
+  No date.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{g}})]{PerSI}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{g}}}.
 \newblock {Google Developers}.
 \newblock \textit{Speed Index}.
 \newblock
@@ -251,8 +274,8 @@
   2019.
 \newblock Last Accessed: 27-05-2020.
 
-\bibitem[{Google Developers}(2019{\natexlab{i}})]{RenderBlocking}
-\textbf{{Google Developers}}, \textbf{2019{\natexlab{i}}}.
+\bibitem[{Google Developers}(2019{\natexlab{h}})]{RenderBlocking}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{h}}}.
 \newblock {Google Developers}.
 \newblock \textit{Eliminate render-blocking resources}.
 \newblock
@@ -260,15 +283,30 @@
   2019.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[{Google Developers}(2019{\natexlab{j}})]{TBT}
-\textbf{{Google Developers}}, \textbf{2019{\natexlab{j}}}.
+\bibitem[{Google Developers}(No date{\natexlab{f}})]{ScoreCalc}
+\textbf{{Google Developers}}, \textbf{No date{\natexlab{f}}}.
+\newblock {Google Developers}.
+\newblock \textit{Lighthouse Scoring Calculator}.
+\newblock \url{https://googlechrome.github.io/lighthouse/scorecalc/}, No date.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[{Google Developers}(2020{\natexlab{d}})]{ScoringZeroIsBad}
+\textbf{{Google Developers}}, \textbf{2020{\natexlab{d}}}.
+\newblock {Google Developers}.
+\newblock \textit{Lighthouse Scoring Guide}.
+\newblock \url{https://developers.google.com/web/tools/lighthouse/v3/scoring},
+  2020.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[{Google Developers}(2019{\natexlab{i}})]{TBT}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{i}}}.
 \newblock {Google Developers}.
 \newblock \textit{Total Blocking Time}.
 \newblock \url{https://web.dev/lighthouse-total-blocking-time/}, 2019.
 \newblock Last Accessed: 27-05-2020.
 
-\bibitem[{Google Developers}(2019{\natexlab{k}})]{TTI}
-\textbf{{Google Developers}}, \textbf{2019{\natexlab{k}}}.
+\bibitem[{Google Developers}(2019{\natexlab{j}})]{TTI}
+\textbf{{Google Developers}}, \textbf{2019{\natexlab{j}}}.
 \newblock {Google Developers}.
 \newblock \textit{Time to Interactive}.
 \newblock \url{https://web.dev/interactive/}, 2019.
@@ -292,6 +330,22 @@
   2016.
 \newblock Last Accessed: 24-05-2020.
 
+\bibitem[Ke{\ss}ler(2019{\natexlab{a}})]{MakeCityWebsite}
+\textbf{Ke{\ss}ler}, \textbf{2019{\natexlab{a}}}.
+\newblock Carsten Ke{\ss}ler.
+\newblock \textit{MakeCityWebsite.py}.
+\newblock \url{https://github.com/crstn/CISC/blob/master/MakeCityWebsite.py},
+  2019.
+\newblock Last Accessed: 04-06-2020.
+
+\bibitem[Ke{\ss}ler(2019{\natexlab{b}})]{min20}
+\textbf{Ke{\ss}ler}, \textbf{2019{\natexlab{b}}}.
+\newblock Carsten Ke{\ss}ler.
+\newblock \textit{CompareWithSEDAC.py}.
+\newblock \url{https://github.com/crstn/CISC/blob/master/CompareWithSEDAC.py},
+  2019.
+\newblock Last Accessed: 04-06-2020.
+
 \bibitem[Ke{\ss}ler and Marcotullio(2017)Ke{\ss}ler og Marcotullio]{Kessler}
 \textbf{Ke{\ss}ler og Marcotullio}, \textbf{2017}.
 \newblock Carsten Ke{\ss}ler og Peter~J. Marcotullio.
@@ -307,6 +361,14 @@
 \newblock \url{http://www.liedman.net/tiled-maps/}, No Date.
 \newblock Last Accessed: 24-05-2020.
 
+\bibitem[MappaGnosis(2015)]{MappaGnosis}
+\textbf{MappaGnosis}, \textbf{2015}.
+\newblock MappaGnosis.
+\newblock \textit{What's difference between `ol.js` and `ol-debug.js` files in
+  OpenLayers-3?}
+\newblock \url{https://gis.stackexchange.com/a/155532}, 2015.
+\newblock Last Accessed: 04-06-2020.
+
 \bibitem[{MDN Web Docs}(2020)]{ARIA}
 \textbf{{MDN Web Docs}}, \textbf{2020}.
 \newblock {MDN Web Docs}.
@@ -314,6 +376,15 @@
 \newblock
   \url{https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA}, 2020.
 \newblock Last Accessed: 24-05-2020.
+
+\bibitem[{MDN web docs}(2019)]{DomainSharding}
+\textbf{{MDN web docs}}, \textbf{2019}.
+\newblock {MDN web docs}.
+\newblock \textit{Domain sharding}.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Glossary/Domain_sharding},
+  2019.
+\newblock Last Accessed: 04-06-2020.
 
 \bibitem[Mohr(2020)]{COGopenlayers}
 \textbf{Mohr}, \textbf{2020}.
@@ -333,6 +404,14 @@
   date.
 \newblock Last Accessed: 25-05-2020.
 
+\bibitem[OpenLayers(No date)]{DualmapExample}
+\textbf{OpenLayers}, \textbf{No date}.
+\newblock OpenLayers.
+\newblock \textit{Shared Views}.
+\newblock \url{https://openlayers.org/en/latest/examples/side-by-side.html}, No
+  date.
+\newblock Last Accessed: 04-06-2020.
+
 \bibitem[Openlayers(No Date)]{OL}
 \textbf{Openlayers}, \textbf{No Date}.
 \newblock Openlayers.
@@ -341,16 +420,8 @@
 \newblock \url{https://openlayers.org/}, No Date.
 \newblock Last Accessed: 24-05-2020.
 
-\bibitem[Openlayers(No date{\natexlab{a}})]{OlModule}
+\bibitem[Openlayers(No date{\natexlab{a}})]{WmtsOl}
 \textbf{Openlayers}, \textbf{No date{\natexlab{a}}}.
-\newblock Openlayers.
-\newblock \textit{Introduction}.
-\newblock \url{https://openlayers.org/en/latest/doc/tutorials/bundle.html}, No
-  date.
-\newblock Last Accessed: 25-05-2020.
-
-\bibitem[Openlayers(No date{\natexlab{b}})]{WmtsOl}
-\textbf{Openlayers}, \textbf{No date{\natexlab{b}}}.
 \newblock Openlayers.
 \newblock \textit{WMTS Layer from Capabilities}.
 \newblock
@@ -358,8 +429,8 @@
   No date.
 \newblock Last Accessed: 25-05-2020.
 
-\bibitem[Openlayers(No date{\natexlab{c}})]{forEachTileCoord}
-\textbf{Openlayers}, \textbf{No date{\natexlab{c}}}.
+\bibitem[Openlayers(No date{\natexlab{b}})]{forEachTileCoord}
+\textbf{Openlayers}, \textbf{No date{\natexlab{b}}}.
 \newblock Openlayers.
 \newblock \textit{ol/tilegrid/TileGrid~TileGrid}.
 \newblock

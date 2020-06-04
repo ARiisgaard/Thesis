@@ -2,12 +2,12 @@
 
 Visualizing rasters requires an understanding of how they work from a technical perspective.
 
-\section{Bit depth} 
+\section{Bit depth} \label{BitDepth}
 Common raster formats include jpeg, png and tiff. One of the key differences between these formats are the bit depth. This value determines how many different colors that can be assigned to each pixel in the image. Each bit can only be assigned one of two values, 0 or 1. This number of available colors for a pixel can therefore be calculated as $2^{\:number\: of\: bits}$. As an example, a bit depth of 8 bits would then result in $2^8 = 256$ different potential colors, since this is the number of combinations of ones and zeroes, that are possible. For most maps this amount of colors is enough. The human eye can comprehend around 10 million different colors, but often that many colors are not needed. When displaying aerial photographs, the depth of 24 bits is often used, since it can display 16.7 million different colors. The human eye is able to perceive around 10 million colors, so this bit depth can therefore appear in true-colors to humans.
 The limitations of the human eye does not mean that having more than 10 million bit combination is pointless. The bit combination can also be used for other thing than colors. It can be used to create transparency values or to store metadata about the image file. For instance, the geotiff format can use the additional bit to store georeferencing information.
 These advantages of higher bit count come at a cost of a larger file size. Having a larger color depth will result in a slower loading and larger requirements for storage space. \citep{Dent} %Dent. 283 
 
-\section{Tiled raster}
+\section{Tiled raster}\label{TiledRaster}
 This section describes standards for dividing large raster files into smaller tiles. 
 A way of only visualising the necessary parts of a raster is to divide it into smaller raster tiles and then only load the relevant tiles. When loaded into the map these tiles then get places next to each other, so they appear as a single large map image. These tiles can also be created with different resolutions, so that zooming in on the map with return tiles higher spatial resolution.  As illustrated in figure \ref{TilesPerZoomLevel} each of these zoom layers have more tiles.
 \citep{Liedman}
@@ -16,7 +16,7 @@ When zoomed all the way out the entire world is rendered as a single tile. Whene
 
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=.8\textwidth]{Pictures/TilesPerZoomLevel}
+	\includegraphics[width=1\textwidth]{Pictures/TilesPerZoomLevel}
 	\caption{Illustration of the increase in tiles for each zoom level}
 	\label{TilesPerZoomLevel}
 \end{figure}

@@ -1,10 +1,10 @@
 \chapter{Evaluation}\label{Eval}
-This chapter is the evaluation of the script based on the Google Lighthouse audit. This chapter will highlight some elements of the audit. The full audit can be seen in appendix \ref{Audit}. The given score in the relevant categories can be seen in figure x. There was a bug in the measurement of the performance score, resulting in a score of 0. The actual score have been manually calculated in the end of section \ref{EvalPerform}. 
+This chapter is the evaluation of the script based on the Google Lighthouse audit. This chapter will highlight some elements of the audit. The full audit can be seen in appendix \ref{Audit}. The given score in the relevant categories can be seen in figure \ref{LighthouseGrade}. There was a bug in the measurement of the performance score, resulting in a score of 0. The actual score have been manually calculated in the end of section \ref{EvalPerform}. 
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.4\textwidth]{Pictures/LighthouseGrade}
-	\caption{The score for performance and best pratices from Google Lighthouse}
+	\caption{The score for performance and best practices from Google Lighthouse}
 	\label{LighthouseGrade}
 \end{figure}
 
@@ -24,7 +24,7 @@ As shown the performance scored zero out of one hundred. The performance in each
 	\label{PerformanceAuditValues}
 \end{table}
 
-It does seem like some bug in the tool must have occurred because all of the values are too high. This can be confirmed by comparing with the measurements from the developer tool’s performance tool. These show that the page is fully loaded in 4.6 second, which does not fit with Lighthouse’s 20.2 seconds for First Contentful and First Meaningful Paint. Another sign that something is amiss is the 13.5 minutes before the Time to Interactive, which the tool determined within 10 seconds of analyzing the site. 
+It does seem like some bug in the tool must have occurred because all of the values are too high. This can be confirmed by comparing with the measurements from the developer tool’s performance tool. These show that the page is fully loaded in 4.6 second, which does not fit with Lighthouse’s 20.2 seconds for First Contentful and First Meaningful Paint. Another sign that something is amiss is the 13.5 minutes before the Time to Interactive, which the tool determined within 10 seconds of analyzing the site. In the Lighthouse Scoring Guide the developers also point out the "A 0 score usually indicates an error in Lighthouse"\citep{ScoringZeroIsBad}.
 
 Even if the automatic calculation of the performance metrics failed the metrics are still relevant for the evaluation. Using the data from the performance tool these values can be manually estimated. 
 
@@ -35,7 +35,7 @@ Even if the automatic calculation of the performance metrics failed the metrics 
 	\label{ScreenshotLoading1}
 \end{figure}
 
-Figure x, x and x are all screenshots of the website taken by the performance tool, while the page was loading. The maps are not utilising the full screen extent as mentioned in section \ref{DTTwoMaps}, which is the reason for the empty white space next to the maps. Figure x is taken 0.3 seconds after the page started loading. This time is both the First Meaningful Paint and First CPU Idle since the user can interact with the searchbar.
+Figure \ref{ScreenshotLoading1}, \ref{ScreenshotLoading2} and \ref{ScreenshotLoading3} are all screenshots of the website taken by the performance tool, while the page was loading. The maps are not utilising the full screen extent as mentioned in section \ref{DTTwoMaps}, which is the reason for the empty white space next to the maps. Figure \ref{ScreenshotLoading1} is taken 0.3 seconds after the page started loading. This time is both the First Meaningful Paint and First CPU Idle since the user can interact with the searchbar.
 
 \begin{figure} [H]
 	\centering
@@ -44,7 +44,7 @@ Figure x, x and x are all screenshots of the website taken by the performance to
 	\label{ScreenshotLoading2}
 \end{figure}
 
-After 1 second the maps appear on the website as shown in figure x. The user is able pan and zoom in the map, so this is the Time to Interactive. 
+After 1 second the maps appear on the website as shown in figure \ref{ScreenshotLoading2}. The user is able pan and zoom in the map, so this is the Time to Interactive. 
 
 \begin{figure} [H]
 	\centering
@@ -53,23 +53,22 @@ After 1 second the maps appear on the website as shown in figure x. The user is 
 	\label{ScreenshotLoading3}
 \end{figure}
 
-The last screenshot at figure x shows the map fully loaded after 3.6 seconds. With the tiff tiles being loaded and visualized this is the time for the First Meaningful Paint. This can be used as a conservative estimate for the Speed Index. This would be the value for the Speed Index if everything got visualized at this time and nothing had been visualized on the website prior.
+The last screenshot at figure \ref{ScreenshotLoading3} shows the map fully loaded after 3.6 seconds. With the tiff tiles being loaded and visualized this is the time for the First Meaningful Paint. This can be used as a conservative estimate for the Speed Index. This would be the value for the Speed Index if everything got visualized at this time and nothing had been visualized on the website prior.
 
 The real Speed Index would be lower, since the legend, map titles and search bar have been visualized at an earlier stage. 
 
-These metrics can then manually be calculated into a score using the Lighthouse Scoring Calculator as shown in figure x. The calculator in unable to take inputs below 1 second. Based on the given value the performance should have scored 94. This score will be discussed upon in section \ref{label}
-https://googlechrome.github.io/lighthouse/scorecalc/
+These metrics can then manually be calculated into a score using the Lighthouse Scoring Calculator as shown in figure \ref{ScoringManual}. The calculator in unable to take inputs below 1 second. Based on the given value the performance should have scored 94. This score will be discussed upon in section \ref{EvaLighthouse}
+
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=.9\textwidth]{Pictures/ScoringManual}
-	\caption{The website for manually calculating the scores, which Lighthouse grants}
+	\caption{The website for manually calculating the scores, which Lighthouse grants using the Lighthouse Scoring Calculator. Source: \citet{ScoreCalc}}
 	\label{ScoringManual}
 \end{figure}
 
-\fxnote{Source: They say themself, that scoring 0 repeaedly usually indicate an error - Lighthouse}
-%https://developers.google.com/web/tools/lighthouse/v3/scoring
-\subsection{Opportunities}
+
+\subsection{Opportunities}\label{Opportunities}
 In addition to providing the metrics for the performance Lighthouse also comes with suggestion to how the loading time can be reduced. In this subsection only some of these will be preset. The rest can be seen in appendix \ref{Audit}.
 
 \textbf{Eliminate render-blocking resources}\\
@@ -77,10 +76,7 @@ The opportunity for the largest estimated time saving is to eliminate render-blo
 
 The largest render-blocking resource is Openlayers, which at 2784 kB makes up 82 \% of the blocking resources. When analysed further with the Coverage tool in the dev tools it can be seen that 42.7 \% of the Openlayers library is not being used. The performance could therefore be improved by only loading the necessary parts of the library. The size of it could also be reduced by using the minified version of it instead of the debug-version.
  
-\fxnote{Have I written about Jquery??}
 
- 
-\fxnote{søg på Http}
 
 %\textbf{Minification and compressing}\\
 %Files sizes and script parsing time can be reduced by minifying and compressing the files. 
@@ -109,8 +105,8 @@ This was the suggestion, which lead to replacing initial testing server with a C
 	\label{CaddyVsPython}
 \end{figure}
 
-Figuren is two screenshots from the network tab of Chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 
-The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded. This figure shows that the serving is being optimized, where the stalling largely is gone. 
+It is two screenshots from the network tab of Chromes developer tool when the page is served with a python server (top) and caddy server (bottom). 
+The grey bars are when a loaded file is being stalled. The blue bars are when they are loaded \citep{OnlySix}. This figure shows that the serving has being optimized, since the stalling largely is gone. 
 
 However even after setting up Caddy the error message was still present. It is uncertain if this means that the connection still is HTTP/1 based or if it is HTTP/2 but labelled incorrectly. 
 

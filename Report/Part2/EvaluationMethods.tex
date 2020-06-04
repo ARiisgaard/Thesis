@@ -85,7 +85,7 @@ TBT is the total amount of milliseconds between FCP and TTI where the website is
 \section{Calculating score}\label{ScoreCal}
 
 Each of the metrics in the section above are then converted into a score between 0 and 100. This score is calculated by comparing each metric with performance data from real websites in the HTTP Archive.
-https://web.dev/performance-scoring/
+\citep{HowToScore}
 The scores from each metrics are then weighted to reflect that each factor does not have the same importance for the perceived performance. The weight of each metric can be seen in table \ref{tabScore}.
 
 
@@ -98,10 +98,9 @@ The scores from each metrics are then weighted to reflect that each factor does 
 	20\% & 26.7\% & 6.7\% & 33.3\% & 13.3\% \\ 
 	\hline 
 \end{tabular} 
-	\caption{Percentage weighting of the different metrics}
+	\caption{Percentage weighting of the different metrics. Data source: \citet{ScoreCalc}}
 	\label{tabScore}
 \end{table}
-\fxnote{Source: lighthousescorecalc}
 
 \section{Additional measurements}
 
