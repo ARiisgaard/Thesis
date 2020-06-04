@@ -1,11 +1,11 @@
 \chapter{Case data: Population projection}\label{CCaseData}
-The population projection visualized in this project have been created by \citet{Kessler} using a geosimulation, which geographically distribute a predicted population. This geosimulation has been run every tenth year from 2010 to 2100. It has also been run for different scenarios for the future.
+The population projection visualized in this project have been created by \citet{Kessler} using a geosimulation, which geographically distribute a predicted population. This geosimulation has been run every tenth year from 2010 to 2100 and for different scenarios for the future.
 
 \section{The data behind the simulation}\label{TheDataBehind}
 This projection is a geographical distribution of the global prospects created by The United Nations Department of Economic and Social Affairs. These prospects estimate the population numbers in each country living in rural and urban areas. The spatial distribution has been based on raster data from the Global Rural Urban Mapping Project (GRUMP). In this dataset the world has been divided into 1x1 km cells, each of which contains the number of estimated people. \citep{Kessler}
 
 The geosimulation has been run with two different definitions for the urban extent. The first one is also created by GRUMP. This urban extent has been estimated based on the light emitted after dark. It is known to overestimates the extent of urban areas. \citep{Kessler}
-The second dataset was provided by Global Land Cover Map from the European Space Agency (GlobCover), where areas classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. 
+The second dataset was provided by Global Land Cover Map from the European Space Agency (GlobCover), where areas classified as “artificial surfaces and associated urban areas” in the GlobCover data were treated as urban areas. \citep{Kessler}
 
 \section{The simulation}
 Using this dataset to define the extent of urban and rural areas, the simulation was run as illustrated in figure \ref{CreatingData}.
@@ -23,9 +23,8 @@ The cells would have a country-specific limit on how many people could live in t
 
 After this, the cells would be reclassified as more urbanized if their population had increased above a country-determined threshold. This way a rural cell might become a suburban one or a suburban become urban if its population increased. The data is then adjusted to match projected values again with the same approach as before. This is required because the reclassification would mean that the number for the different urbanization classes would no longer match the numbers from UN DESA.
 
-These steps are then repeated for every iteration. 
+These steps are then repeated for every iteration. \citep{Kessler}
 
-\citep{Kessler}
 \section{Shared Socioeconomic Pathways} \label{SSPs}
 
 \begin{figure} [H]
